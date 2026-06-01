@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A public portal for Rudy Molt's ideas, visualisations, and experiments.">
+    <title>Rudy Molt | Ideas Portal</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #65708a;
+        --line: #d8deea;
+        --paper: #f7f8fb;
+        --panel: #ffffff;
+        --accent: #2f7d6d;
+        --accent-strong: #195d51;
+        --gold: #c68b2c;
+        --blue: #355d9b;
+        --rose: #b75562;
+        --shadow: 0 20px 50px rgba(23, 32, 51, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 18%, rgba(198, 139, 44, 0.14), transparent 28%),
+          radial-gradient(circle at 82% 10%, rgba(47, 125, 109, 0.14), transparent 32%),
+          linear-gradient(135deg, #fafbfc 0%, var(--paper) 48%, #eef2f7 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 44px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .mark {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 10px 24px rgba(23, 32, 51, 0.08);
+      }
+
+      .mark svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-text {
+        min-width: 0;
+      }
+
+      .brand-title {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 750;
+      }
+
+      .brand-subtitle {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+        color: var(--ink);
+        font-size: 0.92rem;
+        font-weight: 650;
+        text-decoration: none;
+        transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .nav-link:hover {
+        border-color: rgba(47, 125, 109, 0.5);
+        color: var(--accent-strong);
+        transform: translateY(-1px);
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+        gap: 36px;
+        align-items: end;
+        padding: 0 0 42px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent-strong);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(2.6rem, 7vw, 6rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 620px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.6;
+      }
+
+      .map {
+        position: relative;
+        min-height: 280px;
+        overflow: hidden;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background:
+          linear-gradient(90deg, rgba(23, 32, 51, 0.05) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(23, 32, 51, 0.05) 1px, transparent 1px),
+          #ffffff;
+        background-size: 34px 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .map svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .map-label {
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        max-width: 180px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: 1.08rem;
+        line-height: 1.25;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .ideas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+
+      .idea-card {
+        display: grid;
+        min-height: 228px;
+        padding: 22px;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 32px rgba(23, 32, 51, 0.08);
+        text-decoration: none;
+        transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      }
+
+      .idea-card:hover,
+      .idea-card:focus-visible {
+        border-color: rgba(47, 125, 109, 0.62);
+        box-shadow: 0 18px 44px rgba(23, 32, 51, 0.14);
+        outline: none;
+        transform: translateY(-2px);
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .number {
+        color: var(--accent-strong);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .arrow {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--accent-strong);
+      }
+
+      .idea-card h3 {
+        max-width: 410px;
+        margin: 42px 0 0;
+        font-size: clamp(1.45rem, 3vw, 2.25rem);
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+
+      .idea-card p {
+        max-width: 440px;
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 9px;
+        border: 1px solid rgba(23, 32, 51, 0.11);
+        border-radius: 999px;
+        background: #f9fafc;
+        color: #334055;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 54px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 24px, 1120px);
+          padding: 24px 0 34px;
+        }
+
+        .site-header,
+        .intro,
+        .section-heading,
+        .site-footer {
+          display: grid;
+        }
+
+        .site-header {
+          gap: 18px;
+          padding-bottom: 32px;
+        }
+
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+
+        .map {
+          min-height: 230px;
+        }
+
+        .idea-card {
+          min-height: 214px;
+          padding: 20px;
+        }
+
+        .idea-card h3 {
+          margin-top: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header" aria-label="Site header">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <circle cx="14" cy="18" r="5" fill="#2f7d6d"></circle>
+              <circle cx="31" cy="13" r="4" fill="#c68b2c"></circle>
+              <circle cx="34" cy="32" r="6" fill="#355d9b"></circle>
+              <path d="M18 18 28 14M17 21l13 9" fill="none" stroke="#172033" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <p class="brand-title">Rudy Molt</p>
+            <p class="brand-subtitle">Ideas, learning systems, and experiments</p>
+          </div>
+        </div>
+        <a class="nav-link" href="https://github.com/rudymolt" rel="me">GitHub</a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Public Ideas Portal</p>
+            <h1 id="page-title">A home for useful visual thinking.</h1>
+            <p class="lead">
+              A growing collection of maps, explainers, and experiments that make complex ideas easier to explore.
+            </p>
+          </div>
+          <aside class="map" aria-label="Idea map illustration">
+            <svg viewBox="0 0 520 360" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M76 244 C132 100, 246 290, 315 126 S434 112, 454 254" fill="none" stroke="#d7b06d" stroke-width="4"></path>
+              <path d="M88 104 C164 168, 220 76, 292 176 S394 276, 448 124" fill="none" stroke="#89a5cf" stroke-width="3"></path>
+              <circle cx="86" cy="244" r="18" fill="#2f7d6d"></circle>
+              <circle cx="315" cy="126" r="23" fill="#c68b2c"></circle>
+              <circle cx="454" cy="254" r="16" fill="#355d9b"></circle>
+              <circle cx="88" cy="104" r="14" fill="#b75562"></circle>
+              <circle cx="292" cy="176" r="12" fill="#172033"></circle>
+              <circle cx="448" cy="124" r="19" fill="#2f7d6d"></circle>
+            </svg>
+            <p class="map-label">Concepts connected into tools for learning and action.</p>
+          </aside>
+        </section>
+
+        <section aria-labelledby="ideas-title">
+          <div class="section-heading">
+            <h2 id="ideas-title">Ideas</h2>
+            <p>First publication path</p>
+          </div>
+
+          <div class="ideas">
+            <a class="idea-card" href="exo-3-book-skill-visualisation/">
+              <span class="card-top">
+                <span class="number">Idea 01</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </span>
+              <span>
+                <h3>ExO 3.0 Book and Skill Visualisation</h3>
+                <p>
+                  A visual pathway for connecting ExO 3.0 concepts with practical skills, prompts, and learning maps.
+                </p>
+                <span class="tags" aria-label="Topics">
+                  <span class="tag">ExO 3.0</span>
+                  <span class="tag">Skills</span>
+                  <span class="tag">Visualisation</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Rudy Molt</span>
+        <span>Published with GitHub Pages</span>
+      </footer>
+    </div>
+  </body>
+</html>
