@@ -1,0 +1,3045 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building an ExO Playbook Overview - Combined</title>
+  <style>
+    :root {
+      --ink: #172126;
+      --muted: #5c6a70;
+      --line: #cfd8dc;
+      --paper: #f7f9f8;
+      --panel: #ffffff;
+      --blue: #1f6f8b;
+      --green: #2f7d57;
+      --gold: #b26b21;
+      --red: #b7473f;
+      --violet: #62559f;
+      --aqua: #1f847f;
+      --shadow: 0 18px 48px rgba(23, 33, 38, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .intro-banner {
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .intro-banner-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .intro-banner p {
+      max-width: 880px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .intro-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .intro-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--paper);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .intro-links a:hover,
+    .intro-links a:focus {
+      border-color: rgba(23, 33, 38, 0.38);
+      outline: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(120deg, rgba(23, 33, 38, 0.88), rgba(23, 33, 38, 0.62)),
+        radial-gradient(circle at 20% 20%, rgba(47, 125, 87, 0.35), transparent 34%),
+        linear-gradient(135deg, #22343a 0%, #31564c 45%, #7d6535 100%);
+      color: #fff;
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 160px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to top, black, transparent);
+      pointer-events: none;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 48px;
+      align-items: center;
+      padding: 54px 0 72px;
+      min-width: 0;
+    }
+
+    .hero-inner > * {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: #f2c45f;
+      border-radius: 999px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      max-width: 790px;
+      margin-bottom: 18px;
+      font-size: clamp(2.4rem, 6vw, 5.7rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      width: 100%;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .hero-map {
+      max-width: 100%;
+      min-width: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      padding: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-map-title {
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-node {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+      min-height: 74px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mini-node > div > strong,
+    .mini-node > div > span {
+      display: block;
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    .mini-node > div > strong {
+      font-size: 0.95rem;
+    }
+
+    .mini-node > div > span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.84rem;
+    }
+
+    .mini-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(242, 196, 95, 0.22);
+      color: #ffe3a0;
+      font-weight: 820;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section.compact {
+      padding: 52px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+      gap: 38px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 760px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .principle {
+      position: relative;
+      min-width: 0;
+      min-height: 230px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 22px rgba(23, 33, 38, 0.04);
+    }
+
+    .principle::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 850;
+    }
+
+    .principle:nth-child(2)::before {
+      background: var(--green);
+    }
+
+    .principle:nth-child(3)::before {
+      background: var(--gold);
+    }
+
+    .principle h3 {
+      margin-bottom: 8px;
+      font-size: 1.28rem;
+    }
+
+    .principle p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .arch-lane {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .lane-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+      font-weight: 830;
+      font-size: 1.3rem;
+    }
+
+    .lane-title span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .arch-item {
+      min-width: 0;
+      padding: 12px 13px;
+      border: 1px solid color-mix(in srgb, var(--line), transparent 15%);
+      border-left: 5px solid var(--blue);
+      border-radius: 7px;
+      background: #fbfcfc;
+      min-height: 78px;
+    }
+
+    .arch-lane.shape .arch-item {
+      border-left-color: var(--green);
+    }
+
+    .arch-item > strong,
+    .arch-item > span {
+      display: block;
+    }
+
+    .arch-item > strong {
+      margin-bottom: 3px;
+      font-size: 0.96rem;
+    }
+
+    .arch-item > span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .mtp-core {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      padding: 18px;
+      border: 2px solid #2f7d57;
+      border-radius: 8px;
+      background: #eff8f3;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(47, 125, 87, 0.12);
+    }
+
+    .mtp-core h3 {
+      margin-bottom: 4px;
+      font-size: 1.35rem;
+    }
+
+    .mtp-core p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .mtp-layer {
+      padding: 10px;
+      border: 1px solid rgba(47, 125, 87, 0.22);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.84rem;
+      font-weight: 760;
+    }
+
+    .stack-diagram {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.18fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .govern-rail {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border-radius: 8px;
+      background: #1f6f8b;
+      color: #fff;
+      text-align: center;
+      font-weight: 820;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .stack-layers {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stack-layer {
+      position: relative;
+      min-width: 0;
+      min-height: 180px;
+      padding: 16px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .stack-layer::after {
+      content: "";
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      height: 4px;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    .stack-layer:nth-child(1) { color: var(--violet); }
+    .stack-layer:nth-child(2) { color: var(--aqua); }
+    .stack-layer:nth-child(3) { color: var(--gold); }
+    .stack-layer:nth-child(4) { color: var(--red); }
+    .stack-layer:nth-child(5) { color: var(--green); }
+    .stack-layer:nth-child(6) { color: var(--blue); }
+
+    .stack-layer > strong,
+    .stack-layer > span {
+      display: block;
+    }
+
+    .stack-layer > strong {
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .stack-layer > span {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .rewrite {
+      display: grid;
+      gap: 14px;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 64px minmax(190px, 0.45fr) minmax(0, 1fr) minmax(160px, 0.32fr);
+      gap: 14px;
+      align-items: stretch;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .phase-number {
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #eff3f5;
+      color: var(--blue);
+      font-size: 1.65rem;
+      font-weight: 860;
+    }
+
+    .phase-name {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .phase-name strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .phase-name > span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .phase-body {
+      display: block;
+      align-self: center;
+      min-width: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .phase-output {
+      display: block;
+      align-self: center;
+      min-width: 0;
+      padding: 12px;
+      border-radius: 7px;
+      background: #f5f7f6;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 730;
+    }
+
+    .decision-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .mode-box {
+      min-width: 0;
+      min-height: 240px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .mode-box.direct {
+      border-top: 6px solid var(--green);
+    }
+
+    .mode-box.edge {
+      border-top: 6px solid var(--gold);
+    }
+
+    .mode-box h3 {
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+    }
+
+    .mode-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .decision-gate {
+      display: grid;
+      place-items: center;
+      min-height: 160px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+      font-weight: 850;
+    }
+
+    .edge-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .flow-node {
+      position: relative;
+      min-width: 0;
+      min-height: 116px;
+      padding: 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .flow-node:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -11px;
+      width: 10px;
+      height: 2px;
+      background: var(--line);
+    }
+
+    .flow-node > strong,
+    .flow-node > span {
+      display: block;
+    }
+
+    .flow-node > strong {
+      margin-bottom: 7px;
+      font-size: 0.92rem;
+    }
+
+    .flow-node > span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .governance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pillar {
+      min-width: 0;
+      min-height: 210px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .pillar svg {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 26px;
+      color: var(--blue);
+    }
+
+    .pillar:nth-child(2) svg { color: var(--green); }
+    .pillar:nth-child(3) svg { color: var(--gold); }
+    .pillar:nth-child(4) svg { color: var(--red); }
+
+    .pillar h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .pillar p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .artifact-band {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .artifact {
+      min-width: 0;
+      min-height: 126px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .artifact strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+    }
+
+    .artifact > span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .source-note strong {
+      color: var(--ink);
+    }
+
+    .term {
+      position: relative;
+      display: inline;
+      border-bottom: 1px dotted currentColor;
+      cursor: help;
+      outline: none;
+    }
+
+    .term::after {
+      content: attr(data-tip);
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      z-index: 70;
+      width: min(320px, 82vw);
+      transform: translateX(-50%) translateY(4px);
+      border: 1px solid rgba(24, 33, 38, 0.18);
+      border-radius: 7px;
+      background: #172126;
+      color: #fff;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.84rem;
+      font-weight: 520;
+      line-height: 1.35;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 140ms ease, transform 140ms ease;
+      white-space: normal;
+    }
+
+    .term::before {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 4px);
+      z-index: 71;
+      width: 10px;
+      height: 10px;
+      transform: translateX(-50%) rotate(45deg);
+      background: #172126;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 140ms ease;
+    }
+
+    .term:hover::after,
+    .term:focus::after,
+    .term:hover::before,
+    .term:focus::before {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .term:hover::before,
+    .term:focus::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .hero .term::after,
+    .plain-english-banner .term::after {
+      top: calc(100% + 10px);
+      bottom: auto;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    .hero .term::before,
+    .plain-english-banner .term::before {
+      top: calc(100% + 4px);
+      bottom: auto;
+    }
+
+    .hero .term:hover::after,
+    .hero .term:focus::after,
+    .plain-english-banner .term:hover::after,
+    .plain-english-banner .term:focus::after {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .workflow-overview-link {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      min-width: 178px;
+      max-width: 220px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      background: #172126;
+      color: #fff;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 760;
+      line-height: 1.16;
+    }
+
+    .workflow-overview-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .workflow-overview-link.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+    }
+
+    .compare-rail {
+      position: fixed;
+      top: 96px;
+      left: 12px;
+      z-index: 35;
+      width: 108px;
+      border: 1px solid rgba(207, 216, 220, 0.86);
+      border-radius: 8px;
+      background: rgba(247, 249, 248, 0.94);
+      box-shadow: 0 12px 32px rgba(23, 33, 38, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 8px;
+    }
+
+    .compare-rail-title {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .compare-jump {
+      display: grid;
+      gap: 4px;
+      padding: 7px 0;
+      border-top: 1px solid rgba(207, 216, 220, 0.74);
+    }
+
+    .compare-jump:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .compare-jump-label {
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 820;
+      line-height: 1.1;
+    }
+
+    .compare-jump-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .compare-jump button {
+      min-height: 24px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--muted);
+      padding: 2px 4px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 850;
+    }
+
+    .compare-jump button:hover,
+    .compare-jump button:focus {
+      border-color: rgba(23, 33, 38, 0.38);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .compare-jump button[data-version="plain"] {
+      background: #172126;
+      border-color: #172126;
+      color: #fff;
+    }
+
+    .compare-jump-actions.single {
+      grid-template-columns: 1fr;
+    }
+
+    .compare-overlay-toggle[aria-pressed="true"] {
+      background: #f0b429;
+      border-color: #d79b12;
+      color: #172126;
+    }
+
+    @media (max-width: 1420px) {
+      .compare-rail {
+        top: auto;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        display: flex;
+        width: auto;
+        max-width: none;
+        gap: 8px;
+        overflow-x: auto;
+      }
+
+      .compare-rail-title {
+        display: none;
+      }
+
+      .compare-jump {
+        min-width: 108px;
+        border-top: 0;
+        border-left: 1px solid rgba(207, 216, 220, 0.74);
+        padding: 0 0 0 8px;
+      }
+
+      .compare-jump:first-of-type {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .workflow-overview-link {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .intro-banner-inner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .intro-links {
+        justify-content: flex-start;
+      }
+
+      .hero-inner,
+      .section-head,
+      .architecture,
+      .decision-map {
+        grid-template-columns: 1fr;
+      }
+
+      .mtp-core {
+        order: -1;
+      }
+
+      .stack-diagram {
+        grid-template-columns: 1fr;
+      }
+
+      .govern-rail {
+        min-height: 74px;
+        writing-mode: horizontal-tb;
+        transform: none;
+      }
+
+      .stack-layers,
+      .governance-grid,
+      .artifact-band,
+      .edge-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .phase {
+        grid-template-columns: 56px minmax(0, 1fr);
+      }
+
+      .phase-body,
+      .phase-output {
+        grid-column: 2;
+      }
+
+      .flow-node:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero .term::after,
+      .plain-english-banner .term::after {
+        left: 0;
+        width: min(300px, calc(100vw - 32px));
+        transform: translateY(-4px);
+      }
+
+      .hero .term::before,
+      .plain-english-banner .term::before {
+        left: 16px;
+        transform: rotate(45deg);
+      }
+
+      .hero .term:hover::after,
+      .hero .term:focus::after,
+      .plain-english-banner .term:hover::after,
+      .plain-english-banner .term:focus::after {
+        transform: translateY(0);
+      }
+
+      .hero .term:hover::before,
+      .hero .term:focus::before,
+      .plain-english-banner .term:hover::before,
+      .plain-english-banner .term:focus::before {
+        transform: rotate(45deg);
+      }
+
+      .wrap {
+        width: auto;
+        margin-right: 14px;
+        margin-left: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        gap: 28px;
+        padding: 42px 0 48px;
+      }
+
+      .section,
+      .section.compact {
+        padding: 48px 0;
+      }
+
+      .overview-grid,
+      .stack-layers,
+      .governance-grid,
+      .artifact-band,
+      .edge-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-number {
+        width: 54px;
+        height: 54px;
+      }
+
+      .phase-body,
+      .phase-output {
+        grid-column: auto;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .hero {
+        min-height: 0;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+    }
+
+    .plain-english-banner {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      background:
+        linear-gradient(125deg, rgba(23, 33, 38, 0.96), rgba(23, 33, 38, 0.82)),
+        linear-gradient(135deg, #172126 0%, #31564c 54%, #806b39 100%);
+      color: #fff;
+      padding: 72px 0;
+    }
+
+    .plain-english-banner-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .plain-english-banner-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .plain-english-banner-kicker::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: #f2c45f;
+    }
+
+    .plain-english-banner h2 {
+      max-width: 560px;
+      margin-bottom: 0;
+      color: #fff;
+    }
+
+    .plain-english-banner p {
+      max-width: 720px;
+      margin-bottom: 18px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .plain-english-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .plain-english-banner .banner-btn {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 14px;
+      text-decoration: none;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 760;
+    }
+
+    .plain-english-banner .banner-btn.primary {
+      border-color: #fff;
+      background: #fff;
+      color: #172126;
+    }
+
+    #plainEnglishMount {
+      display: block;
+      background: #f7f9f8;
+    }
+
+    @media (max-width: 1040px) {
+      .plain-english-banner-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+</style>
+</head>
+<body>
+  <nav class="compare-rail" aria-label="Jump between ExO and plain-English sections">
+    <div class="compare-rail-title">Compare</div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Overview</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-hero">ExO</button><button type="button" data-version="plain" data-target="top">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Shortcut</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-shortcut">ExO</button><button type="button" data-version="plain" data-target="plain-shortcut">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Cards</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-cards">ExO</button><button type="button" data-version="plain" data-target="starting-cards">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Architecture</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-architecture">ExO</button><button type="button" data-version="plain" data-target="direction">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Stack</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-stack">ExO</button><button type="button" data-version="plain" data-target="stack">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">REWRITE</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-rewrite">ExO</button><button type="button" data-version="plain" data-target="rewrite">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Deploy</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-deployment">ExO</button><button type="button" data-version="plain" data-target="deployment">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Controls</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-control">ExO</button><button type="button" data-version="plain" data-target="control">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Files</div>
+      <div class="compare-jump-actions"><button type="button" data-version="exo" data-target="original-artifacts">ExO</button><button type="button" data-version="plain" data-target="artifacts">Plain</button></div>
+    </div>
+    <div class="compare-jump">
+      <div class="compare-jump-label">Overlay</div>
+      <div class="compare-jump-actions single"><button class="compare-overlay-toggle" id="compareOverlayToggle" type="button" aria-pressed="false" aria-label="Show concept overlay">Show</button></div>
+    </div>
+  </nav>
+  <a class="workflow-overview-link" href="operations-team-track-field-competition-workflow-overview.html">Open Operations Team workflow example</a>
+  <main class="page" id="top">
+    <section class="intro-banner" aria-label="About this visualisation">
+      <div class="wrap intro-banner-inner">
+        <p>
+          This HTML visualisation compares two views of the same ExO playbook: the original ExO 3.0 model language and a plain-English version that explains what the model means in practice. It also links to an Operations Team Track &amp; Field workflow example, showing how the ExO skill was used to turn the playbook into concrete planning artifacts, checks, and a draft-only copilot workflow. Use the side links to jump between matching sections and compare them.
+        </p>
+        <nav class="intro-links" aria-label="Reference links">
+          <a href="https://www.openexo.com/" target="_blank" rel="noopener noreferrer">OpenExO website</a>
+          <a href="https://openexo.com/resource-hub/organizational-singularity-book-app" target="_blank" rel="noopener noreferrer">ExO 3.0 book</a>
+          <a href="https://openexo.com/resource-hub/exo-30-claude-skill" target="_blank" rel="noopener noreferrer">ExO skill file</a>
+          <a href="operations-team-track-field-competition-workflow-overview.html">Operations Team example</a>
+        </nav>
+      </div>
+    </section>
+    <section class="hero" id="original-hero">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">ExO 3.0 playbook overview</p>
+          <h1>Building an AI-native organization</h1>
+          <p class="hero-copy">
+            A high-level map of the Building an ExO skill: the goal-setting architecture, the operating stack,
+            the migration sequence, and the governance controls that keep agentic work inside accountable bounds.
+          </p>
+        </div>
+        <aside class="hero-map" id="original-shortcut" aria-label="Three part frame">
+          <div class="hero-map-title">The executive shortcut</div>
+          <div class="mini-stack">
+            <div class="mini-node">
+              <div class="mini-icon">1</div>
+              <div>
+                <strong>Set the Goal: ExO 3.0</strong>
+                <span>MTP as protocol, DRIVE as intelligence engine, SHAPE as organizational form.</span>
+              </div>
+            </div>
+            <div class="mini-node">
+              <div class="mini-icon">2</div>
+              <div>
+                <strong>Operating system: Intelligence Stack</strong>
+                <span>Purpose, sensing, interpretation, decisions, action, learning, and control.</span>
+              </div>
+            </div>
+            <div class="mini-node">
+              <div class="mini-icon">3</div>
+              <div>
+                <strong>Playbook: REWRITE</strong>
+                <span>Backcast, assess, extract, strip, prove, then rewire the firm.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" id="original-cards">
+      <div class="wrap">
+        <div class="overview-grid">
+          <article class="principle" data-step="D">
+            <h3>Set the Goal</h3>
+            <p>Define what the firm becomes when AI is native to the operating model, not added as a productivity layer.</p>
+          </article>
+          <article class="principle" data-step="O">
+            <h3>Operating System</h3>
+            <p>Stand up the Intelligence Stack so agents, humans, workflows, telemetry, and governance compound together.</p>
+          </article>
+          <article class="principle" data-step="P">
+            <h3>Playbook</h3>
+            <p>Use REWRITE to sequence the migration through explicit approval checks, artifacts, pilots, and parallel runs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="original-architecture">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Goal-setting architecture</div>
+            <h2>ExO 3.0 combines DRIVE and SHAPE around a machine-readable MTP.</h2>
+          </div>
+          <p>
+            The skill treats the Massive Transformative Purpose as a protocol, not a slogan. DRIVE creates speed
+            and intelligence density; SHAPE provides the human, legal, trust, and control structure that prevents speed from becoming fragility.
+          </p>
+        </div>
+
+        <div class="architecture" aria-label="ExO 3.0 DRIVE and SHAPE architecture">
+          <div class="arch-lane">
+            <div class="lane-title">DRIVE <span>Intelligence engine</span></div>
+            <div class="arch-item"><strong>Decision Architecture</strong><span>Fast two-way doors, gated one-way doors.</span></div>
+            <div class="arch-item"><strong>Recursive Learning</strong><span>Workflow outcomes become reusable improvement loops.</span></div>
+            <div class="arch-item"><strong>Intelligence Stack</strong><span>The operating core that runs machine-speed OODA.</span></div>
+            <div class="arch-item"><strong>Value Moat</strong><span>Data, network effects, intelligence density, speed, judgment.</span></div>
+            <div class="arch-item"><strong>Elastic Agency</strong><span>Capability registry, graduated authority, human-agent leverage.</span></div>
+          </div>
+
+          <div class="mtp-core">
+            <h3>MTP Protocol</h3>
+            <p>Purpose that agents can execute.</p>
+            <div class="mtp-layer">Constraint Layer</div>
+            <div class="mtp-layer">Decision Layer</div>
+            <div class="mtp-layer">Identity Layer</div>
+          </div>
+
+          <div class="arch-lane shape">
+            <div class="lane-title">SHAPE <span>Organizational form</span></div>
+            <div class="arch-item"><strong>Safe Autonomy</strong><span>Human accountability, clear permissions, and stop/fix/rollback controls.</span></div>
+            <div class="arch-item"><strong>Human Architecture</strong><span>Role redesign, bridge curriculum, absorption math.</span></div>
+            <div class="arch-item"><strong>Adaptive Architecture</strong><span>Modular systems, pods, antifragile workflows.</span></div>
+            <div class="arch-item"><strong>Purpose Control</strong><span>Shared constraints and judgment, not poster values.</span></div>
+            <div class="arch-item"><strong>Ecosystem Trust</strong><span>Verifiable identity, contracts, audit trails, accountability.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="original-stack">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Operating core</div>
+            <h2>The Intelligence Stack is the firm&apos;s machine-speed learning loop.</h2>
+          </div>
+          <p>
+            The stack turns purpose into action and feedback. GOVERN/ASSURE is not a final review layer; it runs across every layer
+            with logging, evals, rollback, and human review.
+          </p>
+        </div>
+
+        <div class="stack-diagram" aria-label="Intelligence Stack diagram">
+          <div class="govern-rail">GOVERN / ASSURE always on</div>
+          <div class="stack-layers">
+            <div class="stack-layer"><strong>PURPOSE</strong><span>Objectives and constraints from the MTP protocol.</span></div>
+            <div class="stack-layer"><strong>SENSE</strong><span>Signals from markets, customers, operations, systems.</span></div>
+            <div class="stack-layer"><strong>INTERPRET</strong><span>Context, retrieval, history, scenario framing.</span></div>
+            <div class="stack-layer"><strong>DECIDE</strong><span>Options and commitments within permission envelopes.</span></div>
+            <div class="stack-layer"><strong>ORCHESTRATE / ACT</strong><span>Tools, APIs, humans, workflows, robots, agents.</span></div>
+            <div class="stack-layer"><strong>LEARN</strong><span>Evaluation, model updates, propagated improvement.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="original-rewrite">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Migration playbook</div>
+            <h2>REWRITE is a six-phase sequence with explicit exit artifacts.</h2>
+          </div>
+          <p>
+            The order matters. The playbook starts with the future architecture, then scores readiness, extracts knowledge and data boundaries,
+            decomposes work, proves workflows in parallel, and only then rewires the organization.
+          </p>
+        </div>
+
+        <div class="rewrite" aria-label="REWRITE phase timeline">
+          <article class="phase">
+            <div class="phase-number">1</div>
+            <div class="phase-name"><span>Backcast</span><strong>BACKCAST &amp; DEFINE</strong></div>
+            <div class="phase-body">Start from the future goal, define the first Edge Twin or Direct Mode target, and instantiate the five design conditions.</div>
+            <div class="phase-output">Output: Goal-setting architecture and Wave 1 mandate.</div>
+          </article>
+          <article class="phase">
+            <div class="phase-number">2</div>
+            <div class="phase-name"><span>Readiness</span><strong>ASSESS &amp; PREPARE</strong></div>
+            <div class="phase-body">Score organizational drag, AI elevation, work architecture, autonomy, network structure, reinvention cadence, and tacit knowledge access.</div>
+            <div class="phase-output">Output: Readiness Score, on-ramp, governance maturity.</div>
+          </article>
+          <article class="phase">
+            <div class="phase-number">3</div>
+            <div class="phase-name"><span>Knowledge</span><strong>EXTRACT</strong></div>
+            <div class="phase-body">Capture tacit knowledge, workflow context, and data requirements before handing work to agents.</div>
+            <div class="phase-output">Output: Workflow Data Manifest and HIDO data-checklist answers: six questions for each data object.</div>
+          </article>
+          <article class="phase">
+            <div class="phase-number">4</div>
+            <div class="phase-name"><span>Work audit</span><strong>DIAGNOSE &amp; STRIP</strong></div>
+            <div class="phase-body">Decompose roles into tasks, score agent readiness, remove work that exists only because the old firm was slow.</div>
+            <div class="phase-output">Output: Task Decomposition Matrix.</div>
+          </article>
+          <article class="phase">
+            <div class="phase-number">5</div>
+            <div class="phase-name"><span>Proof</span><strong>BUILD &amp; PROVE</strong></div>
+            <div class="phase-body">Run decision-handover waves in shadow mode, compare human and agent decisions, capture overrides, and prove falling override rates.</div>
+            <div class="phase-output">Output: Parallel-run proof and rollback path.</div>
+          </article>
+          <article class="phase">
+            <div class="phase-number">6</div>
+            <div class="phase-name"><span>Operating model</span><strong>REWIRE &amp; EVOLVE</strong></div>
+            <div class="phase-body">Replace static org-chart logic with small accountable teams and make stop/fix/rollback review a regular leadership routine.</div>
+            <div class="phase-output">Output: New operating cadence and governance loop.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="original-deployment">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Deployment choice</div>
+            <h2>Small firms transform directly; larger firms need an Edge Twin.</h2>
+          </div>
+          <p>
+            The skill uses team size and resistance to change as the practical fork. A small company can become the edge.
+            A larger company needs a CEO-sponsored, board-mandated edge venture that learns safely outside the mothership.
+          </p>
+        </div>
+
+        <div class="decision-map" aria-label="Direct Mode versus Edge Mode decision map">
+          <article class="mode-box direct">
+            <h3>Direct Mode</h3>
+            <p><strong>Use when:</strong> roughly 50 people or fewer, with low resistance to change.</p>
+            <p>Apply REWRITE to the whole company. Stand up MVIS in week one and run a 90-day sprint on the highest-coordination workflow.</p>
+          </article>
+          <div class="decision-gate">Team size and resistance to change</div>
+          <article class="mode-box edge">
+            <h3>Edge Mode</h3>
+            <p><strong>Use when:</strong> more than 50 people, regulated complexity, or strong department boundaries.</p>
+            <p>Spawn a 3-5 person Edge Twin with agent cluster, CEO sponsorship, board mandate, and its own governed workflow boundary.</p>
+          </article>
+        </div>
+
+        <div class="edge-flow" aria-label="Edge Twin no data fork flow">
+          <div class="flow-node"><strong>Operational systems</strong><span>ERP and source systems remain source of truth.</span></div>
+          <div class="flow-node"><strong>Scoped APIs</strong><span>Workflow-specific read/write access with short-lived credentials.</span></div>
+          <div class="flow-node"><strong>Edge Twin</strong><span>Reasoning and orchestration layer, not a second system of record.</span></div>
+          <div class="flow-node"><strong>Shadow mode</strong><span>Historical replay, comparison, override capture, synthetic edge cases.</span></div>
+          <div class="flow-node"><strong>Proof metric</strong><span>Human override rate falls while quality and safety hold.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="original-control">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Control plane</div>
+            <h2>Four pillars decide whether agents are safe enough to deploy.</h2>
+          </div>
+          <p>
+            The skill caps ambition when governance is weak. New agent classes should not deploy until each pillar scores at least 3 out of 5.
+          </p>
+        </div>
+
+        <div class="governance-grid" aria-label="Four pillars of GOVERN ASSURE">
+          <article class="pillar">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M24 4 8 10v12c0 10.4 6.7 18.9 16 22 9.3-3.1 16-11.6 16-22V10L24 4Zm0 5.3 11 4.1V22c0 7.5-4.2 14-11 17.3C17.2 36 13 29.5 13 22v-8.6l11-4.1Z"/><path fill="currentColor" d="m21.7 28.8-6-6 3-3 3 3 7.9-7.9 3 3-10.9 10.9Z"/></svg>
+            <h3>Trusted Evals</h3>
+            <p>Quantified tests and thresholds that catch drift before customers do.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M8 8h32v6H8V8Zm0 13h32v6H8v-6Zm0 13h20v6H8v-6Z"/><path fill="currentColor" d="M32 33.5a6.5 6.5 0 1 1 11.4 4.2l3.3 3.3-3.7 3.7-3.3-3.3A6.5 6.5 0 0 1 32 33.5Zm6.5-2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>
+            <h3>Searchable Logs</h3>
+            <p>Correlation IDs, traceable decisions, tool calls, data access, and rationale.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M24 8a16 16 0 1 1-13.9 8H5l8-8 8 8h-6.1A11.5 11.5 0 1 0 24 12.5V8Z"/><path fill="currentColor" d="M22 17h4v9l7 4-2.2 3.4L22 28V17Z"/></svg>
+            <h3>Granular Rollback</h3>
+            <p>Recover by workflow, agent, decision class, record, or action without freezing the firm.</p>
+          </article>
+          <article class="pillar">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M24 7a9 9 0 1 1 0 18 9 9 0 0 1 0-18Zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM9 40c1.7-8.2 7.6-12 15-12s13.3 3.8 15 12H9Zm7-5h16c-1.9-1.5-4.6-2.2-8-2.2s-6.1.7-8 2.2Z"/></svg>
+            <h3>Human Review Queue</h3>
+            <p>Named owners, escalation rules, and clear approval thresholds for risky action.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="original-artifacts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Practical outputs</div>
+            <h2>The playbook is useful because it produces artifacts.</h2>
+          </div>
+          <p>
+            These are the documents and scorecards the skill can generate or help you fill out when applying the framework to a real organization.
+          </p>
+        </div>
+
+        <div class="artifact-band" aria-label="Key playbook artifacts">
+          <div class="artifact"><strong>MTP Protocol</strong><span>Constraint, decision, and identity layers.</span></div>
+          <div class="artifact"><strong>DRIVE / SHAPE Scorecards</strong><span>Two 25-point views of intelligence and form.</span></div>
+          <div class="artifact"><strong>Readiness Score</strong><span>Eight-dimension migration assessment.</span></div>
+          <div class="artifact"><strong>Agent Specification</strong><span>Purpose, authority, memory, evals, telemetry.</span></div>
+          <div class="artifact"><strong>Workflow Data Manifest</strong><span>Sources, sensitivity, access, retention, owner.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section compact">
+      <div class="wrap">
+        <p class="source-note">
+          <strong>Source:</strong> the public <a href="https://openexo.com/resource-hub/exo-30-claude-skill" target="_blank" rel="noopener noreferrer">OpenExO ExO 3.0 skill file</a> and
+          <a href="https://openexo.com/organizational-singularity" target="_blank" rel="noopener noreferrer">OpenExO Organizational Singularity book</a>. This page is a concise visual overview, not a replacement for the full book or skill.
+        </p>
+      </div>
+    </footer>
+
+    <section class="plain-english-banner" id="plain-english">
+      <div class="wrap plain-english-banner-grid">
+        <div>
+          <div class="plain-english-banner-kicker">In plain English</div>
+          <h2>The same ExO playbook, explained without assuming the terminology.</h2>
+        </div>
+        <div>
+          <p>
+            The overview above keeps the original model language. The version below explains the same ideas in everyday terms, with tooltips for jargon and a concept overlay you can turn on and off.
+          </p>
+          <div class="plain-english-banner-actions">
+            <button class="banner-btn primary" id="combinedPlainOverlayToggle" type="button" aria-pressed="false">Show concept overlay</button>
+            <a class="banner-btn" href="#top">Back to original overview</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plainEnglishMount" aria-label="Plain-English ExO playbook draft"></section>
+
+  </main>
+
+  <template id="plainEnglishTemplate">
+    <style>
+
+    :host {
+      --ink: #182126;
+      --muted: #596870;
+      --paper: #f7f9f8;
+      --panel: #ffffff;
+      --line: #d4dedb;
+      --deep: #16343d;
+      --deep-2: #254e52;
+      --green: #2f7d57;
+      --blue: #236d91;
+      --gold: #b87327;
+      --coral: #b95348;
+      --violet: #6557a1;
+      --aqua: #23837d;
+      --shadow: 0 18px 44px rgba(24, 33, 38, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .plain-doc {
+      scroll-behavior: smooth;
+    }
+
+    .plain-doc {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+      overflow-wrap: break-word;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 249, 248, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      min-height: 64px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 820;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      background: var(--deep);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+      padding: 8px 12px;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn.primary,
+    .btn[aria-pressed="true"] {
+      border-color: var(--deep);
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .hero {
+      background:
+        linear-gradient(125deg, rgba(22, 52, 61, 0.96), rgba(22, 52, 61, 0.82)),
+        linear-gradient(135deg, #16343d 0%, #2f7d57 52%, #8e6a2f 100%);
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+      gap: 44px;
+      align-items: center;
+      padding: 76px 0;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: #f0c267;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 18px;
+      font-size: 5rem;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.16rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-card {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-title {
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .move-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .move {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.09);
+      padding: 12px;
+    }
+
+    .move-num {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f4d28a;
+      color: var(--deep);
+      font-weight: 850;
+    }
+
+    .move > div > strong,
+    .move > div > span {
+      display: block;
+    }
+
+    .move > div > span {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+
+    .section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section.compact {
+      padding: 52px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+      gap: 38px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 2.65rem;
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+      line-height: 1.2;
+    }
+
+    .section-head p,
+    .lead {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .term {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted currentColor;
+      cursor: help;
+      outline: none;
+    }
+
+    .term::after {
+      content: attr(data-tip);
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      z-index: 50;
+      width: min(320px, 82vw);
+      transform: translateX(-50%) translateY(4px);
+      border: 1px solid rgba(24, 33, 38, 0.18);
+      border-radius: 7px;
+      background: #172126;
+      color: #fff;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.84rem;
+      font-weight: 520;
+      line-height: 1.35;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 140ms ease, transform 140ms ease;
+      white-space: normal;
+    }
+
+    .term::before {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 4px);
+      z-index: 51;
+      width: 10px;
+      height: 10px;
+      transform: translateX(-50%) rotate(45deg);
+      background: #172126;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 140ms ease;
+    }
+
+    .term:hover::after,
+    .term:focus::after,
+    .term:hover::before,
+    .term:focus::before {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .term:hover::before,
+    .term:focus::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .concept {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: rgba(35, 109, 145, 0.12);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 850;
+    }
+
+    .concept.purpose {
+      background: rgba(184, 115, 39, 0.14);
+      color: var(--gold);
+    }
+
+    .concept.control {
+      background: rgba(47, 125, 87, 0.14);
+      color: var(--green);
+    }
+
+    .concept.proof {
+      background: rgba(185, 83, 72, 0.14);
+      color: var(--coral);
+    }
+
+    .concept.learning {
+      background: rgba(101, 87, 161, 0.14);
+      color: var(--violet);
+    }
+
+    .concept.deployment {
+      background: rgba(35, 131, 125, 0.14);
+      color: var(--aqua);
+    }
+
+    .plain-doc:not(.overlay-on) .concept {
+      display: none;
+    }
+
+    .layer-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .layer-card,
+    .plain-card,
+    .arch-lane,
+    .mtp-core,
+    .stack-diagram,
+    .mode-card,
+    .govern-card,
+    .artifact-table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+    }
+
+    .layer-card {
+      position: relative;
+      padding: 18px;
+    }
+
+    .layer-card::after {
+      content: "->";
+      position: absolute;
+      top: 50%;
+      right: -16px;
+      color: var(--muted);
+      font-weight: 850;
+      transform: translateY(-50%);
+    }
+
+    .layer-card:last-child::after {
+      content: none;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .plain-card {
+      display: grid;
+      gap: 10px;
+      min-height: 210px;
+      padding: 20px;
+    }
+
+    .book-term {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .concept-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.78fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .arch-lane,
+    .mtp-core {
+      padding: 18px;
+    }
+
+    .lane-title {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-weight: 850;
+    }
+
+    .lane-title span {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+
+    .arch-items {
+      display: grid;
+      gap: 10px;
+    }
+
+    .arch-item,
+    .stack-layer,
+    .edge-node {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fbfcfb;
+      padding: 12px;
+    }
+
+    .arch-item strong,
+    .arch-item span,
+    .stack-layer strong,
+    .stack-layer span,
+    .edge-node strong,
+    .edge-node span {
+      display: block;
+    }
+
+    .arch-item span,
+    .stack-layer span,
+    .edge-node span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mtp-core {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      text-align: center;
+      background: #f7fbf9;
+    }
+
+    .mtp-layer {
+      border: 1px solid rgba(184, 115, 39, 0.28);
+      border-radius: 7px;
+      background: rgba(184, 115, 39, 0.08);
+      padding: 10px;
+      font-weight: 780;
+    }
+
+    .stack-diagram {
+      padding: 18px;
+    }
+
+    .govern-rail {
+      border-radius: 7px;
+      background: var(--deep);
+      padding: 14px;
+      color: #fff;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .stack-layers {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .rewrite-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+    }
+
+    .rewrite-table th,
+    .rewrite-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .rewrite-table th {
+      background: #eef4f2;
+      color: var(--ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .rewrite-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .step-badge {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f4d28a;
+      color: var(--deep);
+      font-weight: 850;
+    }
+
+    .deployment-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .mode-card {
+      display: grid;
+      gap: 8px;
+      padding: 20px;
+    }
+
+    .edge-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .govern-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .govern-card {
+      padding: 18px;
+    }
+
+    .govern-card .icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: rgba(35, 109, 145, 0.12);
+      color: var(--blue);
+      font-weight: 850;
+    }
+
+    .artifact-table-wrap {
+      overflow: hidden;
+    }
+
+    .artifact-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .artifact-table th,
+    .artifact-table td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .artifact-table th {
+      background: #eef4f2;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .artifact-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .glossary-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px;
+    }
+
+    .glossary-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .glossary-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .architecture,
+      .deployment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 2.1rem;
+      }
+
+      .layer-flow,
+      .card-grid,
+      .govern-grid,
+      .glossary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .layer-card::after {
+        content: none;
+      }
+
+      .stack-layers,
+      .edge-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .hero-grid {
+        padding: 46px 0;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .layer-flow,
+      .card-grid,
+      .govern-grid,
+      .glossary,
+      .stack-layers,
+      .edge-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .rewrite-table,
+      .rewrite-table tbody,
+      .rewrite-table tr,
+      .rewrite-table td,
+      .artifact-table,
+      .artifact-table tbody,
+      .artifact-table tr,
+      .artifact-table td {
+        display: block;
+      }
+
+      .rewrite-table thead,
+      .artifact-table thead {
+        display: none;
+      }
+
+      .rewrite-table tr,
+      .artifact-table tr {
+        border-bottom: 1px solid var(--line);
+        padding: 12px;
+      }
+
+      .rewrite-table td,
+      .artifact-table td {
+        border-bottom: 0;
+        padding: 4px 0;
+      }
+
+      .rewrite-table td::before,
+      .artifact-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+    }
+
+
+    .plain-doc {
+      display: block;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .plain-doc .hero {
+      border-top: 0;
+    }
+
+    </style>
+    <div class="plain-doc">
+      <main>
+<section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">ExO playbook plain-English draft</div>
+          <h1>Building an AI-supported organisation</h1>
+          <p class="hero-copy">
+            Plain English: this page shows how an organisation moves from using AI tools in pockets to running repeatable workflows where AI drafts, humans approve, and the system learns safely after each cycle.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#rewrite">See the 6-step change plan</a>
+            <a class="btn" href="operations-team-track-field-competition-workflow-overview.html">See the Operations Team example</a>
+            <button class="btn" type="button" data-overlay-trigger>Show concept overlay</button>
+          </div>
+        </div>
+
+        <aside class="hero-card" id="plain-shortcut" aria-label="The whole model in three moves">
+          <div class="hero-card-title">The whole model in 3 moves</div>
+          <div class="move-list">
+            <div class="move">
+              <span class="move-num">1</span>
+              <div>
+                <strong>Set the goal</strong>
+                <span>Book terms: <span class="term" tabindex="0" data-tip="ExO means Exponential Organisations: organisations designed to scale impact through purpose, networks, technology, and adaptive operating systems.">ExO</span>, <span class="term" tabindex="0" data-tip="MTP means Massive Transformative Purpose: the big purpose that guides what the organisation should optimise for.">MTP</span>, <span class="term" tabindex="0" data-tip="DRIVE is the ExO intelligence engine. Its letters stand for Decision Architecture, Recursive Learning, Intelligence Stack, Value Moat, and Elastic Agency.">DRIVE</span>, <span class="term" tabindex="0" data-tip="SHAPE is the ExO organisation design. Its letters stand for Safe Autonomy, Human Architecture, Adaptive Architecture, Purpose Control, and Ecosystem Trust.">SHAPE</span></span>
+                <span class="concept purpose">Goal-setting architecture</span>
+              </div>
+            </div>
+            <div class="move">
+              <span class="move-num">2</span>
+              <div>
+                <strong>Build the work loop</strong>
+                <span>Book terms: <span class="term" tabindex="0" data-tip="The Intelligence Stack is the repeatable loop that lets AI-supported work sense information, interpret it, recommend decisions, act with permission, and learn.">Intelligence Stack</span>, <span class="term" tabindex="0" data-tip="GOVERN / ASSURE is the control layer: tests, logs, human review, rollback, and accountability that keep AI-supported work safe.">GOVERN / ASSURE</span></span>
+                <span class="concept">Operating system</span>
+              </div>
+            </div>
+            <div class="move">
+              <span class="move-num">3</span>
+              <div>
+                <strong>Change one workflow at a time</strong>
+                <span>Book terms: <span class="term" tabindex="0" data-tip="REWRITE is the six-step change playbook: set the goal, check readiness, capture knowledge, break down work, test beside humans, then make the proven workflow routine.">REWRITE</span>, <span class="term" tabindex="0" data-tip="Shadow mode means AI makes recommendations while humans continue making the real decisions. The team compares the two afterward.">shadow mode</span>, <span class="term" tabindex="0" data-tip="Rollback is a planned way to stop a bad change and return to the previous approved version or decision.">rollback</span></span>
+                <span class="concept proof">Migration playbook</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" id="how-to-use">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">How to use this page</div>
+            <h2>Use the page in three layers.</h2>
+          </div>
+          <p>
+            Start with the plain-English meaning, then connect it to the ExO terms from the book, then turn on the concept overlay to see why each part exists in the model.
+          </p>
+        </div>
+
+        <div class="layer-flow" aria-label="Three ways to read this page">
+          <article class="layer-card">
+            <h3>1. Plain-English view</h3>
+            <p class="lead">What this means in real organisational life.</p>
+          </article>
+          <article class="layer-card">
+            <h3>2. Book terms</h3>
+            <p class="lead">The <span class="term" tabindex="0" data-tip="ExO means Exponential Organisations: organisations designed to scale impact through purpose, networks, technology, and adaptive operating systems.">ExO</span> terms from the book.</p>
+          </article>
+          <article class="layer-card">
+            <h3>3. Concept overlay</h3>
+            <p class="lead">Why each part exists in the model.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="starting-cards">
+      <div class="wrap">
+        <div class="card-grid" aria-label="Three starting cards">
+          <article class="plain-card">
+            <div>
+              <h3>Set the direction</h3>
+              <div class="book-term">Book term: Set the Goal</div>
+            </div>
+            <p>Decide what kind of organisation you are trying to become with AI.</p>
+            <div class="concept-row">
+              <span class="concept purpose">MTP</span>
+              <span class="concept">DRIVE</span>
+              <span class="concept control">SHAPE</span>
+            </div>
+          </article>
+          <article class="plain-card">
+            <div>
+              <h3>Build the work loop</h3>
+              <div class="book-term">Book term: Operating System</div>
+            </div>
+            <p>Connect goals, data, humans, agents, decisions, actions, and learning.</p>
+            <div class="concept-row"><span class="concept">Intelligence Stack</span></div>
+          </article>
+          <article class="plain-card">
+            <div>
+              <h3>Implement change</h3>
+              <div class="book-term">Book term: Playbook</div>
+            </div>
+            <p>Move safely through one workflow at a time.</p>
+            <div class="concept-row"><span class="concept proof">REWRITE</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="direction">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Set the direction</div>
+            <h2>Define what AI should help the organisation become.</h2>
+          </div>
+          <p>
+            Plain English: define what AI should help the organisation become, what it must never do, and how humans stay accountable. Book terms: <span class="term" tabindex="0" data-tip="ExO means Exponential Organisations: organisations designed to scale impact through purpose, networks, technology, and adaptive operating systems.">ExO</span>, <span class="term" tabindex="0" data-tip="MTP means Massive Transformative Purpose: the big purpose that guides what the organisation should optimise for.">MTP</span>, <span class="term" tabindex="0" data-tip="DRIVE is the ExO intelligence engine. Its letters stand for Decision Architecture, Recursive Learning, Intelligence Stack, Value Moat, and Elastic Agency.">DRIVE</span>, <span class="term" tabindex="0" data-tip="SHAPE is the ExO organisation design. Its letters stand for Safe Autonomy, Human Architecture, Adaptive Architecture, Purpose Control, and Ecosystem Trust.">SHAPE</span>.
+          </p>
+        </div>
+
+        <div class="architecture" aria-label="Goal-setting architecture">
+          <article class="arch-lane">
+            <div class="lane-title">How the system gets smarter and faster <span>DRIVE</span></div>
+            <div class="arch-items">
+              <div class="arch-item"><strong>Decisions</strong><span>Make repeatable decisions clearer and faster.</span></div>
+              <div class="arch-item"><strong>Learning loops</strong><span>Use outcomes to improve the next cycle.</span></div>
+              <div class="arch-item"><strong>AI, data, and tool stack</strong><span>Connect the tools needed to support the workflow.</span></div>
+            </div>
+            <div class="concept-row"><span class="concept">Intelligence</span></div>
+          </article>
+
+          <article class="mtp-core">
+            <div>
+              <h3><span class="term" tabindex="0" data-tip="MTP Protocol is a machine-readable version of the purpose: constraints, decision rules, and identity rules that humans and AI can use.">MTP Protocol</span></h3>
+              <p class="lead">The purpose and boundaries.</p>
+            </div>
+            <div class="mtp-layer">What matters</div>
+            <div class="mtp-layer">What is allowed</div>
+            <div class="mtp-layer">Who we are</div>
+            <span class="concept purpose">Purpose</span>
+          </article>
+
+          <article class="arch-lane">
+            <div class="lane-title">How people stay in control <span>SHAPE</span></div>
+            <div class="arch-items">
+              <div class="arch-item"><strong>Permissions</strong><span>Define what AI can do and what humans must approve.</span></div>
+              <div class="arch-item"><strong>Human roles</strong><span>Redesign work so people stay accountable.</span></div>
+              <div class="arch-item"><strong>Trust and audit</strong><span>Keep records, escalation paths, and accountability clear.</span></div>
+            </div>
+            <div class="concept-row"><span class="concept control">Control</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Build the work loop</div>
+            <h2>Turn goals into work and learning.</h2>
+          </div>
+          <p>
+            Plain English: every AI-supported workflow needs a loop: understand the goal, read the signals, make recommendations, act with permission, and learn. Book term: <span class="term" tabindex="0" data-tip="The Intelligence Stack is the repeatable loop that lets AI-supported work sense information, interpret it, recommend decisions, act with permission, and learn.">Intelligence Stack</span>.
+          </p>
+        </div>
+
+        <div class="stack-diagram" aria-label="Intelligence Stack">
+          <div class="govern-rail"><span class="term" tabindex="0" data-tip="GOVERN / ASSURE is the control layer: tests, logs, human review, rollback, and accountability that keep AI-supported work safe.">GOVERN / ASSURE</span> sits across every layer. Plain English: logging, testing, human review, and rollback are always on.</div>
+          <div class="stack-layers">
+            <div class="stack-layer"><strong>1. Purpose</strong><span>What are we trying to achieve and what is not allowed?</span></div>
+            <div class="stack-layer"><strong>2. Sense</strong><span>What signals, data, or events should the system notice?</span></div>
+            <div class="stack-layer"><strong>3. Interpret</strong><span>What does that information mean in context?</span></div>
+            <div class="stack-layer"><strong>4. Decide</strong><span>What options or recommendations should be made?</span></div>
+            <div class="stack-layer"><strong>5. Act</strong><span>What can AI draft, trigger, or hand to a human?</span></div>
+            <div class="stack-layer"><strong>6. Learn</strong><span>What changed, what failed, and what improves next time?</span></div>
+          </div>
+          <div class="concept-row" style="margin-top: 12px;"><span class="concept">Operating system, not a one-off chatbot</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rewrite">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Change one workflow at a time</div>
+            <h2>Do not automate everything at once.</h2>
+          </div>
+          <p>
+            Pick a workflow, understand it, test AI beside humans, then only make it normal once it has proof. Book term: <span class="term" tabindex="0" data-tip="REWRITE is the six-step change playbook: set the goal, check readiness, capture knowledge, break down work, test beside humans, then make the proven workflow routine.">REWRITE</span>.
+          </p>
+        </div>
+
+        <table class="rewrite-table" aria-label="REWRITE migration playbook">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Plain English</th>
+              <th>Book term</th>
+              <th>Question it answers</th>
+              <th>Overlay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Step"><span class="step-badge">1</span></td>
+              <td data-label="Plain English">Set the future goal</td>
+              <td data-label="Book term">BACKCAST &amp; DEFINE</td>
+              <td data-label="Question">What are we trying to become?</td>
+              <td data-label="Overlay"><span class="concept purpose">Direction and readiness</span></td>
+            </tr>
+            <tr>
+              <td data-label="Step"><span class="step-badge">2</span></td>
+              <td data-label="Plain English">Check readiness</td>
+              <td data-label="Book term">ASSESS &amp; PREPARE</td>
+              <td data-label="Question">Are people, data, and controls ready?</td>
+              <td data-label="Overlay"><span class="concept purpose">Direction and readiness</span></td>
+            </tr>
+            <tr>
+              <td data-label="Step"><span class="step-badge">3</span></td>
+              <td data-label="Plain English">Capture knowledge</td>
+              <td data-label="Book term">EXTRACT</td>
+              <td data-label="Question">What human knowledge and data are needed?</td>
+              <td data-label="Overlay"><span class="concept">Workflow knowledge</span></td>
+            </tr>
+            <tr>
+              <td data-label="Step"><span class="step-badge">4</span></td>
+              <td data-label="Plain English">Break down the work</td>
+              <td data-label="Book term">DIAGNOSE &amp; STRIP</td>
+              <td data-label="Question">What should AI draft, test, or avoid?</td>
+              <td data-label="Overlay"><span class="concept">Task design</span></td>
+            </tr>
+            <tr>
+              <td data-label="Step"><span class="step-badge">5</span></td>
+              <td data-label="Plain English">Test beside humans</td>
+              <td data-label="Book term">BUILD &amp; PROVE</td>
+              <td data-label="Question">Does it work safely in <span class="term" tabindex="0" data-tip="Shadow mode means AI makes recommendations while humans continue making the real decisions. The team compares the two afterward.">shadow mode</span>?</td>
+              <td data-label="Overlay"><span class="concept proof">Proof before permission</span></td>
+            </tr>
+            <tr>
+              <td data-label="Step"><span class="step-badge">6</span></td>
+              <td data-label="Plain English">Make it the routine</td>
+              <td data-label="Book term">REWIRE &amp; EVOLVE</td>
+              <td data-label="Question">How does the workflow improve every cycle?</td>
+              <td data-label="Overlay"><span class="concept learning">New operating rhythm</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Choose where to start</div>
+            <h2>Pick the safest place to prove the new way of working.</h2>
+          </div>
+          <p>
+            Plain English: smaller organisations can change the whole operating rhythm directly. Larger organisations usually need a protected pilot area first.
+          </p>
+        </div>
+
+        <div class="deployment-grid">
+          <article class="mode-card">
+            <h3><span class="term" tabindex="0" data-tip="Direct Mode means changing the main organisation directly rather than creating a separate pilot area.">Direct Mode</span></h3>
+            <p>Plain English: change the main organisation directly.</p>
+            <p><strong>Use when:</strong> small team, low resistance, clear workflows.</p>
+            <span class="concept deployment">Whole-system path</span>
+          </article>
+          <article class="mode-card">
+            <h3><span class="term" tabindex="0" data-tip="An Edge Twin is a small protected version of the future organisation used to test the new AI-supported operating model before changing the main organisation.">Edge Mode / Edge Twin</span></h3>
+            <p>Plain English: create a small protected team that proves the new way before the main organisation changes.</p>
+            <p><strong>Use when:</strong> larger team, high resistance, regulated complexity, or strong department boundaries.</p>
+            <span class="concept deployment">Protected pilot path</span>
+          </article>
+        </div>
+
+        <div class="edge-flow" aria-label="Edge Twin flow">
+          <div class="edge-node"><strong>Systems of record</strong><span>Keep the real source systems intact.</span></div>
+          <div class="edge-node"><strong>Controlled access</strong><span>Use scoped access to the data and tools needed.</span></div>
+          <div class="edge-node"><strong>AI work layer</strong><span>Run the reasoning and workflow support in a protected space.</span></div>
+          <div class="edge-node"><strong>Shadow test</strong><span>Compare AI recommendations with human decisions.</span></div>
+          <div class="edge-node"><strong>Proof</strong><span>Only expand if quality and safety hold.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="control">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Keep humans in control</div>
+            <h2>AI needs tests, logs, undo paths, and human approval.</h2>
+          </div>
+          <p>
+            Plain English: AI can only be trusted when people can test it, inspect it, undo mistakes, and approve risky decisions. Book term: <span class="term" tabindex="0" data-tip="GOVERN / ASSURE is the control layer: tests, logs, human review, rollback, and accountability that keep AI-supported work safe.">GOVERN / ASSURE</span>.
+          </p>
+        </div>
+
+        <div class="govern-grid" aria-label="Control plane pillars">
+          <article class="govern-card">
+            <div class="icon">T</div>
+            <h3>Test the output</h3>
+            <p class="book-term"><span class="term" tabindex="0" data-tip="Trusted evals are quantified tests and thresholds that catch weak, risky, or drifting outputs before customers or users do.">Trusted Evals</span></p>
+            <p>Are recommendations good enough before real use?</p>
+          </article>
+          <article class="govern-card">
+            <div class="icon">L</div>
+            <h3>Keep the receipts</h3>
+            <p class="book-term"><span class="term" tabindex="0" data-tip="Searchable logs make AI decisions, tool calls, data access, and rationale traceable after the fact.">Searchable Logs</span></p>
+            <p>Can we see what AI did and why?</p>
+          </article>
+          <article class="govern-card">
+            <div class="icon">U</div>
+            <h3>Undo safely</h3>
+            <p class="book-term"><span class="term" tabindex="0" data-tip="Granular rollback means reversing a bad action by workflow, agent, decision class, record, or action without stopping the whole organisation.">Granular Rollback</span></p>
+            <p>Can we reverse a bad action without stopping the firm?</p>
+          </article>
+          <article class="govern-card">
+            <div class="icon">H</div>
+            <h3>Human review</h3>
+            <p class="book-term"><span class="term" tabindex="0" data-tip="A human review queue names who must approve risky actions and how issues escalate.">Human Review Queue</span></p>
+            <p>Who must approve risky decisions?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="artifacts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Working files the playbook produces</div>
+            <h2>Each file should help a person do something.</h2>
+          </div>
+          <p>
+            This section keeps the formal artifact names, but explains the practical job each file performs.
+          </p>
+        </div>
+
+        <div class="artifact-table-wrap">
+          <table class="artifact-table" aria-label="Working files the playbook produces">
+            <thead>
+              <tr>
+                <th>File / artifact</th>
+                <th>Plain-English purpose</th>
+                <th>Book term</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="File / artifact">Goal rules</td>
+                <td data-label="Plain-English purpose">Tell AI what matters and what is not allowed.</td>
+                <td data-label="Book term"><span class="term" tabindex="0" data-tip="MTP Protocol is a machine-readable version of the purpose: constraints, decision rules, and identity rules that humans and AI can use.">MTP Protocol</span></td>
+              </tr>
+              <tr>
+                <td data-label="File / artifact">Capability review</td>
+                <td data-label="Plain-English purpose">Check whether AI use and controls are mature enough.</td>
+                <td data-label="Book term"><span class="term" tabindex="0" data-tip="DRIVE is the ExO intelligence engine. SHAPE is the ExO organisation design. The scorecards assess both sides.">DRIVE / SHAPE Scorecards</span></td>
+              </tr>
+              <tr>
+                <td data-label="File / artifact">Readiness review</td>
+                <td data-label="Plain-English purpose">Decide whether to start, pause, or narrow scope.</td>
+                <td data-label="Book term"><span class="term" tabindex="0" data-tip="REWRITE readiness checks whether the organisation is ready to move through the six-step change playbook.">REWRITE readiness</span></td>
+              </tr>
+              <tr>
+                <td data-label="File / artifact">Workflow data map</td>
+                <td data-label="Plain-English purpose">List data sources, owners, sensitivity, and rules.</td>
+                <td data-label="Book term"><span class="term" tabindex="0" data-tip="A Data Manifest lists the data sources, owners, sensitivity, access, retention, and rules for a workflow.">Data Manifest</span>, <span class="term" tabindex="0" data-tip="HIDO means High-Integrity Data Object. The HIDO Six-Question Data Object Diagnostic asks what the data is, who vouches for it, how it may be used, legal terms, what happens if it is wrong, and how disputes are resolved.">HIDO</span></td>
+              </tr>
+              <tr>
+                <td data-label="File / artifact">Agent brief</td>
+                <td data-label="Plain-English purpose">Define what the copilot can do, remember, and escalate.</td>
+                <td data-label="Book term"><span class="term" tabindex="0" data-tip="An Agent Specification defines the agent's purpose, authority, tools, memory, evaluation tests, telemetry, and escalation rules.">Agent Specification</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="glossary">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Tooltip glossary</div>
+            <h2>Definitions used in this draft.</h2>
+          </div>
+          <p>These are the same explanations used in the hover tooltips.</p>
+        </div>
+
+        <div class="glossary">
+          <div class="glossary-item"><strong>ExO</strong><span>Exponential Organisations: organisations designed to scale impact through purpose, networks, technology, and adaptive operating systems.</span></div>
+          <div class="glossary-item"><strong>MTP</strong><span>Massive Transformative Purpose: the big purpose that guides what the organisation should optimise for.</span></div>
+          <div class="glossary-item"><strong>MTP Protocol</strong><span>A machine-readable version of the purpose: constraints, decision rules, and identity rules that humans and AI can use.</span></div>
+          <div class="glossary-item"><strong>DRIVE</strong><span>Decision Architecture, Recursive Learning, Intelligence Stack, Value Moat, and Elastic Agency.</span></div>
+          <div class="glossary-item"><strong>SHAPE</strong><span>Safe Autonomy, Human Architecture, Adaptive Architecture, Purpose Control, and Ecosystem Trust.</span></div>
+          <div class="glossary-item"><strong>Intelligence Stack</strong><span>The repeatable loop that lets AI-supported work sense, interpret, decide, act, and learn.</span></div>
+          <div class="glossary-item"><strong>GOVERN / ASSURE</strong><span>The control layer: tests, logs, human review, rollback, and accountability.</span></div>
+          <div class="glossary-item"><strong>REWRITE</strong><span>The six-step change playbook: set the goal, check readiness, capture knowledge, break down work, test beside humans, then make the proven workflow routine.</span></div>
+          <div class="glossary-item"><strong>Edge Twin</strong><span>A small protected version of the future organisation used to test the new AI-supported operating model.</span></div>
+          <div class="glossary-item"><strong>Direct Mode</strong><span>Changing the main organisation directly rather than creating a separate pilot area.</span></div>
+          <div class="glossary-item"><strong>MVIS</strong><span>Minimal Viable Intelligence Stack: the smallest controlled workspace where agents, logs, review queues, data checks, and one workflow can be tested.</span></div>
+          <div class="glossary-item"><strong>Shadow Mode</strong><span>AI makes recommendations while humans continue making the real decisions. The team compares the two afterward.</span></div>
+          <div class="glossary-item"><strong>Override Rate</strong><span>How often humans reject or change AI recommendations.</span></div>
+          <div class="glossary-item"><strong>Rollback</strong><span>A planned way to stop a bad change and return to the previous approved version or decision.</span></div>
+          <div class="glossary-item"><strong>HIDO</strong><span>High-Integrity Data Object. The six-question diagnostic checks what the data is, who vouches for it, how it may be used, legal terms, what happens if it is wrong, and how disputes are resolved.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section compact">
+      <div class="wrap">
+        <p class="source-note">
+          Plain-English section created as a concise explanatory layer for the visualisation. The companion <a href="operations-team-track-field-competition-workflow-overview.html">Operations Team example</a> applies this model to a Track &amp; Field workflow.
+        </p>
+      </div>
+    </footer>
+      </main>
+    </div>
+  </template>
+
+  <script>
+    (() => {
+      const mount = document.getElementById("plainEnglishMount");
+      const template = document.getElementById("plainEnglishTemplate");
+      const bannerToggle = document.getElementById("combinedPlainOverlayToggle");
+      const railToggle = document.getElementById("compareOverlayToggle");
+      if (!mount || !template || !bannerToggle) return;
+
+      const tooltipTerms = [
+        { label: "AI-native organization", tip: "An AI-native organization builds AI into normal workflows, decisions, controls, and learning loops rather than treating AI as a side tool." },
+        { label: "Building an ExO skill", tip: "The local Codex skill that guides the ExO workflow: goal setting, readiness, data checks, task breakdown, copilot design, proof, and operating rhythm." },
+        { label: "ExO 3.0", tip: "ExO 3.0 means the Exponential Organisations model adapted for AI-native operating systems." },
+        { label: "ExO", tip: "ExO means Exponential Organisations: organisations designed to scale impact through purpose, networks, technology, and adaptive operating systems." },
+        { label: "goal-setting architecture", tip: "Goal-setting architecture means the structure that defines the future goal, boundaries, decision rules, and human accountability." },
+        { label: "Goal-setting architecture", tip: "Goal-setting architecture means the structure that defines the future goal, boundaries, decision rules, and human accountability." },
+        { label: "operating stack", tip: "The operating stack is the connected set of purpose, data, tools, decisions, workflows, controls, and learning loops." },
+        { label: "migration sequence", tip: "The migration sequence is the ordered change path from current workflows to a tested AI-supported operating rhythm." },
+        { label: "governance controls", tip: "Governance controls are the tests, logs, approvals, limits, and rollback paths that keep AI-supported work accountable." },
+        { label: "agentic work", tip: "Agentic work is work supported by AI agents that can plan, recommend, or use tools within agreed limits." },
+        { label: "MTP Protocol", tip: "MTP Protocol is a machine-readable version of the purpose: constraints, decision rules, and identity rules that humans and AI can use." },
+        { label: "Massive Transformative Purpose", tip: "Massive Transformative Purpose is the big purpose that guides what the organisation should optimise for." },
+        { label: "MTP", tip: "MTP means Massive Transformative Purpose: the big purpose that guides what the organisation should optimise for." },
+        { label: "DRIVE / SHAPE Scorecards", tip: "The DRIVE and SHAPE scorecards assess both sides of readiness: intelligence capability and organisational control." },
+        { label: "DRIVE", tip: "DRIVE is the ExO intelligence engine. Its letters stand for Decision Architecture, Recursive Learning, Intelligence Stack, Value Moat, and Elastic Agency." },
+        { label: "SHAPE", tip: "SHAPE is the ExO organisation design. Its letters stand for Safe Autonomy, Human Architecture, Adaptive Architecture, Purpose Control, and Ecosystem Trust." },
+        { label: "organizational form", tip: "Organizational form means how roles, permissions, structures, controls, and trust systems are arranged." },
+        { label: "Operating System", tip: "Operating System means the repeatable way the organisation turns goals into work, decisions, action, and learning." },
+        { label: "Operating system", tip: "Operating system means the repeatable way the organisation turns goals into work, decisions, action, and learning." },
+        { label: "Intelligence Stack", tip: "The Intelligence Stack is the repeatable loop that lets AI-supported work sense information, interpret it, recommend decisions, act with permission, and learn." },
+        { label: "REWRITE", tip: "REWRITE is the six-step change playbook: set the goal, check readiness, capture knowledge, break down work, test beside humans, then make the proven workflow routine." },
+        { label: "approval checks", tip: "Approval checks are points where named humans must review or approve a decision before it becomes official." },
+        { label: "artifacts", tip: "Artifacts are the working files the playbook produces, such as scorecards, manifests, agent specs, and proof reports." },
+        { label: "pilots", tip: "Pilots are small controlled tests used to learn before expanding a workflow." },
+        { label: "parallel runs", tip: "Parallel runs compare AI recommendations with the human process while humans still make the real decisions." },
+        { label: "intelligence density", tip: "Intelligence density means how much useful decision-making, context, data, and learning capacity is packed into the workflow." },
+        { label: "fragility", tip: "Fragility means the system can break or create risk when it moves faster than its controls, people, or data quality can support." },
+        { label: "Decision Architecture", tip: "Decision Architecture defines which decisions can move quickly, which need approval, and how decisions are logged and improved." },
+        { label: "two-way doors", tip: "Two-way doors are reversible decisions that can be made quickly because they can be changed later." },
+        { label: "one-way doors", tip: "One-way doors are hard-to-reverse decisions that need stronger human review and control." },
+        { label: "Recursive Learning", tip: "Recursive Learning means workflow outcomes feed back into the system so the next cycle improves." },
+        { label: "machine-speed OODA", tip: "Machine-speed OODA means using AI to accelerate the observe, orient, decide, act loop while keeping controls in place." },
+        { label: "Value Moat", tip: "Value Moat means durable advantage from data, network effects, intelligence density, speed, and human judgment." },
+        { label: "Elastic Agency", tip: "Elastic Agency means adding AI or human capability flexibly with clear permissions and accountability." },
+        { label: "Capability registry", tip: "A capability registry lists what agents, tools, and people are allowed to do." },
+        { label: "capability registry", tip: "A capability registry lists what agents, tools, and people are allowed to do." },
+        { label: "graduated authority", tip: "Graduated authority means increasing what AI can do only after it proves reliability and safety." },
+        { label: "human-agent leverage", tip: "Human-agent leverage means humans get more done by delegating draft, analysis, and coordination work to AI agents." },
+        { label: "Constraint Layer", tip: "The Constraint Layer states what the system must optimise for and what it must not do." },
+        { label: "Decision Layer", tip: "The Decision Layer defines decision rules, approval limits, and how choices should be made." },
+        { label: "Identity Layer", tip: "The Identity Layer defines who the organisation is, what it stands for, and what actions would violate that identity." },
+        { label: "Safe Autonomy", tip: "Safe Autonomy means AI can act only within clear permissions, human accountability, and stop, fix, or rollback controls." },
+        { label: "Human Architecture", tip: "Human Architecture means redesigning roles, skills, and team structures so people can work effectively with AI." },
+        { label: "bridge curriculum", tip: "Bridge curriculum means training that helps people move from old roles into new AI-supported ways of working." },
+        { label: "absorption math", tip: "Absorption math estimates whether people and teams can absorb the pace of change without breaking the operation." },
+        { label: "Adaptive Architecture", tip: "Adaptive Architecture means modular systems and workflows that can be changed without rebuilding the whole organisation." },
+        { label: "pods", tip: "Pods are small accountable teams that own a workflow or outcome." },
+        { label: "antifragile workflows", tip: "Antifragile workflows are designed to improve from stress, feedback, and failure rather than merely survive them." },
+        { label: "Purpose Control", tip: "Purpose Control means turning purpose into shared constraints and judgment that guide decisions." },
+        { label: "Ecosystem Trust", tip: "Ecosystem Trust means contracts, identity, audit trails, and accountability across partners and systems." },
+        { label: "verifiable identity", tip: "Verifiable identity means people, agents, and systems can prove who or what they are." },
+        { label: "audit trails", tip: "Audit trails are records showing what happened, who or what acted, and why." },
+        { label: "accountability", tip: "Accountability means named people remain responsible for decisions and outcomes." },
+        { label: "GOVERN / ASSURE", tip: "GOVERN / ASSURE is the control layer: tests, logs, human review, rollback, and accountability that keep AI-supported work safe." },
+        { label: "GOVERN/ASSURE", tip: "GOVERN / ASSURE is the control layer: tests, logs, human review, rollback, and accountability that keep AI-supported work safe." },
+        { label: "evals", tip: "Evals are tests used to check whether AI outputs meet quality, safety, and reliability standards." },
+        { label: "rollback", tip: "Rollback is a planned way to stop a bad change and return to the previous approved version or decision." },
+        { label: "Rollback", tip: "Rollback is a planned way to stop a bad change and return to the previous approved version or decision." },
+        { label: "human review", tip: "Human review means named people inspect or approve risky recommendations before action is taken." },
+        { label: "permission envelopes", tip: "Permission envelopes define what AI is allowed to do without further approval and what must be escalated." },
+        { label: "ORCHESTRATE / ACT", tip: "Orchestrate / Act is the layer where tools, APIs, humans, workflows, robots, or agents carry out approved actions." },
+        { label: "Backcast", tip: "Backcast means starting from the desired future state and working backward to decide what must happen first." },
+        { label: "BACKCAST & DEFINE", tip: "Backcast and Define is REWRITE step 1: set the future goal and define the first target workflow or edge." },
+        { label: "ASSESS & PREPARE", tip: "Assess and Prepare is REWRITE step 2: check readiness, governance maturity, people, data, and change capacity." },
+        { label: "EXTRACT", tip: "Extract is REWRITE step 3: capture human knowledge, workflow context, and data requirements before AI takes on work." },
+        { label: "DIAGNOSE & STRIP", tip: "Diagnose and Strip is REWRITE step 4: break work into tasks and remove work that only exists because the old process was slow." },
+        { label: "BUILD & PROVE", tip: "Build and Prove is REWRITE step 5: test the AI-supported workflow beside humans before it affects real operations." },
+        { label: "REWIRE & EVOLVE", tip: "Rewire and Evolve is REWRITE step 6: make the proven workflow part of the normal operating rhythm and keep improving it." },
+        { label: "exit artifacts", tip: "Exit artifacts are the files or evidence needed to show a phase is complete enough to move on." },
+        { label: "future architecture", tip: "Future architecture describes how the organisation should work after the AI-supported operating model is in place." },
+        { label: "readiness", tip: "Readiness means how prepared the organisation is to change safely: people, data, controls, workflows, and leadership rhythm." },
+        { label: "data boundaries", tip: "Data boundaries define what data may be used, who owns it, and what access or legal limits apply." },
+        { label: "decomposes work", tip: "Decomposes work means breaking roles or workflows into tasks so each task can be assigned to humans, AI, or both." },
+        { label: "Edge Twin", tip: "An Edge Twin is a small protected version of the future organisation used to test the new AI-supported operating model before changing the main organisation." },
+        { label: "Direct Mode", tip: "Direct Mode means changing the main organisation directly rather than creating a separate pilot area." },
+        { label: "design conditions", tip: "Design conditions are the requirements the new workflow must satisfy before it is considered ready." },
+        { label: "organizational drag", tip: "Organizational drag is the friction from old structures, slow approvals, unclear ownership, or cultural resistance." },
+        { label: "AI elevation", tip: "AI elevation measures whether AI is used for higher-value decisions and workflows, not only basic productivity tasks." },
+        { label: "work architecture", tip: "Work architecture is how work is divided into tasks, roles, approvals, systems, and handoffs." },
+        { label: "autonomy", tip: "Autonomy means how much work AI or teams can do without additional approval." },
+        { label: "network structure", tip: "Network structure describes how teams, partners, customers, and systems connect and share signals." },
+        { label: "reinvention cadence", tip: "Reinvention cadence is how often the organisation reviews, updates, and improves its operating model." },
+        { label: "tacit knowledge", tip: "Tacit knowledge is know-how people carry in experience, judgment, and context rather than formal documents." },
+        { label: "on-ramp", tip: "An on-ramp is the first safe, realistic path for starting the change process." },
+        { label: "governance maturity", tip: "Governance maturity describes how strong the organisation's controls, logs, approvals, and accountability are." },
+        { label: "Workflow Data Manifest", tip: "A Workflow Data Manifest lists data sources, owners, sensitivity, access rules, retention, and usage limits for a workflow." },
+        { label: "HIDO", tip: "HIDO means High-Integrity Data Object. It is a six-question data diagnostic covering what the data is, who vouches for it, how it may be used, legal terms, what happens if it is wrong, and how disputes are resolved." },
+        { label: "data object", tip: "A data object is a specific dataset or data item used by the workflow." },
+        { label: "Work audit", tip: "A work audit reviews what tasks exist, why they exist, who owns them, and whether AI can safely draft or support them." },
+        { label: "Task Decomposition Matrix", tip: "A Task Decomposition Matrix breaks a workflow into tasks and scores which tasks AI can draft, test, automate, or avoid." },
+        { label: "agent readiness", tip: "Agent readiness means whether a task is clear, bounded, testable, and safe enough for AI support." },
+        { label: "decision-handover waves", tip: "Decision-handover waves are staged transfers where AI first drafts or recommends, then earns more responsibility only after proof." },
+        { label: "shadow mode", tip: "Shadow mode means AI makes recommendations while humans continue making the real decisions. The team compares the two afterward." },
+        { label: "Shadow mode", tip: "Shadow mode means AI makes recommendations while humans continue making the real decisions. The team compares the two afterward." },
+        { label: "overrides", tip: "Overrides are cases where humans reject or change AI recommendations." },
+        { label: "override rates", tip: "Override rate means how often humans reject or change AI recommendations. A falling rate can show improvement only if quality and safety hold." },
+        { label: "rollback path", tip: "A rollback path is the agreed route back to the previous approved version if something goes wrong." },
+        { label: "static org-chart logic", tip: "Static org-chart logic means designing work around fixed departments instead of flexible accountable teams and workflows." },
+        { label: "stop/fix/rollback", tip: "Stop, fix, rollback means pause unsafe work, correct the issue, or return to the previous approved version." },
+        { label: "operating cadence", tip: "Operating cadence is the regular rhythm of planning, review, decisions, and improvement." },
+        { label: "governance loop", tip: "A governance loop is the repeated cycle of monitoring, review, approval, learning, and control updates." },
+        { label: "Edge Mode", tip: "Edge Mode means proving the new AI-supported operating model in a protected pilot area before changing the main organisation." },
+        { label: "MVIS", tip: "MVIS means Minimal Viable Intelligence Stack: the smallest controlled workspace where agents, logs, review queues, data checks, and one workflow can be tested." },
+        { label: "90-day sprint", tip: "A 90-day sprint is a focused test period for proving one high-value workflow." },
+        { label: "agent cluster", tip: "An agent cluster is a small group of AI agents with defined roles, tools, memory, and limits." },
+        { label: "board mandate", tip: "A board mandate is formal authorisation from the board to run the change effort." },
+        { label: "Scoped APIs", tip: "Scoped APIs are limited system connections that give access only to the data or actions needed for a specific workflow." },
+        { label: "short-lived credentials", tip: "Short-lived credentials are access keys that expire quickly to reduce security risk." },
+        { label: "source of truth", tip: "Source of truth means the official system or record that remains authoritative." },
+        { label: "system of record", tip: "A system of record is the official system where authoritative business data lives." },
+        { label: "Proof metric", tip: "A proof metric is the measure used to decide whether the pilot is working safely and well enough to continue." },
+        { label: "synthetic edge cases", tip: "Synthetic edge cases are invented test scenarios used to check unusual, risky, or rare situations." },
+        { label: "Trusted Evals", tip: "Trusted evals are quantified tests and thresholds that catch weak, risky, or drifting outputs before customers or users do." },
+        { label: "Searchable Logs", tip: "Searchable logs make AI decisions, tool calls, data access, and rationale traceable after the fact." },
+        { label: "Correlation IDs", tip: "Correlation IDs are unique references that link related requests, decisions, tool calls, and records." },
+        { label: "tool calls", tip: "Tool calls are actions an AI system takes through connected software, APIs, or automation tools." },
+        { label: "rationale", tip: "Rationale is the recorded reason or logic behind a recommendation or action." },
+        { label: "Granular Rollback", tip: "Granular rollback means reversing a bad action by workflow, agent, decision class, record, or action without stopping the whole organisation." },
+        { label: "Human Review Queue", tip: "A human review queue names who must approve risky actions and how issues escalate." },
+        { label: "approval thresholds", tip: "Approval thresholds define which actions are safe for AI to draft or recommend and which require human approval." },
+        { label: "Readiness Score", tip: "Readiness Score summarises whether the organisation is prepared to start, pause, narrow, or scale the change." },
+        { label: "Agent Specification", tip: "An Agent Specification defines the agent's purpose, authority, tools, memory, evaluation tests, telemetry, and escalation rules." },
+        { label: "telemetry", tip: "Telemetry is operational data about what the system did, how it performed, and where it failed." }
+      ].sort((a, b) => b.label.length - a.label.length);
+
+      function decorateOriginalTooltips() {
+        const root = document.querySelector("main.page");
+        if (!root) return;
+        const skipSelector = ".term, code, script, style, template, button, a, .compare-rail, #plainEnglishMount";
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            const parent = node.parentElement;
+            if (!parent || parent.closest(skipSelector)) return NodeFilter.FILTER_REJECT;
+            return tooltipTerms.some((term) => node.nodeValue.includes(term.label))
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_REJECT;
+          }
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach((node) => {
+          let text = node.nodeValue;
+          const fragment = document.createDocumentFragment();
+          while (text) {
+            let best = null;
+            for (const term of tooltipTerms) {
+              const index = text.indexOf(term.label);
+              if (index === -1) continue;
+              if (!best || index < best.index || (index === best.index && term.label.length > best.term.label.length)) {
+                best = { term, index };
+              }
+            }
+            if (!best) {
+              fragment.appendChild(document.createTextNode(text));
+              break;
+            }
+            if (best.index > 0) {
+              fragment.appendChild(document.createTextNode(text.slice(0, best.index)));
+            }
+            const span = document.createElement("span");
+            span.className = "term";
+            span.tabIndex = 0;
+            span.dataset.tip = best.term.tip;
+            span.textContent = best.term.label;
+            fragment.appendChild(span);
+            text = text.slice(best.index + best.term.label.length);
+          }
+          node.parentNode.replaceChild(fragment, node);
+        });
+      }
+
+      decorateOriginalTooltips();
+
+      const shadow = mount.attachShadow({ mode: "open" });
+      shadow.appendChild(template.content.cloneNode(true));
+      const plainDoc = shadow.querySelector(".plain-doc");
+      const overlayTriggers = shadow.querySelectorAll("[data-overlay-trigger]");
+
+      function setOverlay(enabled) {
+        plainDoc.classList.toggle("overlay-on", enabled);
+        bannerToggle.setAttribute("aria-pressed", String(enabled));
+        bannerToggle.textContent = enabled ? "Hide concept overlay" : "Show concept overlay";
+        if (railToggle) {
+          railToggle.setAttribute("aria-pressed", String(enabled));
+          railToggle.textContent = enabled ? "Hide" : "Show";
+          railToggle.setAttribute("aria-label", enabled ? "Hide concept overlay" : "Show concept overlay");
+        }
+        overlayTriggers.forEach((button) => {
+          button.textContent = enabled ? "Hide concept overlay" : "Show concept overlay";
+        });
+      }
+
+      bannerToggle.addEventListener("click", () => {
+        setOverlay(!plainDoc.classList.contains("overlay-on"));
+        mount.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      overlayTriggers.forEach((button) => {
+        button.addEventListener("click", () => {
+          setOverlay(!plainDoc.classList.contains("overlay-on"));
+        });
+      });
+
+      if (railToggle) {
+        railToggle.addEventListener("click", () => {
+          setOverlay(!plainDoc.classList.contains("overlay-on"));
+        });
+      }
+
+      shadow.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const targetId = link.getAttribute("href").slice(1);
+          const target = shadow.getElementById(targetId);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      document.querySelectorAll(".compare-rail button[data-target]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.dataset.target;
+          const target = button.dataset.version === "plain"
+            ? shadow.getElementById(targetId)
+            : document.getElementById(targetId);
+          if (!target) return;
+          const top = target.getBoundingClientRect().top + window.scrollY - 18;
+          window.scrollTo({ top, behavior: "smooth" });
+        });
+      });
+
+      const workflowLink = document.querySelector(".workflow-overview-link");
+      const plainBanner = document.getElementById("plain-english");
+      if (workflowLink && plainBanner) {
+        const updateWorkflowLink = () => {
+          workflowLink.classList.toggle("is-hidden", plainBanner.getBoundingClientRect().top <= window.innerHeight);
+        };
+        updateWorkflowLink();
+        window.addEventListener("scroll", updateWorkflowLink, { passive: true });
+        window.addEventListener("resize", updateWorkflowLink);
+      }
+    })();
+  </script>
+
+</body>
+</html>

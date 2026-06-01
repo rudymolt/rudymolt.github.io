@@ -1,0 +1,1828 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operations Team Track &amp; Field Competition Workflow Overview</title>
+  <style>
+    :root {
+      --ink: #182126;
+      --muted: #5e6b70;
+      --paper: #f6f7f3;
+      --panel: #ffffff;
+      --line: #d7ded8;
+      --deep: #17313a;
+      --green: #2f775f;
+      --blue: #286f9b;
+      --gold: #b87928;
+      --coral: #b95348;
+      --soft-green: #e5f0ea;
+      --soft-blue: #e4eef4;
+      --soft-gold: #f4ead8;
+      --soft-coral: #f2e1de;
+      --shadow: 0 16px 42px rgba(24, 33, 38, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.48;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(24, 33, 38, 0.12);
+      background: rgba(246, 247, 243, 0.92);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(1220px, calc(100% - 36px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 820;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      background: var(--deep);
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 8px 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(24, 33, 38, 0.35);
+    }
+
+    .btn.primary {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+    }
+
+    .icon {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+    }
+
+    .wrap {
+      width: min(1220px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(125deg, rgba(23, 49, 58, 0.94), rgba(23, 49, 58, 0.72)),
+        linear-gradient(135deg, #17313a 0%, #285b61 45%, #8a7044 100%);
+      color: #fff;
+      min-height: 74vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 76px 76px;
+      mask-image: linear-gradient(to top, black, transparent);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 42px;
+      align-items: center;
+      padding: 70px 0 88px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: #f0c267;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 18px;
+      font-size: clamp(2.45rem, 6vw, 5.7rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 750px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+    }
+
+    .example-note {
+      max-width: 760px;
+      margin: 18px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.92rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .hero-actions .btn {
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .hero-actions .btn.primary {
+      background: #fff;
+      border-color: #fff;
+      color: var(--deep);
+    }
+
+    .hero-board {
+      min-width: 0;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      padding: 18px;
+    }
+
+    .track-illustration {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+    }
+
+    .workflow-timeline {
+      position: relative;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+        #102b34;
+      padding: 22px 24px 26px;
+      overflow: hidden;
+    }
+
+    .workflow-timeline::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 3px solid rgba(244, 210, 138, 0.42);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .timeline-title {
+      position: relative;
+      margin-bottom: 26px;
+      color: #fff;
+      font-weight: 850;
+      font-size: clamp(0.95rem, 1.4vw, 1.12rem);
+      line-height: 1.2;
+    }
+
+    .timeline-steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-steps::before {
+      content: "";
+      position: absolute;
+      top: 19px;
+      left: 8%;
+      right: 8%;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f4d28a, #5aa384, #65a6c9, #d66d61, #f4d28a);
+      opacity: 0.8;
+    }
+
+    .timeline-step {
+      position: relative;
+      min-width: 0;
+      padding: 0 8px;
+      text-align: center;
+    }
+
+    .timeline-step:not(:last-child)::after {
+      content: none;
+    }
+
+    .timeline-step-num {
+      display: inline-grid;
+      place-items: center;
+      position: relative;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 12px;
+      border: 3px solid #102b34;
+      border-radius: 50%;
+      background: #f4d28a;
+      color: var(--deep);
+      font-size: 0.95rem;
+      font-weight: 900;
+    }
+
+    .timeline-step strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+      line-height: 1.15;
+    }
+
+    .timeline-step span:last-child {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.76rem;
+      line-height: 1.25;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      min-height: 92px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 7px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.84rem;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section.alt {
+      background: #fff;
+    }
+
+    .section.dark {
+      background: var(--deep);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dark .section-kicker {
+      color: #f0c267;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.7rem, 3.1vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 780px;
+    }
+
+    .dark .section-head p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .relationship-map {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr) minmax(260px, 0.9fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: visible;
+      min-width: 0;
+    }
+
+    .lane-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfa;
+      font-weight: 820;
+    }
+
+    .lane-body {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .lane-intro {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fbfcfa;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .step-node,
+    .flow-node,
+    .model-node {
+      position: relative;
+      min-width: 0;
+      min-height: 72px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 12px 12px 12px 46px;
+      background: #fff;
+    }
+
+    .step-node::before,
+    .flow-node::before,
+    .model-node::before {
+      position: absolute;
+      left: 12px;
+      top: 14px;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 820;
+    }
+
+    .step-node::before {
+      content: attr(data-step);
+      background: var(--blue);
+    }
+
+    .flow-node::before {
+      content: attr(data-phase);
+      background: var(--green);
+    }
+
+    .model-node::before {
+      content: attr(data-layer);
+      background: var(--gold);
+    }
+
+    .step-node strong,
+    .flow-node strong,
+    .model-node strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .step-node span,
+    .flow-node span,
+    .model-node span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .bridge-diagram {
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(40, 111, 155, 0.08), rgba(47, 119, 95, 0.08)),
+        #fff;
+      padding: 18px;
+    }
+
+    .bridge-diagram svg {
+      width: 100%;
+      min-height: 360px;
+      height: auto;
+      display: block;
+    }
+
+    .loop-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.05fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .operating-loop {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.05);
+    }
+
+    .operating-loop svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .loop-notes {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step6-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(280px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .step6-diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(47, 119, 95, 0.08), rgba(184, 121, 40, 0.08)),
+        #fff;
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .step6-diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .step6-cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step6-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+    }
+
+    .step6-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .step6-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .note {
+      min-width: 0;
+      border-left: 4px solid var(--green);
+      background: var(--panel);
+      padding: 14px 16px;
+      border-radius: 0 7px 7px 0;
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+    }
+
+    .note:nth-child(2) {
+      border-left-color: var(--blue);
+    }
+
+    .note:nth-child(3) {
+      border-left-color: var(--gold);
+    }
+
+    .note:nth-child(4) {
+      border-left-color: var(--coral);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .note span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .term {
+      position: relative;
+      display: inline;
+      border-bottom: 1px dotted currentColor;
+      color: inherit;
+      cursor: help;
+      outline: none;
+    }
+
+    .step-node .term,
+    .flow-node .term,
+    .model-node .term {
+      display: inline-block;
+    }
+
+    .term::after {
+      content: attr(data-tip);
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      z-index: 30;
+      width: min(310px, 80vw);
+      transform: translateX(-50%) translateY(4px);
+      border: 1px solid rgba(24, 33, 38, 0.18);
+      border-radius: 7px;
+      background: #172126;
+      color: #fff;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.82rem;
+      line-height: 1.35;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 140ms ease, transform 140ms ease;
+      white-space: normal;
+    }
+
+    .term::before {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 50%;
+      bottom: calc(100% + 4px);
+      z-index: 31;
+      width: 10px;
+      height: 10px;
+      transform: translateX(-50%) rotate(45deg);
+      background: #172126;
+      opacity: 0;
+      transition: opacity 140ms ease;
+      pointer-events: none;
+    }
+
+    .term:hover::after,
+    .term:focus::after,
+    .term:hover::before,
+    .term:focus::before {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .term:hover::before,
+    .term:focus::before {
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .model-node .term::after,
+    .file-card .term::after {
+      left: auto;
+      right: 0;
+      transform: translateY(4px);
+    }
+
+    .model-node .term::before,
+    .file-card .term::before {
+      left: auto;
+      right: 18px;
+      transform: rotate(45deg);
+    }
+
+    .model-node .term:hover::after,
+    .model-node .term:focus::after,
+    .file-card .term:hover::after,
+    .file-card .term:focus::after {
+      transform: translateY(0);
+    }
+
+    .model-node .term:hover::before,
+    .model-node .term:focus::before,
+    .file-card .term:hover::before,
+    .file-card .term:focus::before {
+      transform: rotate(45deg);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .status-card {
+      min-width: 0;
+      min-height: 188px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 18px;
+    }
+
+    .status-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+      line-height: 1;
+    }
+
+    .status-card span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+    }
+
+    .proof-decision {
+      margin-top: 18px;
+      border: 1px solid rgba(244, 210, 138, 0.42);
+      border-radius: 8px;
+      background: rgba(244, 210, 138, 0.12);
+      padding: 18px 20px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .proof-decision strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: 1.02rem;
+    }
+
+    .file-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+      min-height: 36px;
+      padding: 7px 11px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .filter-btn.active {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+    }
+
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .file-card {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      min-width: 0;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .file-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(24, 33, 38, 0.32);
+      box-shadow: var(--shadow);
+    }
+
+    .file-card[hidden] {
+      display: none;
+    }
+
+    .file-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 760;
+    }
+
+    .tag.step2,
+    .tag.step6 {
+      background: var(--soft-green);
+      color: var(--green);
+    }
+
+    .tag.step3 {
+      background: var(--soft-gold);
+      color: var(--gold);
+    }
+
+    .tag.step5 {
+      background: var(--soft-coral);
+      color: var(--coral);
+    }
+
+    .file-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+      line-height: 1.18;
+    }
+
+    .file-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .file-name {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.78rem;
+      overflow-wrap: anywhere;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      overflow: hidden;
+      display: table;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .compare-table th {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .compare-table td {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .use-guide {
+      display: grid;
+      gap: 22px;
+    }
+
+    .use-switch {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .use-card,
+    .use-step,
+    .use-layer-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(24, 33, 38, 0.04);
+    }
+
+    .use-card strong,
+    .use-step strong,
+    .use-layer-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .use-card > span,
+    .use-step > span,
+    .use-layer-card > span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .use-arrow {
+      display: grid;
+      place-items: center;
+      min-width: 132px;
+      border-radius: 8px;
+      background: var(--deep);
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.84rem;
+      font-weight: 820;
+    }
+
+    .use-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .use-step {
+      position: relative;
+      padding-left: 52px;
+    }
+
+    .use-step::before {
+      content: attr(data-order);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .use-layer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .use-layer-card {
+      border-left: 4px solid var(--blue);
+    }
+
+    .use-layer-card:nth-child(2) {
+      border-left-color: var(--green);
+    }
+
+    .use-layer-card:nth-child(3) {
+      border-left-color: var(--gold);
+    }
+
+    .exo-map-panel {
+      position: fixed;
+      top: 76px;
+      right: 18px;
+      z-index: 45;
+      display: none;
+      width: min(360px, calc(100vw - 36px));
+      border: 1px solid rgba(23, 49, 58, 0.24);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    body.exo-map-on .exo-map-panel {
+      display: block;
+    }
+
+    .exo-map-panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .exo-map-panel strong {
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .exo-map-panel p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin: 0;
+    }
+
+    .exo-map-label {
+      display: none !important;
+      margin-top: 10px;
+      border: 1px solid rgba(40, 111, 155, 0.28);
+      border-left: 4px solid var(--blue);
+      border-radius: 7px;
+      background: #f4f9fc;
+      padding: 8px 10px;
+      color: #26373d !important;
+      font-size: 0.8rem !important;
+      line-height: 1.35;
+    }
+
+    body.exo-map-on .exo-map-label {
+      display: block !important;
+    }
+
+    .exo-map-label b {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--blue);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    body.exo-map-on [data-exo-focus] {
+      border-color: rgba(40, 111, 155, 0.55);
+      box-shadow: 0 0 0 3px rgba(40, 111, 155, 0.1);
+    }
+
+    .exo-svg-overlay {
+      display: none;
+      pointer-events: none;
+    }
+
+    body.exo-map-on .exo-svg-overlay {
+      display: block;
+    }
+
+    .exo-svg-overlay .exo-bg {
+      fill: #172126;
+      opacity: 0.94;
+    }
+
+    .exo-svg-overlay .exo-title {
+      fill: #fff;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.02em;
+    }
+
+    .exo-svg-overlay .exo-copy {
+      fill: #dce8eb;
+      font-size: 10px;
+    }
+
+    .close-btn {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      min-width: 40px;
+      min-height: 38px;
+      cursor: pointer;
+      font-weight: 820;
+    }
+
+    .footer {
+      padding: 44px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .relationship-map,
+      .loop-grid,
+      .step6-grid,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding: 54px 0 68px;
+      }
+
+      .timeline-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 10px;
+      }
+
+      .timeline-steps::before {
+        display: none;
+      }
+
+      .timeline-step:nth-child(3)::after {
+        display: none;
+      }
+
+      .status-grid,
+      .file-grid,
+      .use-steps,
+      .use-layer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .use-switch {
+        grid-template-columns: 1fr;
+      }
+
+      .use-arrow {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-metrics,
+      .status-grid,
+      .file-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step::after {
+        display: none;
+      }
+
+      .use-steps,
+      .use-layer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exo-map-panel {
+        top: auto;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        width: auto;
+      }
+
+      .compare-table {
+        display: block;
+        overflow: visible;
+        border: 0;
+        white-space: normal;
+      }
+
+      .compare-table thead {
+        display: none;
+      }
+
+      .compare-table tbody {
+        display: grid;
+        gap: 10px;
+      }
+
+      .compare-table tr {
+        display: grid;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 12px;
+      }
+
+      .compare-table td {
+        display: block;
+        border-bottom: 0;
+        padding: 0;
+      }
+
+      .compare-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 3px;
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 820;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Operations Team workflow overview home">
+        <span class="brand-mark">OT</span>
+        <span>Operations Team Competition Workflow</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary navigation">
+        <a class="btn" href="exo-playbook-overview-combined.html">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16v4H4V5Zm0 6h10v4H4v-4Zm0 6h16v2H4v-2Zm12-6h4v4h-4v-4Z"/></svg>
+          Open ExO Process
+        </a>
+        <button class="btn primary" type="button" id="openOverlay" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18v14H3V5Zm2 2v10h14V7H5Zm3 2h5v2H8V9Zm0 4h8v2H8v-2Z"/></svg>
+          <span class="overlay-button-label">Show ExO Mapping</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="kicker">Operations Team Track &amp; Field workflow</div>
+          <h1>A repeatable operating system for Track &amp; Field competition delivery.</h1>
+          <p class="hero-copy">
+            This page connects the <span class="term" tabindex="0" data-tip="REWRITE is the ExO migration process: set the future goal, assess readiness, extract knowledge, decompose work, prove the workflow, then redesign the operating rhythm.">ExO REWRITE model</span> to the Operations Team's Track &amp; Field competition workflow: goal setting, <span class="term" tabindex="0" data-tip="Readiness means how prepared the organization is to use AI-supported workflows safely and repeatably.">readiness</span>, data governance, task decomposition, copilots, <span class="term" tabindex="0" data-tip="A shadow run means the copilot creates recommendations while humans continue making the real decisions.">shadow runs</span>, safety tests, and the final operating rhythm.
+          </p>
+          <p class="example-note">
+            Note: some artifacts use example data to make the process concrete. Treat the numbers and event details as a realistic walkthrough, not live operating data.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#map">See the relationship map</a>
+            <a class="btn" href="#files">Browse created files</a>
+            <button class="btn" type="button" id="openOverlayHero" aria-pressed="false">Show ExO Mapping</button>
+          </div>
+        </div>
+
+        <div class="hero-board" aria-label="Competition workflow performance snapshot">
+          <div class="workflow-timeline" aria-label="Track and Field competition planning workflow">
+            <div class="timeline-title">Track &amp; Field Competition Planning Workflow</div>
+            <ol class="timeline-steps">
+              <li class="timeline-step"><span class="timeline-step-num">1</span><strong>Brief</strong><span>Event inputs</span></li>
+              <li class="timeline-step"><span class="timeline-step-num">2</span><strong>Plan</strong><span>Draft timetable and roles</span></li>
+              <li class="timeline-step"><span class="timeline-step-num">3</span><strong>Review</strong><span>Humans approve key decisions</span></li>
+              <li class="timeline-step"><span class="timeline-step-num">4</span><strong>Run</strong><span>Deliver the meet</span></li>
+              <li class="timeline-step"><span class="timeline-step-num">5</span><strong>Report</strong><span>Results, issues, feedback</span></li>
+              <li class="timeline-step"><span class="timeline-step-num">6</span><strong>Learn</strong><span>Improve the next event</span></li>
+            </ol>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric"><strong>6/6</strong><span>REWRITE steps walked through as an example.</span></div>
+            <div class="metric"><strong>49</strong><span>Competition-planning tasks decomposed.</span></div>
+            <div class="metric"><strong>31% -> 14%</strong><span>Example <span class="term" tabindex="0" data-tip="Override rate means the percentage of copilot suggestions that humans changed or rejected. A falling rate usually means the workflow and instructions are getting clearer.">human edit rate</span> improvement after revising the planning copilot.</span></div>
+            <div class="metric"><strong>0</strong><span>Forbidden actions allowed in example safety tests.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Model to workflow</div>
+            <h2>The ExO process becomes a Track &amp; Field competition operating loop.</h2>
+          </div>
+          <p>
+            The left lane is the REWRITE playbook. The middle lane shows how the abstract model translates into controls. The right lane is the practical Operations Team workflow from event brief to post-event learning. Hover over underlined terms for plain-English definitions.
+          </p>
+        </div>
+
+        <div class="relationship-map" aria-label="Relationship between ExO steps, controls, and competition workflow">
+          <div class="lane">
+            <div class="lane-head">ExO REWRITE steps</div>
+            <div class="lane-body">
+              <div class="lane-intro">
+                REWRITE is the ExO change process. It takes an organization from "we use AI tools sometimes" to "we have a repeatable AI-supported operating system." The steps move from big-picture direction to practical workflow proof, then finally to a new operating rhythm.
+              </div>
+              <div class="step-node" data-step="1"><strong>Backcast &amp; Define</strong><span>Describe how the Operations Team should work in the future, before building tools.</span></div>
+              <div class="step-node" data-step="2"><strong>Assess &amp; Prepare</strong><span>Check whether the team is ready, then choose the safest starting path.</span></div>
+              <div class="step-node" data-step="3"><strong>Extract</strong><span>Decide what data and knowledge the workflow is allowed to use.</span></div>
+              <div class="step-node" data-step="4"><strong>Diagnose &amp; Strip</strong><span>Break event planning into tasks and decide what AI can safely draft.</span></div>
+              <div class="step-node" data-step="5"><strong>Build &amp; Prove</strong><span>Run the copilot beside humans, test outputs, and track edits or rejections.</span></div>
+              <div class="step-node" data-step="6"><strong>Rewire &amp; Evolve</strong><span>Turn the proven workflow into a new weekly operating rhythm.</span></div>
+            </div>
+          </div>
+
+          <div class="bridge-diagram">
+            <svg viewBox="0 0 620 430" role="img" aria-label="Bridge diagram connecting ExO model controls to Operations Team artifacts">
+              <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#56666c"/>
+                </marker>
+              </defs>
+              <rect x="22" y="24" width="168" height="58" rx="8" fill="#e4eef4" stroke="#aac4d5"/>
+              <text x="106" y="58" text-anchor="middle" fill="#17313a" font-size="16" font-weight="800">Set the Goal</text>
+              <rect x="226" y="24" width="168" height="58" rx="8" fill="#e5f0ea" stroke="#aacdbe"/>
+              <text x="310" y="58" text-anchor="middle" fill="#17313a" font-size="16" font-weight="800">Controls</text>
+              <rect x="430" y="24" width="168" height="58" rx="8" fill="#f4ead8" stroke="#ddc18d"/>
+              <text x="514" y="58" text-anchor="middle" fill="#17313a" font-size="16" font-weight="800">Workflow</text>
+              <path d="M190 53h36" stroke="#56666c" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M394 53h36" stroke="#56666c" stroke-width="2" marker-end="url(#arrow)"/>
+              <rect x="54" y="128" width="512" height="64" rx="10" fill="#fff" stroke="#d7ded8"/>
+              <text x="310" y="155" text-anchor="middle" fill="#17313a" font-size="16" font-weight="800">Purpose Rules + Approval Limits</text>
+              <text x="310" y="178" text-anchor="middle" fill="#5e6b70" font-size="13">Agents recommend. Humans approve trust-sensitive decisions.</text>
+              <path d="M310 192v34" stroke="#56666c" stroke-width="2" marker-end="url(#arrow)"/>
+              <rect x="42" y="232" width="152" height="68" rx="8" fill="#fff" stroke="#d7ded8"/>
+              <text x="118" y="258" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Data Manifest</text>
+              <text x="118" y="280" text-anchor="middle" fill="#5e6b70" font-size="12">Sources and owners</text>
+              <rect x="234" y="232" width="152" height="68" rx="8" fill="#fff" stroke="#d7ded8"/>
+              <text x="310" y="258" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Task Matrix</text>
+              <text x="310" y="280" text-anchor="middle" fill="#5e6b70" font-size="12">Readiness by task</text>
+              <rect x="426" y="232" width="152" height="68" rx="8" fill="#fff" stroke="#d7ded8"/>
+              <text x="502" y="258" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Copilot Rules</text>
+              <text x="502" y="280" text-anchor="middle" fill="#5e6b70" font-size="12">Authority and tests</text>
+              <path d="M118 300v40h192" stroke="#56666c" stroke-width="2" fill="none"/>
+              <path d="M310 300v40" stroke="#56666c" stroke-width="2" marker-end="url(#arrow)"/>
+              <path d="M502 300v40H310" stroke="#56666c" stroke-width="2" fill="none"/>
+              <rect x="150" y="348" width="320" height="58" rx="10" fill="#17313a"/>
+              <text x="310" y="373" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">Human-reviewed competition run</text>
+              <text x="310" y="393" text-anchor="middle" fill="#c6d7dc" font-size="12">Compare, log, evaluate, improve, standardize</text>
+              <g class="exo-svg-overlay" font-family="Inter, Arial, sans-serif">
+                <rect class="exo-bg" x="28" y="88" width="156" height="44" rx="8"/>
+                <text class="exo-title" x="106" y="106" text-anchor="middle">MTP / GOAL PROTOCOL</text>
+                <text class="exo-copy" x="106" y="122" text-anchor="middle">Purpose becomes working rules</text>
+
+                <rect class="exo-bg" x="360" y="88" width="188" height="44" rx="8"/>
+                <text class="exo-title" x="454" y="106" text-anchor="middle">SHAPE / SAFE AUTONOMY</text>
+                <text class="exo-copy" x="454" y="122" text-anchor="middle">Humans approve sensitive choices</text>
+
+                <rect class="exo-bg" x="26" y="306" width="184" height="44" rx="8"/>
+                <text class="exo-title" x="118" y="324" text-anchor="middle">GOVERN + HIDO</text>
+                <text class="exo-copy" x="118" y="340" text-anchor="middle">Data ownership and usage rules</text>
+
+                <rect class="exo-bg" x="220" y="306" width="180" height="44" rx="8"/>
+                <text class="exo-title" x="310" y="324" text-anchor="middle">WORK ARCHITECTURE</text>
+                <text class="exo-copy" x="310" y="340" text-anchor="middle">Human and AI task split</text>
+
+                <rect class="exo-bg" x="410" y="306" width="188" height="44" rx="8"/>
+                <text class="exo-title" x="504" y="324" text-anchor="middle">DRIVE / DECISION DESIGN</text>
+                <text class="exo-copy" x="504" y="340" text-anchor="middle">Copilot drafts; people decide</text>
+
+                <rect class="exo-bg" x="168" y="348" width="284" height="58" rx="10"/>
+                <text class="exo-title" x="310" y="371" text-anchor="middle">BUILD &amp; PROVE</text>
+                <text class="exo-copy" x="310" y="388" text-anchor="middle">Test beside humans before live use</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="lane">
+            <div class="lane-head">Operations Team workflow phases</div>
+            <div class="lane-body">
+              <div class="lane-intro">
+                To implement the ExO process in a real situation such as a Track &amp; Field competition, each abstract step becomes something a competition team can actually do: brief the event, draft the plan, review human-owned decisions, run the event, report what happened, and improve the next event.
+              </div>
+              <div class="flow-node" data-phase="A" data-exo-focus><strong>Structured event brief</strong><span>Purpose, entries, venue, staffing, equipment, approvals.</span><span class="exo-map-label"><b>MTP / Goal Protocol</b>Turns the Operations Team's purpose into practical rules for this event workflow.</span></div>
+              <div class="flow-node" data-phase="B" data-exo-focus><strong>Planning copilot draft</strong><span>Gaps, timeline, timetable, role cards, checklists.</span><span class="exo-map-label"><b>DRIVE / Decision Architecture</b>Uses AI to draft planning choices while keeping decisions structured and reviewable.</span></div>
+              <div class="flow-node" data-phase="C" data-exo-focus><strong>Human review queue</strong><span>Named people approve the final timetable, communications, safety plan, results, and spending before anything becomes official.</span><span class="exo-map-label"><b>SHAPE / Safe Autonomy</b>Sets the boundary between what AI may suggest and what humans must approve.</span></div>
+              <div class="flow-node" data-phase="D" data-exo-focus><strong>Shadow event run</strong><span>Human action compared with copilot recommendations.</span><span class="exo-map-label"><b>Build &amp; Prove</b>Tests the copilot beside humans before it affects a real event.</span></div>
+              <div class="flow-node" data-phase="E" data-exo-focus><strong>Post-event report</strong><span>Metrics, feedback, issues, PB/SB candidates, learning.</span><span class="exo-map-label"><b>Recursive Learning</b>Turns event results and human edits into evidence for the next version.</span></div>
+              <div class="flow-node" data-phase="F" data-exo-focus><strong>Next version standardization</strong><span>When a person edits or rejects a copilot suggestion, the reason is saved and used to improve the next checklist, rule, or template.</span><span class="exo-map-label"><b>Rewire &amp; Evolve</b>Makes the proven workflow part of the Operations Team's normal planning routine.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="loop">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Competition loop</div>
+            <h2>The workflow is designed to learn from every event.</h2>
+          </div>
+          <p>
+            The key shift is from one-off event planning to a repeatable loop. Each event generates structured evidence that improves the next brief, rules module, role cards, safety tests, and governance controls.
+          </p>
+        </div>
+
+        <div class="loop-grid">
+          <div class="operating-loop">
+            <svg viewBox="0 0 560 560" role="img" aria-label="Circular operating loop from event brief to next event">
+              <defs>
+                <marker id="loopArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#17313a"/>
+                </marker>
+              </defs>
+              <circle cx="280" cy="280" r="176" fill="#f8faf7" stroke="#d7ded8" stroke-width="2"/>
+              <circle cx="280" cy="280" r="70" fill="#17313a"/>
+              <text x="280" y="270" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">LEARN</text>
+              <text x="280" y="294" text-anchor="middle" fill="#c6d7dc" font-size="13">Each event updates the system</text>
+              <path d="M280 84a196 196 0 0 1 196 196" fill="none" stroke="#17313a" stroke-width="5" marker-end="url(#loopArrow)"/>
+              <path d="M476 280a196 196 0 0 1-196 196" fill="none" stroke="#17313a" stroke-width="5" marker-end="url(#loopArrow)"/>
+              <path d="M280 476A196 196 0 0 1 84 280" fill="none" stroke="#17313a" stroke-width="5" marker-end="url(#loopArrow)"/>
+              <path d="M84 280A196 196 0 0 1 280 84" fill="none" stroke="#17313a" stroke-width="5" marker-end="url(#loopArrow)"/>
+              <g font-family="Inter, Arial, sans-serif">
+                <rect x="210" y="32" width="140" height="64" rx="8" fill="#e4eef4" stroke="#aac4d5"/>
+                <text x="280" y="58" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Brief</text>
+                <text x="280" y="78" text-anchor="middle" fill="#5e6b70" font-size="12">source fields</text>
+                <rect x="410" y="166" width="118" height="64" rx="8" fill="#e5f0ea" stroke="#aacdbe"/>
+                <text x="469" y="192" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Plan</text>
+                <text x="469" y="212" text-anchor="middle" fill="#5e6b70" font-size="12">copilot pack</text>
+                <rect x="410" y="330" width="118" height="64" rx="8" fill="#f4ead8" stroke="#ddc18d"/>
+                <text x="469" y="356" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Run</text>
+                <text x="469" y="376" text-anchor="middle" fill="#5e6b70" font-size="12">human decides</text>
+                <rect x="210" y="464" width="140" height="64" rx="8" fill="#f2e1de" stroke="#d9ada8"/>
+                <text x="280" y="490" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Report</text>
+                <text x="280" y="510" text-anchor="middle" fill="#5e6b70" font-size="12">post-event data</text>
+                <rect x="32" y="330" width="128" height="64" rx="8" fill="#eee8f4" stroke="#c9bbda"/>
+                <text x="96" y="356" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Evaluate</text>
+                <text x="96" y="376" text-anchor="middle" fill="#5e6b70" font-size="12">human edits</text>
+                <rect x="32" y="166" width="128" height="64" rx="8" fill="#fff" stroke="#d7ded8"/>
+                <text x="96" y="192" text-anchor="middle" fill="#17313a" font-size="14" font-weight="800">Standardize</text>
+                <text x="96" y="212" text-anchor="middle" fill="#5e6b70" font-size="12">Next templates</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="loop-notes">
+            <div class="note"><strong>Draft-only is a design choice.</strong><span>The workflow stays <span class="term" tabindex="0" data-tip="Draft-only means the copilot can draft or suggest, but a human must approve anything that affects the real event.">draft-only</span> because safety, results, eligibility, spend, and communications remain human-owned.</span></div>
+            <div class="note"><strong>Shadow mode creates the learning data.</strong><span>The valuable signal is where human decisions diverge from copilot recommendations and why.</span></div>
+            <div class="note"><strong>Governance is part of the workflow.</strong><span>Safety tests, source tracking, a return-to-previous-version plan, and human review lists are not later compliance tasks. They are part of how the workflow runs.</span></div>
+            <div class="note"><strong>The new planning rhythm needs proof.</strong><span>After one real event proves the workflow works, the Operations Team turns it into its normal competition-planning routine: small working groups, clear owners, and a routine for stopping, fixing, or returning to the previous approved version if anything is unsafe.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step6">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">New planning rhythm</div>
+            <h2>Turn the proven event workflow into the Operations Team's normal competition routine.</h2>
+          </div>
+          <p>
+            This is the final adoption stage of the REWRITE playbook. It does not mean giving the copilot more power. It means that once a real event proves the workflow is useful and safe, the Operations Team plans, reviews, reports, and improves every future event through the same repeatable system.
+          </p>
+        </div>
+
+        <div class="step6-grid">
+          <div class="step6-diagram">
+            <svg viewBox="0 0 760 420" role="img" aria-label="New planning rhythm diagram showing how a proven workflow becomes the regular operating routine">
+              <defs>
+                <marker id="step6Arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#56666c"/>
+                </marker>
+              </defs>
+              <rect x="30" y="52" width="160" height="72" rx="9" fill="#e4eef4" stroke="#aac4d5"/>
+              <text x="110" y="82" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">1. Prove it</text>
+              <text x="110" y="104" text-anchor="middle" fill="#5e6b70" font-size="12">Run one real event</text>
+
+              <path d="M190 88h60" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="260" y="52" width="160" height="72" rx="9" fill="#e5f0ea" stroke="#aacdbe"/>
+              <text x="340" y="82" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">2. Make it routine</text>
+              <text x="340" y="104" text-anchor="middle" fill="#5e6b70" font-size="12">Use it every week</text>
+
+              <path d="M420 88h60" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="490" y="52" width="160" height="72" rx="9" fill="#f4ead8" stroke="#ddc18d"/>
+              <text x="570" y="82" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">3. Keep humans clear</text>
+              <text x="570" y="104" text-anchor="middle" fill="#5e6b70" font-size="12">Named approvers decide</text>
+
+              <path d="M570 124v54" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="490" y="188" width="160" height="72" rx="9" fill="#f2e1de" stroke="#d9ada8"/>
+              <text x="570" y="218" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">4. Stop or fix issues</text>
+              <text x="570" y="240" text-anchor="middle" fill="#5e6b70" font-size="12">Pause unsafe outputs</text>
+
+              <path d="M490 224h-60" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="260" y="188" width="160" height="72" rx="9" fill="#eee8f4" stroke="#c9bbda"/>
+              <text x="340" y="218" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">5. Improve the next event</text>
+              <text x="340" y="240" text-anchor="middle" fill="#5e6b70" font-size="12">Update templates</text>
+
+              <path d="M260 224h-60" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="30" y="188" width="160" height="72" rx="9" fill="#fff" stroke="#d7ded8"/>
+              <text x="110" y="218" text-anchor="middle" fill="#17313a" font-size="15" font-weight="800">6. Repeat</text>
+              <text x="110" y="240" text-anchor="middle" fill="#5e6b70" font-size="12">Every competition learns</text>
+
+              <path d="M110 188v-54" stroke="#56666c" stroke-width="2" marker-end="url(#step6Arrow)"/>
+
+              <rect x="132" y="318" width="496" height="58" rx="12" fill="#17313a"/>
+              <text x="380" y="343" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">The result: a repeatable planning routine</text>
+              <text x="380" y="365" text-anchor="middle" fill="#c6d7dc" font-size="13">Not more AI autonomy. Better human-led event delivery.</text>
+            </svg>
+          </div>
+
+          <div class="step6-cards">
+            <div class="step6-card">
+              <strong>What changes for the team?</strong>
+              <span>Event planning stops being a one-off scramble. The same brief, review list, reports, and improvement log are used every time.</span>
+            </div>
+            <div class="step6-card">
+              <strong>Who still decides?</strong>
+              <span>People still approve safety, timetable, spending, results, and communications. The copilot helps prepare the decision, but does not own it.</span>
+            </div>
+            <div class="step6-card">
+              <strong>What is the stop/fix/return routine?</strong>
+              <span>Plainly: if the workflow gives unsafe or low-quality output, the Operations Team pauses it, fixes it, or returns to the previous approved version.</span>
+            </div>
+            <div class="step6-card">
+              <strong>When is the new planning rhythm real?</strong>
+              <span>Only after a live competition proves the process saves time, protects trust, and produces better learning for the next event.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="evidence">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">What the test pilot showed</div>
+            <h2>The Track &amp; Field planning test is promising, but not ready for automation.</h2>
+          </div>
+          <p>
+            We ran a worked example with the Operations Team planning a Track &amp; Field competition. The copilot helped draft the plan, timetable, review checks, communications, and post-event report. The results support keeping the workflow <span class="term" tabindex="0" data-tip="Draft-only means the copilot can suggest or prepare work, but humans still make the final decisions.">draft-only</span> and preparing for a real shadow pilot. They do not support autonomous execution.
+          </p>
+        </div>
+
+        <div class="status-grid">
+          <div class="status-card"><strong>43/80</strong><span><span class="term" tabindex="0" data-tip="REWRITE readiness scores whether the organization is ready to move from AI experiments to a repeatable AI-supported workflow.">Overall readiness</span>: enough AI usage to start, but stronger foundations are needed before scaling.</span></div>
+          <div class="status-card"><strong>Level 2 of 5</strong><span><span class="term" tabindex="0" data-tip="The Four Pillars are the four core safety controls: tests, searchable logs, return-to-previous-version plans, and human review. Level 2 of 5 means those controls exist in draft form but are not yet strong enough for automation.">Safety controls maturity</span>: the four controls exist in draft form, but need stronger logs, return plans, and review routines.</span></div>
+          <div class="status-card"><strong>14%</strong><span><span class="term" tabindex="0" data-tip="Override rate means the percentage of copilot suggestions that humans changed or rejected. Lower is usually better because it suggests the workflow and instructions are improving.">Planning edit rate</span>: humans changed or rejected 14% of copilot suggestions in the example competition run.</span></div>
+          <div class="status-card"><strong>50%</strong><span><span class="term" tabindex="0" data-tip="v0.1 means the first draft version of a workflow. v0.2 means the improved next version after learning from test results.">Reporting workflow v0.1</span>: half of the post-event reporting suggestions needed human changes, so this workflow needs another version.</span></div>
+        </div>
+
+        <div class="proof-decision">
+          <strong>Decision: continue with the planning copilot in draft-only mode.</strong>
+          Do not automate real competition decisions yet. Next, run one actual Track &amp; Field event in <span class="term" tabindex="0" data-tip="Shadow mode means the copilot makes recommendations while humans continue making the real decisions. The team compares the two afterward to see what worked.">shadow mode</span> and compare the copilot's suggestions with human decisions.
+        </div>
+
+        <table class="compare-table" aria-label="Example work completed and live-use checklist" style="margin-top: 26px;">
+          <thead>
+            <tr>
+              <th>Part of the process</th>
+              <th>What we created in the example</th>
+              <th>Before the Operations Team uses it live</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Part of the process">Set the goal</td>
+              <td data-label="What we created in the example">A clear goal for using AI to improve Track &amp; Field competition planning.</td>
+              <td data-label="Before the Operations Team uses it live">Senior leaders confirm the goal, owners, and boundaries.</td>
+            </tr>
+            <tr>
+              <td data-label="Part of the process">Plan the event</td>
+              <td data-label="What we created in the example">A draft-only planning copilot that can prepare timetables, checks, role cards, and communications.</td>
+              <td data-label="Before the Operations Team uses it live">Test it beside humans on one real Track &amp; Field event.</td>
+            </tr>
+            <tr>
+              <td data-label="Part of the process">Keep control</td>
+              <td data-label="What we created in the example">Data checklists, safety tests, human approval points, and a plan for returning to the previous approved version.</td>
+              <td data-label="Before the Operations Team uses it live">Assign real data owners, keep a live activity log, and agree what happens if output is bad.</td>
+            </tr>
+            <tr>
+              <td data-label="Part of the process">Learn and improve</td>
+              <td data-label="What we created in the example">A weekly rhythm for reviewing what worked, what humans changed, and what needs fixing.</td>
+              <td data-label="Before the Operations Team uses it live">Run the post-event review, update the templates, and use the learning in the next event.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="files">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Working pack</div>
+            <h2>The files created for the competition workflow.</h2>
+          </div>
+          <p>
+            These cards summarize the working pack used to create the visualisation. Each card opens the background artifact created by the ExO skill workflow.
+          </p>
+        </div>
+
+        <div class="file-controls" aria-label="Filter artifact cards">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="1">Set the goal</button>
+          <button class="filter-btn" type="button" data-filter="2">Check readiness</button>
+          <button class="filter-btn" type="button" data-filter="3">Map the data</button>
+          <button class="filter-btn" type="button" data-filter="4">Break down the work</button>
+          <button class="filter-btn" type="button" data-filter="5">Build and test</button>
+          <button class="filter-btn" type="button" data-filter="6">Learn and improve</button>
+        </div>
+
+        <div class="file-grid">
+          <a class="file-card" data-step="1" data-exo-focus href="operations-team-destination-architecture-step1.md"><div class="file-meta"><span class="tag">Set the goal</span><span class="tag">Start here</span></div><div><h3>Goal Setting Pack</h3><p>Defines what the Operations Team is trying to improve, what AI is allowed to help with, and which decisions stay with humans.</p><span class="exo-map-label"><b>MTP / Goal Protocol</b>This file maps purpose into practical rules for the competition workflow.</span></div><span class="file-name">Open goal-setting file</span></a>
+          <a class="file-card" data-step="2" href="operations-team-assess-prepare-step2.md"><div class="file-meta"><span class="tag step2">Check readiness</span><span class="tag">Review</span></div><div><h3>Readiness Review</h3><p>Checks whether the Operations Team is ready to use this workflow safely, or whether foundations need strengthening first.</p></div><span class="file-name">Open readiness review</span></a>
+          <a class="file-card" data-step="2" href="operations-team-rewrite-readiness-scorecard.md"><div class="file-meta"><span class="tag step2">Check readiness</span><span class="tag">Score</span></div><div><h3>Overall Readiness Score</h3><p>Shows the 43/80 readiness result and explains why the Operations Team should start with a focused 90-day pilot.</p></div><span class="file-name">Open readiness score</span></a>
+          <a class="file-card" data-step="2" data-exo-focus href="operations-team-drive-scorecard.md"><div class="file-meta"><span class="tag step2">Check readiness</span><span class="tag">AI use</span></div><div><h3>AI Capability Review</h3><p>Looks at how mature the Operations Team's AI usage, controls, logs, approvals, and learning loops currently are.</p><span class="exo-map-label"><b>DRIVE / Decision Architecture</b>Checks whether the Operations Team has enough AI capability to support repeatable planning decisions.</span></div><span class="file-name">Open AI capability review</span></a>
+          <a class="file-card" data-step="2" data-exo-focus href="operations-team-shape-scorecard.md"><div class="file-meta"><span class="tag step2">Check readiness</span><span class="tag">Trust</span></div><div><h3>Human &amp; Trust Review</h3><p>Checks whether roles, trust, approvals, and human accountability are clear enough for AI-supported work.</p><span class="exo-map-label"><b>SHAPE / Safe Autonomy</b>Checks whether people, permissions, and accountability are strong enough before AI use expands.</span></div><span class="file-name">Open human and trust review</span></a>
+          <a class="file-card" data-step="2" href="operations-team-90-day-mvis-sprint-plan.md"><div class="file-meta"><span class="tag step2">Prepare pilot</span><span class="tag">90 days</span></div><div><h3>90-Day Pilot Plan</h3><p>Sets up the workspace, activity log, review queue, <span class="term" tabindex="0" data-tip="HIDO is a six-question data checklist: what is the data, who vouches for it, how may it be used, what legal terms apply, what happens if it is wrong, and how disputes are resolved.">HIDO data checklist</span>, and first real-event pilot plan.</p></div><span class="file-name">Open 90-day pilot plan</span></a>
+          <a class="file-card" data-step="3" data-exo-focus href="operations-team-competition-planning-data-manifest.md"><div class="file-meta"><span class="tag step3">Map the data</span><span class="tag">Data</span></div><div><h3>Competition Data Checklist</h3><p>Lists the data the workflow needs, who owns it, how sensitive it is, and how it may be used.</p><span class="exo-map-label"><b>GOVERN + HIDO</b>Controls what data the copilot can use, who owns it, and what happens if the data is wrong.</span></div><span class="file-name">Open data checklist</span></a>
+          <a class="file-card" data-step="4" data-exo-focus href="operations-team-track-field-task-decomposition.md"><div class="file-meta"><span class="tag">Break down work</span><span class="tag">Tasks</span></div><div><h3>Task Breakdown</h3><p>Splits competition planning into 49 tasks and shows which ones AI can draft, which need testing, and which must stay human-owned.</p><span class="exo-map-label"><b>Work Architecture</b>Separates work into AI-draftable tasks, test-first tasks, and human-owned decisions.</span></div><span class="file-name">Open task breakdown</span></a>
+          <a class="file-card" data-step="5" data-exo-focus href="operations-team-competition-planning-copilot-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Copilot</span></div><div><h3>Planning Copilot</h3><p>The draft-only assistant for preparing timetables, checks, role cards, and communications.</p><span class="exo-map-label"><b>DRIVE + Build &amp; Prove</b>Turns decision logic into a copilot, then keeps it draft-only until tested.</span></div><span class="file-name">Open planning copilot</span></a>
+          <a class="file-card" data-step="5" data-exo-focus href="operations-team-youth-performance-meet-v02-end-to-end-run.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Example run</span></div><div><h3>Example Competition Run</h3><p>Shows how the planning copilot works on a realistic Track &amp; Field event example.</p><span class="exo-map-label"><b>Build &amp; Prove</b>Compares copilot recommendations with human judgement before live use.</span></div><span class="file-name">Open example run</span></a>
+          <a class="file-card" data-step="5" href="operations-team-competition-planning-copilot-v02-synthetic-eval.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Safety test</span></div><div><h3>Planning Safety Test</h3><p>Checks whether the planning copilot handles difficult event scenarios without unsafe recommendations.</p></div><span class="file-name">Open planning safety test</span></a>
+          <a class="file-card" data-step="5" href="operations-team-synthetic-real-pilot-evaluation-report.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Pilot report</span></div><div><h3>Test Pilot Report</h3><p>Summarises what the example pilot showed and why the workflow should stay draft-only for now.</p></div><span class="file-name">Open test pilot report</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-pilot-standardization-and-expansion-decision.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Decision</span></div><div><h3>Next-Version Decision</h3><p>Captures what should be improved next and whether a second workflow can be tested.</p></div><span class="file-name">Open next-version decision</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-event-performance-reporting-synthetic-eval.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Reporting</span></div><div><h3>Post-Event Reporting Test</h3><p>Tests the second workflow and shows it needs more improvement before live use.</p></div><span class="file-name">Open reporting test</span></a>
+          <a class="file-card" data-step="6" data-exo-focus href="operations-team-rewire-evolve-step6.md"><div class="file-meta"><span class="tag step6">Learn and improve</span><span class="tag">Routine</span></div><div><h3>New Planning Rhythm</h3><p>Shows how the Operations Team could turn a proven workflow into a weekly planning, review, and improvement routine.</p><span class="exo-map-label"><b>Rewire &amp; Evolve</b>Turns the proven process into the Operations Team's normal planning rhythm.</span></div><span class="file-name">Open planning rhythm</span></a>
+          <a class="file-card" data-step="6" href="operations-team-rewrite-end-to-end-completion-map.md"><div class="file-meta"><span class="tag step6">Learn and improve</span><span class="tag">Map</span></div><div><h3>End-to-End Process Map</h3><p>Shows which parts of the process were completed as an example and which parts still need real-world use.</p></div><span class="file-name">Open process map</span></a>
+          <a class="file-card" data-step="5" href="operations-team-competition-planning-agent-spec-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Agent spec</span></div><div><h3>Planning Agent Specification</h3><p>Defines the planning copilot's purpose, limits, memory, escalation rules, and evaluation checks.</p></div><span class="file-name">Open planning agent spec</span></a>
+          <a class="file-card" data-step="5" href="operations-team-timetable-rules-module-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Rules</span></div><div><h3>Timetable Rules Module</h3><p>Captures the timetable constraints and checks that support safe competition scheduling.</p></div><span class="file-name">Open timetable rules</span></a>
+          <a class="file-card" data-step="5" href="operations-team-role-cards-template-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Roles</span></div><div><h3>Role Cards Template</h3><p>Turns event responsibilities into clear role cards for named leads and support teams.</p></div><span class="file-name">Open role cards template</span></a>
+          <a class="file-card" data-step="5" href="operations-team-venue-event-control-checklists-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Checklists</span></div><div><h3>Venue And Event Control Checklists</h3><p>Defines start-gate, venue, safety, medical, and control checks for event readiness.</p></div><span class="file-name">Open event checklists</span></a>
+          <a class="file-card" data-step="5" href="operations-team-track-field-event-brief-template-v02.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Template</span></div><div><h3>Track &amp; Field Event Brief Template</h3><p>Provides the structured event brief format used to feed the workflow and planning copilot.</p></div><span class="file-name">Open event brief template</span></a>
+          <a class="file-card" data-step="5" href="operations-team-youth-performance-meet-v02-brief.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Example brief</span></div><div><h3>Youth Performance Meet Brief</h3><p>Shows a realistic event brief used as input for the example planning run.</p></div><span class="file-name">Open example event brief</span></a>
+          <a class="file-card" data-step="5" href="operations-team-development-athletics-meet-post-event-synthetic-data.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Synthetic data</span></div><div><h3>Post-Event Synthetic Dataset</h3><p>Provides the synthetic results, feedback, and operations notes used by the reporting workflow.</p></div><span class="file-name">Open synthetic dataset</span></a>
+          <a class="file-card" data-step="5" href="operations-team-aspire-invitational-9-pilot-evaluation-report.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Evaluation</span></div><div><h3>Aspire Invitational 9 Evaluation</h3><p>Summarizes another pilot-style evaluation pass for the competition workflow.</p></div><span class="file-name">Open evaluation report</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-event-performance-reporting-data-manifest.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Reporting data</span></div><div><h3>Reporting Data Manifest</h3><p>Maps the data sources, sensitivity, access rules, and ownership for post-event reporting.</p></div><span class="file-name">Open reporting data manifest</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-event-performance-reporting-task-decomposition.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Reporting tasks</span></div><div><h3>Reporting Task Breakdown</h3><p>Breaks post-event reporting into tasks and identifies what AI may draft versus what stays human-owned.</p></div><span class="file-name">Open reporting task breakdown</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-event-performance-reporting-agent-spec.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Reporting agent</span></div><div><h3>Reporting Agent Specification</h3><p>Defines the post-event reporting assistant's permitted work, boundaries, and review gates.</p></div><span class="file-name">Open reporting agent spec</span></a>
+          <a class="file-card" data-step="5" href="operations-team-post-event-performance-reporting-shadow-run.md"><div class="file-meta"><span class="tag step5">Build and test</span><span class="tag">Shadow run</span></div><div><h3>Reporting Shadow Run</h3><p>Shows how the reporting workflow performs against synthetic event data while staying draft-only.</p></div><span class="file-name">Open reporting shadow run</span></a>
+          <a class="file-card" data-step="6" href="operations-team-competition-planning-copilot-v03-backlog.md"><div class="file-meta"><span class="tag step6">Learn and improve</span><span class="tag">Backlog</span></div><div><h3>Planning Copilot v0.3 Backlog</h3><p>Captures the next improvement backlog after the v0.2 planning workflow evaluation.</p></div><span class="file-name">Open v0.3 backlog</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="next">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">How to use this page</div>
+            <h2>Use the page in three layers.</h2>
+          </div>
+          <p>
+            Start with the plain Operations Team workflow, then turn on the <span class="term" tabindex="0" data-tip="ExO means Exponential Organisations: a model for building organisations that can scale impact through purpose, networks, technology, and adaptive operating systems.">ExO</span> mapping to see which model concepts sit behind each part. Use the final layer to check what must be true before the process is used live.
+          </p>
+        </div>
+
+        <div class="use-guide">
+          <div class="use-switch" aria-label="Workflow view and ExO mapping view">
+            <div class="use-card">
+              <strong>Operations Team workflow view</strong>
+              <span>What the competition team actually does: brief, plan, review, run, report, and learn.</span>
+            </div>
+            <div class="use-arrow">Turn on<br>ExO Mapping</div>
+            <div class="use-card">
+              <strong>ExO mapping view</strong>
+              <span>Which <span class="term" tabindex="0" data-tip="ExO means Exponential Organisations: a model for building organisations that can scale impact through purpose, networks, technology, and adaptive operating systems.">ExO</span> concept sits behind each part of the workflow.</span>
+            </div>
+          </div>
+
+          <div class="use-steps" aria-label="How to use this overview">
+            <div class="use-step" data-order="1">
+              <strong>Understand the workflow</strong>
+              <span>Follow the competition loop: Brief → Plan → Review → Run → Report → Learn.</span>
+            </div>
+            <div class="use-step" data-order="2">
+              <strong>Turn on ExO Mapping</strong>
+              <span>See where <span class="term" tabindex="0" data-tip="DRIVE is ExO's intelligence engine. Its letters stand for Decision Architecture, Recursive Learning, Intelligence Stack, Value Moat, and Elastic Agency.">DRIVE</span>, <span class="term" tabindex="0" data-tip="SHAPE is ExO's organisation design. Its letters stand for Safe Autonomy, Human Architecture, Adaptive Architecture, Purpose Control, and Ecosystem Trust.">SHAPE</span>, <span class="term" tabindex="0" data-tip="HIDO means the Six-Question Data Object Diagnostic: what the data is, who vouches for it, how it may be used, legal terms, what happens if it is wrong, and how disputes are resolved.">HIDO</span>, and <span class="term" tabindex="0" data-tip="Build and Prove means testing a draft-only AI workflow beside humans before it can affect a real event.">Build &amp; Prove</span> appear.</span>
+            </div>
+            <div class="use-step" data-order="3">
+              <strong>Open the Working Pack</strong>
+              <span>Use the source files behind each step: goal setting, readiness, data, tasks, copilot, tests, and learning rhythm.</span>
+            </div>
+            <div class="use-step" data-order="4">
+              <strong>Check live readiness</strong>
+              <span>Before live use, the Operations Team still needs owners, data checks, a live activity log, and one real <span class="term" tabindex="0" data-tip="A shadow event means the AI workflow makes recommendations while humans still make the real decisions.">shadow event</span>.</span>
+            </div>
+          </div>
+
+          <div class="use-layer-grid" aria-label="The three layers of the overview">
+            <div class="use-layer-card">
+              <strong>Workflow layer</strong>
+              <span>What happens in the Track &amp; Field competition process.</span>
+            </div>
+            <div class="use-layer-card">
+              <strong>ExO layer</strong>
+              <span>Why each part exists in the <span class="term" tabindex="0" data-tip="REWRITE is the ExO six-step migration playbook: set the goal, assess readiness, extract knowledge, break down work, build and prove, then rewire the operating rhythm.">REWRITE</span> model.</span>
+            </div>
+            <div class="use-layer-card">
+              <strong>Real-world layer</strong>
+              <span>What must be true before live use: named owners, <span class="term" tabindex="0" data-tip="MVIS means Minimal Viable Intelligence Stack: the first controlled workspace for agents, logs, review queues, data checks, and one pilot workflow.">MVIS</span>, data checks, audit log, and a real <span class="term" tabindex="0" data-tip="A shadow event means the AI workflow makes recommendations while humans still make the real decisions.">shadow event</span>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>
+        This HTML file is a visual navigation layer for the Operations Team competition workflow and links back to <a href="exo-playbook-overview-combined.html">the ExO process overview</a>.
+      </p>
+    </div>
+  </footer>
+
+  <aside class="exo-map-panel" id="exoOverlay" aria-hidden="true">
+    <div class="exo-map-panel-head">
+      <strong>ExO mapping is on</strong>
+      <button class="close-btn" type="button" id="closeOverlay" aria-label="Hide ExO mapping">Hide</button>
+    </div>
+    <p>
+      The blue labels show which ExO concept sits behind each part of the Operations Team competition workflow.
+    </p>
+  </aside>
+
+  <script>
+    const overlay = document.getElementById("exoOverlay");
+    const openButtons = [document.getElementById("openOverlay"), document.getElementById("openOverlayHero")];
+    const closeButton = document.getElementById("closeOverlay");
+
+    function setOverlay(open) {
+      document.body.classList.toggle("exo-map-on", open);
+      overlay.setAttribute("aria-hidden", open ? "false" : "true");
+      openButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", open ? "true" : "false");
+        const label = button.querySelector(".overlay-button-label");
+        if (label) {
+          label.textContent = open ? "Hide ExO Mapping" : "Show ExO Mapping";
+        } else {
+          button.textContent = open ? "Hide ExO Mapping" : "Show ExO Mapping";
+        }
+      });
+    }
+
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setOverlay(!document.body.classList.contains("exo-map-on"));
+      });
+    });
+
+    closeButton.addEventListener("click", () => setOverlay(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOverlay(false);
+      }
+    });
+
+    const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+    const fileCards = Array.from(document.querySelectorAll(".file-card"));
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+        fileCards.forEach((card) => {
+          const visible = filter === "all" || card.dataset.step === filter;
+          card.hidden = !visible;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

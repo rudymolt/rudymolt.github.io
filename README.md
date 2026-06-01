@@ -5,7 +5,10 @@ Static GitHub Pages site for publishing idea maps, visualisations, and experimen
 ## Pages
 
 - `index.html` is the public ideas portal.
-- `exo-3-book-skill-visualisation/index.html` is the first idea page.
+- `exo-3-book-skill-visualisation/exo-playbook-overview-combined.html` is the ExO 3.0 book and skill visualisation.
+- `exo-3-book-skill-visualisation/operations-team-track-field-competition-workflow-overview.html` is the Operations Team workflow example.
+
+Operations Team markdown artifacts are included as background for the workflow example. Source mockups and local copies of external skill/book material are kept out of the published site.
 
 ## Publish With GitHub Pages
 
