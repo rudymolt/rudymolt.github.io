@@ -32,9 +32,149 @@ body.playbook-doc {
 }
 
 .page {
-  max-width: 1040px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 56px var(--pad-x) 96px;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+
+.guide-content {
+  min-width: 0;
+}
+
+.guide-timeline {
+  position: sticky;
+  top: 82px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 14px;
+  box-shadow: 0 10px 26px rgba(22, 22, 20, 0.04);
+}
+
+.guide-title {
+  margin: 0 0 10px;
+  color: var(--ink-mute);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.guide-portal,
+.guide-sequence a {
+  color: var(--human);
+  text-decoration: none;
+}
+
+.guide-portal {
+  display: inline-flex;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.guide-portal:hover,
+.guide-portal:focus-visible,
+.guide-sequence a:hover,
+.guide-sequence a:focus-visible {
+  text-decoration: underline;
+}
+
+.guide-status {
+  margin: 0 0 10px;
+  color: var(--ink-mute);
+  font-size: 13px;
+}
+
+.timeline-steps {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-step {
+  position: relative;
+  min-width: 0;
+  padding: 0 0 12px 22px;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.38em;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--rule);
+  border-radius: 50%;
+  background: var(--panel);
+}
+
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: calc(0.38em + 13px);
+  bottom: 0;
+  border-left: 1px solid var(--rule);
+}
+
+.timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-step:last-child::after {
+  display: none;
+}
+
+.timeline-step a {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.timeline-step a:hover,
+.timeline-step a:focus-visible {
+  color: var(--human);
+}
+
+.timeline-step.is-active::before {
+  border-color: var(--human);
+  background: var(--human);
+}
+
+.timeline-step.is-active a {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.guide-sequence {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+}
+
+.guide-sequence span {
+  display: block;
+  color: var(--ink-mute);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .site-nav {
@@ -438,6 +578,57 @@ button.term > code {
     flex-direction: column;
     position: static;
   }
+  .page {
+    padding-top: 28px;
+  }
+  .guide-layout {
+    display: block;
+  }
+  .guide-timeline {
+    position: static;
+    margin-bottom: 30px;
+  }
+  .guide-title {
+    margin-bottom: 6px;
+  }
+  .guide-portal {
+    margin-bottom: 10px;
+  }
+  .timeline-steps {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 0 10px;
+    scroll-snap-type: x proximity;
+  }
+  .timeline-step {
+    flex: 0 0 auto;
+    padding: 0;
+    scroll-snap-align: start;
+  }
+  .timeline-step::before,
+  .timeline-step::after {
+    display: none;
+  }
+  .timeline-step a {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--panel);
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+  .timeline-step.is-active a {
+    border-color: var(--human);
+    background: var(--human-tint);
+    color: var(--human);
+  }
+  .guide-sequence {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
   .route-builder {
     grid-template-columns: 1fr;
   }
@@ -445,6 +636,7 @@ button.term > code {
 
 @media print {
   .site-nav,
+  .guide-timeline,
   .segmented,
   .copy-button,
   .diagram-actions,
