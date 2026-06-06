@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Engineering Playbook V0.1 · Interactive Guide Hub</title>
+<link rel="stylesheet" href="assets/playbook-docs.css">
+</head>
+<body class="playbook-doc">
+<nav class="site-nav" aria-label="Playbook guides">
+  <a class="brand" href="index.html" aria-current="page">AI Engineering Playbook</a>
+  <div class="links">
+    <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+    <a href="60-the-theory-behind-the-playbook.html">Theory</a>
+    <a href="00-foundations.html">Foundations</a>
+    <a href="10-process/index.html">Process map</a>
+    <a href="30-document-lifecycle.html">Docs lifecycle</a>
+  </div>
+</nav>
+
+<main class="page">
+  <header class="doc-head">
+    <div class="eyebrow">AI Engineering Playbook · V0.1</div>
+    <h1>Interactive Guide Hub</h1>
+    <p class="lede">
+      A practical operating manual for building software with coding agents such
+      as Claude or Codex. It helps you decide what to ask, when to stop and
+      align, how to keep work sliced, and how to verify the code before you
+      accept it.
+    </p>
+    <div class="meta">
+      <span><strong>Status</strong> · Human guide index</span>
+      <span><strong>Last updated</strong> · 2026-06-05</span>
+      <span><strong>Format</strong> · Static interactive HTML</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>What The AI Engineering Playbook Is</h2>
+    <p>
+      The AI Engineering Playbook is a human-led workflow for agent-assisted
+      software development. It is not a framework, model, or replacement for
+      engineering judgement. It is a way to run a coding session so the agent
+      works inside a clear process: understand the task, agree the plan, break
+      the work into vertical slices, implement one slice at a time, review the
+      result, test it, and ship only when the evidence is good enough.
+    </p>
+    <div class="learning-grid">
+      <article class="learning-card">
+        <h3>Prompting structure</h3>
+        <span>Know what context, constraints, acceptance criteria, and evidence to give the agent before it edits code.</span>
+      </article>
+      <article class="learning-card">
+        <h3>Process route map</h3>
+        <span>Decide whether the next move is alignment, slicing, implementation, review, QA, debugging, shipping, or learning.</span>
+      </article>
+      <article class="learning-card">
+        <h3>Verification discipline</h3>
+        <span>Match checks to risk, so small changes stay fast and important changes get tests, browser QA, review, and rollout care.</span>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why It Exists</h2>
+    <p>
+      Claude, Codex, and similar coding agents can move very quickly, but speed
+      creates a new problem: vague requests can produce broad changes, shallow
+      architecture, missing tests, and unclear handoffs. The playbook exists to
+      keep the human in charge of intent and tradeoffs while the agent handles
+      focused execution. It gives both sides a shared rhythm for building code
+      without turning every session into improvisation.
+    </p>
+  </section>
+
+  <section>
+    <h2>How To Use It With Claude Or Codex</h2>
+    <ol>
+      <li>
+        Start with the <a href="10-process/index.html">process map</a> when you
+        are unsure what kind of request you are making. It routes the work to
+        alignment, breakdown, implementation, review, QA, debugging, shipping,
+        or retro.
+      </li>
+      <li>
+        Open <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+        before a real coding session. Use it to shape the prompt you give
+        Claude or Codex: what the goal is, what files matter, what constraints
+        apply, and what evidence you expect back.
+      </li>
+      <li>
+        For new features, use the
+        <a href="10-process/01-align.html">alignment guide</a> before code and
+        the <a href="10-process/04-breakdown.html">breakdown checker</a> before
+        implementation. The goal is one vertical, demoable slice rather than a
+        broad rewrite.
+      </li>
+      <li>
+        During implementation, keep the agent focused on one slice, ask it to
+        explain risky assumptions, and require tests or browser checks that fit
+        the risk of the change.
+      </li>
+      <li>
+        Before accepting the work, use the foundations, review, QA, and document
+        lifecycle pages to check whether the result is understandable,
+        maintainable, tested, and ready to hand off or publish.
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What Was Published Here</h2>
+    <p>
+      This publication turns the playbook into linked, static HTML pages for
+      people using coding agents. It includes this hub, the foundations guide,
+      the 13-stage process map, focused alignment and breakdown explainers, the
+      document lifecycle guide, the practical agent-driving guide, and the theory
+      page that explains the reasoning behind the process.
+    </p>
+  </section>
+
+  <section>
+    <h2>Acknowledgements</h2>
+    <p>
+      This playbook is an adaptation layer built from ideas and practices in the
+      public agent-engineering ecosystem. In particular, it acknowledges
+      <a href="https://www.mattpocock.com/">Matt Pocock</a>'s work on practical
+      coding-agent skills, including
+      <a href="https://github.com/mattpocock/skills">mattpocock/skills</a> and
+      <a href="https://www.skills.sh/mattpocock/skills">skills.sh</a>, and
+      <a href="https://www.ycombinator.com/people/garry-tan">Garry Tan</a>'s
+      <a href="https://gstack.lol/">GStack</a> project and
+      <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>.
+    </p>
+    <p>
+      The pages here do not replace those projects. They organise selected ideas
+      into a human-facing workflow for deciding what to ask an agent to do, when
+      to pause for judgement, and how to verify the result.
+    </p>
+  </section>
+
+  <section class="doc-toc" aria-labelledby="start-title">
+    <h2 id="start-title">Choose What You Need</h2>
+    <div class="hub-grid">
+      <a href="50-how-to-write-code-with-ai.html">
+        <strong>Drive the agent</strong>
+        <span>What to type, how to review, and how to ship.</span>
+      </a>
+      <a href="60-the-theory-behind-the-playbook.html">
+        <strong>Understand the theory</strong>
+        <span>Why the process uses alignment, slicing, TDD, QA, and retros.</span>
+      </a>
+      <a href="00-foundations.html">
+        <strong>Check the principles</strong>
+        <span>Collaboration contract, architecture rules, verification ladder.</span>
+      </a>
+      <a href="10-process/index.html">
+        <strong>Route the work</strong>
+        <span>The 13-stage process map and phrase-to-stage router.</span>
+      </a>
+      <a href="10-process/01-align.html">
+        <strong>Pick alignment tools</strong>
+        <span>Which grill or review skill to use before code.</span>
+      </a>
+      <a href="10-process/04-breakdown.html">
+        <strong>Design slices</strong>
+        <span>Check whether a slice is vertical, demoable, and grabbable.</span>
+      </a>
+      <a href="30-document-lifecycle.html">
+        <strong>Close the docs</strong>
+        <span>Promote, archive, or maintain documents at ship.</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why These Pages Exist</h2>
+    <p>
+      This hub keeps the documentation types separate. §50 is a how-to guide.
+      §60 is an explanation. The process and foundation Markdown files are
+      reference material. The small interactive pages are learning aids for the
+      concepts that are easier to understand by clicking, filtering, and
+      checking examples.
+    </p>
+  </section>
+</main>
+
+<script src="assets/playbook-glossary.js"></script>
+<script src="assets/playbook-docs.js"></script>
+</body>
+</html>
