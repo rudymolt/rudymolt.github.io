@@ -243,19 +243,31 @@
     document.querySelectorAll("[data-quiz]").forEach(function (quiz) {
       var feedback = quiz.querySelector("[data-quiz-feedback]");
       var options = Array.prototype.slice.call(quiz.querySelectorAll("[data-quiz-option]"));
+      if (feedback) {
+        feedback.setAttribute("role", "status");
+        feedback.setAttribute("aria-live", "polite");
+        feedback.setAttribute("tabindex", "-1");
+      }
       options.forEach(function (option) {
+        option.setAttribute("aria-pressed", "false");
         option.addEventListener("click", function () {
           var correct = option.dataset.correct === "true";
           options.forEach(function (o) {
             o.classList.remove("chosen");
+            o.setAttribute("aria-pressed", "false");
             o.classList.toggle("is-correct", o.dataset.correct === "true");
           });
           option.classList.add("chosen");
+          option.setAttribute("aria-pressed", "true");
           quiz.classList.add("answered");
           if (feedback) {
             feedback.hidden = false;
             feedback.className = "quiz-feedback " + (correct ? "good" : "bad");
-            feedback.innerHTML = "<strong>" + (correct ? "✓ Right." : "✗ Not quite.") + "</strong> " + option.dataset.explain;
+            feedback.innerHTML = "<strong>" + (correct ? "✓ Right." : "✗ Not quite.") + "</strong> " + (option.dataset.explain || "");
+            window.requestAnimationFrame(function () {
+              feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              try { feedback.focus({ preventScroll: true }); } catch (e) {}
+            });
           }
         });
       });
