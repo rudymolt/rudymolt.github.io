@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Process Map · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="../00-foundations.html">Foundations</a>
     <a href="index.html" aria-current="page">Process map</a>
     <a href="../30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="../glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -25,17 +26,17 @@
       <a class="guide-portal" href="../../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 3 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="../index.html">00 Hub</a></li>
-        <li class="timeline-step"><a href="../00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step is-active"><a href="index.html" aria-current="page">02 Process map</a></li>
-        <li class="timeline-step"><a href="01-align.html">03 Align</a></li>
-        <li class="timeline-step"><a href="04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step"><a href="../30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="../index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step is-active"><a href="index.html" aria-current="page">03 Process map</a></li>
+        <li class="timeline-step"><a href="01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="../00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step"><a href="../30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
-        <a href="../00-foundations.html"><span>Previous</span> Foundations</a>
+        <a href="../50-how-to-write-code-with-ai.html"><span>Previous</span> Drive agent</a>
         <a href="01-align.html"><span>Next</span> Align →</a>
       </div>
     </aside>
@@ -44,9 +45,10 @@
     <div class="eyebrow">AI Engineering Playbook · §10</div>
     <h1>The 13-Stage Process Map</h1>
     <p class="lede">
-      The playbook is per-feature, not per-sprint: align, capture context,
-      specify, slice, triage, design architecture, implement, review, QA, ship,
-      debug when needed, then retro and learn.
+      The loop you watched in <a href="../50-how-to-write-code-with-ai.html">Drive
+      the agent</a>, drawn as a map. The playbook runs per-feature, not
+      per-sprint: agree the plan, cut it up, build and check one slice at a
+      time, ship, and learn.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
@@ -54,37 +56,199 @@
     </div>
   </header>
 
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="slice">slice</button> or
+    <button class="term" type="button" data-def="prd">PRD</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
+  <section id="map">
+    <h2>The Map</h2>
+    <svg viewBox="0 0 940 350" class="diagram" role="img" aria-label="The process drawn as a loop. The main path runs Align (agree the plan), Context (write terms down), PRD (one-page spec), Slice (cut it up), Build (one slice at a time), Review (check the code), QA (try it for real), Ship (go live). After Ship, Retro captures lessons, and a dashed arrow returns from Ship to Align for the next feature. Three side doors join the loop at any time: Triage when you ask what's next, Architecture when the code feels messy, Debug when something broke.">
+      <defs>
+        <marker id="arrow-map" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
+        </marker>
+      </defs>
+
+      <!-- Return arrow (drawn first, behind nodes) -->
+      <path d="M 871 68 C 871 18, 66 18, 66 66"
+            stroke="#4a4a44" stroke-width="1.5" fill="none"
+            stroke-dasharray="5 4" marker-end="url(#arrow-map)"/>
+      <text x="470" y="22" text-anchor="middle" class="label-mono muted">← next feature</text>
+
+      <!-- Main path nodes -->
+      <!-- Align -->
+      <g>
+        <rect x="20" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+        <text x="66" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">01</text>
+        <text x="66" y="110" text-anchor="middle" class="label-md ink">Align</text>
+        <text x="66" y="146" text-anchor="middle" class="label-body ink-soft">agree</text>
+        <text x="66" y="162" text-anchor="middle" class="label-body ink-soft">the plan</text>
+      </g>
+      <!-- Context -->
+      <g>
+        <rect x="135" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+        <text x="181" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">02</text>
+        <text x="181" y="110" text-anchor="middle" class="label-md ink">Context</text>
+        <text x="181" y="146" text-anchor="middle" class="label-body ink-soft">write terms</text>
+        <text x="181" y="162" text-anchor="middle" class="label-body ink-soft">down</text>
+      </g>
+      <!-- PRD -->
+      <g>
+        <rect x="250" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+        <text x="296" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">03</text>
+        <text x="296" y="110" text-anchor="middle" class="label-md ink">PRD</text>
+        <text x="296" y="146" text-anchor="middle" class="label-body ink-soft">one-page</text>
+        <text x="296" y="162" text-anchor="middle" class="label-body ink-soft">spec</text>
+      </g>
+      <!-- Slice -->
+      <g>
+        <rect x="365" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+        <text x="411" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">04</text>
+        <text x="411" y="110" text-anchor="middle" class="label-md ink">Slice</text>
+        <text x="411" y="146" text-anchor="middle" class="label-body ink-soft">cut it up</text>
+      </g>
+      <!-- Build -->
+      <g>
+        <rect x="480" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+        <text x="526" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">07</text>
+        <text x="526" y="110" text-anchor="middle" class="label-md ink">Build</text>
+        <text x="526" y="146" text-anchor="middle" class="label-body ink-soft">one slice</text>
+        <text x="526" y="162" text-anchor="middle" class="label-body ink-soft">at a time</text>
+      </g>
+      <!-- Review -->
+      <g>
+        <rect x="595" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+        <text x="641" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">08</text>
+        <text x="641" y="110" text-anchor="middle" class="label-md ink">Review</text>
+        <text x="641" y="146" text-anchor="middle" class="label-body ink-soft">check</text>
+        <text x="641" y="162" text-anchor="middle" class="label-body ink-soft">the code</text>
+      </g>
+      <!-- QA -->
+      <g>
+        <rect x="710" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+        <text x="756" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">09</text>
+        <text x="756" y="110" text-anchor="middle" class="label-md ink">QA</text>
+        <text x="756" y="146" text-anchor="middle" class="label-body ink-soft">try it</text>
+        <text x="756" y="162" text-anchor="middle" class="label-body ink-soft">for real</text>
+      </g>
+      <!-- Ship -->
+      <g>
+        <rect x="825" y="68" width="92" height="56" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+        <text x="871" y="90" text-anchor="middle" class="label-sm" fill="#8a4b16">10</text>
+        <text x="871" y="110" text-anchor="middle" class="label-md ink">Ship</text>
+        <text x="871" y="146" text-anchor="middle" class="label-body ink-soft">go live</text>
+      </g>
+
+      <!-- Arrows along the main path -->
+      <line x1="112" y1="96" x2="135" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="227" y1="96" x2="250" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="342" y1="96" x2="365" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="457" y1="96" x2="480" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="572" y1="96" x2="595" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="687" y1="96" x2="710" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="802" y1="96" x2="825" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+
+      <!-- Retro -->
+      <g>
+        <rect x="825" y="206" width="92" height="56" rx="8" fill="#fbfaf6" stroke="#8a4b16" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="871" y="228" text-anchor="middle" class="label-sm" fill="#8a4b16">12</text>
+        <text x="871" y="248" text-anchor="middle" class="label-md ink">Retro</text>
+        <text x="871" y="284" text-anchor="middle" class="label-body ink-soft">lessons learned</text>
+      </g>
+      <line x1="871" y1="170" x2="871" y2="206" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+
+      <!-- Side doors -->
+      <g>
+        <rect x="20" y="206" width="720" height="110" rx="8" fill="#ffffff" stroke="#e2dfd3"/>
+        <text x="40" y="234" class="label-sm muted">SIDE DOORS · JUMP IN FROM HERE ANY TIME</text>
+        <text x="40" y="266" class="label-md ink">05 Triage</text>
+        <text x="40" y="288" class="label-mono" fill="#1e4e8c">"What should I work on?"</text>
+        <text x="290" y="266" class="label-md ink">06 Architecture</text>
+        <text x="290" y="288" class="label-mono" fill="#1e4e8c">"The code feels messy."</text>
+        <text x="540" y="266" class="label-md ink">11 Debug</text>
+        <text x="540" y="288" class="label-mono" fill="#1e4e8c">"Something broke."</text>
+      </g>
+    </svg>
+  </section>
+
   <section class="interactive-panel" data-choice-panel>
     <h2>Route A Request</h2>
-    <p>Pick what the user said. The output is the stage an agent should route to.</p>
+    <p>Pick what you want. The answer leads with the sentence you actually type.</p>
     <div class="choice-grid">
-      <button type="button" data-choice data-choice-title="Build, add, or create a feature" data-choice-body="Route to Stage 01 Align. Grill before code unless it is genuinely a one-liner.">Build feature</button>
-      <button type="button" data-choice data-choice-title="Fix or debug something" data-choice-body="Route to Stage 11 Debug. Reproduce first, then investigate, then fix with a regression test.">Fix bug</button>
-      <button type="button" data-choice data-choice-title="Ship or deploy" data-choice-body="Route to Stage 10 Ship and deploy. Verify, doc-close, open PR, then watch production when configured.">Ship</button>
-      <button type="button" data-choice data-choice-title="What should I work on?" data-choice-body="Route to Stage 05 Triage or /whats-next when no tracker is configured.">What's next?</button>
-      <button type="button" data-choice data-choice-title="The codebase feels messy" data-choice-body="Route to Stage 06 Architecture. Look for shallow modules, duplicated rules, and vocabulary drift.">Messy code</button>
-      <button type="button" data-choice data-choice-title="Is this safe to merge?" data-choice-body="Route to Stage 08 Review. Add design, devex, or security review when the surface demands it.">Review risk</button>
+      <button type="button" data-choice data-choice-title="Build, add, or create a feature"
+        data-choice-body="<strong>You type:</strong> &quot;I want to build [feature].&quot;<br><strong>What happens:</strong> the agent goes to Align and questions the plan before writing any code.<br><em>(Internally this is Stage 01 Align and the /grill-with-docs skill.)</em>">Build a feature</button>
+      <button type="button" data-choice data-choice-title="Fix or debug something"
+        data-choice-body="<strong>You type:</strong> &quot;I found a bug: [what happened].&quot;<br><strong>What happens:</strong> the agent reproduces the problem first, finds the cause, fixes it, and adds a test so that exact bug cannot quietly return.<br><em>(Internally this is Stage 11 Debug.)</em>">Fix a bug</button>
+      <button type="button" data-choice data-choice-title="Ship or deploy"
+        data-choice-body="<strong>You type:</strong> &quot;Ship the feature.&quot;<br><strong>What happens:</strong> the agent runs the final checks, tidies the documents, and opens a PR for you to approve — it never publishes on its own.<br><em>(Internally this is Stage 10 Ship.)</em>">Ship it</button>
+      <button type="button" data-choice data-choice-title="What should I work on?"
+        data-choice-body="<strong>You type:</strong> &quot;What should I work on?&quot;<br><strong>What happens:</strong> the agent looks at the open work and recommends the next most valuable thing.<br><em>(Internally this is Stage 05 Triage and the /whats-next skill.)</em>">What's next?</button>
+      <button type="button" data-choice data-choice-title="The codebase feels messy"
+        data-choice-body="<strong>You type:</strong> &quot;The code feels messy.&quot;<br><strong>What happens:</strong> the agent reviews the structure for duplicated rules and confusing names, and proposes a tidy-up plan before anything is changed.<br><em>(Internally this is Stage 06 Architecture.)</em>">Messy code</button>
+      <button type="button" data-choice data-choice-title="Is this safe to merge?"
+        data-choice-body="<strong>You type:</strong> &quot;Is this safe to merge?&quot;<br><strong>What happens:</strong> the agent reviews the change the way a very senior engineer would, adding design or security checks when it touches screens or sensitive data.<br><em>(Internally this is Stage 08 Review.)</em>">Review risk</button>
     </div>
     <div class="choice-output" data-choice-output>Choose a request.</div>
   </section>
 
-  <section>
-    <h2>Stage Index</h2>
+  <section id="stages">
+    <h2>The 13 Stages, In 4 Phases</h2>
+    <p>
+      Five stages are <span class="card-tag everyday">the everyday five</span> —
+      the ones you will actually drive. The rest are tagged
+      <span class="card-tag reference">agent mostly handles this</span>.
+      Every stage shows what it looks like on the booking-form feature.
+    </p>
+
+    <h3 class="phase-label">Phase 1 · Agree <span class="phase-span">(stages 00–03)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><h3>00 · Prereqs</h3><p>Every session starts by checking skills, repo setup, and guardrails.</p></article>
-      <article class="learning-card"><h3>01 · Align</h3><p>Settle the plan before code. <a href="01-align.html">Open the alignment explainer.</a></p></article>
-      <article class="learning-card"><h3>02 · Context and ADRs</h3><p>Promote settled vocabulary and durable decisions.</p></article>
-      <article class="learning-card"><h3>03 · PRD</h3><p>Turn alignment into a short product requirement.</p></article>
-      <article class="learning-card"><h3>04 · Breakdown</h3><p>Convert the PRD into vertical slices. <a href="04-breakdown.html">Open the slice checker.</a></p></article>
-      <article class="learning-card"><h3>05 · Triage</h3><p>Keep the issue tracker honest and decide what is worth doing.</p></article>
-      <article class="learning-card"><h3>06 · Architecture</h3><p>Review module depth, data flow, and seams every few slices.</p></article>
-      <article class="learning-card"><h3>07 · Implementation</h3><p>Build one slice at a time with TDD.</p></article>
-      <article class="learning-card"><h3>08 · Review</h3><p>Run staff-engineer, design, devex, or security review before PR.</p></article>
-      <article class="learning-card"><h3>09 · QA</h3><p>Use a real browser and add regression tests for found bugs.</p></article>
-      <article class="learning-card"><h3>10 · Ship</h3><p>Open the PR, doc-close, deploy, canary, and benchmark.</p></article>
-      <article class="learning-card"><h3>11 · Debug</h3><p>Diagnose before fixing. No guessing-and-hoping.</p></article>
-      <article class="learning-card"><h3>12 · Retro</h3><p>Capture lessons and promote reusable patterns.</p></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>00 · Prereqs</h3><p>Every session starts by checking skills, repo setup, and guardrails.</p><span class="example"><strong>Booking form:</strong> the agent checks its skills and the repo before touching anything.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>01 · Align</h3><p>Settle the plan before code. <a href="01-align.html">Open the alignment explainer.</a></p><span class="example"><strong>Booking form:</strong> you and the agent agree what "book a session" actually means.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>02 · Context and ADRs</h3><p>Promote settled vocabulary and durable decisions into <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> and <button class="term" type="button" data-def="adr">ADRs</button>.</p><span class="example"><strong>Booking form:</strong> the words <em>slot</em> and <em>booking window</em> get written into CONTEXT.md.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>03 · PRD</h3><p>Turn alignment into a short <button class="term" type="button" data-def="prd">PRD</button>.</p><span class="example"><strong>Booking form:</strong> one page — who can book, when, and what they see afterwards.</span></article>
     </div>
+
+    <h3 class="phase-label">Phase 2 · Cut up <span class="phase-span">(stages 04–06)</span></h3>
+    <div class="learning-grid">
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>04 · Breakdown</h3><p>Convert the PRD into <button class="term" type="button" data-def="slice">vertical slices</button>. <a href="04-breakdown.html">Open the slice checker.</a></p><span class="example"><strong>Booking form:</strong> three slices — see free slots, book a slot, get a confirmation email.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>05 · Triage</h3><p>Keep the <button class="term" type="button" data-def="issuetracker">issue tracker</button> honest and decide what is worth doing.</p><span class="example"><strong>Booking form:</strong> decide whether "cancel a booking" is next, or can wait.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>06 · Architecture</h3><p>Review <button class="term" type="button" data-def="module">module</button> depth, data flow, and <button class="term" type="button" data-def="seam">seams</button> every few slices.</p><span class="example"><strong>Booking form:</strong> check bookings still live in one table before adding reminders.</span></article>
+    </div>
+
+    <h3 class="phase-label">Phase 3 · Build &amp; check <span class="phase-span">(stages 07–09)</span></h3>
+    <div class="learning-grid">
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>07 · Implementation</h3><p>Build one slice at a time with <button class="term" type="button" data-def="tdd">TDD</button>.</p><span class="example"><strong>Booking form:</strong> build "user can book a slot" — test first, then the code.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Run <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review before the <button class="term" type="button" data-def="pr">PR</button>.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use a real browser and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
+    </div>
+
+    <h3 class="phase-label">Phase 4 · Ship &amp; learn <span class="phase-span">(stages 10–12)</span></h3>
+    <div class="learning-grid">
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Open the PR, <button class="term" type="button" data-def="docclose">doc-close</button>, <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button>.</p><span class="example"><strong>Booking form:</strong> PR opened, docs tidied, the booking form goes live.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>11 · Debug</h3><p>Diagnose before fixing. No guessing-and-hoping.</p><span class="example"><strong>Booking form:</strong> two people booked the same slot — reproduce it before fixing it.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>12 · Retro</h3><p>Capture lessons in a <button class="term" type="button" data-def="retro">retro</button> and promote reusable patterns.</p><span class="example"><strong>Booking form:</strong> what made the build slow? Write it down for next time.</span></article>
+    </div>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">A user says "the app crashes when I click save" — where does this route?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Align is for planning new features before code exists. A crash is existing behaviour going wrong — that is a bug report.">Stage 01 · Align</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="A crash is a bug report, so it routes to Debug: reproduce the crash first, find the cause, fix it, and add a regression test so it cannot quietly return.">Stage 11 · Debug</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Ship is for finished, verified work going live. Shipping anything while save crashes would put the bug in front of every user.">Stage 10 · Ship</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="A retro looks back at how a piece of work went. Useful after the crash is fixed — but first someone has to fix it, and that is Debug.">Stage 12 · Retro</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>
     </div>
   </div>

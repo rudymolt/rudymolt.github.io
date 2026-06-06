@@ -1,4 +1,66 @@
+/*
+  Playbook glossary.
+  Each entry: { title, def, group }
+  group: "bedrock"  - absolute basics for readers who have never written code
+         "everyday" - real industry terms, used everywhere in engineering
+         "playbook" - terms this playbook coined; tagged in the popover so
+                      readers know not to expect them elsewhere
+  Entries without a group default to "everyday".
+*/
 window.PLAYBOOK_GLOSSARY = {
+  /* ---- Bedrock: never-written-code-before basics ---- */
+  code: {
+    title: "Code",
+    def: "Instructions written by people (or agents) that tell a computer exactly what to do. An app is made of thousands of lines of it.",
+    group: "bedrock"
+  },
+  database: {
+    title: "Database",
+    def: "Where an app stores its information permanently - like a collection of spreadsheets that the code can read and write.",
+    group: "bedrock"
+  },
+  server: {
+    title: "Server",
+    def: "A computer running somewhere else that answers requests from the app - when you book something online, a server records it.",
+    group: "bedrock"
+  },
+  ui: {
+    title: "UI / frontend",
+    def: "The part of the app you can see and touch: screens, buttons, and forms.",
+    group: "bedrock"
+  },
+  backend: {
+    title: "Logic / backend",
+    def: "The part of the app you cannot see: the rules and data-handling that run behind the screens.",
+    group: "bedrock"
+  },
+  deploy: {
+    title: "Deploy",
+    def: "Putting a new version of the app live so real people can use it.",
+    group: "bedrock"
+  },
+  production: {
+    title: "Production",
+    def: "The live version of the app that real users are using right now - as opposed to a private copy used for building and testing.",
+    group: "bedrock"
+  },
+  bug: {
+    title: "Bug",
+    def: "Anything the app does that it should not do - from a typo on screen to a full crash.",
+    group: "bedrock"
+  },
+  issuetracker: {
+    title: "Issue tracker",
+    def: "A shared to-do list for the project where every task or bug gets a numbered ticket, like #12.",
+    group: "bedrock"
+  },
+  terminal: {
+    title: "Terminal",
+    def: "The text window where you type commands to a computer (or to the agent) instead of clicking buttons.",
+    group: "bedrock"
+  },
+
+  /* ---- Everyday engineering terms ---- */
   adapter: {
     title: "Adapter",
     def: "A thin layer at the edge of the system whose only job is to translate between the outside world and the canonical internal form."
@@ -47,21 +109,21 @@ window.PLAYBOOK_GLOSSARY = {
     title: "Commit",
     def: "A saved snapshot of your changes with a short message describing what they do."
   },
-  contextmd: {
-    title: "CONTEXT.md",
-    def: "A file holding the project's glossary of real-world terms, so the agent uses your exact words everywhere."
+  demoable: {
+    title: "Demoable",
+    def: "Something you could show working to another person - click the button, see the result - rather than progress you have to take on faith."
   },
   designreview: {
     title: "Design review",
     def: "A check of how a screen looks and behaves - layout, spacing, and how it holds up at different screen sizes."
   },
+  devex: {
+    title: "Devex",
+    def: "Developer experience - how quick and pleasant something is for a developer to use: clear errors, good docs, a fast first success."
+  },
   diff: {
     title: "Diff",
     def: "The exact list of lines that were added, removed, or changed between two versions."
-  },
-  docclose: {
-    title: "Doc-close",
-    def: "The tidy-up at ship: lasting decisions and vocabulary move into permanent docs, finished planning notes get archived, and the cleanup is committed on purpose."
   },
   draftpr: {
     title: "Draft PR",
@@ -71,17 +133,21 @@ window.PLAYBOOK_GLOSSARY = {
     title: "Feature branch",
     def: "A branch made specifically to build one feature on. It exists until the work is merged, then is thrown away."
   },
-  gbrain: {
-    title: "GBrain",
-    def: "The agent's long-term memory that persists across sessions and projects, so lessons learned are not forgotten next time."
-  },
   github: {
     title: "GitHub",
     def: "The website where the team's code, pull requests, and review discussions live."
   },
+  greenfield: {
+    title: "Greenfield",
+    def: "A brand-new project with no existing code - a green field with nothing built on it yet."
+  },
   headinghierarchy: {
     title: "Heading hierarchy",
     def: "The nested structure of titles and subtitles. It should match what the eye sees, which also lets screen readers navigate the page."
+  },
+  horizontalslice: {
+    title: "Horizontal slice",
+    def: "Cutting work by layer - all the screens first, or all the database first. Looks tidy, but nothing actually works until every layer is done. The opposite of a vertical slice."
   },
   interface: {
     title: "Interface",
@@ -89,7 +155,8 @@ window.PLAYBOOK_GLOSSARY = {
   },
   ladder: {
     title: "Verification ladder",
-    def: "A simple rule that scales how hard you check a change to how costly it would be to get wrong."
+    def: "A simple rule that scales how hard you check a change to how costly it would be to get wrong.",
+    group: "playbook"
   },
   main: {
     title: "main",
@@ -111,13 +178,13 @@ window.PLAYBOOK_GLOSSARY = {
     title: "Non-trivial",
     def: "Not a tiny one-line fix - a real piece of work big enough to deserve the full process: branch, tests, and PR."
   },
-  playbook: {
-    title: "The playbook",
-    def: "This collection of guides - the process the agent follows on every project."
-  },
   pr: {
     title: "Pull request (PR)",
     def: "A proposal to add changes to the main code. A person has to review and accept it before it lands."
+  },
+  prd: {
+    title: "PRD",
+    def: "Product Requirements Document - a one-page description of what a feature should do, written before building starts."
   },
   productcall: {
     title: "Product call",
@@ -151,17 +218,25 @@ window.PLAYBOOK_GLOSSARY = {
     title: "Retro",
     def: "Short for retrospective - a brief review after a piece of work to capture what went well and what to do differently."
   },
+  seam: {
+    title: "Seam",
+    def: "A natural joint in the code where two parts meet and can be separated cleanly - a good place to cut, test, or change."
+  },
+  slashcommand: {
+    title: "Slash command / skill",
+    def: "A pre-written instruction pack installed into the agent. You never type these - your plain sentences trigger them. The names (like /autoplan) are shown so you can recognise what the agent is doing."
+  },
   slice: {
     title: "Slice (vertical slice)",
     def: "A small piece of the feature that works end-to-end, from screen to database, rather than building one whole layer first."
   },
-  smokefloor: {
-    title: "Smoke floor",
-    def: "The minimum set of quick checks a screen must pass before it counts as done - a floor, not a full test plan."
-  },
   sourceoftruth: {
     title: "Source of truth",
     def: "The one canonical place a piece of data lives. Everything else reads it or works it out from there - never keeps its own rival copy."
+  },
+  staffreview: {
+    title: "Staff-engineer review",
+    def: "A code review done at the standard of a very senior engineer: architecture, naming, and edge cases - not just 'does it run'."
   },
   tdd: {
     title: "Test-driven development (TDD)",
@@ -179,10 +254,6 @@ window.PLAYBOOK_GLOSSARY = {
     title: "Tracer bullet",
     def: "A single thin feature built all the way through every layer, so you can see it work end-to-end and adjust."
   },
-  triggerphrase: {
-    title: "Trigger phrase",
-    def: "A short, standard thing you type to start a stage. The agent recognises the phrase and runs the right process."
-  },
   trunk: {
     title: "Trunk",
     def: "Slang for the main branch - the trusted, shared version everyone builds from."
@@ -194,5 +265,51 @@ window.PLAYBOOK_GLOSSARY = {
   urlstate: {
     title: "URL state",
     def: "When the web address itself remembers which drawer, filter, or tab you have open - so a refresh or shared link lands you back in the same place."
+  },
+  vocabdrift: {
+    title: "Vocabulary drift",
+    def: "When the same thing gets different names in different places (booking / reservation / appointment), which confuses humans and agents alike."
+  },
+
+  /* ---- Playbook-coined terms ---- */
+  contextmd: {
+    title: "CONTEXT.md",
+    def: "A file holding the project's glossary of real-world terms, so the agent uses your exact words everywhere.",
+    group: "playbook"
+  },
+  docclose: {
+    title: "Doc-close",
+    def: "The tidy-up at ship: lasting decisions and vocabulary move into permanent docs, finished planning notes get archived, and the cleanup is committed on purpose.",
+    group: "playbook"
+  },
+  editabilitytier: {
+    title: "Editability tier",
+    def: "A label that says how safe a file is to edit: active source, generated output, frozen reference, or archive.",
+    group: "playbook"
+  },
+  gbrain: {
+    title: "GBrain",
+    def: "The agent's long-term memory that persists across sessions and projects, so lessons learned are not forgotten next time.",
+    group: "playbook"
+  },
+  grill: {
+    title: "Grill",
+    def: "A deliberately tough question-and-answer session in which the agent challenges your plan before any code is written, hunting for gaps and contradictions.",
+    group: "playbook"
+  },
+  playbook: {
+    title: "The playbook",
+    def: "This collection of guides - the process the agent follows on every project.",
+    group: "playbook"
+  },
+  smokefloor: {
+    title: "Smoke floor",
+    def: "From 'smoke test' - switch it on and check nothing visibly smokes. The floor is the minimum set of those quick checks a screen must pass before it counts as done - a floor, not a full test plan.",
+    group: "playbook"
+  },
+  triggerphrase: {
+    title: "Trigger phrase",
+    def: "A short, standard thing you type to start a stage. The agent recognises the phrase and runs the right process.",
+    group: "playbook"
   }
 };

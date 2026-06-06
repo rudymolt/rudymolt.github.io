@@ -30,7 +30,7 @@
     function openPop(termEl) {
       var entry = glossary[termEl.dataset.def];
       if (!entry) return;
-      popTitle.textContent = entry.title;
+      popTitle.textContent = entry.title + (entry.group === "playbook" ? " · playbook term" : "");
       popDef.textContent = entry.def;
       pop.classList.add("open");
 
@@ -192,12 +192,70 @@
   function initChoicePanels() {
     document.querySelectorAll("[data-choice-panel]").forEach(function (panel) {
       var output = panel.querySelector("[data-choice-output]");
-      panel.querySelectorAll("[data-choice]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          panel.querySelectorAll("[data-choice]").forEach(function (b) { b.classList.remove("active"); });
-          button.classList.add("active");
-          if (output) {
-            output.innerHTML = "<strong>" + button.dataset.choiceTitle + "</strong><br>" + button.dataset.choiceBody;
+      var buttons = Array.prototype.slice.call(panel.querySelectorAll("[data-choice]"));
+
+      function select(button) {
+        buttons.forEach(function (b) { b.classList.remove("active"); });
+        button.classList.add("active");
+        if (output) {
+          output.innerHTML = "<strong>" + button.dataset.choiceTitle + "</strong><br>" + button.dataset.choiceBody;
+        }
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () { select(button); });
+      });
+
+      // Auto-select the first option so the panel is never empty on load.
+      if (buttons.length) select(buttons[0]);
+
+      // "Show all answers" toggle: expand every option into a scannable list.
+      if (buttons.length > 1 && output) {
+        var toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "show-all-toggle";
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Show all answers";
+
+        var listWrap = document.createElement("div");
+        listWrap.className = "show-all-list";
+        listWrap.hidden = true;
+        var html = "";
+        buttons.forEach(function (b) {
+          html += "<div class='show-all-item'><strong>" + b.dataset.choiceTitle + "</strong><p>" + b.dataset.choiceBody + "</p></div>";
+        });
+        listWrap.innerHTML = html;
+
+        output.insertAdjacentElement("afterend", listWrap);
+        output.insertAdjacentElement("afterend", toggle);
+
+        toggle.addEventListener("click", function () {
+          var opening = listWrap.hidden;
+          listWrap.hidden = !opening;
+          toggle.textContent = opening ? "Hide all answers" : "Show all answers";
+          toggle.setAttribute("aria-expanded", opening ? "true" : "false");
+        });
+      }
+    });
+  }
+
+  function initQuizzes() {
+    document.querySelectorAll("[data-quiz]").forEach(function (quiz) {
+      var feedback = quiz.querySelector("[data-quiz-feedback]");
+      var options = Array.prototype.slice.call(quiz.querySelectorAll("[data-quiz-option]"));
+      options.forEach(function (option) {
+        option.addEventListener("click", function () {
+          var correct = option.dataset.correct === "true";
+          options.forEach(function (o) {
+            o.classList.remove("chosen");
+            o.classList.toggle("is-correct", o.dataset.correct === "true");
+          });
+          option.classList.add("chosen");
+          quiz.classList.add("answered");
+          if (feedback) {
+            feedback.hidden = false;
+            feedback.className = "quiz-feedback " + (correct ? "good" : "bad");
+            feedback.innerHTML = "<strong>" + (correct ? "✓ Right." : "✗ Not quite.") + "</strong> " + option.dataset.explain;
           }
         });
       });
@@ -221,10 +279,10 @@
     document.querySelectorAll("[data-tier-select]").forEach(function (select) {
       var output = document.querySelector(select.dataset.tierSelect);
       var tiers = {
-        planning: "Tier 1: ephemeral. Keep it during the build, then archive it at ship.",
-        adr: "Tier 2: decision. Promote it to an ADR when it is hard to reverse, surprising, and a real trade-off.",
-        living: "Tier 3: living doc. Keep it present-tense and update it as the project changes.",
-        generated: "Generated output. Treat it as derived; patch only when the source pipeline is unavailable."
+        planning: "Tier 1 — temporary. Useful every day during the build, then archived at ship so it cannot go stale and mislead anyone later.",
+        adr: "Tier 2 — decision record. Promote it to an ADR when the choice is hard to reverse, surprising, and a real trade-off.",
+        living: "Tier 3 — living document. Keep it present-tense and update it as the project changes.",
+        generated: "Generated output. Treat it as derived: fix the source that produces it, not the file itself."
       };
       select.addEventListener("change", function () {
         if (output) output.textContent = tiers[select.value] || "Choose a document type.";
@@ -238,6 +296,7 @@
     initPhraseTool();
     initExplainers();
     initChoicePanels();
+    initQuizzes();
     initChecklists();
     initTierSimulator();
   }

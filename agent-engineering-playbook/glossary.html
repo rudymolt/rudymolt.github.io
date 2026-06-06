@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary · AI Engineering Playbook V0.1</title>
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-newcomer">
+</head>
+<body class="playbook-doc">
+<nav class="site-nav" aria-label="Playbook guides">
+  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <div class="links">
+    <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+    <a href="60-the-theory-behind-the-playbook.html">Theory</a>
+    <a href="00-foundations.html">Foundations</a>
+    <a href="10-process/index.html">Process map</a>
+    <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="glossary.html" aria-current="page">Glossary</a>
+  </div>
+</nav>
+
+<main class="page">
+  <header class="doc-head">
+    <div class="eyebrow">AI Engineering Playbook · Glossary</div>
+    <h1>Glossary</h1>
+    <p class="lede">
+      Every term the guides use, in plain English, on one page. These are the
+      same definitions behind the dotted-underline popovers — generated from
+      the same source, so they never drift apart.
+    </p>
+    <div class="meta">
+      <span><strong>Publication</strong> · Generated from the popover glossary</span>
+    </div>
+  </header>
+
+  <section class="doc-toc" aria-label="Glossary sections">
+    <h2>Sections</h2>
+    <div class="toc-grid">
+      <a href="#bedrock">Bedrock<span>The absolute basics — start here if you have never written code.</span></a>
+      <a href="#everyday">Everyday terms<span>Real engineering language you will meet everywhere, not just here.</span></a>
+      <a href="#playbook-terms">Playbook terms<span>Coined by this playbook — don't expect them elsewhere.</span></a>
+    </div>
+  </section>
+
+  <section id="bedrock">
+    <h2>Bedrock</h2>
+    <p>The eight-or-so words everything else stands on. If you have never written code, read these first.</p>
+    <div class="glossary-list" data-glossary-group="bedrock"></div>
+  </section>
+
+  <section id="everyday">
+    <h2>Everyday Terms</h2>
+    <p>Real industry language. Learning these pays off everywhere, not just in this playbook.</p>
+    <div class="glossary-list" data-glossary-group="everyday"></div>
+  </section>
+
+  <section id="playbook-terms">
+    <h2>Playbook Terms</h2>
+    <p>Terms this playbook coined for its own process. Useful here; don't expect other engineers to know them.</p>
+    <div class="glossary-list" data-glossary-group="playbook"></div>
+  </section>
+</main>
+
+<script src="assets/playbook-glossary.js"></script>
+<script src="assets/playbook-docs.js"></script>
+<script>
+(function () {
+  var glossary = window.PLAYBOOK_GLOSSARY || {};
+  var entries = Object.keys(glossary).map(function (key) {
+    var e = glossary[key];
+    return { title: e.title, def: e.def, group: e.group || "everyday" };
+  });
+  entries.sort(function (a, b) {
+    return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+  });
+  document.querySelectorAll("[data-glossary-group]").forEach(function (list) {
+    var group = list.dataset.glossaryGroup;
+    var html = "";
+    entries.forEach(function (e) {
+      if (e.group !== group) return;
+      html += "<article class='glossary-entry'><h3>" + e.title +
+        (group === "playbook" ? "<span class='pb-tag'>playbook term</span>" : "") +
+        "</h3><p>" + e.def + "</p></article>";
+    });
+    list.innerHTML = html;
+  });
+})();
+</script>
+</body>
+</html>

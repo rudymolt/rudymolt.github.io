@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Document Lifecycle · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
     <a href="30-document-lifecycle.html" aria-current="page">Docs lifecycle</a>
+    <a href="glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -25,14 +26,14 @@
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 8 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="index.html">00 Hub</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step"><a href="10-process/index.html">02 Process map</a></li>
-        <li class="timeline-step"><a href="10-process/01-align.html">03 Align</a></li>
-        <li class="timeline-step"><a href="10-process/04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step is-active"><a href="30-document-lifecycle.html" aria-current="page">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step is-active"><a href="30-document-lifecycle.html" aria-current="page">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="60-the-theory-behind-the-playbook.html"><span>Previous</span> Theory</a>
@@ -44,23 +45,93 @@
     <div class="eyebrow">AI Engineering Playbook · §30</div>
     <h1>Document Lifecycle</h1>
     <p class="lede">
-      Build-time documents are useful during the build and dangerous afterwards.
-      Doc-close decides what gets archived, promoted, or kept living.
+      Build-time documents are useful during the build and dangerous
+      afterwards. <button class="term" type="button" data-def="docclose">Doc-close</button>
+      decides what gets archived, promoted, or kept living.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
     </div>
   </header>
 
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="docclose">doc-close</button> or
+    <button class="term" type="button" data-def="adr">ADR</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
+  <section id="journey">
+    <h2>The Journey Of One Document</h2>
+    <p>
+      Take <code>plan-notes.md</code> — the to-do list and thinking-out-loud
+      notes from the booking-form build. It is used every day during the build.
+      When the feature ships, doc-close asks: what now?
+    </p>
+    <svg viewBox="0 0 900 330" class="diagram" role="img" aria-label="The journey of one document. The feature starts; plan-notes.md is used daily during the build. At ship, doc-close asks 'what now?' and the document splits three ways: a decision that is hard to undo is promoted to an ADR and kept; words everyone now uses are promoted to CONTEXT.md and kept; the rest moves to the archive folder — out of the agent's sight, but not deleted.">
+      <defs>
+        <marker id="arrow-doc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
+        </marker>
+      </defs>
+
+      <!-- Start marker -->
+      <text x="40" y="40" class="label-sm muted">FEATURE STARTS</text>
+      <line x1="60" y1="50" x2="60" y2="90" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
+
+      <!-- plan-notes.md -->
+      <rect x="20" y="96" width="200" height="60" rx="8" fill="#ffffff" stroke="#1e4e8c" stroke-width="1.5"/>
+      <text x="120" y="122" text-anchor="middle" class="label-mono" fill="#1e4e8c">plan-notes.md</text>
+      <text x="120" y="142" text-anchor="middle" class="label-body ink-soft">used daily during the build</text>
+
+      <!-- arrow to doc-close -->
+      <line x1="220" y1="126" x2="370" y2="126" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
+      <text x="295" y="114" text-anchor="middle" class="label-sm muted">FEATURE SHIPS</text>
+
+      <!-- doc-close decision -->
+      <rect x="374" y="96" width="150" height="60" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+      <text x="449" y="122" text-anchor="middle" class="label-md ink">doc-close</text>
+      <text x="449" y="142" text-anchor="middle" class="label-body ink-soft">what now?</text>
+
+      <!-- three branches -->
+      <path d="M 524 110 C 580 90, 600 60, 640 56" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+      <path d="M 524 126 C 580 126, 600 156, 640 156" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+      <path d="M 524 142 C 580 162, 600 246, 640 252" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+
+      <!-- ADR -->
+      <rect x="644" y="28" width="236" height="58" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <text x="660" y="52" class="label-md ink">→ ADR <tspan class="label-body ink-soft">(keep)</tspan></text>
+      <text x="660" y="72" class="label-body ink-soft">a decision that is hard to undo</text>
+
+      <!-- CONTEXT.md -->
+      <rect x="644" y="128" width="236" height="58" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <text x="660" y="152" class="label-md ink">→ CONTEXT.md <tspan class="label-body ink-soft">(keep)</tspan></text>
+      <text x="660" y="172" class="label-body ink-soft">words everyone now uses</text>
+
+      <!-- archive -->
+      <rect x="644" y="224" width="236" height="58" rx="8" fill="#fbfaf6" stroke="#7a786f" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="660" y="248" class="label-md ink">→ archive/</text>
+      <text x="660" y="268" class="label-body ink-soft">the rest — out of the agent's</text>
+      <text x="660" y="284" class="label-body ink-soft">sight, but not deleted</text>
+    </svg>
+  </section>
+
   <section class="interactive-panel">
     <h2>Classify A Document</h2>
-    <p>Choose the document type to see its tier and fate.</p>
+    <p>
+      The playbook sorts every document into a
+      <button class="term" type="button" data-def="editabilitytier">tier</button>
+      — a label saying how long it should live and who may edit it. Choose a
+      document type to see its tier and fate.
+    </p>
     <select class="tier-select" data-tier-select="#tier-output">
       <option value="">Choose a document type</option>
-      <option value="planning">Planning notes or prompt scratchpad</option>
-      <option value="adr">Hard-to-reverse decision</option>
-      <option value="living">CONTEXT.md, AGENTS.md, design glossary</option>
-      <option value="generated">Generated output</option>
+      <option value="planning">Planning notes or prompt scratchpad (the to-do list and thinking-out-loud notes from the build)</option>
+      <option value="adr">Hard-to-reverse decision (e.g. which payment provider to use)</option>
+      <option value="living">CONTEXT.md, AGENTS.md, design glossary (the project's own dictionary)</option>
+      <option value="generated">Generated output (files a tool produces from a source)</option>
     </select>
     <p id="tier-output" class="choice-output">Choose a document type.</p>
   </section>
@@ -68,13 +139,20 @@
   <section class="interactive-panel" data-checklist>
     <h2>Doc-Close Checklist</h2>
     <div class="checklist">
-      <label><input type="checkbox"> Run <code>git status --short</code> before doc-close starts.</label>
-      <label><input type="checkbox"> Promote surviving decisions to ADRs.</label>
-      <label><input type="checkbox"> Promote surviving vocabulary to <code>CONTEXT.md</code> or design glossary.</label>
-      <label><input type="checkbox"> Update durable source docs and release notes.</label>
-      <label><input type="checkbox"> Ask whether anything deserves promotion to the playbook.</label>
-      <label><input type="checkbox"> Move finished planning docs to <code>archive/</code>.</label>
-      <label><input type="checkbox"> Commit the doc-close intentionally.</label>
+      <label><input type="checkbox"> <span>Run <code>git status --short</code> before doc-close starts.
+        <span class="why">A quick command that lists unsaved changes — so the tidy-up starts from a known state, with no surprise files.</span></span></label>
+      <label><input type="checkbox"> <span>Promote surviving decisions to
+        <button class="term" type="button" data-def="adr">ADRs</button>.
+        <span class="why">Any choice that is hard to reverse gets its own one-page "why" note.</span></span></label>
+      <label><input type="checkbox"> <span>Promote surviving vocabulary to
+        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> or the design glossary.
+        <span class="why">Words the build settled on — like <em>slot</em> and <em>booking window</em> — become official.</span></span></label>
+      <label><input type="checkbox"> <span>Update durable source docs and release notes.</span></label>
+      <label><input type="checkbox"> <span>Ask whether anything deserves promotion to the
+        <button class="term" type="button" data-def="playbook">playbook</button>.</span></label>
+      <label><input type="checkbox"> <span>Move finished planning docs to <code>archive/</code>.</span></label>
+      <label><input type="checkbox"> <span>Commit the doc-close intentionally.
+        <span class="why">The tidy-up is saved as its own deliberate <button class="term" type="button" data-def="commit">commit</button>, not mixed in with other changes.</span></span></label>
     </div>
     <div class="checklist-status" data-checklist-output></div>
   </section>
@@ -82,10 +160,28 @@
   <section>
     <h2>Why Archive Instead Of Delete?</h2>
     <p>
-      Archive gives the same agent-context outcome as deletion because agents
-      are instructed not to read <code>archive/</code>. Humans still have old
-      build narratives available for incident archaeology.
+      Archiving gives the same outcome as deletion for the agent, because
+      agents are instructed not to read <code>archive/</code>. But humans keep
+      the old build notes — useful when someone needs to dig into how an old
+      <button class="term" type="button" data-def="bug">bug</button> was
+      introduced, months after everyone has forgotten the details.
     </p>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">A build just shipped. What happens to its <code>plan-notes.md</code> — the to-do list and thinking-out-loud notes?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Close — the agent stops reading it either way. But humans keep old notes for digging into how an old bug was introduced. So: archive, not delete.">Deleted forever</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="Planning notes are Tier 1 — temporary. They were true during the build and dangerous afterwards, so they move out of the agent's sight without being destroyed.">Moved to archive/</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="That treatment is reserved for living docs like CONTEXT.md. Stale planning notes that still look current are exactly how agents get misled.">Kept and updated forever</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Only decisions that are hard to reverse get promoted, and they are extracted from the notes first. The notes as a whole are archived.">Promoted to an ADR</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>
     </div>
   </div>

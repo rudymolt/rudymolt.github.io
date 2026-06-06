@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Foundations · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="00-foundations.html" aria-current="page">Foundations</a>
     <a href="10-process/index.html">Process map</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -23,20 +24,20 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 2 of 8</p>
+      <p class="guide-status">Step 6 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="index.html">00 Hub</a></li>
-        <li class="timeline-step is-active"><a href="00-foundations.html" aria-current="page">01 Foundations</a></li>
-        <li class="timeline-step"><a href="10-process/index.html">02 Process map</a></li>
-        <li class="timeline-step"><a href="10-process/01-align.html">03 Align</a></li>
-        <li class="timeline-step"><a href="10-process/04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step"><a href="30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step is-active"><a href="00-foundations.html" aria-current="page">06 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
-        <a href="index.html"><span>Previous</span> Hub</a>
-        <a href="10-process/index.html"><span>Next</span> Process map →</a>
+        <a href="10-process/04-breakdown.html"><span>Previous</span> Breakdown</a>
+        <a href="60-the-theory-behind-the-playbook.html"><span>Next</span> Theory →</a>
       </div>
     </aside>
     <div class="guide-content">
@@ -54,6 +55,15 @@
     </div>
   </header>
 
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="tdd">TDD</button> or
+    <button class="term" type="button" data-def="module">module</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
   <section class="doc-toc" aria-labelledby="foundation-map">
     <h2 id="foundation-map">Principle Map</h2>
     <div class="toc-grid">
@@ -67,31 +77,85 @@
   <section id="contract">
     <h2>The Collaboration Contract</h2>
     <p>
-      The agent should read context, ask before inventing domain rules, push
-      back constructively, and avoid work the user did not ask for. The human
-      owns intent and approval; the agent owns execution and verification.
+      The agent should read context, ask before inventing rules about your
+      world, push back constructively, and avoid work you did not ask for.
+      You own intent and approval; the agent owns execution and verification.
+      You saw this contract in action across the whole of
+      <a href="50-how-to-write-code-with-ai.html">Drive the agent</a> — this
+      page states it as a principle.
     </p>
   </section>
 
   <section id="architecture" class="interactive-panel" data-choice-panel>
     <h2>Architecture Decisions That Compound</h2>
-    <p>Click a decision to see why it matters.</p>
+    <p>Click a decision to see why it matters — each with an everyday analogy and what it looks like on the booking form.</p>
     <div class="choice-grid">
-      <button type="button" data-choice data-choice-title="One source of truth" data-choice-body="Every piece of data has one canonical home. Everything else reads or derives from it, which removes sync bugs and gives the agent one place to debug.">One source of truth</button>
-      <button type="button" data-choice data-choice-title="Adapters at the edges" data-choice-body="Screens, routes, and outside services translate to and from the canonical form. Domain rules stay in the centre instead of leaking across the app.">Adapters at the edges</button>
-      <button type="button" data-choice data-choice-title="Deep modules" data-choice-body="A small interface with substantial behaviour behind it is easier for humans and agents to use without understanding internals.">Deep modules</button>
-      <button type="button" data-choice data-choice-title="Editability tiers" data-choice-body="Declare what is active source, generated output, frozen reference, and archive so agents know where edits are safe.">Editability tiers</button>
+      <button type="button" data-choice data-choice-title="One source of truth"
+        data-choice-body="Every piece of data has one canonical home. Everything else reads or derives from it, which removes sync bugs and gives the agent one place to debug.<br><em>Like one master wall calendar: every printout copies from it, and nobody edits a printout expecting the wall calendar to change.</em><br><strong>Booking form:</strong> bookings live in one table; the calendar screen and the confirmation email both read from it — neither keeps its own copy.">One source of truth</button>
+      <button type="button" data-choice data-choice-title="Adapters at the edges"
+        data-choice-body="Screens, routes, and outside services translate to and from the canonical form at the edge of the system, so the rules in the centre never have to care about outside quirks.<br><em>Like a travel plug adapter: the appliance never needs to know which country's socket it is in.</em><br><strong>Booking form:</strong> the payment provider speaks its own language; a small adapter translates it into your booking record, so payment quirks never leak into the rest of the app.">Adapters at the edges</button>
+      <button type="button" data-choice data-choice-title="Deep modules"
+        data-choice-body="A small interface with substantial behaviour behind it is easier for humans and agents to use without understanding the internals.<br><em>Like a car: a wheel and two pedals on the outside, enormous machinery hidden underneath.</em><br><strong>Booking form:</strong> a send-confirmation module exposes one action — send confirmation for this booking — and hides templates, retries, and the email provider behind it.">Deep modules</button>
+      <button type="button" data-choice data-choice-title="Editability tiers"
+        data-choice-body="Declare what is active source, generated output, frozen reference, and archive, so agents know where edits are safe.<br><em>Like an office: the whiteboard is for writing on, the printed handbook is not, and the boxes in the basement are archives.</em><br><strong>Booking form:</strong> the booking rules file is active source; the generated availability page is output — fix the generator, not the page.">Editability tiers</button>
     </div>
     <div class="choice-output" data-choice-output>Choose a principle.</div>
   </section>
 
-  <section id="verification" class="interactive-panel" data-choice-panel>
-    <h2>Verification Ladder</h2>
+  <section id="verification">
+    <h2>The Verification Ladder</h2>
+    <p>
+      The <button class="term" type="button" data-def="ladder">verification
+      ladder</button> is one rule: match the checking effort to what a mistake
+      would cost. Tiny edits stay fast; risky changes earn every check.
+    </p>
+    <svg viewBox="0 0 900 400" class="diagram" role="img" aria-label="The verification ladder drawn as five rungs, risk increasing upwards. Rung 1, a typo: just look at it and save. Rung 2, tidy-up of one file: typecheck plus existing tests. Rung 3, new behaviour: write the test first, TDD. Rung 4, a change crossing modules: tests plus a browser check. Rung 5, auth, payments and deploys: everything below plus security review and a watched rollout. Caption: match the checking effort to what a mistake would cost.">
+      <defs>
+        <marker id="arrow-risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a786f"/>
+        </marker>
+      </defs>
+
+      <!-- Risk axis -->
+      <line x1="40" y1="330" x2="40" y2="48" stroke="#7a786f" stroke-width="1.5" marker-end="url(#arrow-risk)"/>
+      <text x="28" y="190" text-anchor="middle" class="label-sm muted" transform="rotate(-90 28 190)">MORE RISK</text>
+
+      <!-- Rung 5 -->
+      <rect x="80" y="40" width="790" height="50" rx="6" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+      <text x="98" y="64" class="label-md ink">5 · Auth, payments, deploys</text>
+      <text x="98" y="82" class="label-body ink-soft">everything below + security review + watched rollout</text>
+
+      <!-- Rung 4 -->
+      <rect x="80" y="100" width="680" height="50" rx="6" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <text x="98" y="124" class="label-md ink">4 · Change crossing modules</text>
+      <text x="98" y="142" class="label-body ink-soft">tests + browser check</text>
+
+      <!-- Rung 3 -->
+      <rect x="80" y="160" width="570" height="50" rx="6" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <text x="98" y="184" class="label-md ink">3 · New behaviour</text>
+      <text x="98" y="202" class="label-body ink-soft">write the test first (TDD)</text>
+
+      <!-- Rung 2 -->
+      <rect x="80" y="220" width="460" height="50" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <text x="98" y="244" class="label-md ink">2 · Tidy-up of one file</text>
+      <text x="98" y="262" class="label-body ink-soft">typecheck + existing tests</text>
+
+      <!-- Rung 1 -->
+      <rect x="80" y="280" width="350" height="50" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <text x="98" y="304" class="label-md ink">1 · Typo</text>
+      <text x="98" y="322" class="label-body ink-soft">just look at it and save</text>
+
+      <text x="470" y="372" text-anchor="middle" class="label-body muted">Match the checking effort to what a mistake would cost.</text>
+    </svg>
+  </section>
+
+  <section id="verification-panel" class="interactive-panel" data-choice-panel>
+    <h2>Find Your Rung</h2>
     <p>Pick the change type to see the minimum verification owed.</p>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Typo or comment edit" data-choice-body="Eyeball the change and save. Do not turn tiny edits into ceremony.">Typo</button>
-      <button type="button" data-choice data-choice-title="Single-file local refactor" data-choice-body="Run type-checking plus the relevant unit tests. The public behaviour should not change.">Local refactor</button>
-      <button type="button" data-choice data-choice-title="New behaviour in one module" data-choice-body="Use TDD: red, green, refactor. Test through the public interface.">New behaviour</button>
+      <button type="button" data-choice data-choice-title="Single-file local refactor" data-choice-body="Run typechecking plus the relevant unit tests. The public behaviour should not change — a refactor that changes behaviour is a bug.">Local refactor</button>
+      <button type="button" data-choice data-choice-title="New behaviour in one module" data-choice-body="Use TDD: red, green, refactor. Test through the public interface, not the internal wiring.">New behaviour</button>
       <button type="button" data-choice data-choice-title="New behaviour across modules" data-choice-body="Use TDD, integration tests, and a browser QA run when the workflow has a UI.">Cross-module</button>
       <button type="button" data-choice data-choice-title="Auth, payments, user data, public endpoints, or deploy" data-choice-body="Run the full ladder plus security review, monitored rollout, and rollback or backup thinking.">High risk</button>
     </div>
@@ -100,14 +164,38 @@
 
   <section id="pitfalls" class="interactive-panel" data-checklist>
     <h2>Pitfall Checklist</h2>
+    <p>Before you accept the agent's work, check that it…</p>
     <div class="checklist">
-      <label><input type="checkbox"> I am not inventing a domain rule.</label>
-      <label><input type="checkbox"> I am using the vocabulary from <code>CONTEXT.md</code>.</label>
-      <label><input type="checkbox"> I am patching surgically, not rewriting by default.</label>
-      <label><input type="checkbox"> I matched verification depth to the risk.</label>
-      <label><input type="checkbox"> I kept feature work and refactors separate.</label>
+      <label><input type="checkbox"> <span>…did not invent a rule about your world.
+        <span class="why">Failure looks like: the agent decided bookings can be cancelled up to two hours before, without asking you.</span></span></label>
+      <label><input type="checkbox"> <span>…uses the vocabulary from
+        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button>.
+        <span class="why">Failure looks like: half the code says <em>booking</em>, the other half says <em>reservation</em>.</span></span></label>
+      <label><input type="checkbox"> <span>…patched surgically rather than rewriting by default.
+        <span class="why">Failure looks like: you asked for a label fix and got a rewritten screen.</span></span></label>
+      <label><input type="checkbox"> <span>…matched verification depth to the risk.
+        <span class="why">Failure looks like: a payments change shipped with no tests because "it looked fine".</span></span></label>
+      <label><input type="checkbox"> <span>…kept feature work and
+        <button class="term" type="button" data-def="refactor">refactors</button> separate.
+        <span class="why">Failure looks like: a bug fix tangled inside a big tidy-up, so you cannot tell which line fixed the bug.</span></span></label>
     </div>
     <div class="checklist-status" data-checklist-output></div>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">You fixed a typo in a code comment — how much checking does it need?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Not wrong, but wasted effort — a comment cannot change how the app behaves. The ladder exists so tiny edits stay cheap and the big checks stay affordable.">Run the full test suite</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="A comment cannot change how the app behaves, so rung 1 applies: eyeball it and move on. Saving the ceremony for changes that can actually break something is the whole point of the ladder.">Just look at the change and save</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Regression tests guard against bugs in behaviour. A comment has no behaviour to test.">Write a regression test first</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Security review is rung 5 — auth, payments, deploys. A typo in a comment is rung 1: look at it and save.">Ask for a security review</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>
     </div>
   </div>
