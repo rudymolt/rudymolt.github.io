@@ -572,6 +572,356 @@ button.term > code {
   color: var(--ink-mute);
 }
 
+/* ---- Glossary tip box (shared with §50) ---- */
+.term-hint {
+  background: var(--human-tint);
+  border-left: 3px solid var(--human);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 14px 0 26px;
+  max-width: var(--measure);
+}
+.term-hint strong { color: var(--human); }
+.term-hint kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--ink);
+}
+
+/* ---- Callout (shared with §50) ---- */
+.callout {
+  border-left: 3px solid var(--warn);
+  background: var(--warn-tint);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 20px 0;
+  font-size: 15px;
+  max-width: var(--measure);
+}
+.callout strong { color: var(--warn); }
+.callout.info {
+  border-left-color: var(--human);
+  background: var(--human-tint);
+}
+.callout.info strong { color: var(--human); }
+
+/* ---- "Check yourself" quiz ---- */
+.quiz-q {
+  font-weight: 600;
+  font-size: 17px;
+  max-width: var(--measure);
+}
+.quiz-options {
+  display: grid;
+  gap: 10px;
+  max-width: var(--measure);
+  margin: 0 0 14px;
+}
+.quiz-options button {
+  text-align: left;
+  border: 1px solid var(--rule);
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+.quiz-options button:hover,
+.quiz-options button:focus-visible {
+  border-color: var(--human);
+}
+.quiz.answered .quiz-options button.is-correct {
+  border-color: var(--agent);
+  background: var(--agent-tint);
+}
+.quiz.answered .quiz-options button.chosen:not(.is-correct) {
+  border-color: var(--warn);
+  background: var(--warn-tint);
+}
+.quiz-feedback {
+  border-left: 3px solid var(--agent);
+  background: var(--agent-tint);
+  padding: 12px 14px;
+  border-radius: 0 8px 8px 0;
+  max-width: var(--measure);
+}
+.quiz-feedback.good strong { color: var(--agent); }
+.quiz-feedback.bad {
+  border-left-color: var(--warn);
+  background: var(--warn-tint);
+}
+.quiz-feedback.bad strong { color: var(--warn); }
+
+/* ---- "Show all answers" toggle on choice panels ---- */
+.show-all-toggle {
+  margin-top: 12px;
+  min-height: 40px;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.show-all-toggle:hover,
+.show-all-toggle:focus-visible {
+  border-color: var(--human);
+  color: var(--human);
+}
+.show-all-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+.show-all-item {
+  border: 1px solid var(--rule-soft);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fff;
+}
+.show-all-item p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* ---- Tool script cards (YOU TYPE / WHAT HAPPENS / DONE WHEN) ---- */
+.tool-script {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px 18px;
+  margin: 14px 0;
+  max-width: var(--measure);
+}
+.tool-script h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+.tool-script .row {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 4px 14px;
+  padding: 5px 0;
+}
+.script-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-mute);
+  padding-top: 3px;
+}
+.script-say {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: inline-block;
+}
+.tool-script .skill-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+}
+@media (max-width: 600px) {
+  .tool-script .row { grid-template-columns: 1fr; }
+}
+
+/* ---- Sample dialogue ---- */
+.dialogue {
+  display: grid;
+  gap: 8px;
+  max-width: var(--measure);
+  margin: 16px 0;
+}
+.dialogue .line {
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  font-size: 15px;
+}
+.dialogue .you {
+  background: var(--human-tint);
+  border-left: 3px solid var(--human);
+}
+.dialogue .agent {
+  background: var(--agent-tint);
+  border-left: 3px solid var(--agent);
+}
+.dialogue .who {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
+}
+
+/* ---- Hub primer ---- */
+.primer {
+  border: 1px solid var(--human);
+  background: var(--human-tint);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 0 0 32px;
+}
+.primer h2 {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: var(--human);
+}
+.primer > p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.primer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px 22px;
+  margin: 0;
+}
+.primer-grid div { font-size: 14px; }
+.primer-grid dt {
+  font-weight: 700;
+  display: inline;
+}
+.primer-grid dd {
+  display: inline;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---- Start-path button ---- */
+.start-path {
+  display: inline-block;
+  background: var(--human);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.start-path:hover,
+.start-path:focus-visible {
+  background: #163d6f;
+}
+.start-note {
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+/* ---- Card and stage tags ---- */
+.card-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 2px 9px;
+  margin-bottom: 6px;
+  border: 1px solid;
+}
+.card-tag.start {
+  color: var(--warn);
+  border-color: var(--warn);
+  background: var(--warn-tint);
+}
+.card-tag.everyday {
+  color: var(--agent);
+  border-color: var(--agent);
+  background: var(--agent-tint);
+}
+.card-tag.reference {
+  color: var(--ink-mute);
+  border-color: var(--rule);
+  background: var(--bg);
+}
+
+/* ---- Process-map phase groups ---- */
+.phase-label {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+  margin: 28px 0 10px;
+}
+.phase-label .phase-span {
+  color: var(--ink-soft);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.learning-card .example {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--ink-mute);
+  border-top: 1px dashed var(--rule);
+  padding-top: 8px;
+}
+.learning-card .example strong { color: var(--ink-soft); }
+
+/* ---- Checklist annotations ---- */
+.checklist .why {
+  display: block;
+  color: var(--ink-mute);
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+/* ---- Glossary page ---- */
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 34px;
+}
+.glossary-entry {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 12px 16px;
+  max-width: var(--measure);
+}
+.glossary-entry h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+.glossary-entry h3 .pb-tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--warn);
+  border: 1px solid var(--warn);
+  background: var(--warn-tint);
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.glossary-entry p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
 @media (max-width: 720px) {
   .site-nav {
     align-items: flex-start;

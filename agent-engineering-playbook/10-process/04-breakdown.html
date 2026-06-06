@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vertical Slice Checker · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="../00-foundations.html">Foundations</a>
     <a href="index.html">Process map</a>
     <a href="../30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="../glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -25,18 +26,18 @@
       <a class="guide-portal" href="../../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 5 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="../index.html">00 Hub</a></li>
-        <li class="timeline-step"><a href="../00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step"><a href="index.html">02 Process map</a></li>
-        <li class="timeline-step"><a href="01-align.html">03 Align</a></li>
-        <li class="timeline-step is-active"><a href="04-breakdown.html" aria-current="page">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step"><a href="../30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="../index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="01-align.html">04 Align</a></li>
+        <li class="timeline-step is-active"><a href="04-breakdown.html" aria-current="page">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="../00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step"><a href="../30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="01-align.html"><span>Previous</span> Align</a>
-        <a href="../50-how-to-write-code-with-ai.html"><span>Next</span> Drive agent →</a>
+        <a href="../00-foundations.html"><span>Next</span> Foundations →</a>
       </div>
     </aside>
     <div class="guide-content">
@@ -53,15 +54,125 @@
     </div>
   </header>
 
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="slice">slice</button> or
+    <button class="term" type="button" data-def="demoable">demoable</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
+  <section id="layer-cake">
+    <h2>The Layer Cake</h2>
+    <p>
+      Think of the app as a cake with four layers:
+      <button class="term" type="button" data-def="ui">UI</button>,
+      <button class="term" type="button" data-def="backend">logic</button>,
+      <button class="term" type="button" data-def="database">data</button>, and
+      <button class="term" type="button" data-def="test">tests</button>.
+      A <button class="term" type="button" data-def="horizontalslice">horizontal cut</button>
+      builds one whole layer and nothing works. A
+      <button class="term" type="button" data-def="slice">vertical slice</button>
+      is a thin wedge through all of them — small, but it actually works.
+    </p>
+    <svg viewBox="0 0 880 330" class="diagram" role="img" aria-label="Two layer-cake diagrams. Left, the horizontal cut: only the UI layer is built across the full width; logic, data and tests are empty, captioned 'all five booking screens built, none of them save anything'. Right, the vertical cut: a narrow column is built through all four layers, captioned 'user can book one slot and see it confirmed — screen, logic, database and a test, all working'.">
+      <!-- Left: horizontal (wrong) -->
+      <text x="210" y="34" text-anchor="middle" class="label-sm" fill="#8a4b16">HORIZONTAL · THE WRONG CUT</text>
+      <g>
+        <rect x="60" y="50" width="300" height="44" rx="4" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+        <text x="76" y="77" class="label-md ink">UI</text>
+        <text x="344" y="77" text-anchor="end" class="label-body" fill="#8a4b16">built everywhere</text>
+
+        <rect x="60" y="98" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <text x="76" y="125" class="label-md muted">Logic</text>
+        <text x="344" y="125" text-anchor="end" class="label-body muted">nothing yet</text>
+
+        <rect x="60" y="146" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <text x="76" y="173" class="label-md muted">Data</text>
+        <text x="344" y="173" text-anchor="end" class="label-body muted">nothing yet</text>
+
+        <rect x="60" y="194" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <text x="76" y="221" class="label-md muted">Tests</text>
+        <text x="344" y="221" text-anchor="end" class="label-body muted">nothing yet</text>
+      </g>
+      <text x="210" y="272" text-anchor="middle" class="label-body ink-soft">"All five booking screens built,</text>
+      <text x="210" y="292" text-anchor="middle" class="label-body ink-soft">none of them save anything."</text>
+
+      <!-- Right: vertical (right) -->
+      <text x="670" y="34" text-anchor="middle" class="label-sm" fill="#2a6e4f">VERTICAL · THE RIGHT CUT</text>
+      <g>
+        <rect x="520" y="50" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
+        <rect x="520" y="98" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
+        <rect x="520" y="146" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
+        <rect x="520" y="194" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
+        <text x="536" y="77" class="label-md muted">UI</text>
+        <text x="536" y="125" class="label-md muted">Logic</text>
+        <text x="536" y="173" class="label-md muted">Data</text>
+        <text x="536" y="221" class="label-md muted">Tests</text>
+
+        <!-- The slice through all layers -->
+        <rect x="612" y="46" width="64" height="196" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="2"/>
+        <text x="644" y="150" text-anchor="middle" class="label-sm" fill="#2a6e4f" transform="rotate(-90 644 150)">ONE SLICE</text>
+
+        <text x="804" y="125" text-anchor="end" class="label-body muted">rest of the cake,</text>
+        <text x="804" y="145" text-anchor="end" class="label-body muted">one slice at a</text>
+        <text x="804" y="165" text-anchor="end" class="label-body muted">time, later</text>
+      </g>
+      <text x="670" y="272" text-anchor="middle" class="label-body ink-soft">"User can book one slot and see it confirmed —</text>
+      <text x="670" y="292" text-anchor="middle" class="label-body ink-soft">screen, logic, database, and a test, all working."</text>
+    </svg>
+  </section>
+
+  <section id="booking-slices">
+    <h2>One Feature, Cut Into Three Slices</h2>
+    <p>
+      The booking form from the <a href="01-align.html">alignment page</a>,
+      after breakdown. Each slice is a thin wedge through every layer, and each
+      one is <button class="term" type="button" data-def="demoable">demoable</button>
+      on its own:
+    </p>
+    <div class="learning-grid">
+      <article class="learning-card">
+        <h3>Slice 1</h3>
+        <p>User can <strong>see free slots</strong>.</p>
+        <span class="example">A calendar screen, the logic that finds free slots, the table they live in, and a test. Depends on nothing.</span>
+      </article>
+      <article class="learning-card">
+        <h3>Slice 2</h3>
+        <p>User can <strong>book a slot</strong>.</p>
+        <span class="example">The booking button, the double-booking check, the saved booking, and a test. Depends on #1.</span>
+      </article>
+      <article class="learning-card">
+        <h3>Slice 3</h3>
+        <p>User <strong>gets a confirmation email</strong>.</p>
+        <span class="example">The email template, the send-on-booking logic, and a test. Depends on #2.</span>
+      </article>
+    </div>
+  </section>
+
   <section class="interactive-panel" data-checklist>
     <h2>Does This Slice Pass?</h2>
     <div class="checklist">
-      <label><input type="checkbox"> It has one demoable outcome phrased as "user can do X".</label>
-      <label><input type="checkbox"> It cuts through every needed layer: UI, logic, data, and tests.</label>
-      <label><input type="checkbox"> It is independently grabbable by another agent.</label>
-      <label><input type="checkbox"> It is tagged AFK or HITL.</label>
-      <label><input type="checkbox"> It has a dependency line: depends on nothing or depends on #NNN.</label>
-      <label><input type="checkbox"> It is small enough to finish in one focused session.</label>
+      <label><input type="checkbox"> <span>It has one
+        <button class="term" type="button" data-def="demoable">demoable</button>
+        outcome phrased as "user can do X".
+        <span class="why">You could show it working to a friend — click, see the result.</span></span></label>
+      <label><input type="checkbox"> <span>It cuts through every needed layer:
+        <button class="term" type="button" data-def="ui">UI</button>,
+        <button class="term" type="button" data-def="backend">logic</button>,
+        <button class="term" type="button" data-def="database">data</button>, and
+        <button class="term" type="button" data-def="test">tests</button>.
+        <span class="why">A thin wedge of the whole cake — not one layer of it.</span></span></label>
+      <label><input type="checkbox"> <span>It is independently grabbable.
+        <span class="why">Someone else (or a second agent) could pick this up without waiting on other unfinished work.</span></span></label>
+      <label><input type="checkbox"> <span>It is tagged
+        <button class="term" type="button" data-def="afkhitl">AFK or HITL</button>.
+        <span class="why">Marked either "agent can finish alone" or "will need to stop and ask me something".</span></span></label>
+      <label><input type="checkbox"> <span>It has a dependency line: depends on nothing, or depends on #NNN.
+        <span class="why">#NNN is just a ticket number in the <button class="term" type="button" data-def="issuetracker">issue tracker</button> — "depends on #12" means ticket 12 must land first.</span></span></label>
+      <label><input type="checkbox"> <span>It is small enough to finish in one focused session.
+        <span class="why">If the to-do list keeps growing while you build, the slice was too big.</span></span></label>
     </div>
     <div class="checklist-status" data-checklist-output></div>
   </section>
@@ -69,12 +180,28 @@
   <section class="interactive-panel" data-choice-panel>
     <h2>Common Wrong Cuts</h2>
     <div class="choice-grid">
-      <button type="button" data-choice data-choice-title="Schema-only slice" data-choice-body="This is horizontal. Recut it so the schema supports one visible capability with tests.">Build schema</button>
-      <button type="button" data-choice data-choice-title="All screens first" data-choice-body="This is horizontal. Pick one workflow and make it work end-to-end instead.">Build all screens</button>
-      <button type="button" data-choice data-choice-title="Huge feature slice" data-choice-body="If the test list keeps growing after a few cycles, return to breakdown and split the slice.">Do everything</button>
-      <button type="button" data-choice data-choice-title="Good vertical slice" data-choice-body="Example: user can add an athlete and see that athlete in the roster, with persistence and tests.">User can do X</button>
+      <button type="button" data-choice data-choice-title="Schema-only slice" data-choice-body="Horizontal — database tables for bookings, with nothing visible to anyone. Recut it so the schema arrives with one visible capability: user can book a slot.">Build the schema</button>
+      <button type="button" data-choice data-choice-title="All screens first" data-choice-body="Horizontal — five booking screens that don't save anything. Pick one workflow (book a slot) and make it work end-to-end instead.">Build all screens</button>
+      <button type="button" data-choice data-choice-title="Huge feature slice" data-choice-body="Too big. If the test list keeps growing after a few cycles, return to breakdown and split the slice.">Do everything at once</button>
+      <button type="button" data-choice data-choice-title="Good vertical slice" data-choice-body="User can book one slot and see it confirmed — screen, logic, database, and a test, all working. Small, demoable, and finished.">User can do X</button>
     </div>
     <div class="choice-output" data-choice-output>Choose an example.</div>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">Which of these four tickets is a vertical slice?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="That builds one layer (data) with nothing visible — a horizontal cut. Nothing works until the other layers arrive.">Build the database tables for bookings</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Five screens that don't save anything is the other horizontal cut — all UI, no logic, data, or tests.">Build all five booking screens</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="It cuts through screen, logic, data and tests, and you could demo it. The others build one layer — or everything at once.">User can book one slot and see it confirmed</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="That is not a slice at all — it is the whole cake. If the test list keeps growing, go back to breakdown and split it.">Rewrite the whole booking system</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>
     </div>
   </div>

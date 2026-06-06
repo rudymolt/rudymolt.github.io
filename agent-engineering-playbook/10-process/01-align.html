@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Align Before Code · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="../00-foundations.html">Foundations</a>
     <a href="index.html">Process map</a>
     <a href="../30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="../glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -25,14 +26,14 @@
       <a class="guide-portal" href="../../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 4 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="../index.html">00 Hub</a></li>
-        <li class="timeline-step"><a href="../00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step"><a href="index.html">02 Process map</a></li>
-        <li class="timeline-step is-active"><a href="01-align.html" aria-current="page">03 Align</a></li>
-        <li class="timeline-step"><a href="04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step"><a href="../30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="../index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="../50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="index.html">03 Process map</a></li>
+        <li class="timeline-step is-active"><a href="01-align.html" aria-current="page">04 Align</a></li>
+        <li class="timeline-step"><a href="04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="../00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step"><a href="../60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step"><a href="../30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="index.html"><span>Previous</span> Process map</a>
@@ -44,36 +45,194 @@
     <div class="eyebrow">AI Engineering Playbook · §10.01</div>
     <h1>Align Before Code</h1>
     <p class="lede">
-      The cheapest moment to fix a misunderstanding is before code exists. Use
-      the smallest set of alignment tools that settles the product, design,
-      engineering, and vocabulary questions.
+      The cheapest moment to fix a misunderstanding is before code exists.
+      Alignment is a short conversation in which the agent questions your plan
+      — so the expensive part, the building, starts from a plan that holds up.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
     </div>
   </header>
 
-  <section class="interactive-panel" data-choice-panel>
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="grill">grill</button> or
+    <button class="term" type="button" data-def="mockup">mockup</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
+  <div class="callout info" id="slash-commands">
+    <strong>What is a slash command?</strong> Names like
+    <code>/grill-with-docs</code> and <code>/autoplan</code> appear throughout
+    these guides. They are
+    <button class="term" type="button" data-def="slashcommand">skills</button>
+    — pre-written instruction packs installed into the agent (many come from
+    Matt Pocock's skills collection and Garry Tan's GStack). <strong>You never
+    type them.</strong> You write plain sentences; the agent recognises what
+    you want and runs the right skill. The names are shown here only so you can
+    recognise what the agent is doing.
+  </div>
+
+  <section id="tools">
     <h2>Which Alignment Tool?</h2>
-    <div class="choice-grid">
-      <button type="button" data-choice data-choice-title="/grill-with-docs" data-choice-body="Use when the product is settled and the change is code-level. It challenges the plan against existing docs and updates CONTEXT.md or ADRs as decisions settle.">Settled product</button>
-      <button type="button" data-choice data-choice-title="/office-hours -> /plan-ceo-review -> /grill-with-docs" data-choice-body="Use when the project is greenfield or strategic fit is unclear. First test whether this is the right problem, then sharpen the product shape, then settle technical branches.">Greenfield</button>
-      <button type="button" data-choice data-choice-title="/plan-design-review plus mockup" data-choice-body="Use when the request changes a user-facing workflow or screen. Alignment is not complete until a mockup exists or the user explicitly defers it.">UI-heavy</button>
-      <button type="button" data-choice data-choice-title="/plan-devex-review" data-choice-body="Use when the output is an API, CLI, SDK, docs, or other developer-facing surface. Optimize for time-to-first-success and clear errors.">Developer-facing</button>
-      <button type="button" data-choice data-choice-title="/autoplan" data-choice-body="Use when you want CEO, design, and engineering lenses without manually choosing the sequence.">All lenses</button>
-    </div>
-    <div class="choice-output" data-choice-output>Choose the shape of the request.</div>
+    <p>
+      Match the shape of your request. Each card shows the sentence you
+      actually type, what the agent does with it, and how you know alignment
+      is finished.
+    </p>
+
+    <article class="tool-script">
+      <h3>The product is settled; the change is code-level</h3>
+      <div class="row">
+        <span class="script-label">You type</span>
+        <span><span class="script-say">"I want to build [feature]."</span></span>
+      </div>
+      <div class="row">
+        <span class="script-label">What happens</span>
+        <span>The agent <button class="term" type="button" data-def="grill">grills</button> the plan against the existing
+        docs — asking the awkward questions now, while they are cheap — and
+        records settled answers in
+        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> or an
+        <button class="term" type="button" data-def="adr">ADR</button>.</span>
+      </div>
+      <div class="row">
+        <span class="script-label">Done when</span>
+        <span>Every open question has an answer or a written "not now".</span>
+      </div>
+      <p class="skill-note">(skill: /grill-with-docs)</p>
+    </article>
+
+    <article class="tool-script">
+      <h3>Brand-new project, or you're not sure it's worth building</h3>
+      <div class="row">
+        <span class="script-label">You type</span>
+        <span><span class="script-say">"I have an idea: [idea]. Challenge it."</span></span>
+      </div>
+      <div class="row">
+        <span class="script-label">What happens</span>
+        <span>For a <button class="term" type="button" data-def="greenfield">greenfield</button> idea the agent first
+        stress-tests whether this is the right problem at all, then sharpens
+        the product shape, then settles the technical questions.</span>
+      </div>
+      <div class="row">
+        <span class="script-label">Done when</span>
+        <span>You can say in one sentence what you are building and why.</span>
+      </div>
+      <p class="skill-note">(skills: /office-hours → /plan-ceo-review → /grill-with-docs)</p>
+    </article>
+
+    <article class="tool-script">
+      <h3>Your screen/UI is changing</h3>
+      <div class="row">
+        <span class="script-label">You type</span>
+        <span><span class="script-say">"Before we code, make a mockup."</span></span>
+      </div>
+      <div class="row">
+        <span class="script-label">What happens</span>
+        <span>The agent builds a fake HTML version of the screen — a
+        <button class="term" type="button" data-def="mockup">mockup</button> —
+        so you react to a picture, not a description.</span>
+      </div>
+      <div class="row">
+        <span class="script-label">Done when</span>
+        <span>You've said "yes, build that" to a mockup.</span>
+      </div>
+      <p class="skill-note">(skill: /plan-design-review)</p>
+    </article>
+
+    <article class="tool-script">
+      <h3>You're building something for developers</h3>
+      <div class="row">
+        <span class="script-label">You type</span>
+        <span><span class="script-say">"Review this plan as a developer would experience it."</span></span>
+      </div>
+      <div class="row">
+        <span class="script-label">What happens</span>
+        <span>The agent checks the API, command-line tool, or docs for
+        <button class="term" type="button" data-def="devex">devex</button>:
+        how quickly a stranger gets their first success, and how clear the
+        errors are when they get something wrong.</span>
+      </div>
+      <div class="row">
+        <span class="script-label">Done when</span>
+        <span>The first-use journey is written down and survives the review.</span>
+      </div>
+      <p class="skill-note">(skill: /plan-devex-review)</p>
+    </article>
+
+    <article class="tool-script">
+      <h3>You want every angle covered</h3>
+      <div class="row">
+        <span class="script-label">You type</span>
+        <span><span class="script-say">"Run a full review of this plan."</span></span>
+      </div>
+      <div class="row">
+        <span class="script-label">What happens</span>
+        <span>The agent applies the business, design, and engineering lenses
+        in sequence, without you having to choose the order.</span>
+      </div>
+      <div class="row">
+        <span class="script-label">Done when</span>
+        <span>All three reviews pass, or their concerns are written down.</span>
+      </div>
+      <p class="skill-note">(skill: /autoplan)</p>
+    </article>
   </section>
 
-  <section>
+  <section id="example">
+    <h2>What A Grilling Actually Looks Like</h2>
+    <p>
+      Here is the booking-form feature being grilled. Notice that the agent is
+      not being difficult — every question is a
+      <button class="term" type="button" data-def="bug">bug</button> that
+      will not happen later because it was asked now.
+    </p>
+    <div class="dialogue">
+      <div class="line you"><span class="who">You</span>I want people to be able to book a session online.</div>
+      <div class="line agent"><span class="who">Agent</span>What should happen if two people pick the same slot at the same time?</div>
+      <div class="line you"><span class="who">You</span>First one gets it; the second should see it's gone.</div>
+      <div class="line agent"><span class="who">Agent</span>Can people cancel? If so, until when?</div>
+      <div class="line you"><span class="who">You</span>Yes — up to 24 hours before the session.</div>
+      <div class="line agent"><span class="who">Agent</span>Noted. I'm recording <em>slot</em> and <em>booking window</em> in <code>CONTEXT.md</code> so we use the same words everywhere. Does a booking need anything beyond a name and a time?</div>
+      <div class="line you"><span class="who">You</span>An email confirmation.</div>
+      <div class="line agent"><span class="who">Agent</span>Added. I have enough to write the one-page spec.</div>
+    </div>
+  </section>
+
+  <section id="exit">
     <h2>Exit Criteria</h2>
+    <p>Alignment is finished when all of these are true:</p>
     <ul>
-      <li>Every meaningful branch has an answer or explicit out-of-scope decision.</li>
-      <li>Stable vocabulary has been captured or queued for <code>CONTEXT.md</code>.</li>
-      <li>Hard-to-reverse trade-offs have been captured or queued for ADRs.</li>
-      <li>UI-affecting work has an accepted mockup or explicit deferral.</li>
-      <li>The user has confirmed moving forward.</li>
+      <li>Every open question has an answer or a written "not now".</li>
+      <li>The project's words are written down in
+        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button>,
+        so human and agent use the same names for the same things — no
+        <button class="term" type="button" data-def="vocabdrift">vocabulary drift</button>.</li>
+      <li>Hard-to-reverse trade-offs have been captured or queued as
+        <button class="term" type="button" data-def="adr">ADRs</button>.</li>
+      <li>If a screen is changing, you have accepted a
+        <button class="term" type="button" data-def="mockup">mockup</button>
+        — or explicitly said "later".</li>
+      <li>You have said: go ahead.</li>
     </ul>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">You have a brand-new project idea — which alignment tool comes first?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Mockups come once you know what you're building. Picture-first works for changing a screen — not for testing whether the idea itself holds.">Ask for a mockup of the main screen</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="On a greenfield idea the cheapest question is &quot;is this the right problem at all?&quot; — asked before any product shape or technical detail exists. That is the office-hours step.">Challenge whether it's worth building at all</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Grilling the technical plan assumes the product is settled. A brand-new idea needs the &quot;should we build this at all?&quot; question first.">Grill the technical plan against the docs</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Code is the most expensive place to discover the idea was wrong. Alignment exists because a misunderstanding costs minutes now and days later.">Start building and see how it goes</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>
     </div>
   </div>

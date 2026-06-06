@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Engineering Playbook V0.1 · Interactive Guide Hub</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-timeline">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-newcomer">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -15,6 +15,7 @@
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="glossary.html">Glossary</a>
   </div>
 </nav>
 
@@ -25,18 +26,18 @@
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 1 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step is-active"><a href="index.html" aria-current="page">00 Hub</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step"><a href="10-process/index.html">02 Process map</a></li>
-        <li class="timeline-step"><a href="10-process/01-align.html">03 Align</a></li>
-        <li class="timeline-step"><a href="10-process/04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">06 Theory</a></li>
-        <li class="timeline-step"><a href="30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step is-active"><a href="index.html" aria-current="page">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="../index.html"><span>Previous</span> Portal</a>
-        <a href="00-foundations.html"><span>Next</span> Foundations →</a>
+        <a href="50-how-to-write-code-with-ai.html"><span>Next</span> Drive agent →</a>
       </div>
     </aside>
     <div class="guide-content">
@@ -44,17 +45,38 @@
     <div class="eyebrow">AI Engineering Playbook · V0.1</div>
     <h1>Interactive Guide Hub</h1>
     <p class="lede">
-      A practical operating manual for building software with coding agents such
-      as Claude or Codex. It helps you decide what to ask, when to stop and
-      align, how to keep work sliced, and how to verify the code before you
-      accept it.
+      You describe what you want in normal sentences. The agent writes the
+      code. These guides teach you what to say, when to pause it, and how to
+      check its work.
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-06-05</span>
+      <span><strong>Last updated</strong> · 2026-06-06</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
+
+  <section class="primer" aria-labelledby="primer-title">
+    <h2 id="primer-title">Never written code? Two minutes of background</h2>
+    <p>Eight words the guides lean on. Everything else is explained as you meet it.</p>
+    <dl class="primer-grid">
+      <div><dt>Code</dt> — <dd>instructions that tell a computer exactly what to do. An app is thousands of lines of it.</dd></div>
+      <div><dt>Repo</dt> — <dd>the folder where a project's code and its full history live.</dd></div>
+      <div><dt>Database</dt> — <dd>where an app stores its information permanently, like spreadsheets the code can read and write.</dd></div>
+      <div><dt>Server</dt> — <dd>a computer running somewhere else that answers requests — book online, and a server records it.</dd></div>
+      <div><dt>UI</dt> — <dd>the part of the app you can see and touch: screens, buttons, forms.</dd></div>
+      <div><dt>Test</dt> — <dd>a small piece of code that automatically checks a bit of the app behaves as it should.</dd></div>
+      <div><dt>Deploy</dt> — <dd>putting a new version of the app live so real people can use it.</dd></div>
+      <div><dt>Production</dt> — <dd>the live version real users are using right now, as opposed to a private working copy.</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <p>
+      <a class="start-path" href="50-how-to-write-code-with-ai.html">Start the guided path →</a><br>
+      <span class="start-note">It begins with the story of one feature, from first sentence to shipped code.</span>
+    </p>
+  </section>
 
   <section>
     <h2>What The AI Engineering Playbook Is</h2>
@@ -98,16 +120,15 @@
     <h2>How To Use It With Claude Or Codex</h2>
     <ol>
       <li>
-        Start with the <a href="10-process/index.html">process map</a> when you
-        are unsure what kind of request you are making. It routes the work to
-        alignment, breakdown, implementation, review, QA, debugging, shipping,
-        or retro.
+        Read <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+        first. It follows one feature from first sentence to shipped code, and
+        teaches the vocabulary every other page uses.
       </li>
       <li>
-        Open <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
-        before a real coding session. Use it to shape the prompt you give
-        Claude or Codex: what the goal is, what files matter, what constraints
-        apply, and what evidence you expect back.
+        Use the <a href="10-process/index.html">process map</a> when you are
+        unsure what kind of request you are making. It routes the work to
+        alignment, breakdown, implementation, review, QA, debugging, shipping,
+        or retro.
       </li>
       <li>
         For new features, use the
@@ -135,8 +156,9 @@
       This publication turns the playbook into linked, static HTML pages for
       people using coding agents. It includes this hub, the foundations guide,
       the 13-stage process map, focused alignment and breakdown explainers, the
-      document lifecycle guide, the practical agent-driving guide, and the theory
-      page that explains the reasoning behind the process.
+      document lifecycle guide, the practical agent-driving guide, the theory
+      page that explains the reasoning behind the process, and a browsable
+      glossary of every term the guides use.
     </p>
   </section>
 
@@ -164,32 +186,44 @@
     <h2 id="start-title">Choose What You Need</h2>
     <div class="hub-grid">
       <a href="50-how-to-write-code-with-ai.html">
+        <span class="card-tag start">Start here</span>
         <strong>Drive the agent</strong>
-        <span>What to type, how to review, and how to ship.</span>
+        <span>See the whole workflow as one story — what to type, how to review, how to ship.</span>
+      </a>
+      <a href="10-process/index.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>Route the work</strong>
+        <span>Not sure what to ask for? Find where your request goes.</span>
+      </a>
+      <a href="10-process/01-align.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>Agree before code</strong>
+        <span>Settle what you're building before the agent writes a line of it.</span>
+      </a>
+      <a href="10-process/04-breakdown.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>Cut up a feature</strong>
+        <span>Cut a feature into pieces small enough to check one at a time.</span>
+      </a>
+      <a href="00-foundations.html">
+        <span class="card-tag reference">Reference</span>
+        <strong>Check the principles</strong>
+        <span>The ground rules: one source of truth, and checking in proportion to risk.</span>
       </a>
       <a href="60-the-theory-behind-the-playbook.html">
+        <span class="card-tag reference">Reference</span>
         <strong>Understand the theory</strong>
         <span>Why the process uses alignment, slicing, TDD, QA, and retros.</span>
       </a>
-      <a href="00-foundations.html">
-        <strong>Check the principles</strong>
-        <span>Collaboration contract, architecture rules, verification ladder.</span>
-      </a>
-      <a href="10-process/index.html">
-        <strong>Route the work</strong>
-        <span>The 13-stage process map and phrase-to-stage router.</span>
-      </a>
-      <a href="10-process/01-align.html">
-        <strong>Pick alignment tools</strong>
-        <span>Which grill or review skill to use before code.</span>
-      </a>
-      <a href="10-process/04-breakdown.html">
-        <strong>Design slices</strong>
-        <span>Check whether a slice is vertical, demoable, and grabbable.</span>
-      </a>
       <a href="30-document-lifecycle.html">
+        <span class="card-tag reference">Reference</span>
         <strong>Close the docs</strong>
-        <span>Promote, archive, or maintain documents at ship.</span>
+        <span>What happens to the documents a build leaves behind.</span>
+      </a>
+      <a href="glossary.html">
+        <span class="card-tag reference">Reference</span>
+        <strong>Look up a term</strong>
+        <span>Every term in the guides, in plain English, on one page.</span>
       </a>
     </div>
   </section>

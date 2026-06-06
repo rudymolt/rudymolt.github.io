@@ -17,7 +17,7 @@
   want the long-form version.
 
   Status: Source of truth
-  Last verified: 2026-06-05 (playbook V0.1.8)
+  Last verified: 2026-06-06 (playbook V0.1.8)
   Audience: Human project owner (no engineering background assumed)
   ==========================================================================
 -->
@@ -361,6 +361,7 @@
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="glossary.html">Glossary</a>
   </div>
 </nav>
 <main class="page">
@@ -370,17 +371,17 @@
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
       <p class="guide-status">Step 7 of 8</p>
       <ol class="timeline-steps">
-        <li class="timeline-step"><a href="index.html">00 Hub</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">01 Foundations</a></li>
-        <li class="timeline-step"><a href="10-process/index.html">02 Process map</a></li>
-        <li class="timeline-step"><a href="10-process/01-align.html">03 Align</a></li>
-        <li class="timeline-step"><a href="10-process/04-breakdown.html">04 Breakdown</a></li>
-        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">05 Drive agent</a></li>
-        <li class="timeline-step is-active"><a href="60-the-theory-behind-the-playbook.html" aria-current="page">06 Theory</a></li>
-        <li class="timeline-step"><a href="30-document-lifecycle.html">07 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
+        <li class="timeline-step is-active"><a href="60-the-theory-behind-the-playbook.html" aria-current="page">07 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">08 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
-        <a href="50-how-to-write-code-with-ai.html"><span>Previous</span> Drive agent</a>
+        <a href="00-foundations.html"><span>Previous</span> Foundations</a>
         <a href="30-document-lifecycle.html"><span>Next</span> Docs lifecycle →</a>
       </div>
     </aside>
@@ -398,7 +399,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-05 · playbook V0.1.8</span>
+      <span><strong>Last verified</strong> · 2026-06-06 · playbook V0.1.8</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
     </div>
@@ -816,6 +817,41 @@
       For a high-stakes structural call, <span class="skill">/codex</span> can
       fetch a second opinion from a different AI model.
     </p>
+    <div class="concept">
+      <p class="what">Real example</p>
+      <h3>Turning scattered URL rules into one deep module</h3>
+      <p>
+        In one RuChamps architecture pass, the Transport page had a very normal
+        kind of drift: several small files all knew a little bit about how a URL
+        should behave. One helper knew how filters worked. Another knew which
+        drawer parameters to clear. Another knew passenger sorting. The page
+        itself knew about championship-scoped paths. None of those pieces was
+        terrible on its own, but the <button class="term" type="button" data-def="interface">interface</button>
+        was effectively "remember all the URL rules correctly every time".
+        That is a shallow module smell.
+      </p>
+      <pre><code>Before:
+Transport page
+  -> filter path helper
+  -> drawer path helper
+  -> passenger expansion helper
+  -> success/error path helper
+  -> championship base path rules
+
+After:
+Transport page
+  -> Transport URL state module
+       hides filters, drawers, expansion, notices, dates, scoped paths</code></pre>
+      <p>
+        The fix was not to add more tiny helpers. It was to deepen the module:
+        give callers one place to ask "what should the next Transport path be?"
+        and put the fiddly rules behind that seam. The payoff is locality. If
+        Transport later changes how passenger expansion or championship paths
+        work, the agent has one module to edit and one set of tests to run,
+        instead of rediscovering the rule across the page, forms, drawers, and
+        server actions.
+      </p>
+    </div>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
       <span>10-process/06-architecture.md</span> ·
