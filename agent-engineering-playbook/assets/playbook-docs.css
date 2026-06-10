@@ -990,6 +990,59 @@ button.term > code {
   }
 }
 
+/* ---- SVG diagram defaults (shared) ----
+   Previously these lived only in the inline styles of §50 and §60, so
+   diagrams on pages using this shared stylesheet rendered with browser
+   default text. Defined once here for every page. */
+svg.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px 0 12px;
+  overflow: visible;
+}
+svg .label-sm    { font: 600 11px var(--font-sans); letter-spacing: 0.12em; text-transform: uppercase; }
+svg .label-md    { font: 600 14px var(--font-sans); }
+svg .label-lg    { font: 600 16px var(--font-serif); }
+svg .label-mono  { font: 500 12px var(--font-mono); }
+svg .label-body  { font: 400 13px var(--font-sans); }
+svg .muted       { fill: var(--ink-mute); }
+svg .ink         { fill: var(--ink); }
+svg .ink-soft    { fill: var(--ink-soft); }
+svg .stroke-rule { stroke: var(--rule); fill: none; }
+
+/* ---- Document footer (shared) ---- */
+footer.doc-foot {
+  margin-top: 88px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-mute);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---- What's new strip (hub) ---- */
+.whats-new {
+  border: 1px solid var(--rule);
+  border-left: 4px solid #1e4e8c;
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 26px 0;
+}
+.whats-new h2 { margin-top: 0; }
+.whats-new .version-entry { margin: 14px 0 0; }
+.whats-new .version-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-mute);
+  letter-spacing: 0.06em;
+}
+.whats-new p { margin: 4px 0 0; }
+
 @media print {
   .site-nav,
   .guide-timeline,

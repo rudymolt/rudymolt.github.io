@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Frontend Track · AI Engineering Playbook V0.1</title>
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+</head>
+<body class="playbook-doc">
+<nav class="site-nav" aria-label="Playbook guides">
+  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <div class="links">
+    <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+    <a href="60-the-theory-behind-the-playbook.html">Theory</a>
+    <a href="00-foundations.html">Foundations</a>
+    <a href="10-process/index.html">Process map</a>
+    <a href="20-frontend-track.html" aria-current="page">Frontend track</a>
+    <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="glossary.html">Glossary</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="guide-layout">
+    <aside class="guide-timeline" aria-label="Guide path">
+      <p class="guide-title">Guide path</p>
+      <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
+      <p class="guide-status">Step 6 of 9</p>
+      <ol class="timeline-steps">
+        <li class="timeline-step"><a href="index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step is-active"><a href="20-frontend-track.html" aria-current="page">06 Frontend track</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+      </ol>
+      <div class="guide-sequence" aria-label="Guide sequence">
+        <a href="10-process/04-breakdown.html"><span>Previous</span> Breakdown</a>
+        <a href="00-foundations.html"><span>Next</span> Foundations →</a>
+      </div>
+    </aside>
+    <div class="guide-content">
+  <header class="doc-head">
+    <div class="eyebrow">AI Engineering Playbook · §20</div>
+    <h1>The Frontend Track</h1>
+    <p class="lede">
+      The extra discipline for anything with a screen. The biggest source of
+      churn in AI-assisted UI work is not bad code — it is the human and the
+      agent using the same word for different things, or the same component
+      for different jobs. Three files prevent that.
+    </p>
+    <div class="meta">
+      <span><strong>Publication</strong> · Interactive HTML guide</span>
+      <span><strong>New in</strong> · playbook V0.1.9–V0.1.10</span>
+    </div>
+  </header>
+
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="kitchensink">kitchen sink</button> or
+    <button class="term" type="button" data-def="surface">surface</button> —
+    are short bits of engineering jargon. Click or tap any of them for a
+    one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
+    outside to close it.
+  </div>
+
+  <section id="artefacts">
+    <h2>The Three Design Artefacts</h2>
+    <p>
+      Three files are the source of truth for what the UI is allowed to look
+      like and how it is allowed to behave. Each answers a different question
+      about the same screen.
+    </p>
+
+    <svg viewBox="0 0 940 240" class="diagram" role="img" aria-label="Three boxes in a row. First: the design glossary, labelled words, answering what does this term mean. Second: the kitchen sink, labelled looks, answering what does it look like. Third: the design-language guide, labelled behaviour, answering which surface fits this job. An arrow runs left to right, and a caption beneath reads: UI code may only use what these three sanction.">
+      <defs>
+        <marker id="arrow-art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
+        </marker>
+      </defs>
+      <!-- Glossary -->
+      <g>
+        <rect x="30" y="40" width="260" height="110" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+        <text x="160" y="68" text-anchor="middle" class="label-sm" fill="#1e4e8c">WORDS</text>
+        <text x="160" y="94" text-anchor="middle" class="label-md ink">Design glossary</text>
+        <text x="160" y="116" text-anchor="middle" class="label-body ink-soft">"What does this term mean?"</text>
+        <text x="160" y="136" text-anchor="middle" class="label-mono muted">DESIGN-GLOSSARY.md</text>
+      </g>
+      <!-- Kitchen sink -->
+      <g>
+        <rect x="340" y="40" width="260" height="110" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+        <text x="470" y="68" text-anchor="middle" class="label-sm" fill="#2a6e4f">LOOKS</text>
+        <text x="470" y="94" text-anchor="middle" class="label-md ink">Kitchen sink</text>
+        <text x="470" y="116" text-anchor="middle" class="label-body ink-soft">"What does it look like?"</text>
+        <text x="470" y="136" text-anchor="middle" class="label-mono muted">ui-kitchen-sink.html</text>
+      </g>
+      <!-- Guide -->
+      <g>
+        <rect x="650" y="40" width="260" height="110" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+        <text x="780" y="68" text-anchor="middle" class="label-sm" fill="#8a4b16">BEHAVIOUR</text>
+        <text x="780" y="94" text-anchor="middle" class="label-md ink">Design-language guide</text>
+        <text x="780" y="116" text-anchor="middle" class="label-body ink-soft">"Which surface fits this job?"</text>
+        <text x="780" y="136" text-anchor="middle" class="label-mono muted">frontend-design-language-guide.html</text>
+      </g>
+      <line x1="290" y1="95" x2="340" y2="95" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-art)"/>
+      <line x1="600" y1="95" x2="650" y2="95" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-art)"/>
+      <text x="470" y="195" text-anchor="middle" class="label-body ink-soft">UI code may only use vocabulary, styles, and surfaces these three sanction.</text>
+    </svg>
+
+    <div class="learning-grid">
+      <article class="learning-card">
+        <h3>The <button class="term" type="button" data-def="designglossary">design glossary</button></h3>
+        <span>The textual language. Every UI term — pill, container, primary
+        button — is defined exactly once, so "pill" means the same thing to
+        you, the agent, and the code.</span>
+      </article>
+      <article class="learning-card">
+        <h3>The <button class="term" type="button" data-def="kitchensink">kitchen sink</button></h3>
+        <span>The visual language. Every glossary term rendered live on one
+        page that opens in any browser — every approved colour, spacing, and
+        component, with nothing hiding in the code.</span>
+      </article>
+      <article class="learning-card">
+        <h3>The <button class="term" type="button" data-def="designlanguageguide">design-language guide</button></h3>
+        <span>The interaction language. The kitchen sink shows what a drawer
+        looks like; the guide says <em>when</em> a drawer is the right answer
+        — its decision table maps each job to a
+        <button class="term" type="button" data-def="surface">surface</button>.</span>
+      </article>
+    </div>
+
+    <div class="callout info">
+      <strong>The hard rule: never invent UI vocabulary or patterns.</strong>
+      If a term is missing from the glossary, or a screen needs a surface the
+      guide doesn't sanction, the agent must stop, ask you to decide, and
+      update the artefacts <em>before</em> writing component code. The
+      artefacts lead; the code follows.
+    </div>
+  </section>
+
+  <section id="bootstrap">
+    <h2>Project Setup: The Bootstrap Question</h2>
+    <p>
+      Since V0.1.9, any project with a UI must answer this question at setup.
+      The agent may not silently skip the artefacts, and may not silently
+      impose the playbook defaults — it has to ask:
+    </p>
+    <div class="dialogue">
+      <div class="line agent"><span class="who">Agent</span>This project has a UI. How do you want to set up the three frontend design artefacts (glossary, kitchen sink, design-language guide)?<br><br>
+        1 · <strong>Use the playbook defaults</strong> — I copy all three starter templates, then run the design interview to adapt them to your brand.<br>
+        2 · <strong>Supply your own</strong> — point me at existing files, a Figma export, screenshots, or a component library, and I'll distil them into the three-artefact shape.<br>
+        3 · <strong>Mix</strong> — defaults for some, your own for others.<br>
+        4 · <strong>Skip for now</strong> — only if the project genuinely has no UI. I'll record that decision in <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button> so you aren't re-asked every session.</div>
+      <div class="line you"><span class="who">You</span>Use the defaults — but our brand colour is teal, not gold.</div>
+      <div class="line agent"><span class="who">Agent</span>Copying the three templates now, then I'll run the design interview so teal and the rest of your choices land in the artefacts — not just in this chat.</div>
+    </div>
+    <p>
+      Whatever you answer, the session must end with all three artefacts
+      present in the project — or an explicit recorded skip. Since V0.1.10 the
+      starter kitchen sink is a full operational UI baseline (tables, drawers,
+      overlays, dense app-shell components) rather than a thin sampler, so
+      "use the defaults" gives you a realistic starting vocabulary.
+    </p>
+  </section>
+
+  <section id="interview">
+    <h2>The Design Interview</h2>
+    <p>
+      If no design system exists yet, the agent runs a
+      <button class="term" type="button" data-def="designinterview">design interview</button>
+      at kickoff — eleven questions covering colours, type, spacing, radii,
+      default containers, interaction states, the accessibility floor, and
+      (new in V0.1.9) three questions about behaviour: whether screens default
+      to dense rows or cards, which surface handles add/edit/confirm/history,
+      and what viewports the app assumes.
+    </p>
+    <p>
+      The rule that makes the interview matter: <strong>every answer must land
+      in one of the three artefacts</strong> — a glossary entry, a kitchen-sink
+      section or CSS token, or a decision-rule row in the guide. No answer is
+      allowed to live only in the conversation transcript.
+    </p>
+  </section>
+
+  <section class="interactive-panel" data-choice-panel>
+    <h2>Pick The Job, Get The Surface</h2>
+    <p>
+      The design-language guide's decision table in miniature. Pick what the
+      booking-form feature needs to do; the answer shows which surface the
+      guide would sanction, and why.
+    </p>
+    <div class="choice-grid">
+      <button type="button" data-choice data-choice-title="Add or edit a record"
+        data-choice-body="<strong>Surface: a drawer.</strong> A panel that slides in from the side, keeping the list visible behind it.<br><strong>Booking form:</strong> editing a booking opens a drawer — you can still see the day's other bookings while you type.<br><em>Why not a new page? Because losing the list context forces you to remember what you were looking at.</em>">Add / edit a booking</button>
+      <button type="button" data-choice data-choice-title="Confirm something destructive"
+        data-choice-body="<strong>Surface: a modal.</strong> A pop-up that blocks everything else until you answer.<br><strong>Booking form:</strong> &quot;Delete this booking?&quot; gets a modal — destruction deserves a deliberate, focused click.<br><em>Why not inline? Because a destructive button that fires on a stray click is a support ticket waiting to happen.</em>">Confirm a deletion</button>
+      <button type="button" data-choice data-choice-title="Read history or detail"
+        data-choice-body="<strong>Surface: inline disclosure.</strong> The row expands in place to show more.<br><strong>Booking form:</strong> clicking a booking row reveals its change history right there in the list.<br><em>Why not a modal? Because reading is low-stakes — it shouldn't block the rest of the screen.</em>">See a booking's history</button>
+      <button type="button" data-choice data-choice-title="A complex multi-step job"
+        data-choice-body="<strong>Surface: a dedicated page.</strong> Some jobs are too big for an overlay.<br><strong>Booking form:</strong> the weekly timetable planner gets its own page — it is a workspace, not a quick edit.<br><em>The guide's rule of thumb: if the job has its own mental model, it gets its own page.</em>">Plan the whole week</button>
+    </div>
+    <div class="choice-output" data-choice-output>Choose a job.</div>
+  </section>
+
+  <section id="stages">
+    <h2>How The Track Plugs Into The Process Map</h2>
+    <p>
+      The frontend track is not a separate process — it adds one UI check to
+      each stage of the <a href="10-process/index.html">13-stage map</a>:
+    </p>
+    <ul>
+      <li><strong class="lead-in">Prereqs (00).</strong> Verify the three artefacts exist. Missing and no recorded skip? Halt and run the bootstrap question.</li>
+      <li><strong class="lead-in">Align (01).</strong> After grilling a UI-affecting feature, make or update an HTML <button class="term" type="button" data-def="mockup">mockup</button> using the project's visual language — choosing surfaces by the guide's rules.</li>
+      <li><strong class="lead-in">Context (02).</strong> New tokens go into the kitchen sink, new terms into the glossary, new interaction patterns into the guide.</li>
+      <li><strong class="lead-in">Breakdown (04).</strong> UI <button class="term" type="button" data-def="slice">slices</button> name the glossary terms they use in their acceptance criteria.</li>
+      <li><strong class="lead-in">Architecture (06).</strong> Audit for drift: any style in the code that isn't in the kitchen sink is tech debt; any modal doing a drawer's job breaks the guide.</li>
+      <li><strong class="lead-in">Implementation (07).</strong> Code uses only glossary terms, only kitchen-sink styles, only sanctioned surfaces.</li>
+      <li><strong class="lead-in">Review (08) &amp; QA (09).</strong> Every UI-touching change passes the <button class="term" type="button" data-def="smokefloor">smoke floor</button> below.</li>
+    </ul>
+  </section>
+
+  <section class="interactive-panel" data-checklist>
+    <h2>The UI Smoke Floor</h2>
+    <p>Every UI-touching slice must pass this floor before it ships.</p>
+    <div class="checklist">
+      <label><input type="checkbox"> <span>Check desktop, tablet, and mobile viewports for the affected screens.
+        <span class="why">Most late UI rework comes from screens that were only ever checked at desktop width.</span></span></label>
+      <label><input type="checkbox"> <span>No horizontal page overflow; wide tables scroll inside their own wrapper.
+        <span class="why">A page that scrolls sideways on a phone reads as broken, even when the data is right.</span></span></label>
+      <label><input type="checkbox"> <span>Mobile links, buttons, and chips meet the 44px
+        <button class="term" type="button" data-def="touchtarget">touch-target</button> floor — or a compact-control exception is written down.</span></label>
+      <label><input type="checkbox"> <span>Table text stays readable — columns are not compressed into unreadability.</span></label>
+      <label><input type="checkbox"> <span><button class="term" type="button" data-def="headinghierarchy">Heading hierarchy</button> is intact on changed screens.</span></label>
+      <label><input type="checkbox"> <span><button class="term" type="button" data-def="urlstate">URL-driven state</button> (drawers, filters, tabs) restores scroll and focus correctly.</span></label>
+      <label><input type="checkbox"> <span>Affected sections visually match the kitchen sink.</span></label>
+    </div>
+    <div class="checklist-status" data-checklist-output></div>
+  </section>
+
+  <section id="upgrades">
+    <h2>Keeping Older Projects Current</h2>
+    <p>
+      Also new in V0.1.9: every project records the playbook version it was
+      set up with in
+      <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button>.
+      At the start of a session, if the project is behind the playbook's
+      newest version, the agent mentions it and offers
+      <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button>,
+      which walks the changelog and applies the differences carefully — new
+      files are copied, boilerplate is patched with the diff shown, and
+      anything you wrote yourself is only ever <em>proposed</em>, never
+      overwritten. It won't force an upgrade mid-feature; it just makes sure
+      improvements like this track actually reach projects that started
+      earlier.
+    </p>
+  </section>
+
+  <section class="interactive-panel quiz" data-quiz>
+    <h2>Check Yourself</h2>
+    <p class="quiz-q">Mid-implementation, the agent needs a "warning banner" — but the term isn't in the design glossary and nothing like it is in the kitchen sink. What does the playbook say happens next?</p>
+    <div class="quiz-options">
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Inventing the style inline is exactly the drift the track exists to prevent — the new banner would live only in the code, invisible to the artefacts and to the next session.">The agent designs one inline and keeps going</button>
+      <button type="button" data-quiz-option data-correct="true"
+        data-explain="Correct — the hard rule. The agent stops, asks you to decide what a warning banner is, records it in the glossary and kitchen sink, and only then writes the component.">The agent stops, asks you, and updates the artefacts first</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Borrowing the closest existing component without asking quietly changes what that component means — two jobs now share one name, which is vocabulary drift by another route.">The agent reuses the closest existing component silently</button>
+      <button type="button" data-quiz-option data-correct="false"
+        data-explain="Deferring to a cleanup list means shipping a screen the artefacts can't describe. The artefacts lead and the code follows — not the other way round.">The agent ships it and adds a to-do to document it later</button>
+    </div>
+    <div class="quiz-feedback" data-quiz-feedback hidden></div>
+  </section>
+
+  <footer class="doc-foot">
+    <div>AI Engineering Playbook V0.1 · §20 · The Frontend Track</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-06-10 · playbook V0.1.10</div>
+  </footer>
+    </div>
+  </div>
+</main>
+
+<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
+<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+</body>
+</html>

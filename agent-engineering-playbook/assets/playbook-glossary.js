@@ -277,6 +277,26 @@ window.PLAYBOOK_GLOSSARY = {
     def: "A file holding the project's glossary of real-world terms, so the agent uses your exact words everywhere.",
     group: "playbook"
   },
+  designartefacts: {
+    title: "The three design artefacts",
+    def: "The three files that own a project's visual language: the design glossary (what each UI term means), the kitchen sink (what each component looks like), and the design-language guide (which surface to use when). UI code may only use what they sanction.",
+    group: "playbook"
+  },
+  designglossary: {
+    title: "Design glossary",
+    def: "A file (DESIGN-GLOSSARY.md) defining every UI term the project uses - pill, container, primary button - exactly once, so humans and agents mean the same thing by the same word.",
+    group: "playbook"
+  },
+  designinterview: {
+    title: "Design interview",
+    def: "A set of questions the agent asks at project kickoff - colours, type, spacing, default layouts, change surfaces, viewports - whose answers all land in the three design artefacts rather than staying in the chat.",
+    group: "playbook"
+  },
+  designlanguageguide: {
+    title: "Design-language guide",
+    def: "An HTML file holding the interaction rules of the UI: application-level principles and a decision table saying which surface (row, drawer, modal, dedicated page) fits which job. The kitchen sink shows what a drawer looks like; the guide says when a drawer is the right answer.",
+    group: "playbook"
+  },
   docclose: {
     title: "Doc-close",
     def: "The tidy-up at ship: lasting decisions and vocabulary move into permanent docs, finished planning notes get archived, and the cleanup is committed on purpose.",
@@ -297,9 +317,19 @@ window.PLAYBOOK_GLOSSARY = {
     def: "A deliberately tough question-and-answer session in which the agent challenges your plan before any code is written, hunting for gaps and contradictions.",
     group: "playbook"
   },
+  kitchensink: {
+    title: "Kitchen sink",
+    def: "A single HTML page (ui-kitchen-sink.html) showing every approved UI component live in the browser - the visual twin of the design glossary. If a style isn't in the kitchen sink, the code shouldn't be using it.",
+    group: "playbook"
+  },
   playbook: {
     title: "The playbook",
     def: "This collection of guides - the process the agent follows on every project.",
+    group: "playbook"
+  },
+  playbookstate: {
+    title: ".playbook-state.yml",
+    def: "A small file in the project recording which playbook version it was set up with, when it was last upgraded, and explicit decisions like 'this project has no UI' - so the agent doesn't re-ask settled questions.",
     group: "playbook"
   },
   smokefloor: {
@@ -307,9 +337,19 @@ window.PLAYBOOK_GLOSSARY = {
     def: "From 'smoke test' - switch it on and check nothing visibly smokes. The floor is the minimum set of those quick checks a screen must pass before it counts as done - a floor, not a full test plan.",
     group: "playbook"
   },
+  surface: {
+    title: "Surface",
+    def: "Where a piece of UI work happens: an inline row, a slide-out drawer, a pop-up modal, or a dedicated page. The design-language guide owns the rules for which surface fits which job.",
+    group: "playbook"
+  },
   triggerphrase: {
     title: "Trigger phrase",
     def: "A short, standard thing you type to start a stage. The agent recognises the phrase and runs the right process.",
+    group: "playbook"
+  },
+  upgradeproject: {
+    title: "/upgrade-project",
+    def: "A skill that brings a project set up under an older playbook version up to date: it reads the project's recorded version, walks the changelog, and applies changes carefully - copying new files, patching boilerplate with diffs shown, and only proposing changes to content you wrote.",
     group: "playbook"
   }
 };

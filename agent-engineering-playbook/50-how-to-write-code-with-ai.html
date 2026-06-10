@@ -14,7 +14,7 @@
   a Markdown document.
 
   Status: Source of truth
-  Last verified: 2026-06-05 (playbook V0.1.8)
+  Last verified: 2026-06-10 (playbook V0.1.10)
   Audience: Human project owner
 
   Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
@@ -486,7 +486,7 @@
     .term-hint { display: none; }
   }
 </style>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-quiz">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -496,6 +496,7 @@
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
+    <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
     <a href="glossary.html">Glossary</a>
   </div>
@@ -505,16 +506,17 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 2 of 8</p>
+      <p class="guide-status">Step 2 of 9</p>
       <ol class="timeline-steps">
         <li class="timeline-step"><a href="index.html">01 Hub</a></li>
         <li class="timeline-step is-active"><a href="50-how-to-write-code-with-ai.html" aria-current="page">02 Drive agent</a></li>
         <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
         <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
         <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
-        <li class="timeline-step"><a href="30-document-lifecycle.html">08 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="20-frontend-track.html">06 Frontend track</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="index.html"><span>Previous</span> Hub</a>
@@ -534,7 +536,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-05 · playbook V0.1.8</span>
+      <span><strong>Last verified</strong> · 2026-06-10 · playbook V0.1.10</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML (canonical)</span>
     </div>
@@ -1030,7 +1032,7 @@ This should be possible.</code></pre>
       <li>If work accidentally happened on <code>main</code>, move it to a feature branch as a recovery step.</li>
       <li>Run tests, <button class="term" type="button" data-def="typecheck">typecheck</button>, <button class="term" type="button" data-def="build">build</button>, and any relevant <button class="term" type="button" data-def="browsercheck">browser checks</button>.</li>
       <li>Review the <button class="term" type="button" data-def="diff">diff</button> for obvious mistakes.</li>
-      <li><button class="term" type="button" data-def="docclose">Close the docs</button>: write the release note, promote any lasting decisions and vocabulary into the durable docs (ADRs, <code>CONTEXT.md</code>, the design glossary), and move the finished planning folder into <code>archive/</code>. This cleanup is committed on purpose, not left as a loose end.</li>
+      <li><button class="term" type="button" data-def="docclose">Close the docs</button>: write the release note, promote any lasting decisions and vocabulary into the durable docs (ADRs, <code>CONTEXT.md</code>, the <button class="term" type="button" data-def="designartefacts">design artefacts</button>), and move the finished planning folder into <code>archive/</code>. This cleanup is committed on purpose, not left as a loose end.</li>
       <li><button class="term" type="button" data-def="commit">Commit</button> the work.</li>
       <li><button class="term" type="button" data-def="push">Push</button> the branch.</li>
       <li>Open a <button class="term" type="button" data-def="draftpr"><strong>draft</strong> pull request</button>.</li>
@@ -1254,7 +1256,7 @@ This should be possible.</code></pre>
       AI Engineering Playbook V0.1 · §50 · How To Write Code With AI
     </div>
     <div>
-      Maintainer: Rudy Molt · Last verified 2026-06-05 · playbook V0.1.8
+      Maintainer: Rudy Molt · Last verified 2026-06-10 · playbook V0.1.10
     </div>
   </footer>
 
@@ -1268,7 +1270,7 @@ This should be possible.</code></pre>
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260606-tooltips"></script>
+<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
 <script src="assets/playbook-docs.js?v=20260606-quiz"></script>
 </body>
 </html>

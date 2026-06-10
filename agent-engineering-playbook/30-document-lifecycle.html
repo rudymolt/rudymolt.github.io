@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Document Lifecycle · AI Engineering Playbook V0.1</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-quiz">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -14,6 +14,7 @@
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
+    <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html" aria-current="page">Docs lifecycle</a>
     <a href="glossary.html">Glossary</a>
   </div>
@@ -24,16 +25,17 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 8 of 8</p>
+      <p class="guide-status">Step 9 of 9</p>
       <ol class="timeline-steps">
         <li class="timeline-step"><a href="index.html">01 Hub</a></li>
         <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
         <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
         <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
         <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
-        <li class="timeline-step is-active"><a href="30-document-lifecycle.html" aria-current="page">08 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="20-frontend-track.html">06 Frontend track</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
+        <li class="timeline-step is-active"><a href="30-document-lifecycle.html" aria-current="page">09 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="60-the-theory-behind-the-playbook.html"><span>Previous</span> Theory</a>
@@ -130,7 +132,7 @@
       <option value="">Choose a document type</option>
       <option value="planning">Planning notes or prompt scratchpad (the to-do list and thinking-out-loud notes from the build)</option>
       <option value="adr">Hard-to-reverse decision (e.g. which payment provider to use)</option>
-      <option value="living">CONTEXT.md, AGENTS.md, design glossary (the project's own dictionary)</option>
+      <option value="living">CONTEXT.md, AGENTS.md, the three design artefacts (the project's own dictionary and visual language)</option>
       <option value="generated">Generated output (files a tool produces from a source)</option>
     </select>
     <p id="tier-output" class="choice-output">Choose a document type.</p>
@@ -145,8 +147,9 @@
         <button class="term" type="button" data-def="adr">ADRs</button>.
         <span class="why">Any choice that is hard to reverse gets its own one-page "why" note.</span></span></label>
       <label><input type="checkbox"> <span>Promote surviving vocabulary to
-        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> or the design glossary.
-        <span class="why">Words the build settled on — like <em>slot</em> and <em>booking window</em> — become official.</span></span></label>
+        <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> or the
+        <button class="term" type="button" data-def="designartefacts">design artefacts</button>.
+        <span class="why">Words the build settled on — like <em>slot</em> and <em>booking window</em> — become official. UI vocabulary goes to the design glossary; new tokens to the kitchen sink; new interaction rules to the design-language guide.</span></span></label>
       <label><input type="checkbox"> <span>Update durable source docs and release notes.</span></label>
       <label><input type="checkbox"> <span>Ask whether anything deserves promotion to the
         <button class="term" type="button" data-def="playbook">playbook</button>.</span></label>
@@ -187,7 +190,7 @@
   </div>
 </main>
 
-<script src="assets/playbook-glossary.js?v=20260606-tooltips"></script>
+<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
 <script src="assets/playbook-docs.js?v=20260606-quiz"></script>
 </body>
 </html>

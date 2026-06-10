@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Engineering Playbook V0.1 · Interactive Guide Hub</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260606-quiz">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -14,6 +14,7 @@
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
     <a href="00-foundations.html">Foundations</a>
     <a href="10-process/index.html">Process map</a>
+    <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
     <a href="glossary.html">Glossary</a>
   </div>
@@ -24,16 +25,17 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 1 of 8</p>
+      <p class="guide-status">Step 1 of 9</p>
       <ol class="timeline-steps">
         <li class="timeline-step is-active"><a href="index.html" aria-current="page">01 Hub</a></li>
         <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
         <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
         <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
         <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
-        <li class="timeline-step"><a href="00-foundations.html">06 Foundations</a></li>
-        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">07 Theory</a></li>
-        <li class="timeline-step"><a href="30-document-lifecycle.html">08 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="20-frontend-track.html">06 Frontend track</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="../index.html"><span>Previous</span> Portal</a>
@@ -51,7 +53,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-06-06</span>
+      <span><strong>Last updated</strong> · 2026-06-10 · playbook V0.1.10</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
@@ -76,6 +78,28 @@
       <a class="start-path" href="50-how-to-write-code-with-ai.html">Start the guided path →</a><br>
       <span class="start-note">It begins with the story of one feature, from first sentence to shipped code.</span>
     </p>
+  </section>
+
+  <section class="whats-new" aria-labelledby="whats-new-title">
+    <h2 id="whats-new-title">What's New</h2>
+    <div class="version-entry">
+      <span class="version-label">V0.1.10 · 2026-06-09</span>
+      <p>The starter <button class="term" type="button" data-def="kitchensink">kitchen sink</button>
+      grew from a thin component sampler into a full operational UI baseline —
+      tables, drawers, overlays, and dense app-shell components — so new
+      projects start with a realistic visual vocabulary.</p>
+    </div>
+    <div class="version-entry">
+      <span class="version-label">V0.1.9 · 2026-06-09</span>
+      <p>UI projects now run on <button class="term" type="button" data-def="designartefacts">three design artefacts</button>
+      instead of two — a <button class="term" type="button" data-def="designlanguageguide">design-language guide</button>
+      joins the glossary and kitchen sink — with a mandatory setup question so
+      no project starts UI work without a design contract. Projects also
+      record their playbook version, and
+      <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button>
+      brings older projects up to date safely.
+      <a href="20-frontend-track.html">Read the new frontend track guide →</a></p>
+    </div>
   </section>
 
   <section>
@@ -156,6 +180,7 @@
       This publication turns the playbook into linked, static HTML pages for
       people using coding agents. It includes this hub, the foundations guide,
       the 13-stage process map, focused alignment and breakdown explainers, the
+      frontend-track guide, the
       document lifecycle guide, the practical agent-driving guide, the theory
       page that explains the reasoning behind the process, and a browsable
       glossary of every term the guides use.
@@ -205,6 +230,11 @@
         <strong>Cut up a feature</strong>
         <span>Cut a feature into pieces small enough to check one at a time.</span>
       </a>
+      <a href="20-frontend-track.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>Keep the UI honest</strong>
+        <span>The three design artefacts that stop you and the agent meaning different things by "pill".</span>
+      </a>
       <a href="00-foundations.html">
         <span class="card-tag reference">Reference</span>
         <strong>Check the principles</strong>
@@ -242,7 +272,7 @@
   </div>
 </main>
 
-<script src="assets/playbook-glossary.js?v=20260606-tooltips"></script>
+<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
 <script src="assets/playbook-docs.js?v=20260606-quiz"></script>
 </body>
 </html>
