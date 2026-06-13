@@ -615,9 +615,9 @@
       <text x="40" y="128" class="label-body ink-soft">owns intent &amp; approval</text>
 
       <text x="40" y="160" class="label-md ink">· Describe the feature</text>
-      <text x="40" y="182" class="label-md ink">· Make product calls</text>
-      <text x="40" y="204" class="label-md ink">· Review &amp; merge the PR</text>
-      <text x="40" y="226" class="label-md ink">· Say when to ship</text>
+      <text x="40" y="182" class="label-md ink">· Make product decisions</text>
+      <text x="40" y="204" class="label-md ink">· Review &amp; approve the change</text>
+      <text x="40" y="226" class="label-md ink">· Say when it's ready to release</text>
 
       <!-- Agent panel -->
       <rect x="500" y="40" width="360" height="200" rx="12" fill="#ffffff" stroke="#2a6e4f" stroke-width="1.5"/>
@@ -626,10 +626,10 @@
       <text x="520" y="106" class="label-lg ink">The agent</text>
       <text x="520" y="128" class="label-body ink-soft">owns execution &amp; verification</text>
 
-      <text x="520" y="160" class="label-md ink">· Read repo, follow playbook</text>
-      <text x="520" y="182" class="label-md ink">· Branch, build, test, browser-check</text>
-      <text x="520" y="204" class="label-md ink">· Keep docs &amp; vocab current</text>
-      <text x="520" y="226" class="label-md ink">· Open a draft PR, never self-merge</text>
+      <text x="520" y="160" class="label-md ink">· Read the project, follow the playbook</text>
+      <text x="520" y="182" class="label-md ink">· Build, test, check it in a browser</text>
+      <text x="520" y="204" class="label-md ink">· Keep docs &amp; shared terms current</text>
+      <text x="520" y="226" class="label-md ink">· Propose the change; never approve its own</text>
 
       <!-- Arrows -->
       <path d="M 380 110 C 430 110, 450 110, 500 110"
@@ -660,7 +660,7 @@
         <p class="role-name">The agent</p>
         <p class="owns">Do the work; show the work; never self-approve.</p>
         <ul>
-          <li>Read the project contract and domain vocabulary.</li>
+          <li>Read the project's ground rules and the words your project uses.</li>
           <li>Clarify before coding when the request is <button class="term" type="button" data-def="nontrivial">non-trivial</button>.</li>
           <li><button class="term" type="button" data-def="branch">Branch</button>, build <button class="term" type="button" data-def="slice">vertical slices</button>, test as you go.</li>
           <li>Run full verification before opening a <button class="term" type="button" data-def="draftpr">draft PR</button>.</li>
@@ -853,11 +853,11 @@ This should be possible.</code></pre>
         inspection. See §04 for the full <button class="term" type="button" data-def="smokefloor">smoke floor</button> it owes you.
       </p>
       <div class="callout">
-        <strong>Branch first.</strong> For any non-trivial product slice,
-        bug fix, or <button class="term" type="button" data-def="refactor">refactor</button>, the agent should start from a fresh <button class="term" type="button" data-def="featurebranch">feature
-        branch</button> <em>before</em> coding. Moving finished work onto a branch
-        at the end is only a recovery path when work accidentally started
-        on <code>main</code>.
+        <strong>Branch first.</strong> For any <button class="term" type="button" data-def="nontrivial">non-trivial</button> product slice,
+        bug fix, or <button class="term" type="button" data-def="refactor">refactor</button> (tidying the code without changing what it does), the agent should start from a fresh <button class="term" type="button" data-def="featurebranch">feature
+        branch</button> (a private workspace) <em>before</em> coding. Moving finished work onto a branch
+        at the end is only a fallback for when work accidentally started
+        on the main line (<code>main</code>).
       </div>
       <div class="callout">
         <strong>One slice, then a pause.</strong> When a slice is built and
@@ -1046,7 +1046,7 @@ This should be possible.</code></pre>
 
       <rect x="20"  y="402" width="280" height="50" rx="6" fill="#ffffff" stroke="#2a6e4f" stroke-dasharray="4 3"/>
       <text x="160" y="422" text-anchor="middle" class="label-sm muted">05 · LOOP READY</text>
-      <text x="160" y="440" text-anchor="middle" class="label-md ink">main pulled · new branch cut</text>
+      <text x="160" y="440" text-anchor="middle" class="label-md ink">latest pulled · fresh branch started</text>
 
       <!-- Post-merge arrows (right-to-left) -->
       <line x1="770" y1="427" x2="750" y2="427" stroke="#4a4a44" stroke-width="1.4" marker-end="url(#arrow-flow)" transform="translate(0,0)"/>
@@ -1072,11 +1072,11 @@ This should be possible.</code></pre>
     <p>At this point the work is <em>not</em> finished from the human side.</p>
 
     <div class="callout">
-      <strong>Shipping something irreversible?</strong> If the feature includes a
-      database migration, a bulk data edit, or a deletion, there's an extra rule:
-      a timestamped backup comes first, and the rollback must have actually been
-      run against a copy before the forward change ships — apply, roll back,
-      re-apply, rehearsed. A rollback that has never been executed is untested
+      <strong>Shipping something irreversible?</strong> If the feature changes the
+      shape of the stored data, edits many records at once, or deletes data, there's an extra rule:
+      a dated backup comes first, and the undo step must have actually been
+      run against a copy before the real change ships — apply it, undo it,
+      re-apply it, all rehearsed in advance. An undo step that has never been tried is untested
       code in the one place failure is most expensive. The full set of minimums
       is the <a href="00-foundations.html#security-floor">security floor</a>.
     </div>
@@ -1108,14 +1108,16 @@ This should be possible.</code></pre>
       <li>Recommend the next useful action.</li>
     </ol>
     <p>
-      If there is a deployment target, this is where deploy, <button class="term" type="button" data-def="canary">canary</button>, and
-      <button class="term" type="button" data-def="benchmark">benchmark</button> work happens. If there is no deployment target yet, the
-      next step is usually choosing the next feature or running a <button class="term" type="button" data-def="retro">retro</button>.
+      If the project has somewhere to publish the app for real users, this is where
+      releasing it live (<button class="term" type="button" data-def="canary">canary</button> and
+      <button class="term" type="button" data-def="benchmark">benchmark</button> work) happens. If there's nowhere to publish it yet, the
+      next step is usually choosing the next feature or running a <button class="term" type="button" data-def="retro">retro</button> (a short look back at how the work went).
     </p>
     <p>
-      Before starting the next feature, the agent should switch back to
-      <code>main</code>, pull the merged GitHub state, and create a new
-      feature branch from there.
+      Before starting the next feature, the agent should switch back to the
+      main line of work (<code>main</code>), pull down the just-merged version from GitHub
+      so its copy is up to date, and start a fresh feature branch (a private
+      workspace) from there.
     </p>
   </section>
 

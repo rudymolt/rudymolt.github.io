@@ -74,7 +74,8 @@
     <p>
       Take <code>plan-notes.md</code> — the to-do list and thinking-out-loud
       notes from the booking-form build. It is used every day during the build.
-      When the feature ships, doc-close asks: what now?
+      When the feature ships (is finished and released to users), doc-close
+      asks: what now?
     </p>
     <svg viewBox="0 0 900 330" class="diagram" role="img" aria-label="The journey of one document. The feature starts; plan-notes.md is used daily during the build. At ship, doc-close asks 'what now?' and the document splits three ways: a decision that is hard to undo is promoted to an ADR and kept; words everyone now uses are promoted to CONTEXT.md and kept; the rest moves to the archive folder — out of the agent's sight, but not deleted.">
       <defs>
@@ -137,7 +138,7 @@
       <option value="planning">Planning notes or prompt scratchpad (the to-do list and thinking-out-loud notes from the build)</option>
       <option value="adr">Hard-to-reverse decision (e.g. which payment provider to use)</option>
       <option value="living">CONTEXT.md, AGENTS.md, the three design artefacts (the project's own dictionary and visual language)</option>
-      <option value="generated">Generated output (files a tool produces from a source)</option>
+      <option value="generated">Generated output (files a tool builds automatically from other files — never edited by hand)</option>
     </select>
     <p id="tier-output" class="choice-output">Choose a document type.</p>
   </section>
@@ -153,8 +154,9 @@
       <label><input type="checkbox"> <span>Promote surviving vocabulary to
         <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> or the
         <button class="term" type="button" data-def="designartefacts">design artefacts</button>.
-        <span class="why">Words the build settled on — like <em>slot</em> and <em>booking window</em> — become official. UI vocabulary goes to the design glossary; new tokens to the kitchen sink; new interaction rules to the design-language guide.</span></span></label>
-      <label><input type="checkbox"> <span>Update durable source docs and release notes.</span></label>
+        <span class="why">Words the build settled on — like <em>slot</em> and <em>booking window</em> — become official. Words for things on screen go in the design glossary; new style settings (such as a colour or spacing value) go in the <button class="term" type="button" data-def="kitchensink">kitchen sink</button>; new rules for how things behave go in the design-language guide.</span></span></label>
+      <label><input type="checkbox"> <span>Update the long-lived reference docs and the release notes.
+        <span class="why">Reference docs are the ones the team keeps and trusts over time; release notes are the short record of what changed in this version.</span></span></label>
       <label><input type="checkbox"> <span>Ask whether anything deserves promotion to the
         <button class="term" type="button" data-def="playbook">playbook</button>.</span></label>
       <label><input type="checkbox"> <span>Move finished planning docs to <code>archive/</code>.</span></label>

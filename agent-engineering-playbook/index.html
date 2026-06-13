@@ -97,10 +97,10 @@
     </div>
     <div class="version-entry">
       <span class="version-label">V0.2 · 2026-06-12</span>
-      <p>The playbook now treats the agent's attention as a first-class design
-      constraint. The agent reads a one-page map before it starts, each stage
-      tells it where to go next, and the project keeps a pre-computed running
-      status — quietly making each session faster without changing how you drive
+      <p>The playbook now treats the agent's limited attention as something to design
+      around from the start. The agent reads a one-page map before it begins, each stage
+      tells it where to go next, and the project keeps a ready-made running
+      status — quietly making each session faster without changing how you guide
       it. See <a href="60-the-theory-behind-the-playbook.html#agent-surface">§60 · Designing for the agent</a>.</p>
     </div>
     <div class="version-entry">
@@ -126,25 +126,27 @@
   <section>
     <h2>What The AI Engineering Playbook Is</h2>
     <p>
-      The AI Engineering Playbook is a human-led workflow for agent-assisted
-      software development. It is not a framework, model, or replacement for
-      engineering judgement. It is a way to run a coding session so the agent
-      works inside a clear process: understand the task, agree the plan, break
-      the work into vertical slices, implement one slice at a time, review the
+      The AI Engineering Playbook is a way of working in which a person stays in
+      charge while an AI coding agent does the building. It is not a piece of
+      software or a replacement for engineering judgement. It is a way to run a
+      coding session so the agent works inside a clear process: understand the
+      task, agree the plan, break the work into small
+      <button class="term" type="button" data-def="slice">slices</button> that
+      can each be shown working on their own, build one slice at a time, review the
       result, test it, and ship only when the evidence is good enough.
     </p>
     <div class="learning-grid">
       <article class="learning-card">
-        <h3>Prompting structure</h3>
-        <span>Know what context, constraints, acceptance criteria, and evidence to give the agent before it edits code.</span>
+        <h3>How to brief the agent</h3>
+        <span>Know what background, limits, signs of success, and proof to give the agent before it changes any code.</span>
       </article>
       <article class="learning-card">
         <h3>Process route map</h3>
-        <span>Decide whether the next move is alignment, slicing, implementation, review, QA, debugging, shipping, or learning.</span>
+        <span>Decide whether the next move is agreeing the plan, splitting the work up, building, reviewing, quality-checking, fixing a fault, shipping, or learning from how it went.</span>
       </article>
       <article class="learning-card">
         <h3>Verification discipline</h3>
-        <span>Match checks to risk, so small changes stay fast and important changes get tests, browser QA, review, and rollout care.</span>
+        <span>Match the amount of checking to the risk, so small changes stay fast and important ones get tests, a check in the browser, a review, and a careful release.</span>
       </article>
     </div>
   </section>
@@ -153,11 +155,12 @@
     <h2>Why It Exists</h2>
     <p>
       Claude, Codex, and similar coding agents can move very quickly, but speed
-      creates a new problem: vague requests can produce broad changes, shallow
-      architecture, missing tests, and unclear handoffs. The playbook exists to
-      keep the human in charge of intent and tradeoffs while the agent handles
-      focused execution. It gives both sides a shared rhythm for building code
-      without turning every session into improvisation.
+      creates a new problem: a vague request can lead to sprawling changes, a
+      flimsy underlying design, no tests, and a result no one else can pick up
+      later. The playbook exists to keep the person in charge of what to build
+      and which trade-offs to make, while the agent handles the focused work of
+      building it. It gives both sides a shared rhythm for writing code without
+      turning every session into guesswork.
     </p>
   </section>
 
@@ -171,26 +174,28 @@
       </li>
       <li>
         Use the <a href="10-process/index.html">process map</a> when you are
-        unsure what kind of request you are making. It routes the work to
-        alignment, breakdown, implementation, review, QA, debugging, shipping,
-        or retro.
+        unsure what kind of request you are making. It points the work to the
+        right next step: agreeing the plan, splitting the work up, building,
+        reviewing, quality-checking, fixing a fault, shipping, or a look back at
+        how it went.
       </li>
       <li>
         For new features, use the
         <a href="10-process/01-align.html">alignment guide</a> before code and
         the <a href="10-process/04-breakdown.html">breakdown checker</a> before
-        implementation. The goal is one vertical, demoable slice rather than a
-        broad rewrite.
+        building. The goal is one small slice that works end to end and can be
+        shown off on its own, rather than a sweeping rewrite.
       </li>
       <li>
-        During implementation, keep the agent focused on one slice, ask it to
-        explain risky assumptions, and require tests or browser checks that fit
-        the risk of the change.
+        While the agent is building, keep it focused on one slice, ask it to
+        spell out any risky assumptions, and insist on tests or browser checks
+        that fit the risk of the change.
       </li>
       <li>
-        Before accepting the work, use the foundations, review, QA, and document
-        lifecycle pages to check whether the result is understandable,
-        maintainable, tested, and ready to hand off or publish.
+        Before accepting the work, use the foundations, review, quality-check,
+        and document lifecycle pages to check whether the result is easy to
+        understand, easy to change later, tested, and ready to hand over or
+        publish.
       </li>
     </ol>
   </section>
@@ -211,8 +216,8 @@
   <section>
     <h2>Acknowledgements</h2>
     <p>
-      This playbook is an adaptation layer built from ideas and practices in the
-      public agent-engineering ecosystem. In particular, it acknowledges
+      This playbook builds on ideas and practices shared openly by others working
+      on coding agents. In particular, it acknowledges
       <a href="https://www.mattpocock.com/">Matt Pocock</a>'s work on practical
       coding-agent skills, including
       <a href="https://github.com/mattpocock/skills">mattpocock/skills</a> and
@@ -274,7 +279,7 @@
       <a href="60-the-theory-behind-the-playbook.html">
         <span class="card-tag reference">Reference</span>
         <strong>Understand the theory</strong>
-        <span>Why the process uses alignment, slicing, TDD, QA, and retros.</span>
+        <span>Why the process agrees the plan first, works in small slices, writes tests before code, quality-checks the result, and looks back at how it went.</span>
       </a>
       <a href="30-document-lifecycle.html">
         <span class="card-tag reference">Reference</span>
@@ -292,11 +297,11 @@
   <section>
     <h2>Why These Pages Exist</h2>
     <p>
-      This hub keeps the documentation types separate. §50 is a how-to guide.
-      §60 is an explanation. The process and foundation Markdown files are
-      reference material. The small interactive pages are learning aids for the
-      concepts that are easier to understand by clicking, filtering, and
-      checking examples.
+      This hub keeps the different kinds of page separate. The "drive the agent"
+      page (§50) is a step-by-step how-to. The theory page (§60) explains the
+      reasoning. The process and foundation pages are there to look things up.
+      The small interactive pages are learning aids for the ideas that are easier
+      to grasp by clicking, filtering, and trying examples.
     </p>
   </section>
     </div>

@@ -851,12 +851,14 @@ Transport page
        hides filters, drawers, expansion, notices, dates, scoped paths</code></pre>
       <p>
         The fix was not to add more tiny helpers. It was to deepen the module:
-        give callers one place to ask "what should the next Transport path be?"
-        and put the fiddly rules behind that seam. The payoff is locality. If
-        Transport later changes how passenger expansion or championship paths
-        work, the agent has one module to edit and one set of tests to run,
-        instead of rediscovering the rule across the page, forms, drawers, and
-        server actions.
+        give the rest of the code one place to ask "what should the next
+        Transport path be?" and put the fiddly rules behind that single
+        <button class="term" type="button" data-def="seam">seam</button> (the
+        clean joining line between two parts of the code). The payoff is
+        everything-in-one-place. If Transport later changes how passenger
+        expansion or championship paths work, the agent has one module to edit
+        and one set of tests to run, instead of rediscovering the rule scattered
+        across the page, forms, drawers, and the code that runs on the server.
       </p>
     </div>
     <p class="go-deeper">
@@ -936,13 +938,14 @@ Transport page
       <li>
         <div class="head"><span class="skill">/cso</span> <span class="role">the security officer</span></div>
         A security review. The rule is absolute: run it on anything touching
-        login, payments, personal data, or public-facing endpoints — no
-        exceptions.
+        login, payments, personal data, or any part of the app the outside world
+        can reach — no exceptions.
       </li>
       <li>
         <div class="head"><span class="skill">/design-review · /devex-review</span> <span class="role">the specialists</span></div>
-        For user-facing screens and for developer-facing tools (APIs, command-line
-        tools) respectively.
+        For the screens your users see, and for the tools other software (or
+        other programmers) plug into — the connection points one program offers
+        another, and text-only tools run by typing commands — respectively.
       </li>
       <li>
         <div class="head"><span class="skill">/diagnose</span> <span class="role">the methodical debugger</span></div>
@@ -1022,8 +1025,8 @@ Transport page
     <p>
       An agent takes in everything through a narrow window, and it pays — in
       time, and in how much it can hold in mind at once — for every extra word
-      it has to wade through and every extra round-trip it has to make just to
-      learn what to do next. So V0.2 added one rule to the foundations:
+      it has to wade through and every extra back-and-forth it has to make just
+      to learn what to do next. So V0.2 added one rule to the foundations:
       <strong class="lead-in">treat the agent's attention as a first-class
       design constraint</strong>, the way the frontend track treats your visual
       vocabulary. If a tool, a file, or a document forces the agent to read a
@@ -1034,12 +1037,13 @@ Transport page
 
     <div class="callout">
       <strong>Where this touches your own product.</strong> The moment your
-      product exposes something an agent will use — a command-line tool, an
-      API, an integration — the same discipline applies to it: short, structured
-      output; the few fields that matter shown by default; totals already added
-      up; a clear "nothing here" instead of silence; and a hint about what to do
-      next. The full ten-point checklist lives in the foundations, applied once
-      when the interface is designed and again when it is reviewed.
+      product exposes something an agent will use — a tool you run by typing
+      commands, a connection point other software plugs into, or a link-up with
+      another system — the same discipline applies to it: short, tidy output;
+      the few details that matter shown by default; totals already added up; a
+      clear "nothing here" message instead of silence; and a hint about what to
+      do next. The full ten-point checklist lives in the foundations, applied
+      once when the tool is designed and again when it is reviewed.
     </div>
 
     <p>
@@ -1105,7 +1109,7 @@ Transport page
         <ul>
           <li>Each skill plays a role: founder, designer, QA lead, security officer, release engineer.</li>
           <li>Cover the <em>whole loop</em> around the build: post-code review, security, deploy, retro.</li>
-          <li>Runs as a sprint: Think → Plan → Build → Review → Test → Ship → Reflect.</li>
+          <li>Runs as one work cycle: Think → Plan → Build → Review → Test → Ship → Reflect.</li>
         </ul>
       </div>
     </div>
@@ -1141,9 +1145,9 @@ Transport page
         <span class="label">Source</span>
         <h3>Matt Pocock's skills</h3>
         <p>
-          Matt's skills frame agent work as small, composable behaviours:
-          grill the plan, slice vertically, build test-first, debug by
-          investigation, and improve architecture deliberately.
+          Matt's skills frame agent work as small, single-purpose habits that
+          slot together: grill the plan, slice vertically, build test-first,
+          debug by investigation, and improve the structure deliberately.
         </p>
         <p class="source-link">
           <a href="https://www.mattpocock.com/">mattpocock.com</a> ·

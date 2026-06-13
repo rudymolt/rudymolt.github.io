@@ -52,8 +52,9 @@
     <h1>Vertical Slice Checker</h1>
     <p class="lede">
       A good slice creates one demoable outcome and cuts through every relevant
-      layer. It is small enough to build, verify, commit, and review before the
-      agent moves on.
+      layer. It is small enough to build, check it works,
+      <button class="term" type="button" data-def="commit">commit</button> (save it as a checkpoint),
+      and review before the agent moves on.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
@@ -186,7 +187,7 @@
   <section class="interactive-panel" data-choice-panel>
     <h2>Common Wrong Cuts</h2>
     <div class="choice-grid">
-      <button type="button" data-choice data-choice-title="Schema-only slice" data-choice-body="Horizontal — database tables for bookings, with nothing visible to anyone. Recut it so the schema arrives with one visible capability: user can book a slot.">Build the schema</button>
+      <button type="button" data-choice data-choice-title="Database-only slice" data-choice-body="Horizontal — database tables for bookings, with nothing visible to anyone. Recut it so those tables arrive together with one thing a person can actually do: user can book a slot.">Build the database</button>
       <button type="button" data-choice data-choice-title="All screens first" data-choice-body="Horizontal — five booking screens that don't save anything. Pick one workflow (book a slot) and make it work end-to-end instead.">Build all screens</button>
       <button type="button" data-choice data-choice-title="Huge feature slice" data-choice-body="Too big. If the test list keeps growing after a few cycles, return to breakdown and split the slice.">Do everything at once</button>
       <button type="button" data-choice data-choice-title="Good vertical slice" data-choice-body="User can book one slot and see it confirmed — screen, logic, database, and a test, all working. Small, demoable, and finished.">User can do X</button>

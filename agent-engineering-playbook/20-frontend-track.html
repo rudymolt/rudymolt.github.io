@@ -52,9 +52,10 @@
     <h1>The Frontend Track</h1>
     <p class="lede">
       The extra discipline for anything with a screen. The biggest source of
-      churn in AI-assisted UI work is not bad code — it is the human and the
-      agent using the same word for different things, or the same component
-      for different jobs. Three files prevent that.
+      wasted, repeated rework in AI-assisted UI (user-interface) work is not
+      bad code — it is the human and the agent using the same word for
+      different things, or the same on-screen building block for different
+      jobs. Three files prevent that.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
@@ -74,12 +75,12 @@
   <section id="artefacts">
     <h2>The Three Design Artefacts</h2>
     <p>
-      Three files are the source of truth for what the UI is allowed to look
-      like and how it is allowed to behave. Each answers a different question
-      about the same screen.
+      Three files are the single agreed authority for what the screen is
+      allowed to look like and how it is allowed to behave. Each answers a
+      different question about the same screen.
     </p>
 
-    <svg viewBox="0 0 940 240" class="diagram" role="img" aria-label="Three boxes in a row. First: the design glossary, labelled words, answering what does this term mean. Second: the kitchen sink, labelled looks, answering what does it look like. Third: the design-language guide, labelled behaviour, answering which surface fits this job. An arrow runs left to right, and a caption beneath reads: UI code may only use what these three sanction.">
+    <svg viewBox="0 0 940 240" class="diagram" role="img" aria-label="Three boxes in a row. First: the design glossary, labelled words, answering what does this term mean. Second: the kitchen sink, labelled looks, answering what does it look like. Third: the design-language guide, labelled behaviour, answering which kind of panel fits this job. An arrow runs left to right, and a caption beneath reads: screen code may only use the words, styles, and panels these three approve.">
       <defs>
         <marker id="arrow-art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
@@ -106,105 +107,109 @@
         <rect x="650" y="40" width="260" height="110" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
         <text x="780" y="68" text-anchor="middle" class="label-sm" fill="#8a4b16">BEHAVIOUR</text>
         <text x="780" y="94" text-anchor="middle" class="label-md ink">Design-language guide</text>
-        <text x="780" y="116" text-anchor="middle" class="label-body ink-soft">"Which surface fits this job?"</text>
+        <text x="780" y="116" text-anchor="middle" class="label-body ink-soft">"Which panel fits this job?"</text>
         <text x="780" y="136" text-anchor="middle" class="label-mono muted">frontend-design-language-guide.html</text>
       </g>
       <line x1="290" y1="95" x2="340" y2="95" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-art)"/>
       <line x1="600" y1="95" x2="650" y2="95" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-art)"/>
-      <text x="470" y="195" text-anchor="middle" class="label-body ink-soft">UI code may only use vocabulary, styles, and surfaces these three sanction.</text>
+      <text x="470" y="195" text-anchor="middle" class="label-body ink-soft">Screen code may only use the words, styles, and panels these three approve.</text>
     </svg>
 
     <div class="learning-grid">
       <article class="learning-card">
         <h3>The <button class="term" type="button" data-def="designglossary">design glossary</button></h3>
-        <span>The textual language. Every UI term — pill, container, primary
+        <span>The words. Every screen term — pill, container, primary
         button — is defined exactly once, so "pill" means the same thing to
         you, the agent, and the code.</span>
       </article>
       <article class="learning-card">
         <h3>The <button class="term" type="button" data-def="kitchensink">kitchen sink</button></h3>
-        <span>The visual language. Every glossary term rendered live on one
+        <span>The visual language. Every glossary term shown live on one
         page that opens in any browser — every approved colour, spacing, and
-        component, with nothing hiding in the code.</span>
+        on-screen building block, with nothing hidden away in the code.</span>
       </article>
       <article class="learning-card">
         <h3>The <button class="term" type="button" data-def="designlanguageguide">design-language guide</button></h3>
-        <span>The interaction language. The kitchen sink shows what a drawer
+        <span>How it behaves. The kitchen sink shows what a slide-in drawer
         looks like; the guide says <em>when</em> a drawer is the right answer
-        — its decision table maps each job to a
-        <button class="term" type="button" data-def="surface">surface</button>.</span>
+        — a simple table matching each job to the right
+        <button class="term" type="button" data-def="surface">surface</button> (the kind of panel it appears in).</span>
       </article>
     </div>
 
     <div class="callout info">
-      <strong>The hard rule: never invent UI vocabulary or patterns.</strong>
-      If a term is missing from the glossary, or a screen needs a surface the
-      guide doesn't sanction, the agent must stop, ask you to decide, and
-      update the artefacts <em>before</em> writing component code. The
-      artefacts lead; the code follows.
+      <strong>The hard rule: never invent new screen words or patterns.</strong>
+      If a term is missing from the glossary, or a screen needs a
+      <button class="term" type="button" data-def="surface">surface</button>
+      the guide hasn't approved, the agent must stop, ask you to decide, and
+      update the three files <em>before</em> writing any screen code. The
+      files lead; the code follows.
     </div>
   </section>
 
   <section id="bootstrap">
-    <h2>Project Setup: The Bootstrap Question</h2>
+    <h2>Project Setup: The Setup Question</h2>
     <p>
-      Since V0.1.9, any project with a UI must answer this question at setup.
-      The agent may not silently skip the artefacts, and may not silently
-      impose the playbook defaults — it has to ask:
+      Since V0.1.9, any project with a screen must answer this question right
+      at the start. The agent may not quietly skip the three files, and may not
+      quietly force the playbook's default choices on you — it has to ask:
     </p>
     <div class="dialogue">
-      <div class="line agent"><span class="who">Agent</span>This project has a UI. How do you want to set up the three frontend design artefacts (glossary, kitchen sink, design-language guide)?<br><br>
+      <div class="line agent"><span class="who">Agent</span>This project has a screen. How do you want to set up the three frontend design files (glossary, kitchen sink, design-language guide)?<br><br>
         1 · <strong>Use the playbook defaults</strong> — I copy all three starter templates, then run the design interview to adapt them to your brand.<br>
-        2 · <strong>Supply your own</strong> — point me at existing files, a Figma export, screenshots, or a component library, and I'll distil them into the three-artefact shape.<br>
+        2 · <strong>Supply your own</strong> — point me at existing files, a design tool export (such as Figma), screenshots, or a ready-made set of components, and I'll reshape them to fit the three files.<br>
         3 · <strong>Mix</strong> — defaults for some, your own for others.<br>
-        4 · <strong>Skip for now</strong> — only if the project genuinely has no UI. I'll record that decision in <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button> so you aren't re-asked every session.</div>
+        4 · <strong>Skip for now</strong> — only if the project genuinely has no screen. I'll record that decision in <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button> so you aren't asked again every session.</div>
       <div class="line you"><span class="who">You</span>Use the defaults — but our brand colour is teal, not gold.</div>
       <div class="line agent"><span class="who">Agent</span>Copying the three templates now, then I'll run the design interview so teal and the rest of your choices land in the artefacts — not just in this chat.</div>
     </div>
     <p>
-      Whatever you answer, the session must end with all three artefacts
-      present in the project — or an explicit recorded skip. Since V0.1.10 the
-      starter kitchen sink is a full operational UI baseline (tables, drawers,
-      overlays, dense app-shell components) rather than a thin sampler, so
-      "use the defaults" gives you a realistic starting vocabulary.
+      Whatever you answer, the session must end with all three files present in
+      the project — or a clearly recorded decision to skip. Since V0.1.10 the
+      starter kitchen sink is a full, working set of real screen parts (tables,
+      slide-in panels, pop-ups, and the dense layout of a working app) rather
+      than a thin sample, so "use the defaults" gives you a realistic set of
+      words and parts to start from.
     </p>
   </section>
 
   <section id="interview">
     <h2>The Design Interview</h2>
     <p>
-      If no design system exists yet, the agent runs a
+      If no design system (an agreed set of styles and rules for the look)
+      exists yet, the agent runs a
       <button class="term" type="button" data-def="designinterview">design interview</button>
-      at kickoff — eleven questions covering colours, type, spacing, radii,
-      default containers, interaction states, the accessibility floor, and
-      (new in V0.1.9) three questions about behaviour: whether screens default
-      to dense rows or cards, which surface handles add/edit/confirm/history,
-      and what viewports the app assumes.
+      at the start — eleven questions covering colours, typefaces, spacing,
+      how rounded the corners are, the default boxes things sit in, how things
+      respond when you hover or click, the accessibility basics, and (new in
+      V0.1.9) three questions about behaviour: whether screens lean towards
+      dense rows or roomier cards, which panel handles add / edit / confirm /
+      history, and which screen sizes the app is built for.
     </p>
     <p>
       The rule that makes the interview matter: <strong>every answer must land
-      in one of the three artefacts</strong> — a glossary entry, a kitchen-sink
-      section or CSS token, or a decision-rule row in the guide. No answer is
-      allowed to live only in the conversation transcript.
+      in one of the three files</strong> — a glossary entry, a section or style
+      value in the kitchen sink, or a decision rule in the guide. No answer is
+      allowed to live only in the chat history.
     </p>
   </section>
 
   <section class="interactive-panel" data-choice-panel>
     <h2>Pick The Job, Get The Surface</h2>
     <p>
-      The design-language guide's decision table in miniature. Pick what the
-      booking-form feature needs to do; the answer shows which surface the
-      guide would sanction, and why.
+      A small version of the design-language guide's decision table. Pick what
+      the booking-form feature needs to do; the answer shows which kind of
+      panel the guide would approve, and why.
     </p>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Add or edit a record"
-        data-choice-body="<strong>Surface: a drawer.</strong> A panel that slides in from the side, keeping the list visible behind it.<br><strong>Booking form:</strong> editing a booking opens a drawer — you can still see the day's other bookings while you type.<br><em>Why not a new page? Because losing the list context forces you to remember what you were looking at.</em>">Add / edit a booking</button>
+        data-choice-body="<strong>Use a drawer.</strong> A panel that slides in from the side, keeping the list visible behind it.<br><strong>Booking form:</strong> editing a booking opens a drawer — you can still see the day's other bookings while you type.<br><em>Why not a new page? Because losing sight of the list forces you to remember what you were looking at.</em>">Add / edit a booking</button>
       <button type="button" data-choice data-choice-title="Confirm something destructive"
-        data-choice-body="<strong>Surface: a modal.</strong> A pop-up that blocks everything else until you answer.<br><strong>Booking form:</strong> &quot;Delete this booking?&quot; gets a modal — destruction deserves a deliberate, focused click.<br><em>Why not inline? Because a destructive button that fires on a stray click is a support ticket waiting to happen.</em>">Confirm a deletion</button>
+        data-choice-body="<strong>Use a modal.</strong> A pop-up that blocks everything else until you answer.<br><strong>Booking form:</strong> &quot;Delete this booking?&quot; gets a modal — deleting something deserves a deliberate, focused click.<br><em>Why not handle it right there in the list? Because a delete button that fires on a stray click is a support ticket waiting to happen.</em>">Confirm a deletion</button>
       <button type="button" data-choice data-choice-title="Read history or detail"
-        data-choice-body="<strong>Surface: inline disclosure.</strong> The row expands in place to show more.<br><strong>Booking form:</strong> clicking a booking row reveals its change history right there in the list.<br><em>Why not a modal? Because reading is low-stakes — it shouldn't block the rest of the screen.</em>">See a booking's history</button>
+        data-choice-body="<strong>Expand the row in place.</strong> The row opens up where it sits to show more.<br><strong>Booking form:</strong> clicking a booking row reveals its change history right there in the list.<br><em>Why not a pop-up? Because reading is low-stakes — it shouldn't block the rest of the screen.</em>">See a booking's history</button>
       <button type="button" data-choice data-choice-title="A complex multi-step job"
-        data-choice-body="<strong>Surface: a dedicated page.</strong> Some jobs are too big for an overlay.<br><strong>Booking form:</strong> the weekly timetable planner gets its own page — it is a workspace, not a quick edit.<br><em>The guide's rule of thumb: if the job has its own mental model, it gets its own page.</em>">Plan the whole week</button>
+        data-choice-body="<strong>Give it its own page.</strong> Some jobs are too big for a panel or pop-up.<br><strong>Booking form:</strong> the weekly timetable planner gets its own page — it is a workspace, not a quick edit.<br><em>The guide's rule of thumb: if the job is a whole way of working in its own right, it gets its own page.</em>">Plan the whole week</button>
     </div>
     <div class="choice-output" data-choice-output>Choose a job.</div>
   </section>
@@ -212,34 +217,38 @@
   <section id="stages">
     <h2>How The Track Plugs Into The Process Map</h2>
     <p>
-      The frontend track is not a separate process — it adds one UI check to
-      each stage of the <a href="10-process/index.html">13-stage map</a>:
+      The frontend track is not a separate process — it adds one screen-related
+      check to each stage of the <a href="10-process/index.html">13-stage map</a>:
     </p>
     <ul>
-      <li><strong class="lead-in">Prereqs (00).</strong> Verify the three artefacts exist. Missing and no recorded skip? Halt and run the bootstrap question.</li>
-      <li><strong class="lead-in">Align (01).</strong> After grilling a UI-affecting feature, make or update an HTML <button class="term" type="button" data-def="mockup">mockup</button> using the project's visual language — choosing surfaces by the guide's rules.</li>
-      <li><strong class="lead-in">Context (02).</strong> New tokens go into the kitchen sink, new terms into the glossary, new interaction patterns into the guide.</li>
-      <li><strong class="lead-in">Breakdown (04).</strong> UI <button class="term" type="button" data-def="slice">slices</button> name the glossary terms they use in their acceptance criteria.</li>
-      <li><strong class="lead-in">Architecture (06).</strong> Audit for drift: any style in the code that isn't in the kitchen sink is tech debt; any modal doing a drawer's job breaks the guide.</li>
-      <li><strong class="lead-in">Implementation (07).</strong> Code uses only glossary terms, only kitchen-sink styles, only sanctioned surfaces.</li>
-      <li><strong class="lead-in">Review (08) &amp; QA (09).</strong> Every UI-touching change passes the <button class="term" type="button" data-def="smokefloor">smoke floor</button> below.</li>
+      <li><strong class="lead-in">Prerequisites (00).</strong> Check the three files exist. Missing, with no recorded decision to skip? Stop and run the setup question.</li>
+      <li><strong class="lead-in">Align (01).</strong> After pressure-testing a feature that affects the screen, make or update a clickable
+      <button class="term" type="button" data-def="mockup">mockup</button> (a preview of the screen) using the project's visual language — choosing panels by the guide's rules.</li>
+      <li><strong class="lead-in">Context (02).</strong> New style values go into the kitchen sink, new terms into the glossary, new ways of behaving into the guide.</li>
+      <li><strong class="lead-in">Breakdown (04).</strong> Each small piece of screen work (a
+      <button class="term" type="button" data-def="slice">slice</button>) names the glossary terms it uses in its pass/fail conditions.</li>
+      <li><strong class="lead-in">Architecture (06).</strong> Check for drift: any style in the code that isn't in the kitchen sink is a shortcut to be tidied up later; any pop-up doing a slide-in panel's job breaks the guide.</li>
+      <li><strong class="lead-in">Implementation (07).</strong> Code uses only glossary terms, only kitchen-sink styles, only approved panels.</li>
+      <li><strong class="lead-in">Review (08) &amp; QA (09).</strong> Every change that touches the screen passes the
+      <button class="term" type="button" data-def="smokefloor">smoke floor</button> below.</li>
     </ul>
   </section>
 
   <section class="interactive-panel" data-checklist>
     <h2>The UI Smoke Floor</h2>
-    <p>Every UI-touching slice must pass this floor before it ships.</p>
+    <p>Every piece of screen work must pass this floor before it ships.</p>
     <div class="checklist">
-      <label><input type="checkbox"> <span>Check desktop, tablet, and mobile viewports for the affected screens.
-        <span class="why">Most late UI rework comes from screens that were only ever checked at desktop width.</span></span></label>
-      <label><input type="checkbox"> <span>No horizontal page overflow; wide tables scroll inside their own wrapper.
+      <label><input type="checkbox"> <span>Check the affected screens at desktop, tablet, and mobile-phone sizes.
+        <span class="why">Most late screen rework comes from screens that were only ever checked at full desktop width.</span></span></label>
+      <label><input type="checkbox"> <span>The page does not scroll sideways; wide tables scroll inside their own box instead of pushing the whole page wider.
         <span class="why">A page that scrolls sideways on a phone reads as broken, even when the data is right.</span></span></label>
-      <label><input type="checkbox"> <span>Mobile links, buttons, and chips meet the 44px
-        <button class="term" type="button" data-def="touchtarget">touch-target</button> floor — or a compact-control exception is written down.</span></label>
+      <label><input type="checkbox"> <span>On mobile, links, buttons, and small tags are at least 44 pixels across so a fingertip can hit them — the
+        <button class="term" type="button" data-def="touchtarget">touch-target</button> floor — or a written-down exception for deliberately small controls.</span></label>
       <label><input type="checkbox"> <span>Table text stays readable — columns are not compressed into unreadability.</span></label>
       <label><input type="checkbox"> <span><button class="term" type="button" data-def="headinghierarchy">Heading hierarchy</button> is intact on changed screens.</span></label>
-      <label><input type="checkbox"> <span><button class="term" type="button" data-def="urlstate">URL-driven state</button> (drawers, filters, tabs) restores scroll and focus correctly.</span></label>
-      <label><input type="checkbox"> <span>Affected sections visually match the kitchen sink.</span></label>
+      <label><input type="checkbox"> <span>When part of the screen is remembered in the web address — its
+      <button class="term" type="button" data-def="urlstate">URL-driven state</button> — such as an open panel, a filter, or a tab, reloading or sharing that address brings the screen back to the right place, scrolled and focused correctly.</span></label>
+      <label><input type="checkbox"> <span>The affected sections look the same as they do in the kitchen sink.</span></label>
     </div>
     <div class="checklist-status" data-checklist-output></div>
   </section>
@@ -253,27 +262,27 @@
       At the start of a session, if the project is behind the playbook's
       newest version, the agent mentions it and offers
       <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button>,
-      which walks the changelog and applies the differences carefully — new
-      files are copied, boilerplate is patched with the diff shown, and
-      anything you wrote yourself is only ever <em>proposed</em>, never
-      overwritten. It won't force an upgrade mid-feature; it just makes sure
-      improvements like this track actually reach projects that started
-      earlier.
+      which works through the list of changes and applies them carefully — new
+      files are copied, standard supplied files are updated with the exact
+      changes shown to you, and anything you wrote yourself is only ever
+      <em>suggested</em> for change, never overwritten. It won't force an
+      upgrade in the middle of a feature; it just makes sure improvements like
+      this track actually reach projects that started earlier.
     </p>
   </section>
 
   <section class="interactive-panel quiz" data-quiz>
     <h2>Check Yourself</h2>
-    <p class="quiz-q">Mid-implementation, the agent needs a "warning banner" — but the term isn't in the design glossary and nothing like it is in the kitchen sink. What does the playbook say happens next?</p>
+    <p class="quiz-q">Part-way through building, the agent needs a "warning banner" — but the term isn't in the design glossary and nothing like it is in the kitchen sink. What does the playbook say happens next?</p>
     <div class="quiz-options">
       <button type="button" data-quiz-option data-correct="false"
-        data-explain="Inventing the style inline is exactly the drift the track exists to prevent — the new banner would live only in the code, invisible to the artefacts and to the next session.">The agent designs one inline and keeps going</button>
+        data-explain="Inventing the style on the spot is exactly the slow drift the track exists to prevent — the new banner would live only in the code, invisible to the three files and to the next session.">The agent designs one on the spot and keeps going</button>
       <button type="button" data-quiz-option data-correct="true"
-        data-explain="Correct — the hard rule. The agent stops, asks you to decide what a warning banner is, records it in the glossary and kitchen sink, and only then writes the component.">The agent stops, asks you, and updates the artefacts first</button>
+        data-explain="Correct — the hard rule. The agent stops, asks you to decide what a warning banner is, records it in the glossary and kitchen sink, and only then builds it.">The agent stops, asks you, and updates the three files first</button>
       <button type="button" data-quiz-option data-correct="false"
-        data-explain="Borrowing the closest existing component without asking quietly changes what that component means — two jobs now share one name, which is vocabulary drift by another route.">The agent reuses the closest existing component silently</button>
+        data-explain="Quietly borrowing the nearest existing part changes what that part means — two jobs now share one name, which is the same drift by another route.">The agent quietly reuses the nearest existing part</button>
       <button type="button" data-quiz-option data-correct="false"
-        data-explain="Deferring to a cleanup list means shipping a screen the artefacts can't describe. The artefacts lead and the code follows — not the other way round.">The agent ships it and adds a to-do to document it later</button>
+        data-explain="Leaving it to a later cleanup list means shipping a screen the three files can't describe. The files lead and the code follows — not the other way round.">The agent ships it and adds a note to document it later</button>
     </div>
     <div class="quiz-feedback" data-quiz-feedback hidden></div>
   </section>

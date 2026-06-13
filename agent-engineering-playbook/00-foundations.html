@@ -52,8 +52,8 @@
     <h1>Foundations</h1>
     <p class="lede">
       The principles every stage assumes: ask before acting, use the project's
-      vocabulary, keep one source of truth, slice vertically, and verify in
-      proportion to risk.
+      own words, keep one source of truth, build one complete working slice at a
+      time, and check the work in proportion to the risk.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
@@ -209,31 +209,33 @@
   <section id="agent-surface">
     <h2>Designing for the Agent-Facing Surface</h2>
     <p>
-      New in V0.2. The frontend track disciplines the surface your <em>users</em>
-      see; this principle disciplines the surface <em>agents</em> consume. It
-      applies whenever the product exposes a CLI, an API, an MCP server, or any
-      tool interface an AI agent will call — increasingly the default, not the
-      exception.
+      New in V0.2. The frontend track is about the surface your <em>users</em>
+      see; this principle is about the surface that <em>other software, including
+      AI agents,</em> uses. It applies whenever your product offers a way to be
+      operated by software rather than by a person clicking around — a
+      command-line tool, an API (a doorway other programs use to talk to it), or
+      any interface an AI agent will call. That is increasingly the norm, not a
+      special case.
     </p>
     <p>
-      <strong>The principle:</strong> treat the consuming agent's token budget
-      and turn count as first-class design constraints, the way the frontend
-      track treats visual vocabulary. An interface that forces an agent to take
-      extra turns, parse walls of text, or guess at next steps is a defect, even
-      if it works perfectly for humans.
+      <strong>The principle:</strong> design for the agent's limits the way the
+      frontend track designs for people's. An AI agent can only take in so much
+      at once, and every back-and-forth step costs it time, so an interface that
+      makes it wade through walls of text, take extra steps, or guess what to do
+      next is a fault — even if a person would cope with it fine.
     </p>
     <p>The checklist — applied when the interface is designed (stage 06) and when it is reviewed (stage 08):</p>
     <ol>
-      <li><strong>Token-efficient output</strong> — compact structured formats; no decorative output.</li>
-      <li><strong>Minimal default schemas</strong> — return the three or four fields agents actually need; offer an escape hatch for the rest.</li>
-      <li><strong>Content truncation</strong> — cap large fields with a size hint and a way to fetch the remainder.</li>
-      <li><strong>Pre-computed aggregates</strong> — include totals, counts, and rolled-up statuses so the agent never needs a second call to know "how many" or "did it pass".</li>
-      <li><strong>Definitive empty states</strong> — print "0 results", never nothing. Silence is indistinguishable from failure.</li>
-      <li><strong>Structured errors and exit codes</strong> — idempotent mutations, machine-parseable errors, no interactive prompts.</li>
-      <li><strong>Ambient context</strong> — let a session start with relevant state already visible rather than requiring discovery calls.</li>
-      <li><strong>Content first</strong> — the no-argument invocation shows live state, not a wall of help text.</li>
-      <li><strong>Contextual disclosure</strong> — append concrete next-step suggestions after output.</li>
-      <li><strong>Consistent help</strong> — every subcommand answers <code>--help</code> concisely, as the fallback.</li>
+      <li><strong>Keep output compact</strong> — tidy, structured results with no decorative padding the agent has to read past.</li>
+      <li><strong>Show the essentials by default</strong> — the three or four pieces of information the agent actually needs, with a clear way to ask for the rest.</li>
+      <li><strong>Trim long content</strong> — shorten very long results, say how much was left out, and offer a way to fetch the remainder.</li>
+      <li><strong>Do the sums up front</strong> — include totals, counts, and an overall "did it pass?" so the agent never has to ask a second time to learn "how many" or "did it work".</li>
+      <li><strong>Always say when there is nothing</strong> — print "0 results" rather than staying silent, because silence looks exactly like a breakdown.</li>
+      <li><strong>Make errors clear and safe to repeat</strong> — report failures in a fixed, readable form, make running the same step twice harmless, and never stop to ask a question mid-task.</li>
+      <li><strong>Lead with the current state</strong> — show the relevant situation as soon as a session starts, instead of making the agent go hunting for it.</li>
+      <li><strong>Content first</strong> — running the tool with no instructions should show what is going on right now, not a wall of help text.</li>
+      <li><strong>Suggest the next step</strong> — after each result, point to the obvious things the agent might do next.</li>
+      <li><strong>Consistent help</strong> — every command can explain itself briefly when asked, as the fallback.</li>
     </ol>
     <div class="callout info">
       <strong>Litmus test.</strong> Could an agent complete the product's three
@@ -251,10 +253,16 @@
   <section id="security-floor">
     <h2>The Security Floor</h2>
     <p>
-      New in V0.2. These are minimums, not a security programme — they exist
-      because their absence hurts without warning. The
+      New in V0.2. The
       <button class="term" type="button" data-def="securityfloor">security floor</button>
-      is checked cheaply every session (prereqs) and per pull request (review).
+      is a small set of safety basics that must always be in place — the lowest
+      acceptable bar, not a full security programme. They matter because a
+      missing one rarely looks like a problem at the time: the app keeps
+      working and nothing flags an error, right up until a leaked password or
+      an accidental mass-deletion causes real, sudden damage. So the agent
+      checks the floor cheaply at the start of every session, and again each
+      time it proposes a batch of changes for review (a
+      <button class="term" type="button" data-def="pr">pull request</button>).
     </p>
     <ul>
       <li><strong>Secrets never enter tracked files.</strong> Credentials, tokens, and keys

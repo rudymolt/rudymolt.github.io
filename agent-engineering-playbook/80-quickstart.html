@@ -51,13 +51,13 @@
     <div class="eyebrow">AI Engineering Playbook · §80</div>
     <h1>Quickstart</h1>
     <p class="lede">
-      One feature through all thirteen stages, so you can see what each stage
-      actually produces before running it on something real. Every artefact
-      shown is genuine and small.
+      One feature taken through all thirteen stages, so you can see what each stage
+      actually produces before you try it on something real. Every item of work
+      shown here is genuine and small.
     </p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
-      <span><strong>In one breath</strong> · MeetTrack takes one feature from a vague request to a shipped, retro'd release.</span>
+      <span><strong>In one breath</strong> · MeetTrack takes one feature from a vague request to a released, reviewed-afterwards version.</span>
     </div>
   </header>
 
@@ -72,7 +72,7 @@
   <section class="doc-toc" aria-labelledby="qs-map">
     <h2 id="qs-map">On This Page</h2>
     <div class="toc-grid">
-      <a href="#project">The project<span>MeetTrack, a tiny library.</span></a>
+      <a href="#project">The project<span>MeetTrack, a tiny code toolkit.</span></a>
       <a href="#request">The request<span>One vague sentence from a coach.</span></a>
       <a href="#stages">The thirteen stages<span>What each one produced.</span></a>
       <a href="#takeaways">What to take from this<span>The point of the walkthrough.</span></a>
@@ -83,12 +83,13 @@
     <h2>The project</h2>
     <p>
       MeetTrack records athletics results (athlete, event, mark, meet date),
-      ranks results tables per event, and answers personal bests. Pure Python,
-      no UI, tests via <code>python3 -m unittest</code>. It was bootstrapped from
-      this playbook — <code>CLAUDE.md</code> (with the first rule),
-      <code>AGENTS.md</code>, <code>CONTEXT.md</code>, a state file, cadences,
-      and <code>planning/</code> + <code>archive/</code> folders. One feature
-      has already shipped and been archived.
+      ranks results tables for each event, and answers questions about personal bests.
+      It is written in Python, has no on-screen interface, and is checked with an
+      automated test command (<code>python3 -m unittest</code>). It was set up using
+      this playbook — with <code>CLAUDE.md</code> (the agent's standing instructions, including the first rule),
+      <code>AGENTS.md</code>, <code>CONTEXT.md</code>, a progress-tracking file, a schedule of regular checks,
+      and <code>planning/</code> and <code>archive/</code> folders. One feature
+      has already been released and filed away.
     </p>
   </section>
 
@@ -106,127 +107,137 @@
 
     <h3>00 · Prereqs — every session, first</h3>
     <p>
-      The agent checks skills are installed, project files present, version
-      current, <code>no_ui</code> recorded (so frontend checks skip), tests
-      green. Output: <em>pass</em>, in about thirty seconds. The stage's
-      <em>Next</em> block routes a feature request onward to alignment.
+      The agent checks that its tools are installed, the project files are present, the
+      playbook version is current, the "no on-screen interface" setting is recorded (so the
+      visual checks are skipped), and the existing tests all pass. Result: <em>pass</em>, in about
+      thirty seconds. The stage's <em>Next</em> note then sends a feature request on to the
+      agree-the-plan stage.
     </p>
 
-    <h3>01 · Align — grill before code</h3>
+    <h3>01 · Agree the plan — question hard before any code</h3>
     <p>
-      The first rule fires: this is a feature request, so no code yet. The agent
-      grills until the shape is settled — goal in one sentence
-      (<em>"a coach can see one athlete's progression in one event over time"</em>),
-      history not ranking, oldest-first order, and an explicit out-of-scope list
-      (charts, UI, persistence). The domain word "progression" is standardised
-      to "history view" to avoid two terms.
+      The first rule kicks in: this is a feature request, so no code yet. The agent
+      keeps asking questions until the shape is settled — the goal in one sentence
+      (<em>"a coach can see one athlete's progress in one event over time"</em>),
+      a history list rather than a ranking, oldest result first, and a clear list of
+      what is being left out (charts, an on-screen interface, and saving anything to disk).
+      The word "progression" is settled on as "history view" throughout, so the project
+      doesn't end up with two words for the same thing.
     </p>
 
-    <h3>02 · Context and ADRs — record while it's fresh</h3>
+    <h3>02 · Context and decision records — write it down while it's fresh</h3>
     <p>
       <code>CONTEXT.md</code> gains the term <strong>history view</strong> — a
-      chronological listing of one athlete's results in one event, oldest first,
-      explicitly <em>not</em> the same as the results table. No new ADR: no
-      architectural decision was taken (the existing in-memory-store decision
-      still covers the constraint that matters).
+      list of one athlete's results in one event in date order, oldest first,
+      and clearly <em>not</em> the same as the results table. No new decision record
+      is needed (a decision record is a short note explaining a significant design choice):
+      no real design choice was made here, because the earlier decision to keep all the data
+      in memory still covers the one constraint that matters.
     </p>
 
-    <h3>03 · PRD — write down what was agreed</h3>
+    <h3>03 · Requirements doc — write down what was agreed</h3>
     <p>
-      A ~25-line PRD captures the requirements: <code>history(athlete, event)</code>
-      returns results sorted by date ascending; the personal best is
-      identifiable; date ties preserve insertion order; no persistence changes.
-      Success: a coach can answer "is Aisha improving in the 100m?" from one
-      call. State updates to <em>prd-written</em>.
+      A short requirements document (about 25 lines) captures what's needed: a
+      <code>history(athlete, event)</code> request returns the results in date order,
+      earliest first; the personal best can be picked out; results on the same date keep the
+      order they were entered in; and nothing changes about how data is saved. Success: a coach
+      can answer "is Aisha improving in the 100m?" in one go. The progress-tracking file is
+      updated to show the requirements are written.
     </p>
 
-    <h3>04 · Breakdown — vertical slices</h3>
+    <h3>04 · Breakdown — split into small, complete pieces</h3>
     <p>
-      Three slices, each cutting store → query → tests: (1) the store supports
-      per-athlete, per-event chronological retrieval; (2) the
-      <code>history()</code> query with the PB flagged; (3) a formatting helper
-      for display. State: <em>sliced</em>, three slices open.
+      The work is split into three small pieces, each one a complete slice from data store to
+      result to tests: (1) the store can return one athlete's results for one event in date
+      order; (2) the <code>history()</code> request, with the personal best marked; (3) a small
+      helper that formats the results for display. The progress-tracking file now shows three
+      open pieces of work.
     </p>
 
-    <h3>05 · Triage — pick the next slice</h3>
+    <h3>05 · Triage — pick what to do next</h3>
     <p>
-      Slice 1 wins — everything depends on it. On a busier project this stage
-      also keeps the tracker honest: dead issues closed, duplicates merged.
+      Piece 1 wins — everything else depends on it. On a busier project this stage
+      also keeps the task list tidy: closing tasks that no longer matter and combining
+      duplicates.
     </p>
 
-    <h3>06 · Architecture — only when the cadence fires</h3>
+    <h3>06 · Architecture — only when it's due</h3>
     <p>
-      Not this time: the slices-since-last-review counter is below threshold.
-      The stage exists so the <em>check</em> happens, not so it always runs.
+      Not this time: not enough pieces of work have been completed since the last architecture
+      review to make it due. The stage exists so the <em>check</em> happens, not so it runs every time.
     </p>
 
-    <h3>07 · Implementation — TDD</h3>
-    <p>Slice 1, red first:</p>
+    <h3>07 · Building it — write the test first</h3>
+    <p>Piece 1, the failing test first:</p>
     <pre><code>def test_history_is_chronological_oldest_first(self):
     rows = self.t.history("Aisha", "100m")
     self.assertEqual([r.meet_date for r in rows],
                      sorted(r.meet_date for r in rows))</code></pre>
     <p>
-      Then the minimal green implementation, then refactor; the commit is tagged
-      per the project's slice convention. State: two slices open, the
-      architecture counter ticks up, the status block is recomputed.
+      Then the smallest amount of code that makes the test pass, then a tidy-up; the saved
+      change is labelled following the project's usual naming pattern. The progress-tracking
+      file now shows two open pieces of work, the architecture-review counter goes up by one,
+      and the at-a-glance status summary is refreshed.
     </p>
 
-    <h3>08 · Review — find what the tests don't</h3>
+    <h3>08 · Review — catch what the tests don't</h3>
     <p>
-      One pass before the PR lands: correctness against the PRD, no invented
-      vocabulary (it says "history view", not "progression log"), and the
-      stable-sort claim actually guaranteed — Python's <code>sorted</code> is
-      stable, noted in the PR description rather than trusted silently.
+      One read-through before the change is proposed for merging into the main project: does it
+      match the requirements document, does it stick to the agreed words ("history view", not
+      "progression log"), and is the claim that same-date results keep their order actually
+      guaranteed? Python's sorting does keep that order, and that fact is written into the change's
+      description rather than quietly assumed.
     </p>
 
-    <h3>09 · QA</h3>
+    <h3>09 · Quality check</h3>
     <p>
-      With <code>no_ui: true</code> and no external dependencies, the
-      verification ladder lets the green unit suite carry this slice — the stage
-      is consulted, not skipped silently. The <em>feature</em> ships when all
-      three slices land.
+      With the "no on-screen interface" setting on and nothing relying on outside services, the
+      verification ladder is happy for the passing automated tests to vouch for this piece — the
+      stage is genuinely considered, not quietly skipped. The whole <em>feature</em> is released
+      once all three pieces are done.
     </p>
 
-    <h3>10 · Ship and deploy — and close the docs</h3>
+    <h3>10 · Release — and tidy up the documents</h3>
     <p>
-      After slice 3 lands, the feature ships and the doc-close ritual fires
-      <strong>now, at feature ship — not per slice</strong>: a release note is
+      After piece 3 is done, the feature is released and the document tidy-up happens
+      <strong>now, when the whole feature ships — not after each piece</strong>: a release note is
       written, the planning folder is moved into <code>archive/</code>, both
-      <code>STATUS.md</code> files are updated, and the state is stamped.
+      <code>STATUS.md</code> files are brought up to date, and the progress-tracking file is stamped as done.
     </p>
 
-    <h3>11 · Debug — didn't fire</h3>
+    <h3>11 · Fixing bugs — didn't happen this time</h3>
     <p>
-      No defects this pass. When one appears: diagnosis before fix, and the fix
-      itself returns through stage 07 as a TDD slice.
+      No bugs this time round. When one does turn up: work out the cause before
+      fixing it, and treat the fix itself as another small piece back at stage 07 —
+      writing a failing test first.
     </p>
 
-    <h3>12 · Retro and learn</h3>
+    <h3>12 · Look back and learn</h3>
     <p>
-      Ten minutes, honestly answered. Went well: the grilling caught the
-      ranking-vs-history ambiguity before any code. Didn't: slice 1 nearly
-      smuggled in a refactor, split on review. Promoted: "split refactors from
-      feature slices" became a session rule in <code>CLAUDE.md</code>.
+      Ten minutes, answered honestly. Went well: the hard questioning caught the
+      "ranking versus history" mix-up before any code was written. Didn't: piece 1 nearly
+      slipped in some unrelated tidying-up, which was spotted and separated out at review.
+      Lesson kept: "keep tidy-up changes separate from new-feature work" was added as a
+      standing rule in <code>CLAUDE.md</code>.
     </p>
   </section>
 
   <section id="takeaways">
     <h2>What to take from this</h2>
     <ul>
-      <li><strong>The artefacts are small.</strong> A 25-line PRD, a three-row slice
-      table, a six-line retro. The discipline is in the sequence, not the paperwork.</li>
-      <li><strong>The agent never chose the route.</strong> The stage
+      <li><strong>The documents are small.</strong> A 25-line requirements doc, a three-row
+      table of work, a six-line look-back review. The discipline is in the order you do things,
+      not in the paperwork.</li>
+      <li><strong>The agent never chose the route itself.</strong> The stage
       <button class="term" type="button" data-def="statusblock">status block</button>
-      and the per-stage signposts did — that's the V0.2 ergonomics working.</li>
-      <li><strong>Three stages did nothing this pass</strong> (architecture, debug, and
-      browser QA) and that's correct: they're checks that <em>can</em> fire, not
-      ceremonies that must.</li>
+      and the signposts at the end of each stage did — that's the V0.2 design making the path easy to follow.</li>
+      <li><strong>Three stages did nothing this time</strong> (architecture, bug-fixing, and
+      in-browser testing) and that's correct: they're checks that <em>can</em> happen when needed,
+      not rituals that must run every time.</li>
     </ul>
     <div class="callout info">
-      <strong>This example is measured, not aspirational.</strong> The mid-flight
-      version of this exact project is preserved as a benchmark fixture, where
-      the harness measures agents navigating it.
+      <strong>This example is measured, not wishful.</strong> A part-finished version of this exact
+      project is kept as a fixed test case, used to measure how well AI agents find their way through it.
     </div>
     <p>
       <strong>Go deeper:</strong>
