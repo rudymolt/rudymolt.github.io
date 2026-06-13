@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lite Mode · AI Engineering Playbook V0.2</title>
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+</head>
+<body class="playbook-doc">
+<nav class="site-nav" aria-label="Playbook guides">
+  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <div class="links">
+    <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
+    <a href="60-the-theory-behind-the-playbook.html">Theory</a>
+    <a href="00-foundations.html">Foundations</a>
+    <a href="10-process/index.html">Process map</a>
+    <a href="20-frontend-track.html">Frontend track</a>
+    <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="70-lite-mode.html" aria-current="page">Lite mode</a>
+    <a href="80-quickstart.html">Quickstart</a>
+    <a href="glossary.html">Glossary</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="guide-layout">
+    <aside class="guide-timeline" aria-label="Guide path">
+      <p class="guide-title">Guide path</p>
+      <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
+      <p class="guide-status">Step 10 of 11</p>
+      <ol class="timeline-steps">
+        <li class="timeline-step"><a href="index.html">01 Hub</a></li>
+        <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
+        <li class="timeline-step"><a href="10-process/index.html">03 Process map</a></li>
+        <li class="timeline-step"><a href="10-process/01-align.html">04 Align</a></li>
+        <li class="timeline-step"><a href="10-process/04-breakdown.html">05 Breakdown</a></li>
+        <li class="timeline-step"><a href="20-frontend-track.html">06 Frontend track</a></li>
+        <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
+        <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
+        <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+        <li class="timeline-step is-active"><a href="70-lite-mode.html" aria-current="page">10 Lite mode</a></li>
+        <li class="timeline-step"><a href="80-quickstart.html">11 Quickstart</a></li>
+      </ol>
+      <div class="guide-sequence" aria-label="Guide sequence">
+        <a href="30-document-lifecycle.html"><span>Previous</span> Docs lifecycle</a>
+        <a href="80-quickstart.html"><span>Next</span> Quickstart →</a>
+      </div>
+    </aside>
+    <div class="guide-content">
+  <header class="doc-head">
+    <div class="eyebrow">AI Engineering Playbook · §70</div>
+    <h1>Lite Mode</h1>
+    <p class="lede">
+      The full thirteen-stage loop earns its fixed costs on substantial
+      projects. A small tool, a script, or an experiment shouldn't have to pay
+      them — but it shouldn't abandon discipline either.
+      <button class="term" type="button" data-def="litemode">Lite mode</button>
+      is the subset that keeps the parts that prevent rework, drops the
+      machinery that manages scale, and names the exact moment to graduate.
+    </p>
+    <div class="meta">
+      <span><strong>Publication</strong> · Interactive HTML guide</span>
+      <span><strong>In one breath</strong> · Align → TDD → review → ship, with the first rule intact and almost no files.</span>
+    </div>
+  </header>
+
+  <div class="term-hint" role="note">
+    <strong>Tip.</strong> Words with a dotted underline — like
+    <button class="term" type="button" data-def="tdd">TDD</button> or
+    <button class="term" type="button" data-def="firstrule">the first rule</button> —
+    are short bits of jargon. Click or tap any of them for a one-sentence,
+    plain-English explanation. Press <kbd>Esc</kbd> or click outside to close it.
+  </div>
+
+  <section class="doc-toc" aria-labelledby="lite-map">
+    <h2 id="lite-map">On This Page</h2>
+    <div class="toc-grid">
+      <a href="#when">When it applies<span>The four conditions.</span></a>
+      <a href="#survives">What survives<span>The discipline that stays.</span></a>
+      <a href="#drops">What it drops<span>The machinery removed.</span></a>
+      <a href="#loop">The lite loop<span>Five steps, per piece of work.</span></a>
+      <a href="#graduate">Graduation<span>The tripwire to the full loop.</span></a>
+    </div>
+  </section>
+
+  <section id="when">
+    <h2>When lite mode applies</h2>
+    <p>
+      All four of these should be true. If any one is false, run the full
+      bootstrap instead.
+    </p>
+    <ul>
+      <li><strong>One human.</strong> No second contributor, and none planned.</li>
+      <li><strong>Short-lived.</strong> Expected life under about two weeks, or under about three features of work.</li>
+      <li><strong>No real UI.</strong> A CLI, a script, or a notebook — not screens.</li>
+      <li><strong>Nothing irreversible.</strong> No production data, payments, auth, or migrations at stake.</li>
+    </ul>
+    <div class="callout">
+      <strong>If in doubt, it doesn't apply.</strong> The cost of running the
+      full loop on a small thing is a little paperwork. The cost of running
+      lite mode on something that wasn't small is rework you can't see coming.
+    </div>
+  </section>
+
+  <section id="survives">
+    <h2>What survives — non-negotiable even here</h2>
+    <p>
+      Lite mode drops <em>machinery</em>, never <em>principles</em>. These hold
+      at any size.
+    </p>
+    <ul>
+      <li><strong>The first rule.</strong> A
+      <button class="term" type="button" data-def="firstrule">feature request is still not a coding instruction</button>.
+      Lite alignment before any code, every time — this was the single
+      most-broken discipline in testing, and project size doesn't change that.</li>
+      <li><strong>Lite alignment — five questions</strong>, asked and answered in chat before code:
+      what is the goal in one sentence? what are the two or three hard
+      constraints? what is explicitly out of scope? what words does the domain
+      use (and do any clash)? how will we know it works?</li>
+      <li><strong>TDD for anything non-trivial.</strong> Red, green, refactor. The
+      <a href="00-foundations.html#verification">verification ladder</a> still scales effort with risk.</li>
+      <li><strong>Review before merge.</strong> One pass: correctness, security on any
+      input or output boundary, and "would a stranger understand this?"</li>
+      <li><strong>Foundations still apply.</strong> Surgical edits, one direction of data
+      flow, no invented domain rules — it's the stage machinery lite mode drops, not these.</li>
+    </ul>
+  </section>
+
+  <section id="drops">
+    <h2>What lite mode drops</h2>
+    <ul>
+      <li><strong>Files.</strong> No state file, no cadences file, no <code>planning/</code> or
+      <code>archive/</code> folders, no PRD documents. A single trimmed
+      <code>CLAUDE.md</code> (keep the first rule and constraints; delete what
+      doesn't apply) and — once the project survives more than one session — a
+      minimal <code>CONTEXT.md</code> for vocabulary.</li>
+      <li><strong>Stages.</strong> PRD, breakdown, triage, the architecture cadence, browser
+      QA (no UI), the doc-close ritual, and the formal retro. Alignment answers
+      live in the chat and in commit messages.</li>
+      <li><strong>Cadences and state.</strong> Nothing is tracked, so nothing is overdue —
+      which is exactly why the graduation tripwire below exists.</li>
+    </ul>
+  </section>
+
+  <section id="loop">
+    <h2>The lite loop</h2>
+    <p>Five steps, per piece of work.</p>
+    <ol>
+      <li><strong>Align.</strong> The five questions answered — no code before this.</li>
+      <li><strong>TDD.</strong> Failing test → code → green → refactor, per slice of work.</li>
+      <li><strong>Review.</strong> One honest pass before merge.</li>
+      <li><strong>Ship.</strong> Merge, tag or note the version, tell whoever cares.</li>
+      <li><strong>Ask.</strong> "Did I learn something the playbook should know?"</li>
+    </ol>
+  </section>
+
+  <section id="graduate">
+    <h2>Graduation — the tripwire</h2>
+    <p>
+      Checked at every ship. Graduate to the full playbook the first time
+      <em>any</em> of these happens:
+    </p>
+    <ul>
+      <li>A second human joins, or will within a fortnight.</li>
+      <li>The project passes about three shipped features, or about two weeks of life.</li>
+      <li>The same bug class appears twice.</li>
+      <li>A real UI appears — screens, not output.</li>
+      <li>You catch yourself wanting a tracker, a planning doc, or "notes for next session".</li>
+      <li>Anything irreversible enters scope: real users' data, auth, payments, migrations.</li>
+    </ul>
+    <div class="callout info">
+      <strong>How to graduate.</strong> Run the full bootstrap, keeping your
+      existing <code>CLAUDE.md</code> and <code>CONTEXT.md</code> as the content
+      the templates merge around. Backfill nothing else — the full loop starts
+      from the next feature, not retroactively. Graduation is one-way: if a
+      graduated project feels heavy, tune the cadences at the retro rather than
+      returning to lite.
+    </div>
+    <p>
+      <strong>Go deeper:</strong>
+      <a href="80-quickstart.html">the full loop worked end-to-end</a> ·
+      <a href="50-how-to-write-code-with-ai.html">how to drive the agent</a> ·
+      <a href="00-foundations.html">the foundations</a>
+    </p>
+  </section>
+
+  <footer class="doc-foot">
+    <div>AI Engineering Playbook V0.2 · §70 · Lite Mode</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-06-13 · playbook V0.2.9</div>
+  </footer>
+
+    </div>
+  </div>
+</main>
+
+<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
+<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+</body>
+</html>

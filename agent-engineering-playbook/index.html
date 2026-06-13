@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Engineering Playbook V0.1 · Interactive Guide Hub</title>
+<title>AI Engineering Playbook V0.2 · Interactive Guide Hub</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
@@ -16,6 +16,8 @@
     <a href="10-process/index.html">Process map</a>
     <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="70-lite-mode.html">Lite mode</a>
+    <a href="80-quickstart.html">Quickstart</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </nav>
@@ -25,7 +27,7 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 1 of 9</p>
+      <p class="guide-status">Step 1 of 11</p>
       <ol class="timeline-steps">
         <li class="timeline-step is-active"><a href="index.html" aria-current="page">01 Hub</a></li>
         <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
@@ -36,6 +38,8 @@
         <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
         <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
         <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="70-lite-mode.html">10 Lite mode</a></li>
+        <li class="timeline-step"><a href="80-quickstart.html">11 Quickstart</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="../index.html"><span>Previous</span> Portal</a>
@@ -44,7 +48,7 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.1</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.2</div>
     <h1>Interactive Guide Hub</h1>
     <p class="lede">
       You describe what you want in normal sentences. The agent writes the
@@ -53,7 +57,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-06-10 · playbook V0.1.10</span>
+      <span><strong>Last updated</strong> · 2026-06-13 · playbook V0.2.9</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
@@ -82,6 +86,23 @@
 
   <section class="whats-new" aria-labelledby="whats-new-title">
     <h2 id="whats-new-title">What's New</h2>
+    <div class="version-entry">
+      <span class="version-label">V0.2.9 · 2026-06-13</span>
+      <p>The guides now cover the whole of V0.2. The foundations gain
+      <a href="00-foundations.html#agent-surface">designing for the agent-facing surface</a>
+      and <a href="00-foundations.html#security-floor">the security floor</a>, and two
+      new guides join the set: <a href="70-lite-mode.html">lite mode</a> — the cut-down
+      loop for small projects — and a <a href="80-quickstart.html">quickstart</a> that
+      takes one feature through all thirteen stages.</p>
+    </div>
+    <div class="version-entry">
+      <span class="version-label">V0.2 · 2026-06-12</span>
+      <p>The playbook now treats the agent's attention as a first-class design
+      constraint. The agent reads a one-page map before it starts, each stage
+      tells it where to go next, and the project keeps a pre-computed running
+      status — quietly making each session faster without changing how you drive
+      it. See <a href="60-the-theory-behind-the-playbook.html#agent-surface">§60 · Designing for the agent</a>.</p>
+    </div>
     <div class="version-entry">
       <span class="version-label">V0.1.10 · 2026-06-09</span>
       <p>The starter <button class="term" type="button" data-def="kitchensink">kitchen sink</button>
@@ -214,6 +235,16 @@
         <span class="card-tag start">Start here</span>
         <strong>Drive the agent</strong>
         <span>See the whole workflow as one story — what to type, how to review, how to ship.</span>
+      </a>
+      <a href="80-quickstart.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>See it run once</strong>
+        <span>One small feature taken through all thirteen stages, start to finish.</span>
+      </a>
+      <a href="70-lite-mode.html">
+        <span class="card-tag everyday">Everyday use</span>
+        <strong>Keep it light</strong>
+        <span>The cut-down loop for a script or experiment — discipline without the paperwork.</span>
       </a>
       <a href="10-process/index.html">
         <span class="card-tag everyday">Everyday use</span>

@@ -351,5 +351,35 @@ window.PLAYBOOK_GLOSSARY = {
     title: "/upgrade-project",
     def: "A skill that brings a project set up under an older playbook version up to date: it reads the project's recorded version, walks the changelog, and applies changes carefully - copying new files, patching boilerplate with diffs shown, and only proposing changes to content you wrote.",
     group: "playbook"
+  },
+  firstrule: {
+    title: "The first rule",
+    def: "A feature request is not a coding instruction. The agent does not write implementation code - not even a sketch - until the work has been aligned and broken into slices. The one exception is a genuine one-liner. This was the single most-broken discipline in testing, so it now leads the project's instructions.",
+    group: "playbook"
+  },
+  agentdigest: {
+    title: "AGENT-DIGEST.md",
+    def: "A short, one-page map of the whole playbook the agent reads first - the stage list, routing rules, and conventions - so it can start acting without wading through thousands of lines of prose. The long guides become reference it opens only when the digest points to them.",
+    group: "playbook"
+  },
+  statusblock: {
+    title: "Status block",
+    def: "A pre-computed summary kept in the project's state file - what's overdue and which features sit at which stage - so each session reads one worked-out answer instead of re-deriving it from several files every time.",
+    group: "playbook"
+  },
+  litemode: {
+    title: "Lite mode",
+    def: "The playbook subset for small projects: align, test-first, review, ship, with the first rule intact and almost no files. It drops the machinery that manages scale (PRDs, trackers, state files) and names a tripwire for the moment a project has grown enough to graduate to the full loop.",
+    group: "playbook"
+  },
+  quickstart: {
+    title: "Quickstart",
+    def: "A worked end-to-end pass of one small feature through all thirteen stages, so you can see what each stage actually produces before running it on something real.",
+    group: "playbook"
+  },
+  securityfloor: {
+    title: "The security floor",
+    def: "A small set of non-negotiable minimums: secrets never go into tracked files, a committed secret is rotated rather than just deleted, dependencies are deliberate with lockfiles committed, input is validated at every boundary the project owns, and irreversible operations get a rehearsed rollback before they ship.",
+    group: "playbook"
   }
 };

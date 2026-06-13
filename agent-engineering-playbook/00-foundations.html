@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foundations · AI Engineering Playbook V0.1</title>
+<title>Foundations · AI Engineering Playbook V0.2</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
@@ -16,6 +16,8 @@
     <a href="10-process/index.html">Process map</a>
     <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="70-lite-mode.html">Lite mode</a>
+    <a href="80-quickstart.html">Quickstart</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </nav>
@@ -25,7 +27,7 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 7 of 9</p>
+      <p class="guide-status">Step 7 of 11</p>
       <ol class="timeline-steps">
         <li class="timeline-step"><a href="index.html">01 Hub</a></li>
         <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
@@ -36,6 +38,8 @@
         <li class="timeline-step is-active"><a href="00-foundations.html" aria-current="page">07 Foundations</a></li>
         <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
         <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="70-lite-mode.html">10 Lite mode</a></li>
+        <li class="timeline-step"><a href="80-quickstart.html">11 Quickstart</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="20-frontend-track.html"><span>Previous</span> Frontend track</a>
@@ -73,6 +77,8 @@
       <a href="#architecture">Architecture rules<span>Deep modules, adapters, source of truth.</span></a>
       <a href="#verification">Verification ladder<span>Match checks to risk.</span></a>
       <a href="#pitfalls">Pitfall checklist<span>Catch common agent mistakes.</span></a>
+      <a href="#agent-surface">Agent-facing surface<span>Design for the agent that reads you.</span></a>
+      <a href="#security-floor">Security floor<span>The non-negotiable minimums.</span></a>
     </div>
   </section>
 
@@ -198,6 +204,79 @@
         data-explain="Security review is rung 5 — auth, payments, deploys. A typo in a comment is rung 1: look at it and save.">Ask for a security review</button>
     </div>
     <div class="quiz-feedback" data-quiz-feedback hidden></div>
+  </section>
+
+  <section id="agent-surface">
+    <h2>Designing for the Agent-Facing Surface</h2>
+    <p>
+      New in V0.2. The frontend track disciplines the surface your <em>users</em>
+      see; this principle disciplines the surface <em>agents</em> consume. It
+      applies whenever the product exposes a CLI, an API, an MCP server, or any
+      tool interface an AI agent will call — increasingly the default, not the
+      exception.
+    </p>
+    <p>
+      <strong>The principle:</strong> treat the consuming agent's token budget
+      and turn count as first-class design constraints, the way the frontend
+      track treats visual vocabulary. An interface that forces an agent to take
+      extra turns, parse walls of text, or guess at next steps is a defect, even
+      if it works perfectly for humans.
+    </p>
+    <p>The checklist — applied when the interface is designed (stage 06) and when it is reviewed (stage 08):</p>
+    <ol>
+      <li><strong>Token-efficient output</strong> — compact structured formats; no decorative output.</li>
+      <li><strong>Minimal default schemas</strong> — return the three or four fields agents actually need; offer an escape hatch for the rest.</li>
+      <li><strong>Content truncation</strong> — cap large fields with a size hint and a way to fetch the remainder.</li>
+      <li><strong>Pre-computed aggregates</strong> — include totals, counts, and rolled-up statuses so the agent never needs a second call to know "how many" or "did it pass".</li>
+      <li><strong>Definitive empty states</strong> — print "0 results", never nothing. Silence is indistinguishable from failure.</li>
+      <li><strong>Structured errors and exit codes</strong> — idempotent mutations, machine-parseable errors, no interactive prompts.</li>
+      <li><strong>Ambient context</strong> — let a session start with relevant state already visible rather than requiring discovery calls.</li>
+      <li><strong>Content first</strong> — the no-argument invocation shows live state, not a wall of help text.</li>
+      <li><strong>Contextual disclosure</strong> — append concrete next-step suggestions after output.</li>
+      <li><strong>Consistent help</strong> — every subcommand answers <code>--help</code> concisely, as the fallback.</li>
+    </ol>
+    <div class="callout info">
+      <strong>Litmus test.</strong> Could an agent complete the product's three
+      most common workflows without ever reading full documentation — just by
+      following what the interface itself discloses? If not, name the missing
+      disclosure and fix the interface, not the docs. This playbook practises
+      it: <button class="term" type="button" data-def="agentdigest">AGENT-DIGEST.md</button>
+      is the minimal default schema, the stage signposts are contextual
+      disclosure, and the
+      <button class="term" type="button" data-def="statusblock">status block</button>
+      is a pre-computed aggregate.
+    </div>
+  </section>
+
+  <section id="security-floor">
+    <h2>The Security Floor</h2>
+    <p>
+      New in V0.2. These are minimums, not a security programme — they exist
+      because their absence hurts without warning. The
+      <button class="term" type="button" data-def="securityfloor">security floor</button>
+      is checked cheaply every session (prereqs) and per pull request (review).
+    </p>
+    <ul>
+      <li><strong>Secrets never enter tracked files.</strong> Credentials, tokens, and keys
+      live in environment variables or untracked files covered by
+      <code>.gitignore</code>. An agent that needs a secret stops and asks — it
+      never writes one into code, config, tests, or chat output "temporarily".</li>
+      <li><strong>A committed secret is rotated, not deleted.</strong> Removing the line does
+      not remove it from history. Treat it as an incident: rotate first, then
+      clean history if hosting requires it.</li>
+      <li><strong>Dependencies are deliberate.</strong> Lockfiles are committed; every new
+      dependency is named and justified in the PR. Prefer the standard library
+      for trivial needs.</li>
+      <li><strong>Validate at every boundary the project owns.</strong> User input, file
+      contents, API responses, environment values — validated where they enter,
+      not where they break.</li>
+      <li><strong>Least privilege by default.</strong> Tokens and keys get the narrowest
+      scope that works, with an expiry where the platform supports one.</li>
+      <li><strong>Irreversible operations get a rehearsed reverse.</strong> Migrations, bulk
+      edits, and deletions are preceded by a timestamped backup, and their
+      rollback has actually been run against a copy before the forward change
+      ships.</li>
+    </ul>
   </section>
     </div>
   </div>

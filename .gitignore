@@ -1,4 +1,5 @@
 .DS_Store
 Thumbs.db
+.fuse_hidden*
 archive/
 exo-3-book-skill-visualisation/organizational-singularity-openexo-book.md

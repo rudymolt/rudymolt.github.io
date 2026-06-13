@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To Write Code With AI · AI Engineering Playbook V0.1</title>
+<title>How To Write Code With AI · AI Engineering Playbook V0.2</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -14,7 +14,7 @@
   a Markdown document.
 
   Status: Source of truth
-  Last verified: 2026-06-10 (playbook V0.1.10)
+  Last verified: 2026-06-13 (playbook V0.2.9)
   Audience: Human project owner
 
   Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
@@ -498,6 +498,8 @@
     <a href="10-process/index.html">Process map</a>
     <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="70-lite-mode.html">Lite mode</a>
+    <a href="80-quickstart.html">Quickstart</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </nav>
@@ -506,7 +508,7 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 2 of 9</p>
+      <p class="guide-status">Step 2 of 11</p>
       <ol class="timeline-steps">
         <li class="timeline-step"><a href="index.html">01 Hub</a></li>
         <li class="timeline-step is-active"><a href="50-how-to-write-code-with-ai.html" aria-current="page">02 Drive agent</a></li>
@@ -517,6 +519,8 @@
         <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
         <li class="timeline-step"><a href="60-the-theory-behind-the-playbook.html">08 Theory</a></li>
         <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="70-lite-mode.html">10 Lite mode</a></li>
+        <li class="timeline-step"><a href="80-quickstart.html">11 Quickstart</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="index.html"><span>Previous</span> Hub</a>
@@ -526,7 +530,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.1 · §50</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.2 · §50</div>
     <h1>How To Write Code With AI</h1>
     <p class="lede">
       A field guide to driving an AI coding agent through the playbook
@@ -536,7 +540,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-10 · playbook V0.1.10</span>
+      <span><strong>Last verified</strong> · 2026-06-13 · playbook V0.2.9</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML (canonical)</span>
     </div>
@@ -682,6 +686,16 @@ This should be possible.</code></pre>
       <button class="term" type="button" data-def="merge">merge</button> its own work into <button class="term" type="button" data-def="main"><code>main</code></button>. The PR exists so a human
       remains accountable for what enters the <button class="term" type="button" data-def="trunk">trunk</button>.
     </div>
+
+    <div class="callout">
+      <strong>The agent now finds its own way through the process.</strong>
+      As of V0.2 the agent reads a one-page map of the playbook before it
+      starts, each step tells it where to go next, and the project keeps a
+      pre-computed running status the agent reads in one glance. None of this
+      changes your side of the contract — you still type the same plain-English
+      requests below. It simply makes each session quicker and less likely to
+      lose the thread. The reasoning is in <a href="60-the-theory-behind-the-playbook.html#agent-surface">§60 · Designing for the agent</a>.
+    </div>
   </section>
 
   <!-- ====================================================== -->
@@ -694,6 +708,24 @@ This should be possible.</code></pre>
       feature. Keep the trips around the loop short — one slice at a time, with
       the agent pausing for your go-ahead after each slice.
     </p>
+
+    <div class="callout">
+      <strong>The first rule: a feature request is not a coding instruction.</strong>
+      When you describe a feature, the agent's first move is to align and slice —
+      not to write code. It should not produce implementation code, not even a
+      sketch, until you've agreed what's being built. The only exception is a
+      genuine one-liner. In testing this was the single most-broken discipline,
+      so it now leads the agent's instructions.
+    </div>
+
+    <div class="callout info">
+      <strong>Two shortcuts.</strong> For a small script or experiment, the full
+      loop is more than you need — see
+      <a href="70-lite-mode.html">lite mode</a>, the cut-down version that keeps
+      the discipline and drops the paperwork. To watch the whole loop run once on
+      a real (tiny) feature first, read the
+      <a href="80-quickstart.html">quickstart</a>.
+    </div>
 
     <!-- Loop diagram -->
     <div class="stage-strip">
@@ -1039,6 +1071,16 @@ This should be possible.</code></pre>
     </ol>
     <p>At this point the work is <em>not</em> finished from the human side.</p>
 
+    <div class="callout">
+      <strong>Shipping something irreversible?</strong> If the feature includes a
+      database migration, a bulk data edit, or a deletion, there's an extra rule:
+      a timestamped backup comes first, and the rollback must have actually been
+      run against a copy before the forward change ships — apply, roll back,
+      re-apply, rehearsed. A rollback that has never been executed is untested
+      code in the one place failure is most expensive. The full set of minimums
+      is the <a href="00-foundations.html#security-floor">security floor</a>.
+    </div>
+
     <h3>The manual GitHub step</h3>
     <p>After the agent opens the pull request, you must go to GitHub yourself. Do this manually:</p>
     <ol>
@@ -1253,10 +1295,10 @@ This should be possible.</code></pre>
 
   <footer class="doc-foot">
     <div>
-      AI Engineering Playbook V0.1 · §50 · How To Write Code With AI
+      AI Engineering Playbook V0.2 · §50 · How To Write Code With AI
     </div>
     <div>
-      Maintainer: Rudy Molt · Last verified 2026-06-10 · playbook V0.1.10
+      Maintainer: Rudy Molt · Last verified 2026-06-13 · playbook V0.2.9
     </div>
   </footer>
 

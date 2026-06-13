@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Theory Behind The Playbook · AI Engineering Playbook V0.1</title>
+<title>The Theory Behind The Playbook · AI Engineering Playbook V0.2</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -17,7 +17,7 @@
   want the long-form version.
 
   Status: Source of truth
-  Last verified: 2026-06-10 (playbook V0.1.10)
+  Last verified: 2026-06-13 (playbook V0.2.9)
   Audience: Human project owner (no engineering background assumed)
   ==========================================================================
 -->
@@ -362,6 +362,8 @@
     <a href="10-process/index.html">Process map</a>
     <a href="20-frontend-track.html">Frontend track</a>
     <a href="30-document-lifecycle.html">Docs lifecycle</a>
+    <a href="70-lite-mode.html">Lite mode</a>
+    <a href="80-quickstart.html">Quickstart</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </nav>
@@ -370,7 +372,7 @@
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
       <a class="guide-portal" href="../index.html">← Rudy Molt portal</a>
-      <p class="guide-status">Step 8 of 9</p>
+      <p class="guide-status">Step 8 of 11</p>
       <ol class="timeline-steps">
         <li class="timeline-step"><a href="index.html">01 Hub</a></li>
         <li class="timeline-step"><a href="50-how-to-write-code-with-ai.html">02 Drive agent</a></li>
@@ -381,6 +383,8 @@
         <li class="timeline-step"><a href="00-foundations.html">07 Foundations</a></li>
         <li class="timeline-step is-active"><a href="60-the-theory-behind-the-playbook.html" aria-current="page">08 Theory</a></li>
         <li class="timeline-step"><a href="30-document-lifecycle.html">09 Docs lifecycle</a></li>
+        <li class="timeline-step"><a href="70-lite-mode.html">10 Lite mode</a></li>
+        <li class="timeline-step"><a href="80-quickstart.html">11 Quickstart</a></li>
       </ol>
       <div class="guide-sequence" aria-label="Guide sequence">
         <a href="00-foundations.html"><span>Previous</span> Foundations</a>
@@ -390,7 +394,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.1 · §60</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.2 · §60</div>
     <h1>The Theory Behind The Playbook</h1>
     <p class="lede">
       Why the process is shaped the way it is. The companion guide, §50,
@@ -401,7 +405,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-10 · playbook V0.1.10</span>
+      <span><strong>Last verified</strong> · 2026-06-13 · playbook V0.2.9</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
     </div>
@@ -436,6 +440,7 @@
       <a href="#tdd">TDD<span>Red, green, refactor</span></a>
       <a href="#architecture">Architecture<span>Deep modules and source of truth</span></a>
       <a href="#verify">Verification<span>Risk-scaled checking</span></a>
+      <a href="#agent-surface">Designing for the agent<span>The surface agents read</span></a>
       <a href="#evidence">Evidence<span>Where the ideas come from</span></a>
     </div>
   </nav>
@@ -1003,10 +1008,81 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 9. TWO TOOLKITS                                        -->
+  <!-- 9. DESIGNING FOR THE AGENT                             -->
+  <!-- ====================================================== -->
+  <section id="agent-surface">
+    <h2><span class="num">09</span>Designing for the agent</h2>
+    <p class="section-lede">
+      The frontend track disciplines what your <em>users</em> see. A newer
+      principle disciplines what the <em>agent</em> sees — because the agent is
+      a reader too, and a slow or cluttered surface costs it time and attention
+      the same way a cluttered screen costs a person.
+    </p>
+
+    <p>
+      An agent takes in everything through a narrow window, and it pays — in
+      time, and in how much it can hold in mind at once — for every extra word
+      it has to wade through and every extra round-trip it has to make just to
+      learn what to do next. So V0.2 added one rule to the foundations:
+      <strong class="lead-in">treat the agent's attention as a first-class
+      design constraint</strong>, the way the frontend track treats your visual
+      vocabulary. If a tool, a file, or a document forces the agent to read a
+      wall of text, guess at the next step, or make a second request just to
+      find out "how many?" or "did it pass?", that is a defect — even when it
+      works perfectly for a human.
+    </p>
+
+    <div class="callout">
+      <strong>Where this touches your own product.</strong> The moment your
+      product exposes something an agent will use — a command-line tool, an
+      API, an integration — the same discipline applies to it: short, structured
+      output; the few fields that matter shown by default; totals already added
+      up; a clear "nothing here" instead of silence; and a hint about what to do
+      next. The full ten-point checklist lives in the foundations, applied once
+      when the interface is designed and again when it is reviewed.
+    </div>
+
+    <p>
+      The playbook now holds itself to that same standard — which is most of
+      what changed between V0.1 and V0.2, under the hood, without altering the
+      thirteen stages themselves:
+    </p>
+
+    <ul>
+      <li><strong class="lead-in">A one-page digest.</strong> The agent starts
+      from a compact <code>AGENT-DIGEST.md</code> — the whole map of the
+      playbook in one short read — instead of thousands of lines of prose before
+      it can act. The long guides became reference it opens only when the digest
+      points it there.</li>
+      <li><strong class="lead-in">Signposts at every step.</strong> Each stage
+      now ends with a <em>Next:</em> block naming where to go based on the
+      outcome, so the agent walks the process forward instead of returning to a
+      central map after every step.</li>
+      <li><strong class="lead-in">A status line that is already worked out.</strong>
+      The project's state file carries a pre-computed summary — what's overdue,
+      which features sit at which stage — so each session reads one answer
+      rather than re-deriving it from two files every time.</li>
+    </ul>
+
+    <div class="callout human-note">
+      <strong>What this means for you: nothing changes.</strong> You still type
+      the same plain-English requests from §50. These are improvements to how the
+      agent reads its <em>own</em> instructions — quietly making each session
+      faster and cheaper, and less likely to lose the thread.
+    </div>
+
+    <p class="go-deeper">
+      <span class="gd-label">Go deeper</span>
+      <a href="00-foundations.html">interactive foundations</a> ·
+      <a href="20-frontend-track.html">the frontend track</a>
+    </p>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 10. TWO TOOLKITS                                       -->
   <!-- ====================================================== -->
   <section id="toolkits">
-    <h2><span class="num">09</span>Two toolkits, working together</h2>
+    <h2><span class="num">10</span>Two toolkits, working together</h2>
     <p class="section-lede">
       The skills the agent uses come from two open-source collections. You never
       have to choose between them — the playbook calls the right one at the right
@@ -1053,7 +1129,7 @@ Transport page
   <!-- 10. EVIDENCE AND PROVENANCE                            -->
   <!-- ====================================================== -->
   <section id="evidence">
-    <h2><span class="num">10</span>Evidence and provenance</h2>
+    <h2><span class="num">11</span>Evidence and provenance</h2>
     <p class="section-lede">
       The playbook is an adaptation layer. It keeps the original ideas visible
       while turning them into a practical process a human project owner can run
@@ -1110,7 +1186,7 @@ Transport page
   <!-- 11. WHERE TO GO DEEPER                                 -->
   <!-- ====================================================== -->
   <section id="further">
-    <h2><span class="num">11</span>Where to go deeper</h2>
+    <h2><span class="num">12</span>Where to go deeper</h2>
     <p class="section-lede">
       This page is the short version. When you want the full reasoning behind a
       stage, follow the trail:
@@ -1126,8 +1202,8 @@ Transport page
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.1 · §60 · The Theory Behind The Playbook</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-06-10 · playbook V0.1.10</div>
+    <div>AI Engineering Playbook V0.2 · §60 · The Theory Behind The Playbook</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-06-13 · playbook V0.2.9</div>
   </footer>
 
     </div>
