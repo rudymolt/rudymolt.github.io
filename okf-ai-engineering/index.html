@@ -214,6 +214,48 @@
         color: white;
       }
 
+      .reading-time {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .takeaways {
+        margin: 0 0 8px;
+        padding: 22px 24px;
+        border: 1px solid rgba(47, 125, 109, 0.22);
+        border-radius: 8px;
+        background: rgba(47, 125, 109, 0.05);
+      }
+
+      .takeaways h2 {
+        margin: 0 0 12px;
+        color: var(--accent-strong);
+        font-size: 0.82rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .takeaways ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .takeaways li {
+        max-width: 840px;
+        color: #3c4760;
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .takeaways li::marker {
+        color: var(--accent-strong);
+      }
+
       .bundle-visual {
         margin: 0;
         padding: 24px;
@@ -760,12 +802,13 @@
       <main id="main">
         <section class="hero" aria-labelledby="page-title">
           <div>
-            <p class="eyebrow">Idea 03 / AI Engineering</p>
+            <p class="eyebrow">Idea 03 / AI Engineering &middot; 6-min read</p>
             <h1 id="page-title">Open Knowledge Format for AI engineering.</h1>
             <p class="lead">
               A plain-English guide to Google's OKF: what a knowledge bundle is, why coding agents can use it,
               and when the convention is worth adopting.
             </p>
+            <p class="reading-time">No prior knowledge of OKF needed &mdash; jargon is explained as it appears.</p>
             <div class="hero-actions">
               <a class="button-link primary" href="#definition">Start with the definition</a>
               <a class="button-link" href="../index.html">&larr; Rudy Molt portal</a>
@@ -796,6 +839,15 @@
           </figure>
         </section>
 
+        <section class="takeaways" aria-labelledby="takeaways-title">
+          <h2 id="takeaways-title">In 30 seconds</h2>
+          <ul>
+            <li>OKF stores knowledge as ordinary markdown files that both people and AI agents can read.</li>
+            <li>It is a <strong>format</strong>, not a product &mdash; adopting it does not tie you to Google's tools, Gemini, or any specific runtime.</li>
+            <li>The decision test: if the only gain is tidier files, do less; if the gain is reliable shared context for people and agents through git, it is worth considering.</li>
+          </ul>
+        </section>
+
         <div class="content-layout">
           <aside class="page-nav" aria-label="Page sections">
             <p>Guide</p>
@@ -815,23 +867,30 @@
               <div class="definition">
                 <strong id="definition-title">One sentence</strong>
                 <p>
-                  OKF is a convention for representing knowledge as plain markdown files with YAML frontmatter,
-                  stored in git, readable by both people and AI agents.
+                  OKF is a way of writing down knowledge as plain text files that both people and AI agents can read.
+                  The files live in git, so every change is tracked.
                 </p>
               </div>
+              <p class="body-text">
+                In practice it is a bit like a team wiki, except the pages are plain files that sit inside your codebase
+                rather than in a separate web app &mdash; which is exactly what makes them easy for an AI coding agent to open and follow.
+              </p>
             </section>
 
             <section id="problem" class="section" aria-labelledby="problem-title">
               <h2 id="problem-title">The problem OKF is trying to solve</h2>
               <p>
                 AI agents need context before they can do useful engineering work. That context is usually scattered
-                across docs, code comments, tickets, databases, chat threads, diagrams, and product decisions. The
-                problem is not just finding information. It is giving knowledge a stable shape that a person can review
-                and an agent can navigate.
+                across docs, code comments, tickets, databases, chat threads, diagrams, and product decisions.
+              </p>
+              <p>
+                But the hard part is not just finding the information. It is giving that knowledge a stable shape &mdash;
+                one a person can review and an agent can navigate.
               </p>
               <p>
                 OKF's answer is deliberately simple: put knowledge in normal files, give each file a small amount of
-                structure, connect related ideas with links, and keep the result under version control.
+                structure, connect related ideas with links, and keep the result under version control &mdash; the same
+                git-based system that tracks every change to code, so each edit has a clear, reviewable history.
               </p>
             </section>
 
@@ -839,8 +898,9 @@
               <h2 id="format-title">The format in plain English</h2>
               <p>
                 An OKF bundle is a directory tree of markdown files. Each file is a concept, such as a table, API,
-                metric, runbook, decision, or reference page. The OKF v0.1 spec keeps conformance intentionally thin:
-                non-reserved markdown files need parseable YAML frontmatter and a non-empty <code>type</code> field.
+                metric, runbook, decision, or reference page. The OKF v0.1 spec keeps the rules deliberately light:
+                each file needs a small block of labels at the top &mdash; its <em>frontmatter</em>, written in a simple
+                format called YAML &mdash; and that block must include a non-empty <code>type</code> field.
               </p>
               <div class="term-grid">
                 <section class="term-card">
@@ -873,9 +933,10 @@
             <section id="tooling" class="section" aria-labelledby="tooling-title">
               <h2 id="tooling-title">OKF is the format, not the whole Google toolchain</h2>
               <p>
-                This is the key distinction. The Google repository includes a spec, an enrichment agent, and a visualizer.
-                Only the first part is OKF. The agent and visualizer are useful examples, but adopting OKF does not mean
-                adopting Gemini, Google ADK, BigQuery, or any specific runtime.
+                This is the key distinction. The Google repository includes a spec, an enrichment agent, and a visualiser.
+                Only the first part is OKF. The agent and visualiser are useful examples, but adopting OKF does not mean
+                adopting any of Google's own tools &mdash; not Gemini, the Google Agent Development Kit (ADK), BigQuery,
+                or any specific runtime.
               </p>
               <div class="tooling-grid">
                 <section class="tool-card">
@@ -890,7 +951,7 @@
                 </section>
                 <section class="tool-card">
                   <span class="label">3. Consumer example</span>
-                  <h3>Visualizer</h3>
+                  <h3>Visualiser</h3>
                   <p>A proof of concept that renders a bundle as an interactive HTML graph and detail view.</p>
                 </section>
               </div>
@@ -950,7 +1011,7 @@ POST /api/transport/assignments
                 </section>
                 <section class="benefit-card">
                   <h3>Reviewable knowledge</h3>
-                  <p>Domain knowledge changes can move through pull requests, diffs, comments, and blame like code changes.</p>
+                  <p>Knowledge updates can be proposed, compared, commented on, and traced back to who changed what &mdash; reviewed the same way code changes are.</p>
                 </section>
                 <section class="benefit-card">
                   <h3>Portable memory</h3>
@@ -974,7 +1035,7 @@ POST /api/transport/assignments
                   <pre><code>Before changing the transport assignment flow, read okf/index.md.
 Follow only the concept links that relate to passenger assignment, conflict detection,
 and save confirmation. Use those files as the source of truth. If the implementation
-changes the domain behavior, update the relevant OKF concept file in the same PR.</code></pre>
+changes the domain behaviour, update the relevant OKF concept file in the same PR.</code></pre>
                 </details>
               </div>
             </section>
@@ -1013,11 +1074,11 @@ changes the domain behavior, update the relevant OKF concept file in the same PR
                 Treat OKF as conventions to borrow selectively before treating it as a platform decision.
               </p>
               <ol class="adoption-list">
-                <li><strong>Borrow the language.</strong> Use terms like bundle, concept, index, citation, and progressive disclosure.</li>
+                <li><strong>Borrow the language.</strong> Use terms like bundle, concept, index, citation, and progressive disclosure (showing a short summary first, with the detail a click or link away).</li>
                 <li><strong>Structure important docs.</strong> Add lightweight frontmatter to the knowledge files agents read most often.</li>
                 <li><strong>Create a focused bundle.</strong> Start with one domain area rather than trying to document the whole company.</li>
                 <li><strong>Add checks when useful.</strong> Validate required fields, broken links, and citation coverage only when the bundle matters enough.</li>
-                <li><strong>Add viewers or automation later.</strong> Generate graphs, search indexes, or RAG pipelines after the file shape has proved valuable.</li>
+                <li><strong>Add viewers or automation later.</strong> Generate graphs, search indexes, or RAG pipelines (systems that let an AI answer questions using your own documents) after the file shape has proved valuable.</li>
               </ol>
 
               <p class="body-text">
