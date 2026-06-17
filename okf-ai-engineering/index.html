@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A plain-English guide to Google's Open Knowledge Format and why it matters for AI engineering."
+    >
+    <title>Open Knowledge Format for AI Engineering | Rudy Molt</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #65708a;
+        --line: #d8deea;
+        --paper: #f7f8fb;
+        --panel: #ffffff;
+        --accent: #2f7d6d;
+        --accent-strong: #195d51;
+        --gold: #c68b2c;
+        --blue: #355d9b;
+        --rose: #b75562;
+        --code: #101828;
+        --shadow: 0 18px 44px rgba(23, 32, 51, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(23, 32, 51, 0.035) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(23, 32, 51, 0.035) 1px, transparent 1px),
+          linear-gradient(180deg, #fbfcfe 0%, #f4f7fb 48%, #edf2f7 100%);
+        background-size: 40px 40px, 40px 40px, auto;
+      }
+
+      a {
+        color: var(--accent-strong);
+      }
+
+      a:hover {
+        color: var(--blue);
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        z-index: 10;
+        transform: translateY(-140%);
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 28px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 10px 24px rgba(23, 32, 51, 0.08);
+      }
+
+      .mark svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-title,
+      .brand-subtitle {
+        display: block;
+        margin: 0;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 800;
+      }
+
+      .brand-subtitle {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      .top-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .top-link,
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 750;
+        text-decoration: none;
+        transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .top-link:hover,
+      .button-link:hover {
+        border-color: rgba(47, 125, 109, 0.5);
+        color: var(--accent-strong);
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.97fr);
+        gap: 42px;
+        align-items: center;
+        padding: 62px 0 58px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent-strong);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(2.55rem, 6vw, 5.6rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 22px 0 0;
+        color: #4c5870;
+        font-size: clamp(1.04rem, 2vw, 1.22rem);
+        line-height: 1.62;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .button-link.primary {
+        border-color: var(--accent-strong);
+        background: var(--accent-strong);
+        color: white;
+      }
+
+      .button-link.primary:hover {
+        border-color: var(--ink);
+        background: var(--ink);
+        color: white;
+      }
+
+      .bundle-visual {
+        margin: 0;
+        padding: 24px;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .bundle-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .bundle-title span:first-child {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 850;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border: 1px solid rgba(198, 139, 44, 0.45);
+        border-radius: 999px;
+        background: rgba(198, 139, 44, 0.1);
+        color: #765218;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .tree {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfe;
+        font-family:
+          "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        overflow-x: auto;
+      }
+
+      .tree span {
+        white-space: nowrap;
+      }
+
+      .tree .folder {
+        color: var(--accent-strong);
+        font-weight: 800;
+      }
+
+      .tree .file {
+        color: var(--blue);
+      }
+
+      .tree .muted-file {
+        color: var(--muted);
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .flow span {
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid rgba(23, 32, 51, 0.1);
+        border-radius: 8px;
+        background: #ffffff;
+        color: #334055;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .content-layout {
+        display: grid;
+        grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+        gap: 50px;
+        align-items: start;
+        padding: 20px 0 76px;
+      }
+
+      .page-nav {
+        position: sticky;
+        top: 18px;
+        padding: 18px 0 18px 18px;
+        border-left: 3px solid var(--line);
+      }
+
+      .page-nav p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .page-nav a {
+        display: block;
+        padding: 7px 0;
+        color: #42506a;
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1.25;
+        text-decoration: none;
+      }
+
+      .page-nav a:hover {
+        color: var(--accent-strong);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      article {
+        min-width: 0;
+      }
+
+      .section {
+        padding: 40px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .section h2 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(1.65rem, 3vw, 2.55rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .section > p,
+      .body-text {
+        max-width: 790px;
+        color: #4c5870;
+        font-size: 1.03rem;
+        line-height: 1.7;
+      }
+
+      .section > p {
+        margin: 16px 0 0;
+      }
+
+      .definition {
+        display: grid;
+        grid-template-columns: minmax(0, 0.32fr) minmax(0, 0.68fr);
+        gap: 22px;
+        align-items: start;
+        padding: 24px;
+        border: 1px solid rgba(47, 125, 109, 0.22);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .definition strong {
+        color: var(--accent-strong);
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .definition p {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1.2rem, 2.2vw, 1.56rem);
+        line-height: 1.38;
+        font-weight: 780;
+      }
+
+      .term-grid,
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .term-card,
+      .benefit-card,
+      .tool-card,
+      .fit-card {
+        min-width: 0;
+        padding: 20px;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 26px rgba(23, 32, 51, 0.06);
+      }
+
+      .term-card h3,
+      .benefit-card h3,
+      .tool-card h3,
+      .fit-card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.25;
+      }
+
+      .term-card p,
+      .benefit-card p,
+      .tool-card p,
+      .fit-card p,
+      .fit-card li,
+      .adoption-list li,
+      .checklist li {
+        color: #4c5870;
+        font-size: 0.96rem;
+        line-height: 1.58;
+      }
+
+      .term-card p,
+      .benefit-card p,
+      .tool-card p,
+      .fit-card p {
+        margin: 10px 0 0;
+      }
+
+      .term-card code,
+      .body-text code,
+      .fit-card code {
+        padding: 0.12em 0.28em;
+        border-radius: 5px;
+        background: rgba(23, 32, 51, 0.08);
+        color: var(--code);
+        font-size: 0.9em;
+      }
+
+      .tooling-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .tool-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 5px;
+        background: var(--accent);
+      }
+
+      .tool-card:nth-child(2)::before {
+        background: var(--gold);
+      }
+
+      .tool-card:nth-child(3)::before {
+        background: var(--blue);
+      }
+
+      .label {
+        display: inline-flex;
+        margin-bottom: 16px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .example {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+        gap: 20px;
+        align-items: stretch;
+        margin-top: 26px;
+      }
+
+      pre {
+        min-width: 0;
+        margin: 0;
+        padding: 20px;
+        overflow-x: auto;
+        border-radius: 8px;
+        background: var(--code);
+        color: #e7edf8;
+        font-family:
+          "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.9rem;
+        line-height: 1.58;
+      }
+
+      .plain-card {
+        min-width: 0;
+        padding: 22px;
+        border: 1px solid rgba(53, 93, 155, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .plain-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.05rem;
+      }
+
+      .plain-card p {
+        margin: 0;
+        color: #4c5870;
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .agent-steps {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .agent-steps li {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        color: #4c5870;
+        font-size: 0.96rem;
+        line-height: 1.5;
+      }
+
+      .agent-steps span {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(47, 125, 109, 0.12);
+        color: var(--accent-strong);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .fit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .fit-card ul,
+      .adoption-list,
+      .checklist {
+        margin: 14px 0 0;
+        padding-left: 1.2rem;
+      }
+
+      .fit-card.good {
+        border-color: rgba(47, 125, 109, 0.3);
+      }
+
+      .fit-card.bad {
+        border-color: rgba(183, 85, 98, 0.26);
+      }
+
+      .adoption-list {
+        display: grid;
+        gap: 12px;
+        max-width: 840px;
+      }
+
+      .adoption-list li::marker {
+        color: var(--accent-strong);
+        font-weight: 850;
+      }
+
+      .prompt-box {
+        margin-top: 24px;
+      }
+
+      details {
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 17px 20px;
+        color: var(--ink);
+        font-weight: 820;
+      }
+
+      details pre {
+        border-radius: 0 0 8px 8px;
+      }
+
+      .source-list {
+        display: grid;
+        gap: 10px;
+        max-width: 820px;
+        margin: 20px 0 0;
+        padding-left: 1.2rem;
+      }
+
+      .source-list li {
+        color: #4c5870;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 0 34px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 940px) {
+        .hero,
+        .content-layout,
+        .example {
+          grid-template-columns: 1fr;
+        }
+
+        .content-layout {
+          gap: 24px;
+        }
+
+        .page-nav {
+          position: static;
+          display: flex;
+          gap: 12px;
+          overflow-x: auto;
+          padding: 12px 0;
+          border-top: 1px solid var(--line);
+          border-bottom: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .page-nav p {
+          flex: 0 0 auto;
+          margin: 0;
+          padding: 7px 0;
+        }
+
+        .page-nav a {
+          flex: 0 0 auto;
+          padding: 7px 2px;
+          white-space: nowrap;
+        }
+
+        .term-grid,
+        .benefit-grid,
+        .tooling-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .shell {
+          width: min(100% - 24px, 1180px);
+        }
+
+        .site-header,
+        .site-footer {
+          display: grid;
+        }
+
+        .top-links {
+          justify-content: start;
+        }
+
+        .hero {
+          padding: 36px 0 34px;
+        }
+
+        .bundle-visual,
+        .definition,
+        .term-card,
+        .benefit-card,
+        .tool-card,
+        .fit-card,
+        .plain-card {
+          padding: 18px;
+        }
+
+        .definition,
+        .term-grid,
+        .benefit-grid,
+        .tooling-grid,
+        .fit-grid,
+        .flow {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 34px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand" href="../index.html">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <circle cx="14" cy="18" r="5" fill="#2f7d6d"></circle>
+              <circle cx="31" cy="13" r="4" fill="#c68b2c"></circle>
+              <circle cx="34" cy="32" r="6" fill="#355d9b"></circle>
+              <path d="M18 18 28 14M17 21l13 9" fill="none" stroke="#172033" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="brand-title">Rudy Molt</span>
+            <span class="brand-subtitle">Ideas, learning systems, and experiments</span>
+          </span>
+        </a>
+        <nav class="top-links" aria-label="Source links">
+          <a class="top-link" href="https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf">Google OKF repo</a>
+          <a class="top-link" href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">OKF spec</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Idea 03 / AI Engineering</p>
+            <h1 id="page-title">Open Knowledge Format for AI engineering.</h1>
+            <p class="lead">
+              A plain-English guide to Google's OKF: what a knowledge bundle is, why coding agents can use it,
+              and when the convention is worth adopting.
+            </p>
+            <div class="hero-actions">
+              <a class="button-link primary" href="#definition">Start with the definition</a>
+              <a class="button-link" href="../index.html">&larr; Rudy Molt portal</a>
+            </div>
+          </div>
+
+          <figure class="bundle-visual" aria-labelledby="bundle-visual-title">
+            <figcaption class="bundle-title">
+              <span id="bundle-visual-title">OKF bundle anatomy</span>
+              <span class="status-pill">v0.1 concept</span>
+            </figcaption>
+            <div class="tree" aria-label="Example OKF bundle directory tree">
+              <span class="folder">knowledge-bundle/</span>
+              <span class="muted-file">|-- index.md</span>
+              <span class="folder">|-- systems/</span>
+              <span class="file">|   |-- booking-api.md</span>
+              <span class="file">|   `-- transport-planner.md</span>
+              <span class="folder">|-- metrics/</span>
+              <span class="file">|   `-- assignment-conflict-rate.md</span>
+              <span class="muted-file">`-- log.md</span>
+            </div>
+            <div class="flow" aria-label="How OKF is used">
+              <span>Markdown</span>
+              <span>Frontmatter</span>
+              <span>Git review</span>
+              <span>Agent context</span>
+            </div>
+          </figure>
+        </section>
+
+        <div class="content-layout">
+          <aside class="page-nav" aria-label="Page sections">
+            <p>Guide</p>
+            <a href="#definition">Definition</a>
+            <a href="#problem">Problem</a>
+            <a href="#format">Format</a>
+            <a href="#tooling">Format vs tooling</a>
+            <a href="#example">Example</a>
+            <a href="#agents">Agent use</a>
+            <a href="#fit">Fit</a>
+            <a href="#adoption">Adoption</a>
+            <a href="#sources">Sources</a>
+          </aside>
+
+          <article>
+            <section id="definition" class="section" aria-labelledby="definition-title">
+              <div class="definition">
+                <strong id="definition-title">One sentence</strong>
+                <p>
+                  OKF is a convention for representing knowledge as plain markdown files with YAML frontmatter,
+                  stored in git, readable by both people and AI agents.
+                </p>
+              </div>
+            </section>
+
+            <section id="problem" class="section" aria-labelledby="problem-title">
+              <h2 id="problem-title">The problem OKF is trying to solve</h2>
+              <p>
+                AI agents need context before they can do useful engineering work. That context is usually scattered
+                across docs, code comments, tickets, databases, chat threads, diagrams, and product decisions. The
+                problem is not just finding information. It is giving knowledge a stable shape that a person can review
+                and an agent can navigate.
+              </p>
+              <p>
+                OKF's answer is deliberately simple: put knowledge in normal files, give each file a small amount of
+                structure, connect related ideas with links, and keep the result under version control.
+              </p>
+            </section>
+
+            <section id="format" class="section" aria-labelledby="format-title">
+              <h2 id="format-title">The format in plain English</h2>
+              <p>
+                An OKF bundle is a directory tree of markdown files. Each file is a concept, such as a table, API,
+                metric, runbook, decision, or reference page. The OKF v0.1 spec keeps conformance intentionally thin:
+                non-reserved markdown files need parseable YAML frontmatter and a non-empty <code>type</code> field.
+              </p>
+              <div class="term-grid">
+                <section class="term-card">
+                  <h3>Bundle</h3>
+                  <p>A folder of knowledge files that can be cloned, reviewed, searched, hosted, or passed to an agent.</p>
+                </section>
+                <section class="term-card">
+                  <h3>Concept</h3>
+                  <p>One unit of knowledge. For engineering this might be an API, service, domain term, metric, or workflow.</p>
+                </section>
+                <section class="term-card">
+                  <h3>Frontmatter</h3>
+                  <p>A YAML block for fields such as <code>type</code>, <code>title</code>, <code>description</code>, <code>tags</code>, and <code>resource</code>.</p>
+                </section>
+                <section class="term-card">
+                  <h3>Body</h3>
+                  <p>Normal markdown for the explanation, examples, schemas, caveats, and cited source material.</p>
+                </section>
+                <section class="term-card">
+                  <h3>Links</h3>
+                  <p>Ordinary markdown links connect related concepts, making the bundle graph-shaped instead of just folder-shaped.</p>
+                </section>
+                <section class="term-card">
+                  <h3>Index and log</h3>
+                  <p>Optional <code>index.md</code> and <code>log.md</code> files help readers discover content and understand what changed.</p>
+                </section>
+              </div>
+            </section>
+
+            <section id="tooling" class="section" aria-labelledby="tooling-title">
+              <h2 id="tooling-title">OKF is the format, not the whole Google toolchain</h2>
+              <p>
+                This is the key distinction. The Google repository includes a spec, an enrichment agent, and a visualizer.
+                Only the first part is OKF. The agent and visualizer are useful examples, but adopting OKF does not mean
+                adopting Gemini, Google ADK, BigQuery, or any specific runtime.
+              </p>
+              <div class="tooling-grid">
+                <section class="tool-card">
+                  <span class="label">1. Core idea</span>
+                  <h3>The OKF spec</h3>
+                  <p>Markdown plus YAML frontmatter, links, optional indexes, optional logs, and permissive consumption rules.</p>
+                </section>
+                <section class="tool-card">
+                  <span class="label">2. Producer example</span>
+                  <h3>Enrichment agent</h3>
+                  <p>A proof of concept that can generate OKF bundles from metadata and source material.</p>
+                </section>
+                <section class="tool-card">
+                  <span class="label">3. Consumer example</span>
+                  <h3>Visualizer</h3>
+                  <p>A proof of concept that renders a bundle as an interactive HTML graph and detail view.</p>
+                </section>
+              </div>
+            </section>
+
+            <section id="example" class="section" aria-labelledby="example-title">
+              <h2 id="example-title">A tiny OKF-style concept</h2>
+              <p>
+                The point is not the exact fields. The point is that a human can read it, an agent can load it, and git
+                can show exactly what changed.
+              </p>
+              <div class="example">
+                <pre><code>---
+type: API Endpoint
+title: Create transport assignment
+tags: [transport, scheduling, passengers]
+resource: /api/transport/assignments
+---
+
+# What this does
+
+Creates a bus assignment for a passenger movement.
+
+# Examples
+
+POST /api/transport/assignments
+
+# Related concepts
+
+- [Transport planner](../systems/transport-planner.md)
+- [Assignment conflict rate](../metrics/assignment-conflict-rate.md)
+
+# Citations
+
+1. [Transport API reference](../references/transport-api.md)</code></pre>
+                <div class="plain-card">
+                  <h3>What an agent gets from this</h3>
+                  <p>
+                    The frontmatter gives it a compact label and tags. The body gives it the meaning, examples, and
+                    source links. The related concepts tell it what to read next instead of guessing.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="agents" class="section" aria-labelledby="agents-title">
+              <h2 id="agents-title">Why this is useful for AI engineering</h2>
+              <p>
+                Coding agents such as Claude or Codex work better when the context is explicit, inspectable, and
+                bounded. OKF gives teams a practical pattern for packaging that context without locking it inside a
+                proprietary tool.
+              </p>
+              <div class="benefit-grid">
+                <section class="benefit-card">
+                  <h3>Agent-readable context</h3>
+                  <p>An agent can start from an index, open only relevant concept files, and follow links when it needs more detail.</p>
+                </section>
+                <section class="benefit-card">
+                  <h3>Reviewable knowledge</h3>
+                  <p>Domain knowledge changes can move through pull requests, diffs, comments, and blame like code changes.</p>
+                </section>
+                <section class="benefit-card">
+                  <h3>Portable memory</h3>
+                  <p>The same bundle can support Codex, Claude, search, docs sites, graph viewers, and future tools.</p>
+                </section>
+              </div>
+
+              <p class="body-text">
+                A practical workflow for an engineering team could look like this:
+              </p>
+              <ol class="agent-steps">
+                <li><span>1</span><strong>Create a small bundle for a domain area, such as transport, billing, or onboarding.</strong></li>
+                <li><span>2</span><strong>Ask the agent to read the bundle index before it changes code in that area.</strong></li>
+                <li><span>3</span><strong>Let the agent follow links to APIs, metrics, decisions, and known failure modes.</strong></li>
+                <li><span>4</span><strong>Update the bundle when the code or domain model changes, then review that update in git.</strong></li>
+              </ol>
+
+              <div class="prompt-box">
+                <details>
+                  <summary>Example prompt for Claude or Codex</summary>
+                  <pre><code>Before changing the transport assignment flow, read okf/index.md.
+Follow only the concept links that relate to passenger assignment, conflict detection,
+and save confirmation. Use those files as the source of truth. If the implementation
+changes the domain behavior, update the relevant OKF concept file in the same PR.</code></pre>
+                </details>
+              </div>
+            </section>
+
+            <section id="fit" class="section" aria-labelledby="fit-title">
+              <h2 id="fit-title">Where OKF fits, and where it is overkill</h2>
+              <p>
+                OKF is strongest when knowledge is large, linked, repeated, and useful to machines. It is weaker when a
+                simple README or normal documentation page already does the job.
+              </p>
+              <div class="fit-grid">
+                <section class="fit-card good">
+                  <h3>Good fit</h3>
+                  <ul>
+                    <li>Data catalogues with many datasets, tables, metrics, and source references.</li>
+                    <li>Agent-readable knowledge bases where context should be navigated, not flattened.</li>
+                    <li>Teams that want knowledge updates reviewed through git.</li>
+                    <li>Cross-tool or cross-organisation knowledge exchange.</li>
+                  </ul>
+                </section>
+                <section class="fit-card bad">
+                  <h3>Bad fit</h3>
+                  <ul>
+                    <li>A small set of prose-heavy pages where a table of contents is enough.</li>
+                    <li>Projects where nobody will maintain the concept files after generation.</li>
+                    <li>Cases where a graph view would make a simple domain look more complicated.</li>
+                    <li>Governed products that need a mature, widely adopted standard today.</li>
+                  </ul>
+                </section>
+              </div>
+            </section>
+
+            <section id="adoption" class="section" aria-labelledby="adoption-title">
+              <h2 id="adoption-title">A sensible adoption ladder</h2>
+              <p>
+                Treat OKF as conventions to borrow selectively before treating it as a platform decision.
+              </p>
+              <ol class="adoption-list">
+                <li><strong>Borrow the language.</strong> Use terms like bundle, concept, index, citation, and progressive disclosure.</li>
+                <li><strong>Structure important docs.</strong> Add lightweight frontmatter to the knowledge files agents read most often.</li>
+                <li><strong>Create a focused bundle.</strong> Start with one domain area rather than trying to document the whole company.</li>
+                <li><strong>Add checks when useful.</strong> Validate required fields, broken links, and citation coverage only when the bundle matters enough.</li>
+                <li><strong>Add viewers or automation later.</strong> Generate graphs, search indexes, or RAG pipelines after the file shape has proved valuable.</li>
+              </ol>
+
+              <p class="body-text">
+                The decision test is simple: if the main benefit is that files look tidier, do less. If the benefit is
+                that agents and people can share reliable context through git, OKF is worth considering.
+              </p>
+            </section>
+
+            <section id="sources" class="section" aria-labelledby="sources-title">
+              <h2 id="sources-title">Sources and caveats</h2>
+              <p>
+                This explainer is based on the official Google Cloud OKF repository and a local plain-language
+                interpretation written for this site. The important caveat is status: OKF is currently a v0.1 external
+                draft from a single vendor, so it is best treated as an emerging convention rather than a settled standard.
+              </p>
+              <ul class="source-list">
+                <li><a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf">Google Cloud OKF repository</a></li>
+                <li><a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/README.md">OKF README</a></li>
+                <li><a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">OKF v0.1 specification</a></li>
+              </ul>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <span>Rudy Molt</span>
+        <span>Published with GitHub Pages</span>
+      </footer>
+    </div>
+  </body>
+</html>
