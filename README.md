@@ -8,6 +8,7 @@ Static GitHub Pages site for publishing idea maps, visualisations, and experimen
 - `exo-3-book-skill-visualisation/exo-playbook-overview-combined.html` is the ExO 3.0 book and skill visualisation.
 - `exo-3-book-skill-visualisation/operations-team-track-field-competition-workflow-overview.html` is the Operations Team workflow example.
 - `agent-engineering-playbook/index.html` is the AI Engineering Playbook publication hub.
+- `solve-everything-summary/index.html` is the plain-English summary of the "Solve Everything" blueprint.
 
 Operations Team markdown artifacts are included as background for the workflow example. Source mockups and local copies of external skill/book material are kept out of the published site.
 
