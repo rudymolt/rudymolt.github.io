@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fundamentals of Building with AI</title>
+<style>
+  :root{
+    --electric:#0066ff;
+    --cyan:#00ffff;
+    --dark:#121417;
+    --panel:#1b1f25;
+    --panel2:#232831;
+    --white:#ffffff;
+    --muted:#9aa6b6;
+    --line:#2e3540;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--dark);color:var(--white);overflow:hidden;
+  }
+  #stage{height:100vh;width:100vw;display:flex;align-items:center;justify-content:center;}
+  .slide{
+    display:none;width:min(1100px,92vw);height:min(680px,88vh);
+    background:linear-gradient(160deg,var(--panel) 0%,#15191f 100%);
+    border:1px solid var(--line);border-radius:18px;
+    padding:56px 64px;position:relative;
+    box-shadow:0 24px 70px rgba(0,0,0,.45);
+    flex-direction:column;justify-content:center;
+  }
+  .slide.active{display:flex;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .kicker{color:var(--cyan);font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:18px;}
+  h1{font-size:54px;line-height:1.08;font-weight:800;letter-spacing:-1px;}
+  h2{font-size:38px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin-bottom:26px;}
+  h2 .accent{color:var(--cyan);}
+  p,li{font-size:21px;line-height:1.5;color:#e7ecf3;}
+  .lead{font-size:26px;color:#e7ecf3;}
+  .muted{color:var(--muted);}
+  .big-q{font-size:46px;font-weight:800;line-height:1.15;letter-spacing:-.5px;}
+  .pull{
+    border-left:5px solid var(--electric);background:var(--panel2);
+    padding:22px 26px;border-radius:0 12px 12px 0;font-size:24px;font-weight:600;line-height:1.4;
+  }
+  ul{margin-left:4px;list-style:none;}
+  ul li{position:relative;padding-left:30px;margin-bottom:16px;}
+  ul li:before{content:"";position:absolute;left:2px;top:11px;width:10px;height:10px;border-radius:2px;background:var(--electric);transform:rotate(45deg);}
+  table{width:100%;border-collapse:collapse;margin-top:10px;}
+  th,td{text-align:left;padding:14px 18px;font-size:19px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--cyan);font-size:15px;letter-spacing:1px;text-transform:uppercase;}
+  td.trad{color:var(--muted);}
+  .cols{display:flex;gap:26px;}
+  .col{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .col h3{font-size:21px;margin-bottom:6px;}
+  .col .tag{color:var(--cyan);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:10px;}
+  .col p{font-size:17px;color:#d4dbe5;}
+  .flow{display:flex;align-items:stretch;gap:0;margin:18px 0 26px;}
+  .node{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;}
+  .node .t{color:var(--cyan);font-weight:800;font-size:22px;}
+  .node .s{color:var(--muted);font-size:15px;margin-top:6px;}
+  .arrow{display:flex;align-items:center;color:var(--electric);font-size:30px;padding:0 14px;font-weight:800;}
+  .def{background:var(--panel2);border:1px solid var(--line);border-left:5px solid var(--cyan);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:14px;}
+  .def b{color:var(--cyan);}
+  .def p{font-size:18px;}
+  .ex{margin-top:18px;font-size:19px;color:#d4dbe5;}
+  .ex b{color:var(--white);}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+  .chip{background:var(--panel2);border:1px solid var(--electric);color:#dfe8ff;padding:8px 16px;border-radius:30px;font-size:16px;font-weight:600;}
+  .habit-num{font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:700;}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:18px;}
+  .cell{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:15px 16px;}
+  .cell.hot{border-color:var(--electric);}
+  .cell .n{color:var(--cyan);font-weight:800;font-size:13px;letter-spacing:1px;}
+  .cell .h{font-weight:700;font-size:16px;margin-top:5px;color:#fff;}
+  .cell .d{color:var(--muted);font-size:13px;margin-top:5px;line-height:1.35;}
+  .col .ex{font-size:14px;margin-top:10px;color:#c7d0dc;}
+  .col .ex b{color:var(--cyan);}
+  .footer{position:absolute;bottom:20px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);}
+  .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--electric),var(--cyan));transition:width .3s;z-index:50;}
+  .nav{position:fixed;bottom:18px;right:22px;display:flex;gap:8px;z-index:50;}
+  .nav button{background:var(--panel2);border:1px solid var(--line);color:#fff;width:42px;height:42px;border-radius:10px;font-size:18px;cursor:pointer;}
+  .nav button:hover{border-color:var(--electric);}
+  .hint{position:fixed;bottom:26px;left:22px;font-size:12px;color:var(--muted);z-index:50;}
+  .title-mark{width:64px;height:6px;background:linear-gradient(90deg,var(--electric),var(--cyan));border-radius:4px;margin-top:28px;}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div id="stage">
+
+  <!-- 1 TITLE -->
+  <section class="slide active">
+    <div class="kicker">AI Hour · Session 1</div>
+    <h1>The Fundamentals of<br>Building with AI</h1>
+    <div class="title-mark"></div>
+    <p class="muted" style="margin-top:30px;">From <span style="color:#fff;">using</span> AI to <span style="color:var(--cyan);">building</span> with it · ~30 minutes · No coding required</p>
+    <div class="footer"><span>AI Hour</span><span>Session 1 of the series</span></div>
+  </section>
+
+  <!-- F1 FUNDAMENTALS OPENER -->
+  <section class="slide">
+    <div class="kicker">First · the durable bit</div>
+    <h2>Before the how-to:<br>a few <span class="accent">mindsets</span></h2>
+    <p>Almost every specific in this talk — model names, what each tool can do, today's best practice — will be out of date within months.</p>
+    <div class="pull" style="margin-top:22px;">So we start with what <span style="color:var(--cyan);">won't</span> date: durable habits, not disposable facts.</div>
+    <div class="footer"><span>0 · Fundamentals</span><span></span></div>
+  </section>
+
+  <!-- F2 VIBE vs AI ENGINEERING -->
+  <section class="slide">
+    <div class="kicker">Two tools for two moments</div>
+    <h2>Vibe coding <span class="muted" style="font-weight:400;">and</span> <span class="accent">AI engineering</span></h2>
+    <div class="cols">
+      <div class="col"><span class="tag">Vibe coding · explore</span><h3>"Should we even build this?"</h3><p>Throw together a quick, throwaway prototype to see if the idea has legs. Speed over robustness — you might bin it. Cheap to make, cheap to discard.</p></div>
+      <div class="col" style="border-color:var(--electric);"><span class="tag">AI engineering · build</span><h3>"Yes — build it properly"</h3><p>Now it must be reliable and maintainable: clear brief, small reviewable steps, check the output, stay in charge. <b style="color:var(--cyan);">This is the craft to learn well.</b></p></div>
+    </div>
+    <div class="flow" style="margin:18px 0 0;">
+      <div class="node"><div class="s">Prototype</div><div class="t" style="font-size:17px;">vibe-code it</div></div>
+      <div class="arrow">›</div>
+      <div class="node"><div class="s">Worth building?</div><div class="t" style="font-size:17px;">decide</div></div>
+      <div class="arrow">›</div>
+      <div class="node hot" style="border-color:var(--electric);"><div class="s">If yes</div><div class="t" style="font-size:17px;">switch to engineering</div></div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:18px;">The skill is knowing which mode you're in — and switching at the right moment.</p>
+    <div class="footer"><span>0 · Fundamentals</span><span></span></div>
+  </section>
+
+  <!-- F3 MOLLICK FOUR RULES -->
+  <section class="slide">
+    <div class="kicker">Ethan Mollick · Co-Intelligence</div>
+    <h2>Four rules for working with AI</h2>
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <div class="cell"><div class="n">Rule 1</div><div class="h">Invite AI to the table</div><div class="d">Try it on everything — that's the only way to learn its edges.</div></div>
+      <div class="cell"><div class="n">Rule 2</div><div class="h">Be the human in the loop</div><div class="d">You hold the judgement, the ethics and the final say.</div></div>
+      <div class="cell"><div class="n">Rule 3</div><div class="h">Treat it like a person — but tell it what kind</div><div class="d">Talk naturally, but give it a role and context.</div></div>
+      <div class="cell hot"><div class="n">Rule 4</div><div class="h">Assume it's the worst AI you'll ever use</div><div class="d">It only gets better — so build for tomorrow, not today's quirks.</div></div>
+    </div>
+    <div class="footer"><span>0 · Fundamentals</span><span></span></div>
+  </section>
+
+  <!-- F4 WORST AI -->
+  <section class="slide">
+    <div class="kicker">The most important rule for today</div>
+    <p class="big-q">"This is the <span style="color:var(--cyan);">worst</span> AI<br>you'll ever use."</p>
+    <ul style="margin-top:26px;">
+      <li>New models and new harness versions (Codex, Claude) arrive constantly — the ground shifts under us.</li>
+      <li>Don't write off an <i>approach</i> because of <i>today's</i> ceiling: "AI can't do X" really means "not <b style="color:var(--cyan);">yet</b>".</li>
+      <li>Learn the durable way of working; let rising capability flow into it.</li>
+    </ul>
+    <div class="footer"><span>0 · Fundamentals</span><span></span></div>
+  </section>
+
+  <!-- 2 HOOK -->
+  <section class="slide">
+    <div class="kicker">The question</div>
+    <p class="big-q">Have you ever asked AI to <span style="color:var(--cyan);">do</span> something —<br>not just <span style="color:var(--muted);">answer</span> something?</p>
+    <p class="muted" style="margin-top:34px;font-size:22px;">Most of us use AI as a clever search box. Today is about the leap from <b style="color:#fff;">using</b> it to <b style="color:var(--cyan);">building</b> with it.</p>
+    <div class="footer"><span>1 · Hook</span><span></span></div>
+  </section>
+
+  <!-- 3 ONE IDEA -->
+  <section class="slide">
+    <div class="kicker">The one idea to remember</div>
+    <div class="pull">You're no longer the person filling in the spreadsheet.<br>You're the person who <span style="color:var(--cyan);">briefs and supervises</span> the thing that fills it in.</div>
+    <p class="muted" style="margin-top:30px;">You give it a job — "build me a dashboard from this season's results" — it works, you check it.</p>
+    <div class="footer"><span>1 · Framing</span><span></span></div>
+  </section>
+
+  <!-- 4 COMPARISON -->
+  <section class="slide">
+    <h2>Why building with AI is <span class="accent">different</span></h2>
+    <table>
+      <tr><th>Traditional software</th><th>Building with AI</th></tr>
+      <tr><td class="trad">Does exactly what it was programmed to do, the same way every time</td><td>Reasons from the context you give it; flexible, won't always phrase things identically</td></tr>
+      <tr><td class="trad">You adapt to <i>its</i> buttons, menus and forms</td><td>It adapts to <i>your</i> words and <i>your</i> data</td></tr>
+      <tr><td class="trad">A developer builds it; you wait for changes</td><td>You direct and reshape it yourself, in plain English</td></tr>
+      <tr><td class="trad">Fixed set of features</td><td>Open-ended — limited mostly by what you feed it</td></tr>
+    </table>
+    <div class="footer"><span>2 · Why it's different</span><span></span></div>
+  </section>
+
+  <!-- 5 DETERMINISTIC -->
+  <section class="slide">
+    <h2>Predictable vs <span class="accent">probabilistic</span></h2>
+    <div class="cols">
+      <div class="col"><span class="tag">Deterministic</span><h3>Traditional software</h3><p>Predictable — same input, same output, every time. Click "bold", it bolds. Rigid, but never surprises you.</p></div>
+      <div class="col"><span class="tag">Probabilistic</span><h3>AI</h3><p>Works from likelihoods, not fixed rules. Handles mess and plain English — but can be inconsistent, and occasionally wrong.</p></div>
+    </div>
+    <p class="ex"><b>Vending machine</b> (deterministic): button B4 always drops the same crisps. <b>Assistant coach</b> (probabilistic): "sort tomorrow's warm-up, the pitch is waterlogged" — they just work it out. AI is the coach.</p>
+    <div class="pull" style="margin-top:20px;font-size:20px;">What you get out depends on the quality of what you put in.</div>
+    <div class="footer"><span>2 · Why it's different</span><span></span></div>
+  </section>
+
+  <!-- 6 MENTAL MODEL -->
+  <section class="slide">
+    <div class="kicker">The mental model</div>
+    <h2>Three words: <span class="accent">model · harness · agent</span></h2>
+    <div class="flow">
+      <div class="node"><div class="t">Model</div><div class="s">the brain</div></div>
+      <div class="arrow">›</div>
+      <div class="node"><div class="t">Harness</div><div class="s">body · kit · pitch</div></div>
+      <div class="arrow">›</div>
+      <div class="node"><div class="t">Agent</div><div class="s">the athlete competing</div></div>
+    </div>
+    <p class="muted">One running analogy — an athlete — carries all three.</p>
+    <div class="footer"><span>3 · Mental model</span><span></span></div>
+  </section>
+
+  <!-- 7 MODEL -->
+  <section class="slide">
+    <h2>The <span class="accent">model</span> — the brain</h2>
+    <p>The raw intelligence. It can think, write and reason — but on its own it has no hands: it can't open your files or save a document.</p>
+    <div class="def"><p><b>In the analogy:</b> the athlete's natural talent. Brilliant, but does nothing sitting on the sofa.</p></div>
+    <p class="ex"><b>Real examples (June 2026):</b> the leading "frontier" models —</p>
+    <div class="chips">
+      <span class="chip">GPT-5.5 · OpenAI</span>
+      <span class="chip">Claude Opus 4.8 · Anthropic</span>
+      <span class="chip">Gemini 3.1 Pro · Google</span>
+      <span class="chip">Grok 4.3 · xAI</span>
+    </div>
+    <p class="muted" style="margin-top:16px;font-size:17px;">Version numbers are just like iPhone 15 → 16. "Frontier" = one of the most capable available right now.</p>
+    <div class="footer"><span>3 · Mental model</span><span></span></div>
+  </section>
+
+  <!-- 8 HARNESS -->
+  <section class="slide">
+    <h2>The <span class="accent">harness</span> — the body &amp; kit</h2>
+    <p>Everything built <i>around</i> the brain that lets it actually do work: access to your files, tools it can use, a safe workspace, memory, and the loop to act → check → act again.</p>
+    <div class="def"><p><b>Why it matters:</b> two people, same model, wildly different value — one types into a chat box, the other has set it up to read data, build files and check itself. Same brain; better body.</p></div>
+    <p class="ex"><b>Real examples of harnesses</b> (you plug a model into one):</p>
+    <div class="chips">
+      <span class="chip">Codex</span>
+      <span class="chip">Claude Code</span>
+      <span class="chip">Cursor</span>
+      <span class="chip">Copilot agent mode</span>
+      <span class="chip">Hermes Agent</span>
+      <span class="chip">Cowork</span>
+    </div>
+    <div class="footer"><span>3 · Mental model</span><span></span></div>
+  </section>
+
+  <!-- 9 HARNESS VS AGENT -->
+  <section class="slide">
+    <div class="kicker">Common point of confusion</div>
+    <h2>Harness vs agent: <span class="accent">same thing, two views</span></h2>
+    <p>They're not two products you choose between. The <b style="color:var(--cyan);">harness</b> is the machinery; the <b style="color:var(--cyan);">agent</b> is that machinery <i>running with a model, doing your job</i>.</p>
+    <ul style="margin-top:18px;">
+      <li><b>Codex</b> and <b>Hermes</b> sit in the same box — both harnesses that run as agents.</li>
+      <li>Codex the software = harness · Codex mid-task = agent.</li>
+      <li>The difference between them is design, not category (Codex: OpenAI-tied, coding-focused · Hermes: model-agnostic, self-hosted, persistent memory).</li>
+    </ul>
+    <div class="pull" style="margin-top:18px;font-size:19px;">Pick a harness (Codex, Claude Code, Hermes…), plug in a model (GPT-5.5, Claude…) — the running combination is the agent.</div>
+    <div class="footer"><span>3 · Mental model</span><span></span></div>
+  </section>
+
+  <!-- 10 AGENT -->
+  <section class="slide">
+    <h2>The <span class="accent">agent</span> — talent, competing</h2>
+    <div class="flow">
+      <div class="node"><div class="t">Model</div><div class="s">the talent</div></div>
+      <div class="arrow">+</div>
+      <div class="node"><div class="t">Harness</div><div class="s">kit, pitch, rules, boots</div></div>
+      <div class="arrow">=</div>
+      <div class="node"><div class="t">Agent</div><div class="s">the athlete in the match</div></div>
+    </div>
+    <p>An agent is the model working <i>through</i> the harness toward your goal — taking an action, seeing the result, carrying on until the job's done.</p>
+    <p class="muted" style="margin-top:14px;">A world-class talent with no pitch, no boots and no game achieves nothing. That's a frontier model with no harness.</p>
+    <div class="footer"><span>3 · Mental model</span><span></span></div>
+  </section>
+
+  <!-- 11 HABITS INTRO -->
+  <section class="slide">
+    <div class="kicker">The practical heart</div>
+    <h2>Three habits that make <span class="accent">AI work</span></h2>
+    <div class="flow">
+      <div class="node"><div class="s">Habit 1</div><div class="t" style="font-size:18px;">Information AI can read</div></div>
+      <div class="arrow">·</div>
+      <div class="node"><div class="s">Habit 2</div><div class="t" style="font-size:18px;">Outputs as HTML</div></div>
+      <div class="arrow">·</div>
+      <div class="node"><div class="s">Habit 3</div><div class="t" style="font-size:18px;">Stay in the loop</div></div>
+    </div>
+    <p class="muted">All three follow from one idea: what you put in determines what you get out.</p>
+    <div class="footer"><span>4 · Three habits</span><span></span></div>
+  </section>
+
+  <!-- 12 HABIT 1 -->
+  <section class="slide">
+    <div class="habit-num">Habit 1</div>
+    <h2>Keep information where <span class="accent">AI can read it</span></h2>
+    <p>Put information in a <b>database</b> or <b>markdown / plain-text files</b> — not trapped in scanned PDFs, slide decks, email threads, or people's heads.</p>
+    <div class="def"><p><b>Markdown</b> = plain text with simple structure marks (# for a heading). <b>Machine-readable</b> = laid out so software can parse it — not a photo of a whiteboard.</p></div>
+    <p class="ex"><b>Squad A</b> keeps results in a clean shared sheet → AI analyses the whole season instantly. <b>Squad B</b> keeps them in a notebook and a WhatsApp thread → AI can do almost nothing until someone types it up.</p>
+    <p class="muted" style="margin-top:14px;">Tidying your information <i>is</i> the build work — not preparation for it.</p>
+    <div class="footer"><span>4 · Three habits</span><span></span></div>
+  </section>
+
+  <!-- 13 HABIT 2 -->
+  <section class="slide">
+    <div class="habit-num">Habit 2</div>
+    <h2>Produce outputs as <span class="accent">HTML</span></h2>
+    <p>When you want something to look at or share — a report, a dashboard — ask for it as HTML.</p>
+    <div class="def"><p><b>HTML</b> = the language of web pages. Opens in any browser on any device, needs nothing installed, and can be interactive: charts, filters, clickable tables.</p></div>
+    <p class="ex"><b>Instead of</b> a static PDF league table emailed round → an HTML dashboard where coaches filter by player, sort by metric, watch a chart update live — opened from one link on a phone at the side of the pitch.</p>
+    <p class="muted" style="margin-top:14px;">"Which version of Office?" becomes "just open this in your browser."</p>
+    <div class="footer"><span>4 · Three habits</span><span></span></div>
+  </section>
+
+  <!-- 14 HABIT 3 -->
+  <section class="slide">
+    <div class="habit-num">Habit 3</div>
+    <h2>Stay in the <span class="accent">loop</span></h2>
+    <p>Treat AI work as a loop — <b>brief → review → correct → improve</b> — not "submit and forget".</p>
+    <div class="def"><p><b>Iterative</b> = improved in repeated passes. <b>Confidently wrong</b> ("hallucination") = stating something false in a convincing tone — a side-effect of being probabilistic. It's why a human checks the figures.</p></div>
+    <p class="ex"><b>Example:</b> a match report's first draft mislabels an assist. You spot it — "the second goal was Jones, not Smith; re-check the others" — corrected version in seconds. <b>Trust, but verify.</b></p>
+    <div class="footer"><span>4 · Three habits</span><span></span></div>
+  </section>
+
+  <!-- 15 WRAP -->
+  <section class="slide">
+    <div class="kicker">Section recap</div>
+    <h2>Three habits, <span class="accent">one theme</span></h2>
+    <div class="pull">Feed it clean information · ask for shareable outputs · keep a human in the loop.</div>
+    <p class="muted" style="margin-top:28px;font-size:22px;">Get these right and everything in the later sessions becomes easy.</p>
+    <div class="title-mark"></div>
+    <div class="footer"><span>4 · Three habits</span><span>AI Hour · Session 1</span></div>
+  </section>
+
+  <!-- 16 SECTION 5 TITLE -->
+  <section class="slide">
+    <div class="kicker">Section 5 · going deeper</div>
+    <h1 style="font-size:46px;">Setting up your harness</h1>
+    <div class="title-mark"></div>
+    <p class="lead" style="margin-top:28px;">How you set up Claude or Codex matters <span style="color:var(--cyan);">more than which one you pick</span>.</p>
+    <p class="muted" style="margin-top:16px;">Same model, same harness, two people — completely different results. The difference is setup.</p>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 17 INDUCTION FRAMING -->
+  <section class="slide">
+    <h2>You're not buying a tool —<br>you're <span class="accent">inducting a new staff member</span></h2>
+    <div class="cols">
+      <div class="col"><span class="tag">No induction</span><p>A brilliant new analyst with no induction keeps asking where things are, uses the wrong template, and guesses your standards.</p></div>
+      <div class="col"><span class="tag">Properly inducted</span><p>Same person — handed the handbook, shown where the data lives, told how you like things — is useful on day one.</p></div>
+    </div>
+    <div class="pull" style="margin-top:22px;font-size:20px;">Setting up your harness <span style="color:var(--cyan);">is</span> that induction.</div>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 18 CONTEXT ENGINEERING -->
+  <section class="slide">
+    <div class="kicker">The principle</div>
+    <h2>Context engineering <span class="muted" style="font-weight:400;">over</span> prompt engineering</h2>
+    <div class="cols">
+      <div class="col"><span class="tag">A clever prompt</span><p>One well-worded instruction. Helps <b style="color:#fff;">once</b>, then it's gone.</p></div>
+      <div class="col" style="border-color:var(--electric);"><span class="tag">Good context</span><p>The standing brief, data access, house style and boundaries you build around the agent. Pays off on <b style="color:var(--cyan);">every</b> task, forever.</p></div>
+    </div>
+    <p class="muted" style="margin-top:22px;">The real skill isn't one clever request — it's the setup the agent works inside. Configuration compounds.</p>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 19 SEVEN LEVERS -->
+  <section class="slide">
+    <h2>Seven things you <span class="accent">set up</span></h2>
+    <div class="grid">
+      <div class="cell hot"><div class="n">1</div><div class="h">Context file</div><div class="d">The standing brief it reads every time (CLAUDE.md / AGENTS.md)</div></div>
+      <div class="cell"><div class="n">2</div><div class="h">Memory</div><div class="d">What it remembers between sessions</div></div>
+      <div class="cell"><div class="n">3</div><div class="h">Tools &amp; connectors</div><div class="d">Hands into your real systems (MCP)</div></div>
+      <div class="cell"><div class="n">4</div><div class="h">Skills</div><div class="d">Reusable playbooks for tasks you repeat</div></div>
+      <div class="cell"><div class="n">5</div><div class="h">House style</div><div class="d">Tone, format, units, language</div></div>
+      <div class="cell"><div class="n">6</div><div class="h">Permissions</div><div class="d">What it's allowed to touch</div></div>
+      <div class="cell"><div class="n">7</div><div class="h">Folder structure</div><div class="d">Organising info so it's findable</div></div>
+      <div class="cell" style="background:transparent;border-style:dashed;display:flex;align-items:center;"><div class="d" style="margin:0;">Start with 1 + 7. Add the rest as tasks demand.</div></div>
+    </div>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 20 BIG THREE DETAIL -->
+  <section class="slide">
+    <div class="kicker">The high-leverage three</div>
+    <h2>Brief it · connect it · <span class="accent">teach it</span></h2>
+    <div class="cols">
+      <div class="col"><span class="tag">Context file</span><h3>The induction handbook</h3><p>Who you are, where data lives, what columns mean, your conventions — read automatically every time.</p><p class="ex"><b>Sport:</b> "Results live in /data/results as CSV; PB = personal best; times in seconds to 2 dp; British English, metric."</p></div>
+      <div class="col"><span class="tag">Connectors · MCP</span><h3>Hands into your systems</h3><p>A secure link to your database, calendar or files. MCP is the universal adapter that makes it possible.</p><p class="ex"><b>Sport:</b> connect results DB + calendar → "build a one-pager on next week's fixtures and each opponent's form."</p></div>
+      <div class="col"><span class="tag">Skills</span><h3>Reusable playbooks</h3><p>Your standard way of doing a recurring task, written once so the result is consistent every time.</p><p class="ex"><b>Sport:</b> a "match report" skill — same sections every time: score, key moments, ratings, next up.</p></div>
+    </div>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 21 GUARDRAILS DETAIL -->
+  <section class="slide">
+    <div class="kicker">The other levers</div>
+    <h2>Standards · <span class="accent">boundaries</span> · order</h2>
+    <div class="cols">
+      <div class="col"><span class="tag">House style</span><h3>Standards, baked in</h3><p>Set tone, format, units and language once; they apply everywhere, so you stop correcting the same things.</p><p class="ex"><b>Live example:</b> this project is set to British English, metric, markdown — which is why these notes came back this way.</p></div>
+      <div class="col"><span class="tag">Permissions · sandbox</span><h3>What it can touch</h3><p>Decide which folders it can change and whether it must ask before deleting. A sandbox is a safe walled-off workspace.</p><p class="ex"><b>Sport:</b> "Read the results folder, write to reports, never edit raw data, always ask before deleting."</p></div>
+      <div class="col"><span class="tag">Folder structure</span><h3>Findable information</h3><p>A tidy, predictable layout makes a capable agent; chaos wastes its intelligence on hunting.</p><p class="ex"><b>Sport:</b> /athletes · /results · /reports · /templates beats 400 files called final_v2_REAL.xlsx.</p></div>
+    </div>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 22 TAKEAWAYS -->
+  <section class="slide">
+    <h2>Key points to <span class="accent">take away</span></h2>
+    <ul>
+      <li><b>Setup beats selection.</b> How well you configure it matters more than Claude vs Codex.</li>
+      <li><b>Configuration is reusable; prompts are disposable.</b> Setup pays off on every future task.</li>
+      <li><b>Start small and grow it.</b> A short context file and a tidy folder first; add connectors and skills when a task demands.</li>
+      <li><b>It's a living setup.</b> Whenever you correct the same thing twice, put it in the context file, memory or a skill.</li>
+      <li><b>This is the real skill.</b> Learning to configure an agent well is the transferable craft.</li>
+    </ul>
+    <div class="footer"><span>5 · Setting up your harness</span><span></span></div>
+  </section>
+
+  <!-- 23 SECTION 5 WRAP -->
+  <section class="slide">
+    <div class="kicker">The whole idea, in one line</div>
+    <div class="pull" style="font-size:26px;">The model is the talent · the harness is the kit ·<br><span style="color:var(--cyan);">setup is the coaching.</span></div>
+    <p class="muted" style="margin-top:28px;font-size:22px;">It's what turns raw capability into something that reliably does <i>your</i> work, <i>your</i> way.</p>
+    <div class="title-mark"></div>
+    <div class="footer"><span>End of sections 1–5</span><span>AI Hour · Session 1</span></div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button onclick="go(-1)" aria-label="Previous">‹</button>
+  <button onclick="go(1)" aria-label="Next">›</button>
+</div>
+<div class="hint">← → arrow keys to navigate</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function show(n){
+    slides[i].classList.remove('active');
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides[i].classList.add('active');
+    document.getElementById('progress').style.width=((i+1)/slides.length*100)+'%';
+  }
+  function go(d){show(i+d);}
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')go(1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(-1);
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+  });
+  document.getElementById('stage').addEventListener('click',e=>{
+    if(e.target.closest('.nav'))return;
+    const x=e.clientX/window.innerWidth;
+    go(x>0.5?1:-1);
+  });
+  show(0);
+</script>
+</body>
+</html>
