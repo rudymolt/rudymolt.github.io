@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Theory Behind The Playbook · AI Engineering Playbook V0.2</title>
+<title>The Theory Behind The Playbook · AI Engineering Playbook V0.3</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -17,7 +17,7 @@
   want the long-form version.
 
   Status: Source of truth
-  Last verified: 2026-06-13 (playbook V0.2.9)
+  Last verified: 2026-07-03 (playbook V0.3.12)
   Audience: Human project owner (no engineering background assumed)
   ==========================================================================
 -->
@@ -394,7 +394,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.2 · §60</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.3 · §60</div>
     <h1>The Theory Behind The Playbook</h1>
     <p class="lede">
       Why the process is shaped the way it is. The companion guide, §50,
@@ -405,7 +405,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-13 · playbook V0.2.9</span>
+      <span><strong>Last verified</strong> · 2026-07-03 · playbook V0.3.12</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
     </div>
@@ -1083,10 +1083,82 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 10. TWO TOOLKITS                                       -->
+  <!-- ====================================================== -->
+  <section id="v03-adds">
+    <h2><span class="num">10</span>What V0.3 adds</h2>
+    <p class="section-lede">
+      V0.1 set up the loop; V0.2 made the agent read its own instructions more
+      efficiently. V0.3 changes something deeper: it stops relying on the agent to
+      <em>remember</em> the safety rules and starts <em>building them into the
+      process</em>. The thirteen stages are unchanged — this is about how firmly
+      the rules are held.
+    </p>
+
+    <p>Three ideas carry the whole version:</p>
+    <ul>
+      <li><strong class="lead-in">Rules become barriers, not reminders.</strong>
+      A rule can be enforced anywhere on a scale — from a line of text asking
+      politely, up to an automatic
+      <button class="term" type="button" data-def="gate">gate</button> that simply
+      won't let the work through. V0.3 pushes the safety-critical rules
+      (like "no passwords in the code") as far up that scale as is cheap and
+      practical, so they are checked by machine instead of by memory. This scale is
+      the <button class="term" type="button" data-def="determinismgradient">determinism
+      gradient</button>.</li>
+      <li><strong class="lead-in">An independent checker that shows its work.</strong>
+      For anything beyond a trivial change, the work is signed off by an
+      <button class="term" type="button" data-def="independentverifier">independent
+      verifier</button>. That is not a new piece of software — it is either the
+      <em>same</em> tool (Claude or Codex) started again in a brand-new session
+      with no memory of having written the code, or a <em>different</em> model
+      altogether: if Codex wrote it, Claude checks it, and vice versa. The point is
+      that the checker cannot simply trust the work it just did. Either way it has
+      to produce real evidence (what it ran, the result, pass or fail) — "looks
+      fine" is not evidence — and the check can't be folded back into the agent
+      that did the building.</li>
+      <li><strong class="lead-in">Freedom that is earned.</strong> Longer,
+      less-supervised runs are not switched on by default. The agent unlocks that
+      <button class="term" type="button" data-def="earnedautonomy">earned
+      autonomy</button> only once real projects have produced proof it behaves —
+      captured in short
+      <button class="term" type="button" data-def="fieldreport">field reports</button>.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Four new steps, no new stages.</strong> The loop still has the same
+      thirteen stages in the same order. What V0.3 adds are required steps
+      <em>inside</em> four of them: at setup, every project fixes its
+      <button class="term" type="button" data-def="budgetceiling">budget
+      ceilings</button> (how much a run may spend, how long it may take, how many
+      times it may retry) and the agent pauses and reports rather than pressing
+      past them; at <strong>review</strong>, the independent check with evidence
+      becomes mandatory; at <strong>ship</strong>, a milestone offers to cut a
+      proper release with the
+      <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>
+      skill; and at <strong>retro</strong>, the team records a field report
+      whenever the checker caught a real bug, a ceiling correctly stopped a run,
+      or a similar proof event happened.
+    </div>
+
+    <div class="callout human-note">
+      <strong>What this means for you:</strong> you still drive it the same way
+      from §50. These changes mostly make the agent safer to leave running — the
+      checks it can't skip, the limits it must respect, and the evidence it has to
+      show before it earns a longer leash.
+    </div>
+
+    <p class="go-deeper">
+      <span class="gd-label">Go deeper</span>
+      <a href="00-foundations.html#budget-and-gates">foundations: limits and gates</a> ·
+      <a href="50-how-to-write-code-with-ai.html">§50 · how to drive it</a>
+    </p>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 11. TWO TOOLKITS                                       -->
   <!-- ====================================================== -->
   <section id="toolkits">
-    <h2><span class="num">10</span>Two toolkits, working together</h2>
+    <h2><span class="num">11</span>Two toolkits, working together</h2>
     <p class="section-lede">
       The skills the agent uses come from two open-source collections. You never
       have to choose between them — the playbook calls the right one at the right
@@ -1130,10 +1202,10 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 10. EVIDENCE AND PROVENANCE                            -->
+  <!-- 12. EVIDENCE AND PROVENANCE                            -->
   <!-- ====================================================== -->
   <section id="evidence">
-    <h2><span class="num">11</span>Evidence and provenance</h2>
+    <h2><span class="num">12</span>Evidence and provenance</h2>
     <p class="section-lede">
       The playbook is an adaptation layer. It keeps the original ideas visible
       while turning them into a practical process a human project owner can run
@@ -1187,10 +1259,10 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 11. WHERE TO GO DEEPER                                 -->
+  <!-- 13. WHERE TO GO DEEPER                                 -->
   <!-- ====================================================== -->
   <section id="further">
-    <h2><span class="num">12</span>Where to go deeper</h2>
+    <h2><span class="num">13</span>Where to go deeper</h2>
     <p class="section-lede">
       This page is the short version. When you want the full reasoning behind a
       stage, follow the trail:
@@ -1206,8 +1278,8 @@ Transport page
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.2 · §60 · The Theory Behind The Playbook</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-06-13 · playbook V0.2.9</div>
+    <div>AI Engineering Playbook V0.3 · §60 · The Theory Behind The Playbook</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-07-03 · playbook V0.3.12</div>
   </footer>
 
     </div>

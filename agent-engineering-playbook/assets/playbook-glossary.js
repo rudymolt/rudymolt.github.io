@@ -381,5 +381,42 @@ window.PLAYBOOK_GLOSSARY = {
     title: "The security floor",
     def: "A small set of non-negotiable minimums: secrets never go into tracked files, a committed secret is rotated rather than just deleted, dependencies are deliberate with lockfiles committed, input is validated at every boundary the project owns, and irreversible operations get a rehearsed rollback before they ship.",
     group: "playbook"
+  },
+
+  /* ---- V0.3 additions ---- */
+  determinismgradient: {
+    title: "Determinism gradient",
+    def: "A rule can be enforced anywhere on a scale: from a gentle written reminder the agent might forget, up to a hard automatic check that runs every single time without fail. ('Determinism' just names that reliable, happens-every-time end of the scale.) V0.3 moves each safety-critical rule as far towards the automatic end as is cheap and practical, so it is enforced by machine rather than left to memory.",
+    group: "playbook"
+  },
+  gate: {
+    title: "Gate",
+    def: "An automatic check the work has to pass before it can move on - for example, a scan that blocks a change if it contains a password. A gate enforces a rule by machine, instead of relying on someone remembering it.",
+    group: "playbook"
+  },
+  independentverifier: {
+    title: "Independent verifier",
+    def: "The check that signs off the agent's work, done with fresh eyes so it cannot simply trust the work it just did. In practice it is one of two things: the same tool (Claude or Codex) started again in a brand-new session with no memory of writing the code, or a different model entirely - for example, if Codex wrote the code, Claude checks it. Either way it must show real evidence (what it ran and the result), not just say 'looks fine', and for anything beyond a trivial change it cannot be skipped.",
+    group: "playbook"
+  },
+  earnedautonomy: {
+    title: "Earned autonomy",
+    def: "The rule that the agent is only allowed to run longer, less-supervised jobs once real projects have produced proof it behaves safely. Freedom is earned from evidence, not granted by default.",
+    group: "playbook"
+  },
+  budgetceiling: {
+    title: "Budget ceiling",
+    def: "A concrete limit a project sets on a single unattended run (a run you leave the agent to do on its own) - how much it may spend, how long it may run, and how many times it may retry. When a ceiling is reached the agent stops and reports back instead of pressing on.",
+    group: "playbook"
+  },
+  fieldreport: {
+    title: "Field report",
+    def: "A short form a project fills in when something notable happens - the independent checker caught a real bug, a budget ceiling correctly stopped a run, and so on. These reports are the real-world evidence that unlocks earned autonomy.",
+    group: "playbook"
+  },
+  shiprelease: {
+    title: "/ship-release",
+    def: "A skill that cuts a proper release of a project on GitHub the correct way - version tag, release notes, and the release entry itself - and then verifies each step actually happened.",
+    group: "playbook"
   }
 };

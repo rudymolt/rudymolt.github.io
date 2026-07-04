@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To Write Code With AI · AI Engineering Playbook V0.2</title>
+<title>How To Write Code With AI · AI Engineering Playbook V0.3</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -14,7 +14,7 @@
   a Markdown document.
 
   Status: Source of truth
-  Last verified: 2026-06-13 (playbook V0.2.9)
+  Last verified: 2026-07-03 (playbook V0.3.12)
   Audience: Human project owner
 
   Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
@@ -530,7 +530,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.2 · §50</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.3 · §50</div>
     <h1>How To Write Code With AI</h1>
     <p class="lede">
       A field guide to driving an AI coding agent through the playbook
@@ -540,7 +540,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-06-13 · playbook V0.2.9</span>
+      <span><strong>Last verified</strong> · 2026-07-03 · playbook V0.3.12</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML (canonical)</span>
     </div>
@@ -1293,14 +1293,28 @@ This should be possible.</code></pre>
       <li>Expect the agent to tidy and archive the docs at ship — a clean doc-close is part of shipping.</li>
       <li>Keep local databases, secrets, and generated build output out of git.</li>
     </ol>
+
+    <div class="callout">
+      <strong>New in V0.3 — two habits when you leave the agent running.</strong>
+      Before an unattended run, agree its
+      <button class="term" type="button" data-def="budgetceiling">limits</button>
+      — how much it may spend, how long it may take, how many times it may retry —
+      and expect it to stop and check in rather than push past them. And when it
+      says a change is done, expect the
+      <button class="term" type="button" data-def="independentverifier">independent
+      check</button> to <em>show you the evidence</em> — what it ran and the result
+      — not just tell you it looks fine. When you ship something milestone-worthy,
+      you can also ask it to cut a proper release with
+      <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>.
+    </div>
   </section>
 
   <footer class="doc-foot">
     <div>
-      AI Engineering Playbook V0.2 · §50 · How To Write Code With AI
+      AI Engineering Playbook V0.3 · §50 · How To Write Code With AI
     </div>
     <div>
-      Maintainer: Rudy Molt · Last verified 2026-06-13 · playbook V0.2.9
+      Maintainer: Rudy Molt · Last verified 2026-07-03 · playbook V0.3.12
     </div>
   </footer>
 

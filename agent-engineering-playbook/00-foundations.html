@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foundations · AI Engineering Playbook V0.2</title>
+<title>Foundations · AI Engineering Playbook V0.3</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
@@ -285,6 +285,47 @@
       rollback has actually been run against a copy before the forward change
       ships.</li>
     </ul>
+  </section>
+
+  <section id="budget-and-gates">
+    <h2>Limits and gates</h2>
+    <p>
+      New in V0.3. Two of the principles above — check in proportion to risk, and
+      keep the safety basics in place — get firmer teeth so they hold even when the
+      agent is left running with little supervision.
+    </p>
+    <p>
+      <strong>Budget ceilings.</strong> Before any unattended run — one you leave
+      the agent to finish on its own — a project sets concrete limits: how much a
+      single run may
+      <button class="term" type="button" data-def="budgetceiling">spend, how long
+      it may take, and how many times it may retry</button>. These are written down
+      once, so the agent reads them every session. When a limit is reached, the
+      agent pauses and reports back instead of pressing on — a runaway job stops
+      itself rather than quietly burning time or money.
+    </p>
+    <p>
+      <strong>Rules as gates, where that is cheap.</strong> A rule can be enforced
+      anywhere from a written reminder up to a hard, automatic
+      <button class="term" type="button" data-def="gate">gate</button> that blocks
+      the work until it passes. V0.3 moves the safety-critical rules — the secret
+      scan, "never approve your own work", checking a change against what it was
+      meant to do — as far towards automatic gates as is cheap and repeatable
+      across projects, so
+      they are enforced by machine rather than by memory. The principle is
+      deliberate: classify every rule by how firmly it should be held, and
+      mechanise the ones that survive across projects.
+    </p>
+    <p>
+      Both of these feed the wider V0.3 direction — a genuinely
+      <button class="term" type="button" data-def="independentverifier">independent
+      checker</button> that must show evidence, and
+      <button class="term" type="button" data-def="earnedautonomy">autonomy the
+      agent earns</button> from real-project
+      <button class="term" type="button" data-def="fieldreport">field reports</button>.
+      The reasoning behind all of it is in
+      <a href="60-the-theory-behind-the-playbook.html#v03-adds">§60 · What V0.3 adds</a>.
+    </p>
   </section>
     </div>
   </div>

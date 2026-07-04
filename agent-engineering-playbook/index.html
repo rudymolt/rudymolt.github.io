@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Engineering Playbook V0.2 · Interactive Guide Hub</title>
+<title>AI Engineering Playbook V0.3 · Interactive Guide Hub</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
 </head>
 <body class="playbook-doc">
@@ -48,7 +48,7 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.2</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.3</div>
     <h1>Interactive Guide Hub</h1>
     <p class="lede">
       You describe what you want in normal sentences. The agent writes the
@@ -57,7 +57,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-06-13 · playbook V0.2.9</span>
+      <span><strong>Last updated</strong> · 2026-07-03 · playbook V0.3.12</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
@@ -86,6 +86,31 @@
 
   <section class="whats-new" aria-labelledby="whats-new-title">
     <h2 id="whats-new-title">What's New</h2>
+    <div class="version-entry">
+      <span class="version-label">V0.3 · 2026-07-03</span>
+      <p>The big shift in V0.3: instead of <em>reminding</em> the agent to be
+      safe, the important rules are <em>built in</em> so they can't be skipped.
+      Three ideas do the work — safety rules become automatic
+      <button class="term" type="button" data-def="gate">checks the work has to pass</button>
+      rather than written notes; every piece of work is signed off by a separate
+      <button class="term" type="button" data-def="independentverifier">independent checker</button>
+      that must show its evidence; and the agent only earns
+      <button class="term" type="button" data-def="earnedautonomy">more freedom to run unsupervised</button>
+      once real projects prove it behaves. See
+      <a href="60-the-theory-behind-the-playbook.html#v03-adds">§60 · What V0.3 adds</a>.</p>
+    </div>
+    <div class="version-entry">
+      <span class="version-label">V0.3 · also new</span>
+      <p>No new stages were added — the thirteen-stage loop is unchanged — but
+      four points in it gained a required step: every project now sets
+      <button class="term" type="button" data-def="budgetceiling">spending and time limits</button>
+      before any unattended run; review must be a genuine independent check that
+      shows evidence; shipping a milestone now offers to cut a proper release with
+      the new <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>
+      skill; and every retro logs a
+      <button class="term" type="button" data-def="fieldreport">field report</button>
+      when something noteworthy happened.</p>
+    </div>
     <div class="version-entry">
       <span class="version-label">V0.2.9 · 2026-06-13</span>
       <p>The guides now cover the whole of V0.2. The foundations gain
@@ -134,6 +159,13 @@
       <button class="term" type="button" data-def="slice">slices</button> that
       can each be shown working on their own, build one slice at a time, review the
       result, test it, and ship only when the evidence is good enough.
+    </p>
+    <p>
+      As of V0.3, the discipline leans less on the agent remembering the rules and
+      more on the process enforcing them: the safety-critical rules are built in as
+      automatic checks, a separate checker signs off the work and shows its
+      evidence, and the agent only earns the freedom to run longer jobs on its own
+      once real projects have shown it is safe to.
     </p>
     <div class="learning-grid">
       <article class="learning-card">
