@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foundations · AI Engineering Playbook V0.3</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+<title>Foundations · AI Engineering Playbook V0.4</title>
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -327,11 +327,35 @@
       <a href="60-the-theory-behind-the-playbook.html#v03-adds">§60 · What V0.3 adds</a>.
     </p>
   </section>
+
+  <section id="v04-delivery">
+    <h2>Delivery authority in V0.4</h2>
+    <p>
+      V0.4 adds a bounded delivery mission without changing who owns product
+      judgement. Before the mission starts, the human approves the exact scope,
+      limits, stopping conditions, and decisions that must come back to them.
+      The builder stays inside that envelope, then a fresh verifier independently
+      rereads and rechecks the exact result.
+    </p>
+    <p>
+      The ordinary route stops at an exact pull request. A project may separately
+      enable K4.1 so a fresh agent can merge the already verified head, but that
+      authority is narrow and off by default. It does not include deployment,
+      release publication, bypassing repository protections, or the stronger
+      non-bypass assurance lane that remains deferred.
+    </p>
+    <p>
+      The practical handoff is shown in
+      <a href="50-how-to-write-code-with-ai.html#ship">§50 · The ship and GitHub handoff</a>,
+      and the reasoning is in
+      <a href="60-the-theory-behind-the-playbook.html#v04-adds">§60 · What V0.4 adds</a>.
+    </p>
+  </section>
     </div>
   </div>
 </main>
 
-<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
-<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
+<script src="assets/playbook-docs.js?v=20260828-v04"></script>
 </body>
 </html>

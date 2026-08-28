@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To Write Code With AI · AI Engineering Playbook V0.3</title>
+<title>How To Write Code With AI · AI Engineering Playbook V0.4</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -14,7 +14,7 @@
   a Markdown document.
 
   Status: Source of truth
-  Last verified: 2026-07-03 (playbook V0.3.12)
+  Last verified: 2026-08-28 (playbook V0.4.0)
   Audience: Human project owner
 
   Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
@@ -486,7 +486,7 @@
     .term-hint { display: none; }
   }
 </style>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -530,7 +530,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.3 · §50</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.4 · §50</div>
     <h1>How To Write Code With AI</h1>
     <p class="lede">
       A field guide to driving an AI coding agent through the playbook
@@ -540,7 +540,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-07-03 · playbook V0.3.12</span>
+      <span><strong>Last verified</strong> · 2026-08-28 · playbook V0.4.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML (canonical)</span>
     </div>
@@ -651,7 +651,7 @@
         <ul>
           <li>Describe what to build, in plain language.</li>
           <li>Answer <button class="term" type="button" data-def="productcall">product</button> questions when the agent asks.</li>
-          <li>Read and <button class="term" type="button" data-def="merge">merge</button> the <button class="term" type="button" data-def="pr">PR</button> on <button class="term" type="button" data-def="github">GitHub</button>.</li>
+          <li>Review and normally <button class="term" type="button" data-def="merge">merge</button> the <button class="term" type="button" data-def="pr">PR</button>; decide whether the project may use K4.1.</li>
           <li>Tell the agent when to ship and what to do next.</li>
         </ul>
       </div>
@@ -663,7 +663,7 @@
           <li>Read the project's ground rules and the words your project uses.</li>
           <li>Clarify before coding when the request is <button class="term" type="button" data-def="nontrivial">non-trivial</button>.</li>
           <li><button class="term" type="button" data-def="branch">Branch</button>, build <button class="term" type="button" data-def="slice">vertical slices</button>, test as you go.</li>
-          <li>Run full verification before opening a <button class="term" type="button" data-def="draftpr">draft PR</button>.</li>
+          <li>Run fresh independent verification before the exact PR handback.</li>
         </ul>
       </div>
     </div>
@@ -774,7 +774,7 @@ This should be possible.</code></pre>
         <circle cx="60" cy="60" r="54" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
         <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#8a4b16">STAGE 05</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Ship</text>
-        <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">draft PR</text>
+        <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">exact PR</text>
       </g>
 
       <!-- Arrows between stages -->
@@ -905,13 +905,21 @@ This should be possible.</code></pre>
   <section id="ship">
     <h2><span class="num">03</span>The ship &amp; GitHub handoff</h2>
     <p class="section-lede">
-      Ship is the only stage where work explicitly crosses the
-      agent/human boundary twice. The diagram below is the whole
-      contract — keep it visible until it's second nature.
+      The normal V0.4 ship route produces an exact pull request and hands it
+      back to the human. The diagram below shows that default route. A project
+      may separately enable a narrow fresh-agent merge route, explained below.
     </p>
 
+    <div class="callout">
+      <strong>What V0.4 adds.</strong> After you approve the exact scope, limits,
+      and stopping conditions, <code>/ai-playbook-deliver</code> can carry the
+      work through Build → fresh Verify → QA → exact PR handback. The verifier
+      starts in a clean context and has to rerun the checks and show its
+      evidence; it cannot simply trust the builder's account.
+    </div>
+
     <!-- Swimlane diagram -->
-    <svg viewBox="0 0 940 540" class="diagram" role="img" aria-label="A swimlane diagram. The agent runs through eight pre-PR steps: confirm branch, recover if on main, run tests, review diff, update docs, commit, push, open draft PR. The work then crosses to the human, who opens the PR, reads the summary, skims files, checks CI, marks ready and merges. Control returns to the agent, who confirms the merge, verifies state, checks post-merge steps and recommends what's next.">
+    <svg viewBox="0 0 940 540" class="diagram" role="img" aria-label="The default manual-merge route. The agent confirms the branch, runs checks, uses a fresh verifier, updates documents, commits, pushes, and hands back the exact pull request. The human reviews and merges it. Control returns to the agent, which confirms the merge, verifies state, checks post-merge steps, and recommends what comes next.">
       <defs>
         <marker id="arrow-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
@@ -948,7 +956,7 @@ This should be possible.</code></pre>
 
       <rect x="470" y="62"  width="130" height="50" rx="6" fill="#ffffff" stroke="#2a6e4f"/>
       <text x="535" y="82" text-anchor="middle" class="label-sm muted">04</text>
-      <text x="535" y="100" text-anchor="middle" class="label-md ink">Review the diff</text>
+      <text x="535" y="100" text-anchor="middle" class="label-md ink">Fresh verify</text>
 
       <!-- Agent steps row 2 -->
       <rect x="20"  y="122" width="130" height="50" rx="6" fill="#ffffff" stroke="#2a6e4f"/>
@@ -965,7 +973,7 @@ This should be possible.</code></pre>
 
       <rect x="470" y="122" width="180" height="50" rx="6" fill="#ffffff" stroke="#2a6e4f" stroke-width="2"/>
       <text x="560" y="142" text-anchor="middle" class="label-sm" fill="#2a6e4f">08 · HANDOFF</text>
-      <text x="560" y="160" text-anchor="middle" class="label-md ink">Open draft PR</text>
+      <text x="560" y="160" text-anchor="middle" class="label-md ink">Exact PR handback</text>
 
       <!-- Flow arrows agent row 1 -->
       <line x1="150" y1="87" x2="170" y2="87" stroke="#4a4a44" stroke-width="1.4" marker-end="url(#arrow-flow)"/>
@@ -1063,13 +1071,14 @@ This should be possible.</code></pre>
       <li>Confirm the work is already on a feature branch.</li>
       <li>If work accidentally happened on <code>main</code>, move it to a feature branch as a recovery step.</li>
       <li>Run tests, <button class="term" type="button" data-def="typecheck">typecheck</button>, <button class="term" type="button" data-def="build">build</button>, and any relevant <button class="term" type="button" data-def="browsercheck">browser checks</button>.</li>
-      <li>Review the <button class="term" type="button" data-def="diff">diff</button> for obvious mistakes.</li>
+      <li>Start a fresh independent verifier, which reads the exact change, reruns the required checks, and reports the evidence.</li>
+      <li>Review the <button class="term" type="button" data-def="diff">diff</button> and close every concrete finding before handoff.</li>
       <li><button class="term" type="button" data-def="docclose">Close the docs</button>: write the release note, promote any lasting decisions and vocabulary into the durable docs (ADRs, <code>CONTEXT.md</code>, the <button class="term" type="button" data-def="designartefacts">design artefacts</button>), and move the finished planning folder into <code>archive/</code>. This cleanup is committed on purpose, not left as a loose end.</li>
       <li><button class="term" type="button" data-def="commit">Commit</button> the work.</li>
       <li><button class="term" type="button" data-def="push">Push</button> the branch.</li>
-      <li>Open a <button class="term" type="button" data-def="draftpr"><strong>draft</strong> pull request</button>.</li>
+      <li>Open or update the exact <button class="term" type="button" data-def="pr">pull request</button> and hand back its identity and tested head.</li>
     </ol>
-    <p>At this point the work is <em>not</em> finished from the human side.</p>
+    <p>On the normal route, the work is now waiting for human review and merge.</p>
 
     <div class="callout">
       <strong>Shipping something irreversible?</strong> If the feature changes the
@@ -1081,8 +1090,8 @@ This should be possible.</code></pre>
       is the <a href="00-foundations.html#security-floor">security floor</a>.
     </div>
 
-    <h3>The manual GitHub step</h3>
-    <p>After the agent opens the pull request, you must go to GitHub yourself. Do this manually:</p>
+    <h3>The default GitHub step</h3>
+    <p>Unless the project has explicitly enabled K4.1, go to GitHub and do this manually:</p>
     <ol>
       <li>Open the PR link the agent gives you.</li>
       <li>Read the PR summary.</li>
@@ -1097,6 +1106,17 @@ This should be possible.</code></pre>
       This manual step matters because the human remains accountable for
       what enters <code>main</code>. The agent can prepare the PR, but it
       should not be treated as the final approver.
+    </p>
+
+    <h3>The optional K4.1 route</h3>
+    <p>
+      A project can separately authorise a fresh agent to make the merge
+      decision. That agent starts without the builder's conversation, rereads
+      the exact PR, reruns the required verification, checks that the tested
+      head is still current and clean, and only then merges. This option is off
+      by default. It does not grant permission to deploy, publish a release, or
+      bypass repository protections, and the human remains responsible for the
+      project's standing authority and product judgement.
     </p>
 
     <h3>After merge</h3>
@@ -1257,14 +1277,14 @@ This should be possible.</code></pre>
       <div class="phrase-card ship" data-stage="ship">
         <span class="tag">Ship</span>
         <div class="phrase">Ship the feature.</div>
-        <div class="when">All slices complete and you want a draft PR. Triggers the full ship sequence.</div>
+        <div class="when">All slices complete and you want the exact PR handoff. Triggers the full ship sequence.</div>
         <div class="actions"><button class="copy-button" type="button" data-copy-phrase="Ship the feature.">Copy</button></div>
       </div>
 
       <div class="phrase-card ship" data-stage="ship">
         <span class="tag">Ship</span>
         <div class="phrase">I reviewed and merged the PR. Can you check?</div>
-        <div class="when">Hand control back to the agent after the manual GitHub merge step.</div>
+        <div class="when">Hand control back after the default manual merge. K4.1 records this transition itself.</div>
         <div class="actions"><button class="copy-button" type="button" data-copy-phrase="I reviewed and merged the PR. Can you check?">Copy</button></div>
       </div>
 
@@ -1311,10 +1331,10 @@ This should be possible.</code></pre>
 
   <footer class="doc-foot">
     <div>
-      AI Engineering Playbook V0.3 · §50 · How To Write Code With AI
+      AI Engineering Playbook V0.4 · §50 · How To Write Code With AI
     </div>
     <div>
-      Maintainer: Rudy Molt · Last verified 2026-07-03 · playbook V0.3.12
+      Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0
     </div>
   </footer>
 
@@ -1328,7 +1348,7 @@ This should be possible.</code></pre>
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
-<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
+<script src="assets/playbook-docs.js?v=20260828-v04"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Theory Behind The Playbook · AI Engineering Playbook V0.3</title>
+<title>The Theory Behind The Playbook · AI Engineering Playbook V0.4</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -17,7 +17,7 @@
   want the long-form version.
 
   Status: Source of truth
-  Last verified: 2026-07-03 (playbook V0.3.12)
+  Last verified: 2026-08-28 (playbook V0.4.0)
   Audience: Human project owner (no engineering background assumed)
   ==========================================================================
 -->
@@ -350,7 +350,7 @@
     .term-popover, .term-hint { display: none !important; }
   }
 </style>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -394,7 +394,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.3 · §60</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.4 · §60</div>
     <h1>The Theory Behind The Playbook</h1>
     <p class="lede">
       Why the process is shaped the way it is. The companion guide, §50,
@@ -405,7 +405,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-07-03 · playbook V0.3.12</span>
+      <span><strong>Last verified</strong> · 2026-08-28 · playbook V0.4.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
     </div>
@@ -441,6 +441,7 @@
       <a href="#architecture">Architecture<span>Deep modules and source of truth</span></a>
       <a href="#verify">Verification<span>Risk-scaled checking</span></a>
       <a href="#agent-surface">Designing for the agent<span>The surface agents read</span></a>
+      <a href="#v04-adds">V0.4 delivery<span>Bounded execution and fresh merge</span></a>
       <a href="#evidence">Evidence<span>Where the ideas come from</span></a>
     </div>
   </nav>
@@ -978,8 +979,9 @@ Transport page
       <li>
         <div class="head"><span class="skill">/ship</span> <span class="role">the release engineer</span></div>
         Runs the final checks and opens the <button class="term" type="button" data-def="pr">pull request</button> for your review.
-        It never merges its own work — you stay accountable for what goes live.
-        (The full hand-off is the subject of §50.)
+        The builder never merges its own work. The normal route is a human
+        merge; an explicitly enabled K4.1 route uses a separate fresh agent.
+        You stay accountable for what goes live. (The full hand-off is the subject of §50.)
       </li>
       <li>
         <div class="head"><span class="skill">/land-and-deploy · /canary · /benchmark</span> <span class="role">getting it live, safely</span></div>
@@ -1155,10 +1157,61 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 11. TWO TOOLKITS                                       -->
+  <!-- 11. WHAT V0.4 ADDS                                     -->
+  <!-- ====================================================== -->
+  <section id="v04-adds">
+    <h2><span class="num">11</span>What V0.4 adds</h2>
+    <p class="section-lede">
+      V0.4 keeps the same thirteen stages and V0.3 safety floor, then makes the
+      route from an approved plan to a pull request more explicit and
+      reproducible. It is a complete edition, not a mixture of old and new
+      files; V0.3 remains available as the rollback edition.
+    </p>
+
+    <p>Four ideas define the version:</p>
+    <ul>
+      <li><strong class="lead-in">Approve the envelope before the run.</strong>
+      The human settles the feature, scope, limits, stopping conditions, and
+      judgement calls before an agent-owned delivery mission begins.</li>
+      <li><strong class="lead-in">Build and check are genuinely separate.</strong>
+      The builder works inside that envelope; a fresh verifier starts without
+      the builder's conversation, rereads the exact change, reruns the required
+      checks, and supplies evidence.</li>
+      <li><strong class="lead-in">The normal boundary is the pull request.</strong>
+      <code>/ai-playbook-deliver</code> ends with an exact PR handback. It does
+      not silently acquire merge, deploy, or release authority.</li>
+      <li><strong class="lead-in">More authority is narrow and explicit.</strong>
+      K4.1 may be enabled by a project so a fresh agent can merge the exact
+      verified head. It remains off by default and is not the stronger
+      non-bypass assurance lane, which is still deferred.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Deterministic lifecycle, too.</strong> V0.4 also owns how the
+      edition is installed, upgraded, migrated from V0.3, checked for drift,
+      and removed. Project-owned content is preserved, managed files are bound
+      to a manifest, and ambiguous collisions stop for human review.
+    </div>
+
+    <div class="callout human-note">
+      <strong>What this means for you:</strong> you still describe features in
+      ordinary language and own the product decisions. The difference is that
+      an approved feature can now travel through a bounded, evidence-bearing
+      delivery route without weakening the independent checks.
+    </div>
+
+    <p class="go-deeper">
+      <span class="gd-label">Go deeper</span>
+      <a href="50-how-to-write-code-with-ai.html#ship">§50 · ship and GitHub handoff</a> ·
+      <a href="10-process/index.html#stages">§10 · the stage map</a>
+    </p>
+  </section>
+
+  <!-- ====================================================== -->
+  <!-- 12. TWO TOOLKITS                                       -->
   <!-- ====================================================== -->
   <section id="toolkits">
-    <h2><span class="num">11</span>Two toolkits, working together</h2>
+    <h2><span class="num">12</span>Two toolkits, working together</h2>
     <p class="section-lede">
       The skills the agent uses come from two open-source collections. You never
       have to choose between them — the playbook calls the right one at the right
@@ -1202,10 +1255,10 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 12. EVIDENCE AND PROVENANCE                            -->
+  <!-- 13. EVIDENCE AND PROVENANCE                            -->
   <!-- ====================================================== -->
   <section id="evidence">
-    <h2><span class="num">12</span>Evidence and provenance</h2>
+    <h2><span class="num">13</span>Evidence and provenance</h2>
     <p class="section-lede">
       The playbook is an adaptation layer. It keeps the original ideas visible
       while turning them into a practical process a human project owner can run
@@ -1259,10 +1312,10 @@ Transport page
   </section>
 
   <!-- ====================================================== -->
-  <!-- 13. WHERE TO GO DEEPER                                 -->
+  <!-- 14. WHERE TO GO DEEPER                                 -->
   <!-- ====================================================== -->
   <section id="further">
-    <h2><span class="num">13</span>Where to go deeper</h2>
+    <h2><span class="num">14</span>Where to go deeper</h2>
     <p class="section-lede">
       This page is the short version. When you want the full reasoning behind a
       stage, follow the trail:
@@ -1278,8 +1331,8 @@ Transport page
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.3 · §60 · The Theory Behind The Playbook</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-07-03 · playbook V0.3.12</div>
+    <div>AI Engineering Playbook V0.4 · §60 · The Theory Behind The Playbook</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0</div>
   </footer>
 
     </div>
@@ -1375,7 +1428,7 @@ Transport page
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
-<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
+<script src="assets/playbook-docs.js?v=20260828-v04"></script>
 </body>
 </html>

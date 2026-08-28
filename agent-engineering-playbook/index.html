@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Engineering Playbook V0.3 · Interactive Guide Hub</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260610-frontend">
+<title>AI Engineering Playbook V0.4 · Interactive Guide Hub</title>
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -48,7 +48,7 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.3</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.4</div>
     <h1>Interactive Guide Hub</h1>
     <p class="lede">
       You describe what you want in normal sentences. The agent writes the
@@ -57,7 +57,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-07-03 · playbook V0.3.12</span>
+      <span><strong>Last updated</strong> · 2026-08-28 · playbook V0.4.0</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
@@ -86,6 +86,23 @@
 
   <section class="whats-new" aria-labelledby="whats-new-title">
     <h2 id="whats-new-title">What's New</h2>
+    <div class="version-entry">
+      <span class="version-label">V0.4 · 2026-08-24</span>
+      <p>V0.4 turns the established workflow into a complete, installable
+      edition with a safer delivery path. After a human approves the scope and
+      limits, <code>/ai-playbook-deliver</code> can carry a feature through a
+      bounded build, a genuinely fresh independent check, real-use QA, and an
+      exact pull-request handoff. The normal boundary remains the PR: the agent
+      does not merge by default.</p>
+    </div>
+    <div class="version-entry">
+      <span class="version-label">V0.4 · optional fresh-agent merge</span>
+      <p>A project may separately authorise K4.1, where a new agent session
+      rereads and rechecks the exact proposed change before merging it. This is
+      deliberately narrow: it is off by default, does not deploy or publish a
+      release, and does not claim the stronger non-bypass guarantees that are
+      still deferred. V0.3 remains intact as the rollback edition.</p>
+    </div>
     <div class="version-entry">
       <span class="version-label">V0.3 · 2026-07-03</span>
       <p>The big shift in V0.3: instead of <em>reminding</em> the agent to be
@@ -161,11 +178,11 @@
       result, test it, and ship only when the evidence is good enough.
     </p>
     <p>
-      As of V0.3, the discipline leans less on the agent remembering the rules and
-      more on the process enforcing them: the safety-critical rules are built in as
-      automatic checks, a separate checker signs off the work and shows its
-      evidence, and the agent only earns the freedom to run longer jobs on its own
-      once real projects have shown it is safe to.
+      V0.4 keeps V0.3's enforceable safety floor and adds a deterministic
+      delivery route around it: the approved scope and limits are recorded, the
+      builder stays inside them, a fresh checker shows its evidence, and the
+      default handoff is an exact pull request. More authority remains explicit,
+      optional, and earned rather than assumed.
     </p>
     <div class="learning-grid">
       <article class="learning-card">
@@ -235,8 +252,8 @@
   <section>
     <h2>What Was Published Here</h2>
     <p>
-      This publication turns the playbook into linked, static HTML pages for
-      people using coding agents. It includes this hub, the foundations guide,
+      This V0.4 publication turns the playbook into linked, static HTML pages
+      for people using coding agents. It includes this hub, the foundations guide,
       the 13-stage process map, focused alignment and breakdown explainers, the
       frontend-track guide, the
       document lifecycle guide, the practical agent-driving guide, the theory
@@ -340,7 +357,7 @@
   </div>
 </main>
 
-<script src="assets/playbook-glossary.js?v=20260610-frontend"></script>
-<script src="assets/playbook-docs.js?v=20260606-quiz"></script>
+<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
+<script src="assets/playbook-docs.js?v=20260828-v04"></script>
 </body>
 </html>

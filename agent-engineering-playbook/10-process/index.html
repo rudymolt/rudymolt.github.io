@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Process Map · AI Engineering Playbook V0.3</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260610-frontend">
+<title>Process Map · AI Engineering Playbook V0.4</title>
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
 <nav class="site-nav" aria-label="Playbook guides">
@@ -191,7 +191,7 @@
       <button type="button" data-choice data-choice-title="Fix or debug something"
         data-choice-body="<strong>You type:</strong> &quot;I found a bug: [what happened].&quot;<br><strong>What happens:</strong> the agent reproduces the problem first, finds the cause, fixes it, and adds a test so that exact bug cannot quietly return.<br><em>(Internally this is Stage 11 Debug.)</em>">Fix a bug</button>
       <button type="button" data-choice data-choice-title="Ship or deploy"
-        data-choice-body="<strong>You type:</strong> &quot;Ship the feature.&quot;<br><strong>What happens:</strong> the agent runs the final checks, tidies the documents, and opens a pull request (a finished change, lined up and waiting for your sign-off) for you to approve — it never publishes on its own.<br><em>(Internally this is Stage 10 Ship.)</em>">Ship it</button>
+        data-choice-body="<strong>You type:</strong> &quot;Ship the feature.&quot;<br><strong>What happens:</strong> the agent runs the final checks, tidies the documents, and opens an exact pull request (a finished change, lined up and waiting for sign-off). The normal route stops there. A separately authorised K4.1 route may use a fresh agent to merge; deploy and release remain separate.<br><em>(Internally this is Stage 10 Ship.)</em>">Ship it</button>
       <button type="button" data-choice data-choice-title="What should I work on?"
         data-choice-body="<strong>You type:</strong> &quot;What should I work on?&quot;<br><strong>What happens:</strong> the agent looks at the open work and recommends the next most valuable thing.<br><em>(Internally this is Stage 05 Triage and the /whats-next skill.)</em>">What's next?</button>
       <button type="button" data-choice data-choice-title="The codebase feels messy"
@@ -211,6 +211,15 @@
       Every stage shows what it looks like on the booking-form feature.
     </p>
 
+    <div class="callout">
+      <strong>What V0.4 changes.</strong> The stage map is still the same. V0.4
+      adds an optional delivery mission around stages 07–10: a human approves
+      the exact scope and limits, the builder works inside that envelope, a
+      fresh checker independently verifies the result, and the normal route
+      stops at an exact pull request. K4.1 fresh-agent merge is a separate,
+      off-by-default project choice; it does not include deploy or release.
+    </div>
+
     <h3 class="phase-label">Phase 1 · Agree <span class="phase-span">(stages 00–03)</span></h3>
     <div class="learning-grid">
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>00 · Prereqs</h3><p>Every session starts by checking skills, how the <button class="term" type="button" data-def="repo">repo</button> (the project's folder of files) is set up, and the safety basics — including whether the project is on the current playbook version (offering <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button> if not) and, for projects with a screen, whether the <button class="term" type="button" data-def="designartefacts">three design artefacts</button> exist.</p><span class="example"><strong>Booking form:</strong> the agent checks its skills, the project files, and the design artefacts before touching anything.</span></article>
@@ -228,14 +237,14 @@
 
     <h3 class="phase-label">Phase 3 · Build &amp; check <span class="phase-span">(stages 07–09)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>07 · Implementation</h3><p>Build one slice at a time with <button class="term" type="button" data-def="tdd">TDD</button>.</p><span class="example"><strong>Booking form:</strong> build "user can book a slot" — test first, then the code.</span></article>
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Run <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review before the <button class="term" type="button" data-def="pr">PR</button>.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>07 · Implementation</h3><p>Build one slice at a time with <button class="term" type="button" data-def="tdd">TDD</button>, inside the approved scope and limits.</p><span class="example"><strong>Booking form:</strong> build "user can book a slot" — test first, then the code.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Use a fresh, independent checker that reruns the relevant evidence; add <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review when the risk calls for it.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use a real browser and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
     </div>
 
     <h3 class="phase-label">Phase 4 · Ship &amp; learn <span class="phase-span">(stages 10–12)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Open the PR, <button class="term" type="button" data-def="docclose">doc-close</button>, <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button>.</p><span class="example"><strong>Booking form:</strong> PR opened, docs tidied, the booking form goes live.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Close the docs and hand back the exact PR. Merge is human-owned unless the project has separately enabled K4.1; <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button> remain explicit later steps.</p><span class="example"><strong>Booking form:</strong> PR opened and checked, docs tidied, then the approved merge and release path runs.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>11 · Debug</h3><p>Diagnose before fixing. No guessing-and-hoping.</p><span class="example"><strong>Booking form:</strong> two people booked the same slot — reproduce it before fixing it.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>12 · Retro</h3><p>Capture lessons in a <button class="term" type="button" data-def="retro">retro</button> and promote reusable patterns.</p><span class="example"><strong>Booking form:</strong> what made the build slow? Write it down for next time.</span></article>
     </div>
@@ -267,7 +276,7 @@
   </div>
 </main>
 
-<script src="../assets/playbook-glossary.js?v=20260610-frontend"></script>
-<script src="../assets/playbook-docs.js?v=20260606-quiz"></script>
+<script src="../assets/playbook-glossary.js?v=20260828-v04"></script>
+<script src="../assets/playbook-docs.js?v=20260828-v04"></script>
 </body>
 </html>
