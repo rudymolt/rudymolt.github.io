@@ -122,6 +122,23 @@
         transform: translateY(-1px);
       }
 
+      .ideas-hero {
+        margin: 0 0 42px;
+        overflow: hidden;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: #1b0202;
+        box-shadow: var(--shadow);
+      }
+
+      .ideas-hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+      }
+
       .intro {
         display: grid;
         grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
@@ -233,6 +250,22 @@
         transform: translateY(-2px);
       }
 
+      .card-preview {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+        margin: 18px 0 0;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 6px;
+        background: #1b0202;
+        object-fit: cover;
+      }
+
+      .idea-card--with-preview h3 {
+        margin-top: 24px;
+      }
+
       .card-top {
         display: flex;
         align-items: center;
@@ -325,6 +358,10 @@
           padding-bottom: 32px;
         }
 
+        .ideas-hero {
+          margin-bottom: 32px;
+        }
+
         .intro {
           grid-template-columns: 1fr;
           gap: 26px;
@@ -364,6 +401,10 @@
         </div>
         <a class="nav-link" href="https://github.com/rudymolt" rel="me">GitHub</a>
       </header>
+
+      <figure class="ideas-hero">
+        <img src="assets/og.png" alt="Ideas — rudymolt.github.io" width="1280" height="640">
+      </figure>
 
       <main>
         <section class="intro" aria-labelledby="page-title">
@@ -413,11 +454,12 @@
                 </span>
               </span>
             </a>
-            <a class="idea-card" href="agent-engineering-playbook/index.html">
+            <a class="idea-card idea-card--with-preview" href="agent-engineering-playbook/index.html">
               <span class="card-top">
                 <span class="number">Idea 02</span>
                 <span class="arrow" aria-hidden="true">→</span>
               </span>
+              <img class="card-preview" src="assets/playbook.png" alt="Playbook — a way of working" width="1280" height="640" loading="lazy">
               <span>
                 <h3>AI Engineering Playbook</h3>
                 <p>
