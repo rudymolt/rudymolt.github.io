@@ -262,6 +262,41 @@
         object-fit: cover;
       }
 
+      .projects {
+        margin-top: 52px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .project-card {
+        overflow: hidden;
+        border: 1px solid rgba(23, 32, 51, 0.12);
+        border-radius: 8px;
+        background: #1b0202;
+        box-shadow: 0 12px 32px rgba(23, 32, 51, 0.08);
+        transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      }
+
+      .project-card:hover,
+      .project-card:focus-visible {
+        border-color: rgba(47, 125, 109, 0.62);
+        box-shadow: 0 18px 44px rgba(23, 32, 51, 0.14);
+        outline: none;
+        transform: translateY(-2px);
+      }
+
+      .project-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+      }
+
       .idea-card--with-preview h3 {
         margin-top: 24px;
       }
@@ -378,6 +413,14 @@
 
         .idea-card h3 {
           margin-top: 34px;
+        }
+
+        .projects {
+          margin-top: 42px;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -523,6 +566,24 @@
                   <span class="tag">Setup</span>
                 </span>
               </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="projects" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <h2 id="projects-title">Projects</h2>
+          </div>
+
+          <div class="project-grid">
+            <a class="project-card" href="https://github.com/rudymolt/RuOps" aria-label="RuOps on GitHub">
+              <img src="assets/ruops.png" alt="RuOps" width="1280" height="640" loading="lazy">
+            </a>
+            <a class="project-card" href="https://github.com/rudymolt/ruchamps" aria-label="RuChamps on GitHub">
+              <img src="assets/ruchamps.png" alt="RuChamps" width="1280" height="640" loading="lazy">
+            </a>
+            <a class="project-card" href="https://github.com/rudymolt/RuComps" aria-label="RuComps on GitHub">
+              <img src="assets/rucomps.png" alt="RuComps" width="1280" height="640" loading="lazy">
             </a>
           </div>
         </section>
