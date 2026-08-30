@@ -1,0 +1,4935 @@
+{
+  "schema": 1,
+  "testedHead": "4553682e93170e73a4a0998d7f234ab1028cc59f",
+  "baseline": "99e9c2957bb934381f05f5ad4453d9c388d97ea5",
+  "browser": "Google Chrome 152.0.7977.64",
+  "generatedAt": "2026-08-30T16:05:30.496Z",
+  "allPages320": [
+    {
+      "page": "index.html",
+      "url": "/agent-engineering-playbook/index.html",
+      "title": "AI Engineering Playbook V0.4 · Interactive Guide Hub",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Portal",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Drive agent →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Portal",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Drive agent →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "01 Hub",
+        "status": "Step 1 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "00-foundations.html",
+      "url": "/agent-engineering-playbook/00-foundations.html",
+      "title": "Foundations · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Frontend track",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Theory →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Frontend track",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Theory →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "07 Foundations",
+        "status": "Step 7 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "10-process/index.html",
+      "url": "/agent-engineering-playbook/10-process/index.html",
+      "title": "Process Map · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Drive agent",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Align →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Drive agent",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Align →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "03 Process map",
+        "status": "Step 3 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "10-process/01-align.html",
+      "url": "/agent-engineering-playbook/10-process/01-align.html",
+      "title": "Align Before Code · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Process map",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Breakdown →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Process map",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Breakdown →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "04 Align",
+        "status": "Step 4 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "10-process/04-breakdown.html",
+      "url": "/agent-engineering-playbook/10-process/04-breakdown.html",
+      "title": "Vertical Slice Checker · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Align",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Frontend track →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Align",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Frontend track →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "05 Breakdown",
+        "status": "Step 5 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "20-frontend-track.html",
+      "url": "/agent-engineering-playbook/20-frontend-track.html",
+      "title": "The Frontend Track · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Breakdown",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Foundations →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Breakdown",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Foundations →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "06 Frontend track",
+        "status": "Step 6 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "30-document-lifecycle.html",
+      "url": "/agent-engineering-playbook/30-document-lifecycle.html",
+      "title": "Document Lifecycle · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Theory",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Lite mode →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Theory",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Lite mode →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "09 Docs lifecycle",
+        "status": "Step 9 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "50-how-to-write-code-with-ai.html",
+      "url": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "title": "How To Write Code With AI · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Process map →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Process map →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 280,
+          "scrollWidth": 532,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 280,
+          "scrollWidth": 280,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 280,
+          "scrollWidth": 481,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 254,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 230,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 230,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 230,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 330,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 238,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 515,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 230,
+          "scrollWidth": 230,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 280,
+          "scrollWidth": 406,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "02 Drive agent",
+        "status": "Step 2 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 2
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "60-the-theory-behind-the-playbook.html",
+      "url": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "title": "The Theory Behind The Playbook · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Foundations",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Docs lifecycle →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Foundations",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Docs lifecycle →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 234,
+          "scrollWidth": 624,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 320,
+          "scrollWidth": 320,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "08 Theory",
+        "status": "Step 8 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "70-lite-mode.html",
+      "url": "/agent-engineering-playbook/70-lite-mode.html",
+      "title": "Lite Mode · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Docs lifecycle",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Quickstart →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Docs lifecycle",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Quickstart →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "10 Lite mode",
+        "status": "Step 10 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "80-quickstart.html",
+      "url": "/agent-engineering-playbook/80-quickstart.html",
+      "title": "Quickstart · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Lite mode",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Portal →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Lite mode",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Portal →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 280,
+          "scrollWidth": 564,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "11 Quickstart",
+        "status": "Step 11 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "page": "glossary.html",
+      "url": "/agent-engineering-playbook/glossary.html",
+      "title": "Glossary · AI Engineering Playbook V0.4",
+      "innerWidth": 320,
+      "bodyScrollWidth": 320,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "text": "Next Hub →",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Hub →",
+          "display": "block",
+          "w": 135,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": null,
+        "status": "Current: glossary"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    }
+  ],
+  "representativeMatrix": [
+    {
+      "archetype": "hub",
+      "page": "index.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/index.html",
+      "title": "AI Engineering Playbook V0.4 · Interactive Guide Hub",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Portal",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Drive agent →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Portal",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Drive agent →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "01 Hub",
+        "status": "Step 1 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "hub-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 10647,
+        "scale": 0.42265426880811496,
+        "outputWidth": 165,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "drive",
+      "page": "50-how-to-write-code-with-ai.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "title": "How To Write Code With AI · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Process map →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Process map →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 350,
+          "scrollWidth": 532,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 350,
+          "scrollWidth": 350,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 350,
+          "scrollWidth": 481,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 330,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 515,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 300,
+          "scrollWidth": 300,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 350,
+          "scrollWidth": 406,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "02 Drive agent",
+        "status": "Step 2 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 2
+      },
+      "screenshot": {
+        "filename": "drive-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 19151,
+        "scale": 0.23497467495169966,
+        "outputWidth": 92,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "theory",
+      "page": "60-the-theory-behind-the-playbook.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "title": "The Theory Behind The Playbook · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Foundations",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Docs lifecycle →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Foundations",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Docs lifecycle →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 304,
+          "scrollWidth": 624,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 390,
+          "scrollWidth": 390,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "08 Theory",
+        "status": "Step 8 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "theory-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 26141,
+        "scale": 0.1721433763054206,
+        "outputWidth": 67,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "process",
+      "page": "10-process/index.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/10-process/index.html",
+      "title": "Process Map · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Drive agent",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Align →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Drive agent",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Align →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "03 Process map",
+        "status": "Step 3 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "process-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 8899,
+        "scale": 0.5056747949207776,
+        "outputWidth": 197,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "reference",
+      "page": "00-foundations.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/00-foundations.html",
+      "title": "Foundations · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Frontend track",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Theory →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Frontend track",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Theory →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 13,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "07 Foundations",
+        "status": "Step 7 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "reference-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 13601,
+        "scale": 0.3308580251452099,
+        "outputWidth": 129,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "interactive",
+      "page": "10-process/01-align.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/10-process/01-align.html",
+      "title": "Align Before Code · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Process map",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Breakdown →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Process map",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Breakdown →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "04 Align",
+        "status": "Step 4 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "interactive-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 6086,
+        "scale": 0.7394019060138022,
+        "outputWidth": 288,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "glossary",
+      "page": "glossary.html",
+      "width": 390,
+      "url": "/agent-engineering-playbook/glossary.html",
+      "title": "Glossary · AI Engineering Playbook V0.4",
+      "innerWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "text": "Next Hub →",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Hub →",
+          "display": "block",
+          "w": 170,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": null,
+        "status": "Current: glossary"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "glossary-390.jpg",
+        "cssWidth": 390,
+        "cssHeight": 18033,
+        "scale": 0.2495425054067543,
+        "outputWidth": 97,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "hub",
+      "page": "index.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/index.html",
+      "title": "AI Engineering Playbook V0.4 · Interactive Guide Hub",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Portal",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Drive agent →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Portal",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Drive agent →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "01 Hub",
+        "status": "Step 1 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "hub-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 7032,
+        "scale": 0.6399317406143344,
+        "outputWidth": 482,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "drive",
+      "page": "50-how-to-write-code-with-ai.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "title": "How To Write Code With AI · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Process map →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Process map →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 640,
+          "scrollWidth": 640,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "02 Drive agent",
+        "status": "Step 2 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 2
+      },
+      "screenshot": {
+        "filename": "drive-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 13701,
+        "scale": 0.3284431793299759,
+        "outputWidth": 247,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "theory",
+      "page": "60-the-theory-behind-the-playbook.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "title": "The Theory Behind The Playbook · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Foundations",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Docs lifecycle →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Foundations",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Docs lifecycle →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 644,
+          "scrollWidth": 644,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 690,
+          "scrollWidth": 690,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "08 Theory",
+        "status": "Step 8 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "theory-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 18146,
+        "scale": 0.24798853741871488,
+        "outputWidth": 187,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "process",
+      "page": "10-process/index.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/10-process/index.html",
+      "title": "Process Map · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Drive agent",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Align →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Drive agent",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Align →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "03 Process map",
+        "status": "Step 3 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "process-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 6727,
+        "scale": 0.6689460383529062,
+        "outputWidth": 504,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "reference",
+      "page": "00-foundations.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/00-foundations.html",
+      "title": "Foundations · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Frontend track",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Theory →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Frontend track",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Theory →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 14.2,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 18.8,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 20,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 17.8,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 14.6,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "07 Foundations",
+        "status": "Step 7 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "reference-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 9473,
+        "scale": 0.47503430803335794,
+        "outputWidth": 358,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "interactive",
+      "page": "10-process/01-align.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/10-process/01-align.html",
+      "title": "Align Before Code · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Process map",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Breakdown →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Process map",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Breakdown →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "04 Align",
+        "status": "Step 4 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "interactive-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 4771,
+        "scale": 0.9431984908824146,
+        "outputWidth": 710,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "glossary",
+      "page": "glossary.html",
+      "width": 768,
+      "url": "/agent-engineering-playbook/glossary.html",
+      "title": "Glossary · AI Engineering Playbook V0.4",
+      "innerWidth": 768,
+      "bodyScrollWidth": 753,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "text": "Next Hub →",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 82.3,
+          "h": 43.9
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Hub →",
+          "display": "block",
+          "w": 340.8,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": null,
+        "status": "Current: glossary"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "glossary-768.jpg",
+        "cssWidth": 753,
+        "cssHeight": 13146,
+        "scale": 0.34230944774075767,
+        "outputWidth": 258,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "hub",
+      "page": "index.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/index.html",
+      "title": "AI Engineering Playbook V0.4 · Interactive Guide Hub",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Portal",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Drive agent →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Portal",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Drive agent →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "01 Hub",
+        "status": "Step 1 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "hub-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 6400,
+        "scale": 0.703125,
+        "outputWidth": 1002,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "drive",
+      "page": "50-how-to-write-code-with-ai.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "title": "How To Write Code With AI · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Process map →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Process map →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 682,
+          "scrollWidth": 682,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "02 Drive agent",
+        "status": "Step 2 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 2
+      },
+      "screenshot": {
+        "filename": "drive-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 13171,
+        "scale": 0.34165970693189585,
+        "outputWidth": 487,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "theory",
+      "page": "60-the-theory-behind-the-playbook.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "title": "The Theory Behind The Playbook · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 2,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Foundations",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Docs lifecycle →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Foundations",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Docs lifecycle →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "pre",
+          "cls": "",
+          "clientWidth": 686,
+          "scrollWidth": 686,
+          "overflowX": "auto",
+          "tabindex": null,
+          "label": null
+        },
+        {
+          "tag": "div",
+          "cls": "diagram-wrap",
+          "clientWidth": 732,
+          "scrollWidth": 732,
+          "overflowX": "visible",
+          "tabindex": null,
+          "label": null
+        }
+      ],
+      "guide": {
+        "current": "08 Theory",
+        "status": "Step 8 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "theory-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 17767,
+        "scale": 0.25327855012101086,
+        "outputWidth": 361,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "process",
+      "page": "10-process/index.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/10-process/index.html",
+      "title": "Process Map · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Drive agent",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Align →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Drive agent",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Align →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "03 Process map",
+        "status": "Step 3 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "process-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 6226,
+        "scale": 0.72277545775779,
+        "outputWidth": 1030,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "reference",
+      "page": "00-foundations.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/00-foundations.html",
+      "title": "Foundations · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Frontend track",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Theory →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Frontend track",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Theory →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 15.1,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 20,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 20,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 18.9,
+          "h": 20
+        },
+        {
+          "tag": "input",
+          "cls": "",
+          "text": "",
+          "display": "block",
+          "w": 15.6,
+          "h": 20
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "07 Foundations",
+        "status": "Step 7 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": true,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "reference-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 8962,
+        "scale": 0.5021200624860522,
+        "outputWidth": 716,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "interactive",
+      "page": "10-process/01-align.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/10-process/01-align.html",
+      "title": "Align Before Code · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Process map",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Breakdown →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Process map",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Breakdown →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": "04 Align",
+        "status": "Step 4 of 11"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "interactive-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 4425,
+        "scale": 0.3,
+        "outputWidth": 428,
+        "outputHeight": 1328,
+        "tiledFallback": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    },
+    {
+      "archetype": "glossary",
+      "page": "glossary.html",
+      "width": 1440,
+      "url": "/agent-engineering-playbook/glossary.html",
+      "title": "Glossary · AI Engineering Playbook V0.4",
+      "innerWidth": 1440,
+      "bodyScrollWidth": 1425,
+      "overflow": false,
+      "h1Count": 1,
+      "landmarks": {
+        "nav": 1,
+        "main": true,
+        "complementary": true,
+        "footer": true,
+        "skipTarget": true
+      },
+      "prevNext": [
+        {
+          "text": "Previous Hub",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "text": "Next Hub →",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "targetViolations": [
+        {
+          "tag": "a",
+          "cls": "skip-link",
+          "text": "Skip to main content",
+          "display": "block",
+          "w": 184,
+          "h": 40.8
+        },
+        {
+          "tag": "a",
+          "cls": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "display": "block",
+          "w": 137.7,
+          "h": 17
+        },
+        {
+          "tag": "a",
+          "cls": "brand",
+          "text": "AI Engineering Playbook",
+          "display": "block",
+          "w": 158.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "How to drive the agent",
+          "display": "block",
+          "w": 157.3,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Theory",
+          "display": "block",
+          "w": 42.9,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Foundations",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Process map",
+          "display": "block",
+          "w": 78.7,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Frontend track",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Docs lifecycle",
+          "display": "block",
+          "w": 100.1,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Lite mode",
+          "display": "block",
+          "w": 64.4,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Quickstart",
+          "display": "block",
+          "w": 71.5,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Glossary",
+          "display": "block",
+          "w": 57.2,
+          "h": 15.3
+        },
+        {
+          "tag": "a",
+          "cls": "guide-portal",
+          "text": "← Rudy Molt portal",
+          "display": "inline-flex",
+          "w": 129.6,
+          "h": 16
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Previous Hub",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        },
+        {
+          "tag": "a",
+          "cls": "",
+          "text": "Next Hub →",
+          "display": "block",
+          "w": 211,
+          "h": 32
+        }
+      ],
+      "localOverflow": [],
+      "guide": {
+        "current": null,
+        "status": "Current: glossary"
+      },
+      "driveMobile": {
+        "wideDiagramVisible": false,
+        "mobileStructuresVisible": 0
+      },
+      "screenshot": {
+        "filename": "glossary-1440.jpg",
+        "cssWidth": 1425,
+        "cssHeight": 12996,
+        "scale": 0.3462603878116344,
+        "outputWidth": 493,
+        "outputHeight": 4500,
+        "reusedFromFreshRun": true
+      },
+      "consoleErrors": [],
+      "runtimeExceptions": [],
+      "networkErrors": []
+    }
+  ],
+  "interactions": {
+    "mobileGuide": {
+      "before": {
+        "label": "Open guide path. Current route: 02 Drive agent",
+        "expanded": "false",
+        "current": "Current: 02 Drive agent",
+        "height": 44
+      },
+      "opened": {
+        "expanded": "true",
+        "open": true
+      },
+      "closed": {
+        "expanded": "false",
+        "open": false,
+        "focusReturned": true
+      }
+    },
+    "noJavaScriptGuide": {
+      "toggleAbsent": true,
+      "display": "flex",
+      "visible": true,
+      "links": 11
+    },
+    "glossary": {
+      "opened": {
+        "open": true,
+        "title": "Slice (vertical slice)"
+      },
+      "closed": true,
+      "focusReturned": true
+    },
+    "choice": {
+      "active": true,
+      "output": "Fix or debug somethingYou type: \"I found a bug: [what happened].\"What happens: the agent reproduces the problem first, finds the cause, fixe"
+    },
+    "quiz": {
+      "pressed": "true",
+      "hidden": false,
+      "text": "✓ Right. A crash is a bug report, so it routes to Debug: reproduce the crash first, find the cause, fix it, and add a regression test so it ",
+      "focused": true
+    },
+    "checklist": {
+      "before": "0 of 6 checks satisfied",
+      "after": "1 of 6 checks satisfied",
+      "checked": true
+    },
+    "routeAndCopy": {
+      "route": "Type: I want to build [feature].",
+      "copyStatus": "Copied: What's next?"
+    }
+  },
+  "styleAssertions": {
+    "visitedRule": true,
+    "focusVisibleRule": true,
+    "reducedMotionRule": true,
+    "focusComputed": {
+      "tag": "a",
+      "className": "skip-link",
+      "outlineWidth": "2px",
+      "outlineStyle": "solid",
+      "outlineColor": "rgb(240, 196, 92)",
+      "outlineOffset": "4px"
+    },
+    "body": {
+      "color": "rgb(244, 231, 194)",
+      "background": "rgb(10, 6, 5)"
+    }
+  }
+}
