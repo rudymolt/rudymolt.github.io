@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rudy Molt Ideas Portal · UI Kitchen Sink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --soot:#0a0605;
+      --parchment:#f4e7c2;
+      --muted:#b9a98a;
+      --oxblood:#240100;
+      --burgundy:#4a0708;
+      --gold:#d5a527;
+      --ember:#f0c45c;
+      --line:rgba(213,165,39,.28);
+      --display:"Oxanium",system-ui,sans-serif;
+      --mono:"IBM Plex Mono",ui-monospace,monospace;
+      --space-1:4px;
+      --space-2:8px;
+      --space-3:12px;
+      --space-4:16px;
+      --space-5:20px;
+      --space-6:24px;
+      --space-8:32px;
+      --space-10:40px;
+      --space-14:56px;
+      --radius-image:4px;
+      --focus:2px solid var(--ember);
+    }
+    *{box-sizing:border-box}
+    html{background:var(--soot);scroll-behavior:smooth}
+    body{min-width:320px;margin:0;background:var(--soot);color:var(--parchment);font:15px/1.6 var(--mono);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    h1,h2,h3{margin-top:0;font-family:var(--display);letter-spacing:-.03em}
+    :focus-visible{outline:var(--focus);outline-offset:4px}
+    .shell{width:min(1120px,calc(100% - 40px));margin:auto;padding:56px 0 96px}
+    .intro{max-width:760px;margin-bottom:56px}
+    .eyebrow{margin:0 0 8px;color:var(--gold);font-size:12px;font-weight:500;letter-spacing:.14em;line-height:20px;text-transform:uppercase}
+    h1{margin-bottom:16px;font-size:48px;line-height:54px}
+    .intro p{color:var(--muted)}
+    .swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:32px 0 64px}
+    .swatch{min-height:112px;padding:12px;border:1px solid var(--line);font-size:11px}
+    .swatch b{display:block;margin-top:48px}
+    .sample{padding:48px 0;border-top:1px solid var(--line)}
+    .sample>h2{font-size:34px;line-height:40px}
+    .identity{display:flex;align-items:center;gap:14px;min-height:64px}
+    .avatar{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;object-fit:cover}
+    .identity strong{display:block;font-size:13px}
+    .identity span{display:block;color:var(--muted);font-size:11px}
+    .hero{position:relative;overflow:hidden;border:1px solid rgba(213,165,39,.46);background:var(--oxblood)}
+    .hero img{width:100%;aspect-ratio:2/1;object-fit:cover}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:28px;border-bottom:1px solid rgba(213,165,39,.35)}
+    .section-head h3{margin:8px 0 0;font-size:40px;line-height:46px}
+    .aside{margin:0;color:var(--muted);font-size:11px;text-align:right;text-transform:uppercase}
+    .index-row{position:relative;display:grid;min-height:150px;grid-template-columns:100px minmax(0,1fr) 240px 36px;align-items:center;border-bottom:1px solid var(--line)}
+    .index{color:var(--gold);font-size:12px;letter-spacing:.14em}
+    .index-row h3{margin:0;font-size:28px;line-height:34px}
+    .meta{color:var(--muted);font-size:11px;line-height:18px;text-transform:uppercase}
+    .arrow{color:var(--ember);font:22px/1 var(--display);text-align:right}
+    .index-row:hover h3{color:var(--ember)}
+    .featured{display:grid;grid-template-columns:1.35fr 1fr;gap:36px;padding:32px;background:var(--oxblood)}
+    .featured img{width:100%;aspect-ratio:2/1;border:1px solid rgba(213,165,39,.45);object-fit:cover}
+    .featured-copy{display:flex;flex-direction:column;justify-content:space-between}
+    .featured-copy h3{font-size:30px;line-height:36px}
+    .featured-copy p{color:var(--muted)}
+    .software{position:relative;min-height:300px;overflow:hidden;border:1px solid rgba(213,165,39,.45);border-radius:var(--radius-image);background:var(--burgundy)}
+    .software img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+    .software:hover img{transform:scale(1.012)}
+    .caption{position:absolute;right:0;bottom:0;left:0;display:flex;justify-content:space-between;padding:56px 20px 18px;background:linear-gradient(180deg,transparent,rgba(10,6,5,.92));font-size:11px;text-transform:uppercase}
+    .caption span:last-child{color:var(--ember)}
+    .footer{padding:48px 0;border-top:1px solid var(--line)}
+    .footer h3{font-size:40px;line-height:46px}
+    .footer p{color:var(--gold);font-size:11px;text-transform:uppercase}
+    @media(max-width:760px){
+      .shell{padding-top:32px}
+      h1{font-size:34px;line-height:40px}
+      .swatches{grid-template-columns:repeat(2,1fr)}
+      .section-head{align-items:flex-end;gap:16px}
+      .section-head h3{font-size:34px;line-height:38px}
+      .index-row{display:flex;min-height:179px;flex-direction:column;align-items:stretch;gap:12px;padding:24px 0}
+      .index-row h3{padding-right:24px;font-size:26px;line-height:30px}
+      .arrow{position:absolute;top:24px;right:0}
+      .featured{display:flex;flex-direction:column;padding:20px}
+      .software{min-height:240px}
+      .caption{font-size:9px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="intro">
+      <p class="eyebrow">Design source / Paper</p>
+      <h1>Editorial systems for the singularity.</h1>
+      <p>This page renders the reusable visual vocabulary of the Ideas Portal. It is a reference surface, not a production route.</p>
+    </header>
+
+    <section aria-labelledby="tokens">
+      <p class="eyebrow">01 / Tokens</p>
+      <h2 id="tokens">Colour system</h2>
+      <div class="swatches">
+        <div class="swatch" style="background:#0a0605"><b>Soot</b>#0a0605</div>
+        <div class="swatch" style="background:#240100"><b>Oxblood</b>#240100</div>
+        <div class="swatch" style="background:#4a0708"><b>Burgundy</b>#4a0708</div>
+        <div class="swatch" style="background:#f4e7c2;color:#0a0605"><b>Parchment</b>#f4e7c2</div>
+        <div class="swatch" style="background:#d5a527;color:#0a0605"><b>Signal gold</b>#d5a527</div>
+        <div class="swatch" style="background:#f0c45c;color:#0a0605"><b>Ember</b>#f0c45c</div>
+      </div>
+    </section>
+
+    <section class="sample" id="identity-lockup" aria-labelledby="identity-title">
+      <p class="eyebrow">02 / Identity lockup</p>
+      <h2 id="identity-title">Builder identity</h2>
+      <a class="identity" href="#identity-lockup"><img class="avatar" src="assets/rudy-avatar.jpg" alt="Rudy Molt"><span><strong>RUDY MOLT</strong><span>Builder / Tinkerer / Systems</span></span></a>
+    </section>
+
+    <section class="sample" id="hero-plate" aria-labelledby="hero-title">
+      <p class="eyebrow">03 / Hero plate</p>
+      <h2 id="hero-title">Ideas artwork</h2>
+      <div class="hero"><img src="assets/og.png" alt="Ideas — rudymolt.github.io"></div>
+    </section>
+
+    <section class="sample" id="section-heading" aria-labelledby="heading-title">
+      <div class="section-head"><div><p class="eyebrow">04 / Section heading</p><h3 id="heading-title">Published paths...</h3></div><p class="aside">04 entries / Explore ↓</p></div>
+    </section>
+
+    <section class="sample" id="index-row" aria-labelledby="row-title">
+      <p class="eyebrow">05 / Index row</p>
+      <a class="index-row" href="#index-row"><span class="index">01</span><h3 id="row-title">ExO 3.0 Book &amp;<br>Skill Visualisation</h3><span class="meta">EXO 3.0 / SKILLS<br>LEARNING MAPS</span><span class="arrow">↗</span></a>
+    </section>
+
+    <section class="sample" id="featured-work" aria-labelledby="featured-title">
+      <p class="eyebrow">06 / Featured work</p>
+      <div class="featured"><img src="assets/playbook.png" alt="Playbook — a way of working"><div class="featured-copy"><div><p class="eyebrow">AI Engineering Playbook</p><h3 id="featured-title">Build with AI, like a real engineer.</h3><p>Alignment, slicing, implementation, verification, QA and reflection.</p></div><span class="arrow">Open the playbook ↗</span></div></div>
+    </section>
+
+    <section class="sample" id="software-plate" aria-labelledby="software-title">
+      <p class="eyebrow">07 / Software plate</p>
+      <a class="software" href="#software-plate"><img src="assets/rucomps.png" alt="RuComps"><span class="caption"><span id="software-title">Competition entries team managers</span><span>Open →</span></span></a>
+    </section>
+
+    <footer class="footer" id="editorial-footer">
+      <p>Rudy Molt / Public ideas portal</p>
+      <h3>Build → explain → learn → reflect.</h3>
+    </footer>
+  </main>
+</body>
+</html>

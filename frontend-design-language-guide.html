@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rudy Molt Ideas Portal · Frontend Design Language</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--soot:#0a0605;--paper:#f4e7c2;--muted:#b9a98a;--gold:#d5a527;--ember:#f0c45c;--line:rgba(213,165,39,.28);--display:"Oxanium",system-ui,sans-serif;--mono:"IBM Plex Mono",monospace}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--soot);color:var(--paper);font:15px/1.7 var(--mono)}
+    main{width:min(920px,calc(100% - 40px));margin:auto;padding:64px 0 96px}
+    h1,h2{font-family:var(--display);letter-spacing:-.03em}
+    h1{max-width:760px;font-size:48px;line-height:54px}
+    h2{margin-top:64px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:30px}
+    p,li{max-width:76ch}
+    .eyebrow{color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    .lede{color:var(--muted);font-size:17px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{color:var(--gold);font-size:12px;text-transform:uppercase}
+    code{color:var(--ember)}
+    @media(max-width:700px){main{padding-top:40px}h1{font-size:34px;line-height:40px}.table-wrap{overflow-x:auto}table{min-width:680px}}
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Interaction language / V0.4 bootstrap</p>
+    <h1>An editorial index, not a software dashboard.</h1>
+    <p class="lede">The portal helps visitors scan Rudy's body of work, understand its direction, and open a destination. Paper's approved desktop and mobile artboards define the composition; this guide defines when each surface is appropriate.</p>
+
+    <h2>Principles</h2>
+    <ol>
+      <li><strong>Editorial sequence over component grid.</strong> The page reads as numbered sections with deliberate alternating fields.</li>
+      <li><strong>Artwork carries identity.</strong> Large project images establish the visual direction; interface chrome stays restrained.</li>
+      <li><strong>One dominant action per item.</strong> The complete row or plate is the link. Do not add nested buttons.</li>
+      <li><strong>Metadata supports scanning.</strong> Small mono labels identify category and status but never compete with the title.</li>
+      <li><strong>Warm, engineered, specific.</strong> Parchment, oxblood, gold, Oxanium, and IBM Plex Mono replace generic SaaS styling.</li>
+      <li><strong>Responsive recomposition, not shrinkage.</strong> Mobile changes order and structure while preserving the same content and hierarchy.</li>
+    </ol>
+
+    <h2>Surface decision rules</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Need</th><th>Use</th><th>Do not use</th></tr></thead>
+        <tbody>
+          <tr><td>Open a published explainer</td><td>Full-width index row</td><td>Three-column feature card</td></tr>
+          <tr><td>Highlight one current work</td><td>Featured work composition</td><td>Carousel or promotional modal</td></tr>
+          <tr><td>Open a software project</td><td>Image-led software plate</td><td>Icon tile or pill menu</td></tr>
+          <tr><td>Explain a section</td><td>Numbered section heading plus concise aside</td><td>Centred marketing headline</td></tr>
+          <tr><td>Add another destination</td><td>Extend the relevant ordered list</td><td>Create a new visual pattern without updating the three design artefacts</td></tr>
+          <tr><td>Show history or long detail</td><td>Dedicated published page</td><td>Drawer, modal, or inline accordion on the portal</td></tr>
+          <tr><td>Confirm destructive action</td><td>Not applicable: the public portal has no destructive controls</td><td>Invent confirmation UI</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Responsive contract</h2>
+    <ul>
+      <li><strong>Desktop:</strong> 1440px reference artboard; wide editorial grids and side-by-side project compositions.</li>
+      <li><strong>Tablet:</strong> preserve readable title and metadata columns; collapse before horizontal overflow appears.</li>
+      <li><strong>Mobile:</strong> 390px reference artboard; vertical index rows, compact header, and reordered featured work.</li>
+      <li>The body must never overflow horizontally at 320px or wider.</li>
+      <li>The Ideas index shows numeric labels only: <code>01</code>–<code>04</code>.</li>
+      <li>Text shared by desktop and mobile must be compared in both Paper artboards before implementation.</li>
+      <li>Interactive rows and plates are whole-surface links; isolated controls require a 44px target unless documented as compact metadata.</li>
+    </ul>
+
+    <h2>State and motion</h2>
+    <ul>
+      <li>Hover may colour a title ember or scale an image by about 1%; it must not reflow content.</li>
+      <li>Keyboard focus uses the documented ember outline and remains visible against soot and oxblood.</li>
+      <li>Reduced-motion preference disables smooth scrolling and transitions.</li>
+      <li>There are no loading, disabled, selected, modal, or URL-driven drawer states in the current static portal.</li>
+    </ul>
+
+    <h2>Change protocol</h2>
+    <ol>
+      <li>Update the glossary if a new term or component is needed.</li>
+      <li>Update the kitchen sink and render it at desktop, tablet, and mobile widths.</li>
+      <li>Update this guide if the change introduces a new surface or interaction rule.</li>
+      <li>Update the Paper artboards and obtain approval for structural or non-trivial visual changes.</li>
+      <li>Implement the production page, run the CI gates, and verify GitHub Pages after deployment.</li>
+    </ol>
+  </main>
+</body>
+</html>

@@ -1,5 +1,13 @@
 .DS_Store
 Thumbs.db
 .fuse_hidden*
-archive/
+.env
+.env.*
+!.env.example
+.gstack/
+.playbook-routing/
+archive/*
+!archive/README.md
+!archive/STATUS.md
+agent-engineering-playbook/archive/
 exo-3-book-skill-visualisation/organizational-singularity-openexo-book.md
