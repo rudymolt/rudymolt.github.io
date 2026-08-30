@@ -212,6 +212,8 @@ def source_contract_audit(paths: list[str]) -> list[str]:
         "stacked guide sequence": r"\.guide-sequence a\s*\{[^}]*display\s*:\s*grid",
         "published start-path surface": r"\.start-path\s*\{[^}]*background\s*:\s*transparent",
         "visited start-path text": r"\.start-path:visited\s*\{[^}]*color\s*:\s*var\(--ink\)",
+        "desktop-hidden guide disclosure": r"\.guide-toggle\s*\{[^}]*display\s*:\s*none",
+        "mobile-visible guide disclosure": r"@media\s*\(max-width:\s*640px\)[\s\S]*?\.guide-toggle\s*\{[^}]*display\s*:\s*inline-flex",
     }
     for name, pattern in target_contracts.items():
         if not re.search(pattern, css, re.DOTALL):

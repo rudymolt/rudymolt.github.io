@@ -38,9 +38,9 @@ Build mode: autonomous AFK sequence to exact PR handback. The approved Paper and
 
 - **Mode:** AFK remediation
 - **Depends on:** merged Slice 4 and the supplied production screenshot
-- **Demoable outcome:** dark-theme controls retain readable foreground colour, guide sequence labels and destinations have deliberate hierarchy, and the Hub start row uses the approved transparent published-document surface.
-- **Implementation:** add cascade regression contracts, repair shared control/sequence/start-row styles, and bump the stylesheet cache key across all 12 pages without changing editorial copy.
-- **Verification target:** the regression audit passes after first failing on the reproduced defects; real Chrome at 390/768/1440 confirms control contrast, sequence spacing, responsive targets, interactions, and unchanged canonical digests; a fresh report-only design review returns no objective finding.
+- **Demoable outcome:** dark-theme controls retain readable foreground colour, guide sequence labels and destinations have deliberate hierarchy, the Hub start row uses the approved transparent published-document surface, and the guide disclosure appears only where the mobile path actually collapses.
+- **Implementation:** add cascade regression contracts, repair shared control/sequence/start-row/disclosure styles, and bump the stylesheet cache key across all 12 pages without changing editorial copy.
+- **Verification target:** the regression audit passes after first failing on the reproduced defects; real Chrome at 390/768/1440 confirms control contrast, sequence spacing, disclosure visibility and behavior, responsive targets, interactions, and unchanged canonical digests; a fresh report-only design review returns no objective finding.
 
 ## Dependency frontier
 

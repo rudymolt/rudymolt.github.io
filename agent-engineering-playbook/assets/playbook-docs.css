@@ -1156,7 +1156,7 @@ pre { width: 100%; max-width: 100%; min-width: 0; }
 pre code { overflow-wrap: normal; }
 .mobile-diagram { display: none; }
 .tier-select { width: 100%; max-width: 320px; min-width: 0; }
-.guide-toggle { border: 1px solid var(--agent); border-radius: 0; background: transparent; color: var(--human); min-height: 44px; padding: 8px 10px; }
+.guide-toggle { display: none; border: 1px solid var(--agent); border-radius: 0; background: transparent; color: var(--human); min-height: 44px; padding: 8px 10px; }
 .guide-current { display: none; color: var(--human); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .card-tag, .pb-tag, .badge, .tag { border-radius: 0; background: transparent; }
 
@@ -1174,7 +1174,7 @@ pre code { overflow-wrap: normal; }
   .page { padding: 22px 20px 40px; }
   .guide-timeline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
   .guide-title { order: 1; }.guide-status { order: 2; flex: 1; }.guide-portal { display: none; }.guide-current { display: block; order: 2; flex: 1; }
-  .guide-toggle { order: 3; margin-left: auto; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+  .guide-toggle { order: 3; display: inline-flex; align-items: center; justify-content: center; margin-left: auto; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
   .guide-timeline.has-mobile-guide .timeline-steps { order: 4; display: none; width: 100%; grid-template-columns: 1fr; }.guide-timeline.has-mobile-guide.is-open .timeline-steps { display: grid; }
   .guide-sequence { order: 5; display: grid; width: 100%; margin-top: 8px; }
   .version-entry { grid-template-columns: 1fr; gap: 6px; }
