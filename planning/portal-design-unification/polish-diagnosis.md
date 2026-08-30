@@ -28,3 +28,7 @@ Observed 2026-08-30 from the supplied production screenshot of the Process Map a
 ## Regression loop
 
 `tools/audit_playbook.py` now asserts these cascade contracts. The new checks failed against the reproduced state and pass after the scoped CSS changes.
+
+## Post-merge sidebar rhythm remediation
+
+A later production comparison found that Drive Agent and Theory rendered the shared guide rail 66px taller than Hub and the remaining guides at the same desktop viewport. Their canonical inline styles include a broad `li { margin-bottom: 6px; }` rule; because guide rows are list items, that legacy article rule leaked into the shared navigation. The shared `.timeline-step` contract now resets `margin: 0`, and the stylesheet cache key is bumped across all active pages. This changes presentation only; canonical article copy remains untouched.
