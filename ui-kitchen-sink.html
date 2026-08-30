@@ -74,16 +74,21 @@
     .software:hover img{transform:scale(1.012)}
     .caption{position:absolute;right:0;bottom:0;left:0;display:flex;justify-content:space-between;padding:56px 20px 18px;background:linear-gradient(180deg,transparent,rgba(10,6,5,.92));font-size:11px;text-transform:uppercase}
     .caption span:last-child{color:var(--ember)}
-    .footer{padding:48px 0;border-top:1px solid var(--line)}
-    .footer h3{font-size:40px;line-height:46px}
-    .footer p{color:var(--gold);font-size:11px;text-transform:uppercase}
+    .kitchen-meta{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;text-transform:uppercase}
     .published-document{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0}
-    .sample-guide{border-right:1px solid var(--line);padding-right:20px;color:var(--muted);font-size:11px;text-transform:uppercase}
-    .sample-guide ol{display:grid;gap:10px;margin:16px 0;padding:0;list-style:none}.sample-guide li:first-child{color:var(--ember)}
-    .document-copy{max-width:68ch}.document-copy h3{font-size:30px;line-height:36px}.document-copy p{color:var(--muted)}
+    .sample-guide{min-width:0;border-right:1px solid var(--line);padding-right:20px;color:var(--muted);font-size:11px;text-transform:uppercase}
+    .sample-guide-head{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px}.sample-guide-current{color:var(--gold);font-size:9px}.sample-guide-toggle{display:none;min-height:44px;border:1px solid var(--gold);border-radius:0;background:transparent;color:var(--ember);font:600 10px var(--mono);text-transform:uppercase}
+    .sample-guide ol{display:grid;margin:16px 0 0;padding:0;border-top:1px solid var(--line);list-style:none}.sample-guide li{margin:0;border-bottom:1px solid var(--line)}.sample-guide li a{display:flex;min-height:44px;align-items:center;color:var(--muted)}.sample-guide li:first-child a{color:var(--ember)}
+    .sample-sequence{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px}.sample-sequence a{display:grid;min-height:44px;align-content:center;border-top:1px solid var(--line);color:var(--parchment);text-transform:none}.sample-sequence small{color:var(--gold);font-size:9px;text-transform:uppercase}
+    .document-stack{width:100%;max-width:68ch;min-width:0}.document-copy h3{font-size:30px;line-height:36px}.document-copy p{color:var(--muted)}
     .destination-row{display:grid;grid-template-columns:48px minmax(0,1fr) 28px;gap:12px;align-items:center;min-height:64px;border-bottom:1px solid var(--line);color:var(--parchment);text-decoration:none}.destination-row strong{font-family:var(--display)}.destination-row span{color:var(--gold);font-size:11px}.destination-row b{color:var(--ember);text-align:right}
+    .sample-control{display:grid;gap:6px;margin:20px 0;color:var(--gold);font-size:10px;text-transform:uppercase}.sample-control select{width:min(100%,320px);min-height:44px;border:1px solid var(--line);border-radius:0;background:var(--soot);color:var(--parchment);font:inherit}
+    .sample-doc-footer{display:flex;justify-content:space-between;gap:24px;margin-top:32px;padding-top:20px;border-top:1px solid var(--line)}.sample-doc-footer span{color:var(--gold);font:600 13px var(--display)}.sample-doc-footer small{color:var(--muted);font-size:10px;letter-spacing:.1em;text-align:right;text-transform:uppercase}
     .exchange{display:grid;grid-template-columns:1fr 40px 1fr;align-items:stretch;gap:12px}.exchange-panel,.loop-stage,.handoff-lane{border:1px solid var(--line);padding:16px}.exchange-panel.human{background:var(--oxblood)}.exchange-label,.handoff-lane small{display:block;color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.exchange-arrow{align-self:center;color:var(--ember);font:22px/1 var(--display);text-align:center}
     .loop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.loop-stage{min-height:104px}.loop-stage b{display:block;color:var(--ember);font-size:11px}.handoffs{display:grid;gap:10px}.handoff-lane{display:grid;grid-template-columns:130px 1fr;gap:16px}.handoff-lane.human{background:var(--oxblood)}
+    @media(max-width:860px){
+      .published-document{display:block}.sample-guide{margin-bottom:28px;border-right:0;border-bottom:1px solid var(--line);padding:0 0 16px}.sample-guide ol{grid-template-columns:repeat(3,minmax(0,1fr))}.sample-guide li{border-right:1px solid var(--line)}.sample-guide li a{padding:0 8px}.sample-sequence{grid-template-columns:1fr 1fr}
+    }
     @media(max-width:760px){
       .shell{padding-top:32px}
       h1{font-size:34px;line-height:40px}
@@ -96,7 +101,10 @@
       .featured{display:flex;flex-direction:column;padding:20px}
       .software{min-height:240px}
       .caption{font-size:9px}
-      .published-document{display:block}.sample-guide{border-right:0;border-bottom:1px solid var(--line);padding:0 0 16px}.destination-row{grid-template-columns:32px minmax(0,1fr) 24px;min-height:56px}.exchange{grid-template-columns:1fr;gap:8px}.exchange-arrow{transform:rotate(90deg)}.loop{grid-template-columns:1fr}.handoff-lane{grid-template-columns:1fr;gap:8px}
+      .destination-row{grid-template-columns:32px minmax(0,1fr) 24px;min-height:56px}.exchange{grid-template-columns:1fr;gap:8px}.exchange-arrow{transform:rotate(90deg)}.loop{grid-template-columns:1fr}.handoff-lane{grid-template-columns:1fr;gap:8px}
+    }
+    @media(max-width:640px){
+      .sample-guide-head{grid-template-columns:auto 1fr auto}.sample-guide[data-enhanced] .sample-guide-toggle{display:inline-flex;align-items:center;justify-content:center}.sample-guide[data-enhanced] ol{display:none}.sample-guide[data-enhanced].is-open ol{display:grid}.sample-guide ol{grid-template-columns:1fr}.sample-guide li{border-right:0}.sample-doc-footer{flex-direction:column;gap:8px}.sample-doc-footer small{text-align:left}
     }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -159,8 +167,8 @@
     <section class="sample" id="published-document" aria-labelledby="published-title">
       <p class="eyebrow">08 / Published document</p>
       <div class="published-document">
-        <aside class="sample-guide" id="guide-rail" aria-label="Guide rail example"><strong>Guide path</strong><ol><li>01 Hub · current</li><li>02 Drive agent</li><li>03 Process map</li></ol><span>Previous / Next remain visible</span></aside>
-        <div class="document-copy"><h3 id="published-title">One authored reading field.</h3><p>The unboxed rail carries recovery and sequence while a single calm column carries the document.</p><a class="destination-row" id="destination-row" href="#destination-row"><span>01</span><strong>Start the guided path</strong><b>→</b></a></div>
+        <aside class="sample-guide" id="guide-rail" aria-label="Guide rail example"><div class="sample-guide-head"><strong>Guide path</strong><span class="sample-guide-current">Step 1 of 3</span><button class="sample-guide-toggle" type="button" aria-expanded="false" aria-controls="sample-guide-steps">Guide +</button></div><ol id="sample-guide-steps"><li><a href="#published-document" aria-current="page">01 Hub · current</a></li><li><a href="#published-document">02 Drive agent</a></li><li><a href="#published-document">03 Process map</a></li></ol><nav class="sample-sequence" aria-label="Guide sequence example"><a href="#published-document"><small>Previous</small><span>Portal</span></a><a href="#published-document"><small>Next</small><span>Drive agent</span></a></nav></aside>
+        <div class="document-stack"><div class="document-copy"><h3 id="published-title">One authored reading field.</h3><p>The unboxed rail carries recovery and sequence while a single calm column carries the document.</p><a class="destination-row" id="destination-row" href="#destination-row"><span>01</span><strong>Start the guided path</strong><b>→</b></a><label class="sample-control" for="sample-next-action">Next action<select id="sample-next-action"><option>Continue the guide</option><option>Open the reference</option></select></label></div><footer class="sample-doc-footer" id="editorial-footer"><span>Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></footer></div>
       </div>
     </section>
 
@@ -179,10 +187,26 @@
       <div class="handoffs"><div class="handoff-lane"><small>Agent pre-PR</small><span>Build → verify → hand off</span></div><div class="handoff-lane human"><small>Human GitHub</small><span>Review → merge</span></div><div class="handoff-lane"><small>Agent post-merge</small><span>Canary → close out</span></div></div>
     </section>
 
-    <footer class="footer" id="editorial-footer">
-      <p>Rudy Molt / Public ideas portal</p>
-      <h3>Build → explain → learn → reflect.</h3>
-    </footer>
+    <footer class="kitchen-meta">Rudy Molt / Public ideas portal / Design source</footer>
   </main>
+  <script>
+    const sampleGuide = document.querySelector('.sample-guide');
+    const sampleGuideToggle = sampleGuide?.querySelector('.sample-guide-toggle');
+    if (sampleGuide && sampleGuideToggle) {
+      sampleGuide.dataset.enhanced = '';
+      const setSampleGuide = (open) => {
+        sampleGuide.classList.toggle('is-open', open);
+        sampleGuideToggle.setAttribute('aria-expanded', String(open));
+        sampleGuideToggle.textContent = open ? 'Guide −' : 'Guide +';
+      };
+      sampleGuideToggle.addEventListener('click', () => setSampleGuide(sampleGuideToggle.getAttribute('aria-expanded') !== 'true'));
+      sampleGuide.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && sampleGuide.classList.contains('is-open')) {
+          setSampleGuide(false);
+          sampleGuideToggle.focus();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
