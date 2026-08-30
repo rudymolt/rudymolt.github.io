@@ -20,4 +20,4 @@ Canonical wording is preserved. All active pages request `playbook-docs.css?v=20
 - The footer remains a semantic `<footer>` and its rule spans exactly the measured content row.
 - Structured results: `browser-results.json`. Visual captures: `screenshots/`.
 
-Generator verdict: **PASS**, pending fresh report-only design review of the exact candidate commit.
+Generator verdict: **PASS**. Independent report-only verification also returned **PASS** with no findings for exact candidate `a0b23ff53935c09c31c3366f391fe81fa0d4bfd3`.
