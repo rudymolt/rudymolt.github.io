@@ -1,6 +1,6 @@
 # planning/ status
 
-active_features: 1
+active_features: 0
 
 > **This is a definitive empty state, not an error.** Created at bootstrap. If this file says 0 and there are no feature folders alongside it, the project genuinely has no features in flight — do not treat the empty folder as a wrong path or a failed bootstrap.
 
@@ -13,7 +13,7 @@ Whoever opens or closes a feature folder updates this file in the same change:
 
 ## Active features
 
-- portal-design-unification · ready-to-ship · 0 slices open · opened 2026-08-30
+*(none)*
 
 ## Pending Plan routes
 
