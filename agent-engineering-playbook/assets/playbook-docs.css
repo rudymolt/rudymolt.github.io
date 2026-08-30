@@ -1177,6 +1177,10 @@ pre code { overflow-wrap: normal; }
   svg.ship-diagram { display: none; }
   .mobile-diagram { display: grid; gap: 10px; margin: 16px 0 28px; }
   .mobile-responsibility { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mobile-responsibility-handoff { grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; text-align: center; font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  .mobile-responsibility-handoff span { display: block; padding: 8px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .mobile-responsibility-intent { color: var(--human); }
+  .mobile-responsibility-pr { color: var(--agent); }
   .mobile-process-loop { counter-reset: mobile-loop; }
   .mobile-loop-stage,
   .mobile-ship-lane { border: 1px solid var(--rule); padding: 16px; }
