@@ -67,7 +67,9 @@ step and a 44px disclosure for the same ordered list. Previous/next links
 remain visible even while the mobile path is closed. Route rows keep one shared
 44px target and divider rhythm; article-local list margins never alter the rail.
 The disclosure exists only at the mobile breakpoint and is absent from layout
-and the accessibility tree at tablet and desktop widths.
+and the accessibility tree at tablet and desktop widths. When enhanced, it
+closes on Escape and returns focus to its control. Without JavaScript, the
+disclosure stays hidden and the complete ordered path remains visible.
 
 **Kitchen sink:** `ui-kitchen-sink.html#guide-rail`.
 

@@ -273,13 +273,18 @@ def design_artifact_contract_audit() -> list[str]:
         "glossary": {
             "guide-row isolation": r"article-local list margins never alter the rail",
             "mobile-only disclosure": r"absent from layout\s+and the accessibility tree at tablet and desktop widths",
+            "Escape and focus return": r"closes on Escape and returns focus to its control",
+            "no-JavaScript fallback": r"Without JavaScript,[\s\S]*?complete ordered path remains visible",
             "reading-field footer": r"rule and content use the exact reading-field measure",
             "dark-control foreground": r"controls on soot or oxblood explicitly use parchment foreground text",
         },
         "kitchen sink": {
             "44px guide rows": r"\.sample-guide li a\{[^}]*min-height:44px",
             "isolated guide margins": r"\.sample-guide li\{[^}]*margin:0",
+            "default-visible guide path": r"\.sample-guide ol\{display:grid",
+            "default-hidden disclosure": r"\.sample-guide-toggle\{display:none",
             "enhanced mobile-only toggle": r"@media\(max-width:640px\)[\s\S]*?\.sample-guide\[data-enhanced\] \.sample-guide-toggle\{display:inline-flex",
+            "enhanced-only collapse": r"\.sample-guide\[data-enhanced\] ol\{display:none",
             "article-aligned footer": r"class=\"sample-doc-footer\" id=\"editorial-footer\"",
             "stacked mobile footer": r"@media\(max-width:640px\)[\s\S]*?\.sample-doc-footer\{flex-direction:column",
             "dark-control foreground": r"\.sample-control select\{[^}]*background:var\(--soot\)[^}]*color:var\(--parchment\)",
@@ -288,6 +293,8 @@ def design_artifact_contract_audit() -> list[str]:
         "design-language guide": {
             "shared-row containment": r"Shared guide rows own their margins and 44px-plus-divider rhythm",
             "desktop disclosure absence": r"absent from layout and the accessibility tree at tablet and desktop widths",
+            "Escape and focus return": r"closes on Escape, and returns focus to its control",
+            "no-JavaScript fallback": r"Without JavaScript,[\s\S]*?complete ordered path remains visible",
             "explicit control foreground": r"Native form controls inherit the explicit parchment foreground",
             "post-remediation promotion": r"After any production-polish remediation,[\s\S]*?before feature doc-close",
         },
