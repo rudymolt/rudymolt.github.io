@@ -1,0 +1,524 @@
+{
+  "testedAt": "2026-08-30T18:33:26.947Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "verdict": "PASS",
+  "byWidth": {
+    "390": [
+      {
+        "name": "hub",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 133.98
+      },
+      {
+        "name": "drive",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 137.98
+      },
+      {
+        "name": "theory",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 133.98
+      },
+      {
+        "name": "process",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 137.98
+      }
+    ],
+    "768": [
+      {
+        "name": "hub",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 265.98
+      },
+      {
+        "name": "drive",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 265.98
+      },
+      {
+        "name": "theory",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 265.98
+      },
+      {
+        "name": "process",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 265.98
+      }
+    ],
+    "1440": [
+      {
+        "name": "hub",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 721.97
+      },
+      {
+        "name": "drive",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 721.97
+      },
+      {
+        "name": "theory",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 721.97
+      },
+      {
+        "name": "process",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "railHeight": 721.97
+      }
+    ]
+  },
+  "results": [
+    {
+      "name": "hub",
+      "path": "agent-engineering-playbook/index.html",
+      "width": 390,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 20,
+          "y": 87,
+          "width": 335,
+          "height": 133.98
+        },
+        "toggle": {
+          "display": "flex",
+          "expanded": "false"
+        },
+        "stepsDisplay": "none",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          0
+        ],
+        "active": "01 Hub",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": {
+        "expanded": "true",
+        "label": "Guide −",
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "drive",
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 390,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 20,
+          "y": 87,
+          "width": 335,
+          "height": 137.98
+        },
+        "toggle": {
+          "display": "flex",
+          "expanded": "false"
+        },
+        "stepsDisplay": "none",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          0
+        ],
+        "active": "02 Drive agent",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": {
+        "expanded": "true",
+        "label": "Guide −",
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "theory",
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 390,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 20,
+          "y": 87,
+          "width": 335,
+          "height": 133.98
+        },
+        "toggle": {
+          "display": "flex",
+          "expanded": "false"
+        },
+        "stepsDisplay": "none",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          0
+        ],
+        "active": "08 Theory",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": {
+        "expanded": "true",
+        "label": "Guide −",
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "process",
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 390,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 20,
+          "y": 87,
+          "width": 335,
+          "height": 137.98
+        },
+        "toggle": {
+          "display": "flex",
+          "expanded": "false"
+        },
+        "stepsDisplay": "none",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          0
+        ],
+        "active": "03 Process map",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": {
+        "expanded": "true",
+        "label": "Guide −",
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "hub",
+      "path": "agent-engineering-playbook/index.html",
+      "width": 768,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 30.72,
+          "y": 134.89,
+          "width": 691.56,
+          "height": 265.98
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "01 Hub",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "drive",
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 768,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 30.72,
+          "y": 134.89,
+          "width": 691.56,
+          "height": 265.98
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "02 Drive agent",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "theory",
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 768,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 30.72,
+          "y": 134.89,
+          "width": 691.56,
+          "height": 265.98
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "08 Theory",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "process",
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 768,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 30.72,
+          "y": 134.89,
+          "width": 691.56,
+          "height": 265.98
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "03 Process map",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "hub",
+      "path": "agent-engineering-playbook/index.html",
+      "width": 1440,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 168.5,
+          "y": 109,
+          "width": 232,
+          "height": 721.97
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "01 Hub",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "drive",
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 1440,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 168.5,
+          "y": 109,
+          "width": 232,
+          "height": 721.97
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "02 Drive agent",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "theory",
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 1440,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 168.5,
+          "y": 109,
+          "width": 232,
+          "height": 721.97
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "08 Theory",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    },
+    {
+      "name": "process",
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 1440,
+      "before": {
+        "overflow": false,
+        "rail": {
+          "x": 168.5,
+          "y": 109,
+          "width": 232,
+          "height": 721.97
+        },
+        "toggle": {
+          "display": "none",
+          "expanded": "false"
+        },
+        "stepsDisplay": "grid",
+        "rowMargins": [
+          "0px"
+        ],
+        "rowHeights": [
+          45
+        ],
+        "active": "03 Process map",
+        "styleHref": "http://127.0.0.1:8765/agent-engineering-playbook/assets/playbook-docs.css?v=20260830-polish3"
+      },
+      "after": null,
+      "pass": true
+    }
+  ],
+  "note": "Chromium reports display:inline-flex as the computed outer display value flex."
+}
