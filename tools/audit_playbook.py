@@ -13,7 +13,7 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASELINE = ROOT / "planning/portal-design-unification/canonical-content-baseline.json"
+BASELINE = ROOT / "tools/canonical-content-baseline.json"
 ALLOWED_HEX = {"#0a0605", "#f4e7c2", "#b9a98a", "#240100", "#4a0708", "#d5a527", "#f0c45c"}
 HEX_LITERAL = re.compile(r"(?<![0-9a-zA-Z_-])#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-zA-Z_-])")
 CSS_RADIUS = re.compile(r"border-radius\s*:\s*([^;}{]+)", re.IGNORECASE)

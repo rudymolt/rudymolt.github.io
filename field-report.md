@@ -1,58 +1,45 @@
 # Field report — Rudy Molt Ideas Portal
 
-> Evidence from a real project running playbook v0.4, for the playbook maintainer. Fill this in at a retro (the retro template links here) or whenever one of the proof events below happens. When complete, copy this file back to the **playbook repo** at `analysis/field-reports/{YYYY-MM-DD}-{project-slug}.md` — the playbook is copied into project repos, so evidence only travels back if a human carries it. Match the report's length to the evidence — cover what happened, then stop; no filler sections, redundant summaries, or boilerplate.
-
-- **Project:** {name / one-line description; private details may be redacted}
-- **Playbook version:** {playbook_version from .playbook-state.yml}
-- **Period covered:** {start} – {end}
-- **Slices shipped this period:** {n}
+- **Project:** Rudy Molt Ideas Portal — static published ideas and explainers
+- **Playbook version:** V0.4.0
+- **Period covered:** 2026-08-30 – 2026-08-30
+- **Slices shipped this period:** 7
 
 ## Observational eval baseline
 
-Copy this row from the retro. Use `unavailable — {reason}` instead of estimating missing evidence, and state when feature/branch granularity replaces slice attribution.
-
 | Period | Slices shipped | Rework rate | Time-to-merge (med/max) | Verifier passes | Catches |
 |---|---:|---:|---|---:|---:|
-| {start → end} | {n} | {corrected-after-gate slices / shipped slices} | {median / maximum} | {n} | {n} |
+| 2026-08-30 | 7 | 3/7 (43%) | 26m 58s / 1h 43m 10s | 7 | 3 |
 
-Rework is correction after a slice passed stage 08/09. Time-to-merge runs from first implementation commit to PR merge. A catch is an independent verifier pass with a medium+ finding proven by execution. These values are observational; they create no target or gate before the three-period baseline review.
+Time-to-merge uses feature-branch granularity because Slices 1–4 shared PR #4. Rework counts the three post-gate remediation slices prompted by production comparison.
 
-## Proof events (the evidence the v0.4 autonomy gate is waiting for)
-
-Record each occurrence with a date and one or two sentences. "None" is a valid and useful answer.
+## Proof events
 
 ### 1. Independent verifier caught a real defect
 
-The implementing agent believed the slice was done; a fresh-context reviewer (stage 08) found a genuine problem, verified by executing. This is the single most important event — it is what proves the checker works outside the lab.
-
-- Date, slice, finding, severity, and how it was verified (command/browser evidence):
-- Would self-review plausibly have caught it? (honest guess):
+- 2026-08-30, initial migration: fresh browser review found that Drive mobile diagrams remained scaled desktop SVGs and that target/local-overflow accessibility contracts were incomplete. A second fresh review found the mobile responsibility exchange still lacked a visible handoff. Each finding was reproduced in Chrome and closed by a later independent pass.
+- 2026-08-30, control polish: fresh review found the mobile guide disclosure visible but inert at tablet and desktop widths. Chrome confirmed the control existed outside its active breakpoint; the shared CSS was corrected and freshly reverified.
+- Self-review had inspected screenshots but did not consistently probe computed styles, accessibility-tree presence, and breakpoint absence. Independent execution was material.
 
 ### 2. A run-level ceiling tripped and paused correctly
 
-A run hit a §11 ceiling and **paused with a report** instead of continuing. Qualifying trips are **run-level**: max-iteration, wall-time, or no-progress halt (any billing), or a cost/quota cap (API billing). A max-retry escalation belongs under proof event 4, not here — this event is about the brake stopping a runaway, not a routine retry-then-escalate. A **deliberate drill** (tight ceiling on a real task, provoked to verify the pause-and-report machinery) counts — mark it clearly as a drill.
-
-- Date, which ceiling, what the run was doing, what happened next:
+- None. No max-iteration, wall-time, no-progress, or cost/quota ceiling stopped a run.
 
 ### 3. Acceptance-criteria gate refused a build
 
-The agent declined to start stage 07 because a slice lacked its verification target, and routed back to alignment instead of inventing criteria.
-
-- Date, slice, what was missing:
+- None. Every implemented slice had an explicit verification target.
 
 ### 4. Structured escalation instead of thrashing
 
-A blocked loop stopped after its bounded attempts and produced the escalation template (blocker, evidence, attempts, hypothesis, ask).
+- 2026-08-30, footer verification: clean Chrome stopped returning 1440px CDP responses. The verifier stopped at its retry ceiling and reported a blocker, evidence, attempted checks, and the exact rerun required. After unrelated long-lived browser resources were released, the unchanged candidate passed the missing seam.
 
-- Date, what was blocking, whether the escalation was useful:
+## Friction
 
-## Friction (equally important — the anti-bloat signal)
-
-- Gates that produced ceremony rather than value (findings with no substance, evidence bureaucracy on trivial changes, prompts you started ignoring):
-- Cadences dismissed repeatedly (from the state file's dismissal log):
-- Anything the playbook made *slower* without making it safer:
+- The large responsive screenshot matrix created substantial evidence volume, though it also exposed defects that static checks missed.
+- Repeated fresh verifier handoffs were valuable for browser-only issues but expensive when the candidate differed only in evidence/state files.
+- No cadence was dismissed.
 
 ## Verdict
 
-- **Working as expected?** {yes / partially / no — one paragraph}
-- **Recommended playbook action:** {keep the current rule | change it | collect more evidence — name the rule and why}
+- **Working as expected?** Yes, with measurable verification cost. Fresh-context browser checks caught three substantive UI problems, canonical-content guards prevented editorial drift, and the retry ceiling produced a useful bounded escalation instead of continued retries.
+- **Recommended playbook action:** Keep the current independent-verification and retry rules. Collect at least two more observational periods before tuning them; meanwhile, encourage shared-component geometry and breakpoint-absence assertions so screenshot review focuses on genuinely visual judgment.
