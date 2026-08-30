@@ -50,9 +50,17 @@ Build mode: autonomous AFK sequence to exact PR handback. The approved Paper and
 - **Implementation:** isolate `.timeline-step` from legacy article-wide list margins and bump the stylesheet cache key across all 12 pages without changing editorial copy.
 - **Verification target:** the regression contract fails before the reset and passes after it; computed-style probes at 390/768/1440 confirm identical guide-row geometry across Hub, Drive Agent, Theory, and Process Map; canonical digests, links, interactions, and body-overflow checks remain green.
 
+## Slice 7 — Paper-aligned editorial footer
+
+- **Mode:** AFK remediation
+- **Depends on:** merged Slice 6 and the supplied Hub production screenshot
+- **Demoable outcome:** the editorial footer continues the published-document grid: its rule, tagline, and identity align exactly with the article measure on desktop and tablet, then stack cleanly on mobile.
+- **Implementation:** add a shared measured footer-content wrapper, align it with the guide-content column, preserve the canonical footer wording, and bump the stylesheet cache key across all 12 pages.
+- **Verification target:** the footer-shell contracts fail before the repair and pass after it; Chrome at 390/768/1440 confirms matching left and right article edges, correct responsive composition, no body overflow, and unchanged canonical digests; a fresh report-only Paper comparison returns no objective finding.
+
 ## Dependency frontier
 
-`Slice 1 → Slice 2 → Slice 3 → Slice 4 → Slice 5 → Slice 6`
+`Slice 1 → Slice 2 → Slice 3 → Slice 4 → Slice 5 → Slice 6 → Slice 7`
 
 This is the stage-04 expand–migrate–contract exception for a shared visual-system refactor: expand the sanctioned vocabulary and checks, migrate the two approved references, migrate the remaining consumers, then contract away the legacy theme and freeze verification evidence.
 

@@ -32,3 +32,7 @@ Observed 2026-08-30 from the supplied production screenshot of the Process Map a
 ## Post-merge sidebar rhythm remediation
 
 A later production comparison found that Drive Agent and Theory rendered the shared guide rail 66px taller than Hub and the remaining guides at the same desktop viewport. Their canonical inline styles include a broad `li { margin-bottom: 6px; }` rule; because guide rows are list items, that legacy article rule leaked into the shared navigation. The shared `.timeline-step` contract now resets `margin: 0`, and the stylesheet cache key is bumped across all active pages. This changes presentation only; canonical article copy remains untouched.
+
+## Post-merge editorial footer remediation
+
+The supplied Hub production screenshot shows the editorial footer beginning at the viewport edge while the Paper reference keeps its rule, tagline, and identity inside the article column. The footer sat outside the `.page` shell and retained a standalone `max-width: 72ch`, so it had neither the shell offset nor a shared inner measure. The repair gives every footer an explicit content wrapper, reconstructs the published-document grid at the body level, and caps the inner row to the same 72-character article measure. Desktop and tablet keep the tagline and identity on opposite edges; mobile stacks them. Footer wording and all article copy remain unchanged.

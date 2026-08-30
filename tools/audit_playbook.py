@@ -209,6 +209,8 @@ def source_contract_audit(paths: list[str]) -> list[str]:
         "masthead portal": r"\.masthead-portal\s*\{[^}]*min-height\s*:\s*44px",
         "guide sequence": r"\.guide-sequence a\s*\{[^}]*min-height\s*:\s*44px",
         "isolated guide-step rhythm": r"\.timeline-step\s*\{[^}]*margin\s*:\s*0",
+        "published footer shell": r"\.doc-footer\s*\{[^}]*width\s*:\s*min\(1200px,\s*100%\)[^}]*display\s*:\s*grid",
+        "published footer content column": r"\.doc-footer-content\s*\{[^}]*grid-column\s*:\s*2[^}]*display\s*:\s*flex",
         "dark-theme form-control text": r"button\s*,\s*input\s*,\s*select\s*,\s*textarea\s*\{[^}]*color\s*:\s*inherit",
         "stacked guide sequence": r"\.guide-sequence a\s*\{[^}]*display\s*:\s*grid",
         "published start-path surface": r"\.start-path\s*\{[^}]*background\s*:\s*transparent",

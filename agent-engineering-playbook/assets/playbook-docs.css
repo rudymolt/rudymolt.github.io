@@ -1149,8 +1149,27 @@ h1 { font-size: clamp(34px, 4.5vw, 52px); }
 .whats-new { border-top: 1px solid var(--rule); padding-top: 22px; }
 .version-entry { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .version-entry p { margin: 0; }.version-label { color: var(--agent); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-.doc-footer { max-width: 72ch; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--agent); font: 600 13px var(--font-serif); }
-.doc-footer small { display: block; margin-top: 8px; color: var(--ink-mute); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.doc-footer {
+  width: min(1200px, 100%);
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 var(--pad-x) 40px;
+  display: grid;
+  grid-template-columns: 232px minmax(0, 72ch);
+  column-gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+.doc-footer-content {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.doc-footer-tagline { color: var(--agent); font: 600 13px var(--font-serif); }
+.doc-footer small { margin: 0; color: var(--ink-mute); font: 10px var(--font-mono); letter-spacing: .1em; text-align: right; text-transform: uppercase; }
 .guide-content code, .skill, .script-say { overflow-wrap: anywhere; }
 .skill { white-space: normal; }
 pre { width: 100%; max-width: 100%; min-width: 0; }
@@ -1168,6 +1187,8 @@ pre code { overflow-wrap: normal; }
   .timeline-steps { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); border-top: 1px solid var(--rule); }
   .timeline-step { border-right: 1px solid var(--rule); }
   .guide-sequence { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .doc-footer { grid-template-columns: minmax(0, 72ch); }
+  .doc-footer-content { grid-column: 1; }
 }
 @media (max-width: 640px) {
   body.playbook-doc { font-size: 16px; }
@@ -1182,6 +1203,9 @@ pre code { overflow-wrap: normal; }
   .start-path { grid-template-columns: 32px minmax(0, 1fr) 20px; }.start-note { margin-left: 32px; }
   .route-builder { grid-template-columns: minmax(0, 1fr); }
   .diagram-wrap, pre { margin-right: -20px; margin-left: -20px; border-right: 0; border-left: 0; }
+  .doc-footer { grid-template-columns: 1fr; padding: 0 20px 32px; }
+  .doc-footer-content { flex-direction: column; gap: 8px; }
+  .doc-footer small { text-align: left; }
 
   svg.responsibility-diagram,
   svg.loop-diagram,
