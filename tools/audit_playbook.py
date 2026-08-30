@@ -208,10 +208,14 @@ def source_contract_audit(paths: list[str]) -> list[str]:
         "skip link": r"\.skip-link\s*\{[^}]*min-height\s*:\s*44px",
         "masthead portal": r"\.masthead-portal\s*\{[^}]*min-height\s*:\s*44px",
         "guide sequence": r"\.guide-sequence a\s*\{[^}]*min-height\s*:\s*44px",
+        "dark-theme form-control text": r"button\s*,\s*input\s*,\s*select\s*,\s*textarea\s*\{[^}]*color\s*:\s*inherit",
+        "stacked guide sequence": r"\.guide-sequence a\s*\{[^}]*display\s*:\s*grid",
+        "published start-path surface": r"\.start-path\s*\{[^}]*background\s*:\s*transparent",
+        "visited start-path text": r"\.start-path:visited\s*\{[^}]*color\s*:\s*var\(--ink\)",
     }
     for name, pattern in target_contracts.items():
         if not re.search(pattern, css, re.DOTALL):
-            failures.append(f"shared CSS: {name} lacks the 44px target contract")
+            failures.append(f"shared CSS: {name} contract is missing")
     drive = (ROOT / "agent-engineering-playbook/50-how-to-write-code-with-ai.html").read_text(encoding="utf-8")
     mobile_hooks = {
         "responsibility SVG hook": 'class="diagram responsibility-diagram"',

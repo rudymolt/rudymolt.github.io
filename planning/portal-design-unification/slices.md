@@ -34,9 +34,17 @@ Build mode: autonomous AFK sequence to exact PR handback. The approved Paper and
 - **Implementation:** remove remaining legacy-theme residue, run stage 08 and stage 09 in a fresh report-only session, remediate only objective in-scope findings through a separate build task, rerun fresh verification, update state/evidence, commit, push, and open/update the exact PR.
 - **Verification target:** `git diff --check`, deterministic audit, local HTTP browser smoke, 390/768/1440 representative matrix, all-page 320px overflow, keyboard/interactive flow, and fresh verifier pass bind to the pushed head SHA; PR base is exactly `main` and head is the tested commit.
 
+## Slice 5 — Production control and navigation polish
+
+- **Mode:** AFK remediation
+- **Depends on:** merged Slice 4 and the supplied production screenshot
+- **Demoable outcome:** dark-theme controls retain readable foreground colour, guide sequence labels and destinations have deliberate hierarchy, and the Hub start row uses the approved transparent published-document surface.
+- **Implementation:** add cascade regression contracts, repair shared control/sequence/start-row styles, and bump the stylesheet cache key across all 12 pages without changing editorial copy.
+- **Verification target:** the regression audit passes after first failing on the reproduced defects; real Chrome at 390/768/1440 confirms control contrast, sequence spacing, responsive targets, interactions, and unchanged canonical digests; a fresh report-only design review returns no objective finding.
+
 ## Dependency frontier
 
-`Slice 1 → Slice 2 → Slice 3 → Slice 4`
+`Slice 1 → Slice 2 → Slice 3 → Slice 4 → Slice 5`
 
 This is the stage-04 expand–migrate–contract exception for a shared visual-system refactor: expand the sanctioned vocabulary and checks, migrate the two approved references, migrate the remaining consumers, then contract away the legacy theme and freeze verification evidence.
 
