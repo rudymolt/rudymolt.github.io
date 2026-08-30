@@ -2,9 +2,9 @@
 
 ## Verdict
 
-**PASS** for exact candidate `ba60b1641157927aef649ce1a3b34c445141686a`.
+**PASS** for exact candidate `684f431b85747bc9a53b937094dc1453632e202e`.
 
-This was a report-only review of `origin/main...ba60b1641157927aef649ce1a3b34c445141686a`. No product, source, configuration, state, commit, branch, PR, deployment, or repository-protection change was made by the verifier.
+This was a report-only review of `origin/main...684f431b85747bc9a53b937094dc1453632e202e`. No product, source, configuration, state, commit, branch, PR, deployment, or repository-protection change was made by the verifier.
 
 ## Review boundary and sources
 
@@ -18,7 +18,7 @@ This was a report-only review of `origin/main...ba60b1641157927aef649ce1a3b34c44
 
 | Check | Result | Evidence |
 |---|---|---|
-| Exact candidate | PASS | `git rev-parse HEAD` returned `ba60b1641157927aef649ce1a3b34c445141686a` before and after verification. |
+| Exact candidate | PASS | `git rev-parse 684f431` returned `684f431b85747bc9a53b937094dc1453632e202e` with tree `f931c4d3be62dd00804f25379401e0ebd73b323d`. That tree is byte-identical to the previously verified `ba60b1641157927aef649ce1a3b34c445141686a`; `git diff --exit-code` returned clean. The worktree's later evidence-binding commit has no differences under `agent-engineering-playbook/` or `tools/`, so the rerun exercised the exact candidate product source. |
 | Scoped implementation | PASS | The candidate adds `margin: 0` to the shared `.timeline-step` contract, adds its deterministic assertion, and changes all 12 stylesheet cache keys to `20260830-polish3`; it does not edit article prose. |
 | Canonical copy and local resources | PASS | `python3 tools/audit_playbook.py` parsed all 12 active pages, matched every stored canonical digest, and resolved local resources. Drive Agent digest: `df3b5553bbc4005900d72cc21a27796ded62a642c42658a03706e446f3338c33`; Theory digest: `9b88e2be432d0296b2805ea9fcada4ef3a03366dfa9da1400ef16a14e6054d6d`. |
 | Guide-row margins | PASS | Fresh Chrome computed `margin-top: 0px` and `margin-bottom: 0px` for all 11 rows on all four pages at 390/768/1440. |
@@ -37,9 +37,12 @@ This was a report-only review of `origin/main...ba60b1641157927aef649ce1a3b34c44
 Commands:
 
 ```text
-git rev-parse HEAD
-git diff origin/main...ba60b1641157927aef649ce1a3b34c445141686a
-git show ba60b1641157927aef649ce1a3b34c445141686a
+git rev-parse 684f431
+git rev-parse 684f431^{tree}
+git diff origin/main...684f431b85747bc9a53b937094dc1453632e202e
+git show 684f431b85747bc9a53b937094dc1453632e202e
+git diff --exit-code ba60b1641157927aef649ce1a3b34c445141686a 684f431b85747bc9a53b937094dc1453632e202e
+git diff --exit-code 684f431b85747bc9a53b937094dc1453632e202e..HEAD -- agent-engineering-playbook tools
 python3 tools/audit_playbook.py
 python3 /home/vercel-sandbox/ai-engineering-playbook/v0.4/scripts/compute-status.py --check .
 git diff --check

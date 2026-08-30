@@ -31,4 +31,4 @@ The 390px collapsed rail can differ by 4px where the current-page label wraps; t
 - `python3 /home/vercel-sandbox/ai-engineering-playbook/v0.4/scripts/compute-status.py --check .` — PASS.
 - `git diff --check` — PASS.
 
-Generator verdict: **PASS**. The fresh report-only design review of exact candidate `ba60b1641157927aef649ce1a3b34c445141686a` also returned **PASS** with no findings; see `fresh-verifier-report.md`.
+Generator verdict: **PASS**. The fresh report-only design review of exact candidate `684f431b85747bc9a53b937094dc1453632e202e` also returned **PASS** with no findings; see `fresh-verifier-report.md`.
