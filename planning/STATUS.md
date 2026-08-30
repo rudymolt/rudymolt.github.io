@@ -13,7 +13,7 @@ Whoever opens or closes a feature folder updates this file in the same change:
 
 ## Active features
 
-- portal-design-unification · aligning · opened 2026-08-30
+- portal-design-unification · in-flight · 1 slice open · opened 2026-08-30
 
 ## Pending Plan routes
 
