@@ -42,9 +42,17 @@ Build mode: autonomous AFK sequence to exact PR handback. The approved Paper and
 - **Implementation:** add cascade regression contracts, repair shared control/sequence/start-row/disclosure styles, and bump the stylesheet cache key across all 12 pages without changing editorial copy.
 - **Verification target:** the regression audit passes after first failing on the reproduced defects; real Chrome at 390/768/1440 confirms control contrast, sequence spacing, disclosure visibility and behavior, responsive targets, interactions, and unchanged canonical digests; a fresh report-only design review returns no objective finding.
 
+## Slice 6 — Shared sidebar rhythm isolation
+
+- **Mode:** AFK remediation
+- **Depends on:** merged Slice 5 and the supplied Drive Agent production screenshot
+- **Demoable outcome:** Drive Agent and Theory use the same guide-row height and total rail rhythm as Hub and every other published guide at matched viewports.
+- **Implementation:** isolate `.timeline-step` from legacy article-wide list margins and bump the stylesheet cache key across all 12 pages without changing editorial copy.
+- **Verification target:** the regression contract fails before the reset and passes after it; computed-style probes at 390/768/1440 confirm identical guide-row geometry across Hub, Drive Agent, Theory, and Process Map; canonical digests, links, interactions, and body-overflow checks remain green.
+
 ## Dependency frontier
 
-`Slice 1 → Slice 2 → Slice 3 → Slice 4 → Slice 5`
+`Slice 1 → Slice 2 → Slice 3 → Slice 4 → Slice 5 → Slice 6`
 
 This is the stage-04 expand–migrate–contract exception for a shared visual-system refactor: expand the sanctioned vocabulary and checks, migrate the two approved references, migrate the remaining consumers, then contract away the legacy theme and freeze verification evidence.
 

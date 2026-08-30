@@ -208,6 +208,7 @@ def source_contract_audit(paths: list[str]) -> list[str]:
         "skip link": r"\.skip-link\s*\{[^}]*min-height\s*:\s*44px",
         "masthead portal": r"\.masthead-portal\s*\{[^}]*min-height\s*:\s*44px",
         "guide sequence": r"\.guide-sequence a\s*\{[^}]*min-height\s*:\s*44px",
+        "isolated guide-step rhythm": r"\.timeline-step\s*\{[^}]*margin\s*:\s*0",
         "dark-theme form-control text": r"button\s*,\s*input\s*,\s*select\s*,\s*textarea\s*\{[^}]*color\s*:\s*inherit",
         "stacked guide sequence": r"\.guide-sequence a\s*\{[^}]*display\s*:\s*grid",
         "published start-path surface": r"\.start-path\s*\{[^}]*background\s*:\s*transparent",

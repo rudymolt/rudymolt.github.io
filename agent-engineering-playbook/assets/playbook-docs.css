@@ -114,6 +114,7 @@ textarea {
 .timeline-step {
   position: relative;
   min-width: 0;
+  margin: 0;
   padding: 0 0 12px 22px;
 }
 
