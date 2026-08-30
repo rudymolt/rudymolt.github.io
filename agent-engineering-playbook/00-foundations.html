@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
 </head>
 <body class="playbook-doc">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
   <a class="brand" href="index.html">AI Engineering Playbook</a>
   <div class="links">
@@ -22,7 +23,7 @@
   </div>
 </nav>
 
-<main class="page">
+<main class="page" id="main-content" tabindex="-1">
   <div class="guide-layout">
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
@@ -120,36 +121,36 @@
     <svg viewBox="0 0 900 400" class="diagram" role="img" aria-label="The verification ladder drawn as five rungs, risk increasing upwards. Rung 1, a typo: just look at it and save. Rung 2, tidy-up of one file: typecheck plus existing tests. Rung 3, new behaviour: write the test first, TDD. Rung 4, a change crossing modules: tests plus a browser check. Rung 5, auth, payments and deploys: everything below plus security review and a watched rollout. Caption: match the checking effort to what a mistake would cost.">
       <defs>
         <marker id="arrow-risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a786f"/>
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
         </marker>
       </defs>
 
       <!-- Risk axis -->
-      <line x1="40" y1="330" x2="40" y2="48" stroke="#7a786f" stroke-width="1.5" marker-end="url(#arrow-risk)"/>
+      <line x1="40" y1="330" x2="40" y2="48" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-risk)"/>
       <text x="28" y="190" text-anchor="middle" class="label-sm muted" transform="rotate(-90 28 190)">MORE RISK</text>
 
       <!-- Rung 5 -->
-      <rect x="80" y="40" width="790" height="50" rx="6" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+      <rect x="80" y="40" width="790" height="50" rx="4" fill="#4a0708" stroke="#f0c45c" stroke-width="1.5"/>
       <text x="98" y="64" class="label-md ink">5 · Auth, payments, deploys</text>
       <text x="98" y="82" class="label-body ink-soft">everything below + security review + watched rollout</text>
 
       <!-- Rung 4 -->
-      <rect x="80" y="100" width="680" height="50" rx="6" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <rect x="80" y="100" width="680" height="50" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
       <text x="98" y="124" class="label-md ink">4 · Change crossing modules</text>
       <text x="98" y="142" class="label-body ink-soft">tests + browser check</text>
 
       <!-- Rung 3 -->
-      <rect x="80" y="160" width="570" height="50" rx="6" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <rect x="80" y="160" width="570" height="50" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
       <text x="98" y="184" class="label-md ink">3 · New behaviour</text>
       <text x="98" y="202" class="label-body ink-soft">write the test first (TDD)</text>
 
       <!-- Rung 2 -->
-      <rect x="80" y="220" width="460" height="50" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <rect x="80" y="220" width="460" height="50" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
       <text x="98" y="244" class="label-md ink">2 · Tidy-up of one file</text>
       <text x="98" y="262" class="label-body ink-soft">typecheck + existing tests</text>
 
       <!-- Rung 1 -->
-      <rect x="80" y="280" width="350" height="50" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <rect x="80" y="280" width="350" height="50" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
       <text x="98" y="304" class="label-md ink">1 · Typo</text>
       <text x="98" y="322" class="label-body ink-soft">just look at it and save</text>
 
@@ -354,6 +355,7 @@
     </div>
   </div>
 </main>
+<footer class="doc-footer">Build → explain → learn → reflect.<small>Rudy Molt · AI Engineering Playbook</small></footer>
 
 <script src="assets/playbook-glossary.js?v=20260828-v04"></script>
 <script src="assets/playbook-docs.js?v=20260828-v04"></script>

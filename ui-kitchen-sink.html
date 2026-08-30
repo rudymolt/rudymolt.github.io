@@ -77,6 +77,13 @@
     .footer{padding:48px 0;border-top:1px solid var(--line)}
     .footer h3{font-size:40px;line-height:46px}
     .footer p{color:var(--gold);font-size:11px;text-transform:uppercase}
+    .published-document{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0}
+    .sample-guide{border-right:1px solid var(--line);padding-right:20px;color:var(--muted);font-size:11px;text-transform:uppercase}
+    .sample-guide ol{display:grid;gap:10px;margin:16px 0;padding:0;list-style:none}.sample-guide li:first-child{color:var(--ember)}
+    .document-copy{max-width:68ch}.document-copy h3{font-size:30px;line-height:36px}.document-copy p{color:var(--muted)}
+    .destination-row{display:grid;grid-template-columns:48px minmax(0,1fr) 28px;gap:12px;align-items:center;min-height:64px;border-bottom:1px solid var(--line);color:var(--parchment);text-decoration:none}.destination-row strong{font-family:var(--display)}.destination-row span{color:var(--gold);font-size:11px}.destination-row b{color:var(--ember);text-align:right}
+    .exchange{display:grid;grid-template-columns:1fr 40px 1fr;align-items:stretch;gap:12px}.exchange-panel,.loop-stage,.handoff-lane{border:1px solid var(--line);padding:16px}.exchange-panel.human{background:var(--oxblood)}.exchange-label,.handoff-lane small{display:block;color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.exchange-arrow{align-self:center;color:var(--ember);font:22px/1 var(--display);text-align:center}
+    .loop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.loop-stage{min-height:104px}.loop-stage b{display:block;color:var(--ember);font-size:11px}.handoffs{display:grid;gap:10px}.handoff-lane{display:grid;grid-template-columns:130px 1fr;gap:16px}.handoff-lane.human{background:var(--oxblood)}
     @media(max-width:760px){
       .shell{padding-top:32px}
       h1{font-size:34px;line-height:40px}
@@ -89,6 +96,7 @@
       .featured{display:flex;flex-direction:column;padding:20px}
       .software{min-height:240px}
       .caption{font-size:9px}
+      .published-document{display:block}.sample-guide{border-right:0;border-bottom:1px solid var(--line);padding:0 0 16px}.destination-row{grid-template-columns:32px minmax(0,1fr) 24px;min-height:56px}.exchange{grid-template-columns:1fr;gap:8px}.exchange-arrow{transform:rotate(90deg)}.loop{grid-template-columns:1fr}.handoff-lane{grid-template-columns:1fr;gap:8px}
     }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -146,6 +154,29 @@
     <section class="sample" id="software-plate" aria-labelledby="software-title">
       <p class="eyebrow">07 / Software plate</p>
       <a class="software" href="#software-plate"><img src="assets/rucomps.png" alt="RuComps"><span class="caption"><span id="software-title">Competition entries team managers</span><span>Open →</span></span></a>
+    </section>
+
+    <section class="sample" id="published-document" aria-labelledby="published-title">
+      <p class="eyebrow">08 / Published document</p>
+      <div class="published-document">
+        <aside class="sample-guide" id="guide-rail" aria-label="Guide rail example"><strong>Guide path</strong><ol><li>01 Hub · current</li><li>02 Drive agent</li><li>03 Process map</li></ol><span>Previous / Next remain visible</span></aside>
+        <div class="document-copy"><h3 id="published-title">One authored reading field.</h3><p>The unboxed rail carries recovery and sequence while a single calm column carries the document.</p><a class="destination-row" id="destination-row" href="#destination-row"><span>01</span><strong>Start the guided path</strong><b>→</b></a></div>
+      </div>
+    </section>
+
+    <section class="sample" id="responsibility-exchange" aria-labelledby="exchange-title">
+      <p class="eyebrow">09 / Responsibility exchange</p><h2 id="exchange-title">Intent becomes execution.</h2>
+      <div class="exchange"><div class="exchange-panel human"><span class="exchange-label">Human</span><h3>You</h3><p>Own intent and approval.</p></div><div class="exchange-arrow" aria-hidden="true">→</div><div class="exchange-panel"><span class="exchange-label">Agent</span><h3>The agent</h3><p>Builds and verifies within the contract.</p></div></div>
+    </section>
+
+    <section class="sample" id="process-loop" aria-labelledby="loop-title">
+      <p class="eyebrow">10 / Process loop</p><h2 id="loop-title">Number, direction, return.</h2>
+      <div class="loop"><div class="loop-stage"><b>01 →</b><h3>Align</h3><p>Agree intent.</p></div><div class="loop-stage"><b>02 →</b><h3>Build</h3><p>One slice.</p></div><div class="loop-stage"><b>03 ↺</b><h3>Verify</h3><p>Return with evidence.</p></div></div>
+    </section>
+
+    <section class="sample" id="ship-handoff-lanes" aria-labelledby="handoff-title">
+      <p class="eyebrow">11 / Ship handoff lanes</p><h2 id="handoff-title">Explicit ownership at the boundary.</h2>
+      <div class="handoffs"><div class="handoff-lane"><small>Agent pre-PR</small><span>Build → verify → hand off</span></div><div class="handoff-lane human"><small>Human GitHub</small><span>Review → merge</span></div><div class="handoff-lane"><small>Agent post-merge</small><span>Canary → close out</span></div></div>
     </section>
 
     <footer class="footer" id="editorial-footer">

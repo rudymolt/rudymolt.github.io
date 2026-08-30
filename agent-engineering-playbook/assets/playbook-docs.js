@@ -90,6 +90,70 @@
     });
   }
 
+  function initMastheadPortal() {
+    document.querySelectorAll(".site-nav").forEach(function (nav) {
+      if (nav.querySelector(".masthead-portal")) return;
+      var source = document.querySelector(".guide-portal[href]");
+      if (!source) return;
+      var portal = document.createElement("a");
+      portal.className = "masthead-portal";
+      portal.href = source.getAttribute("href");
+      portal.textContent = source.textContent.trim();
+      nav.insertBefore(portal, nav.firstChild);
+    });
+  }
+
+  function initMobileGuide() {
+    document.querySelectorAll(".guide-timeline").forEach(function (guide, index) {
+      var steps = guide.querySelector(".timeline-steps");
+      var status = guide.querySelector(".guide-status");
+      if (!steps || !status || guide.querySelector(".guide-toggle")) return;
+
+      var id = steps.id || "guide-path-" + (index + 1);
+      steps.id = id;
+      var current = steps.querySelector("[aria-current='page']");
+      var currentLabel = current ? current.textContent.trim() : "Guide path";
+      var currentStatus = document.createElement("span");
+      currentStatus.className = "guide-current";
+      currentStatus.id = id + "-current";
+      currentStatus.textContent = "Current: " + currentLabel;
+      status.insertAdjacentElement("afterend", currentStatus);
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "guide-toggle";
+      button.setAttribute("aria-controls", id);
+      button.setAttribute("aria-describedby", currentStatus.id);
+      button.setAttribute("aria-label", "Open guide path. Current route: " + currentLabel);
+      button.setAttribute("aria-expanded", "false");
+      button.textContent = "Guide +";
+      currentStatus.insertAdjacentElement("afterend", button);
+      guide.classList.add("has-mobile-guide");
+
+      function closeGuide(returnFocus) {
+        guide.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-label", "Open guide path. Current route: " + currentLabel);
+        button.textContent = "Guide +";
+        if (returnFocus) {
+          try { button.focus(); } catch (e) {}
+        }
+      }
+      button.addEventListener("click", function () {
+        var opening = !guide.classList.contains("is-open");
+        guide.classList.toggle("is-open", opening);
+        button.setAttribute("aria-expanded", opening ? "true" : "false");
+        button.setAttribute("aria-label", (opening ? "Close" : "Open") + " guide path. Current route: " + currentLabel);
+        button.textContent = opening ? "Guide −" : "Guide +";
+      });
+      guide.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && guide.classList.contains("is-open")) {
+          e.preventDefault();
+          closeGuide(true);
+        }
+      });
+    });
+  }
+
   function initPhraseTool() {
     document.querySelectorAll(".phrase-tool").forEach(function (tool) {
       var cards = Array.prototype.slice.call(tool.querySelectorAll(".phrase-card"));
@@ -305,6 +369,8 @@
   function init() {
     initGlossary();
     initSectionNav();
+    initMastheadPortal();
+    initMobileGuide();
     initPhraseTool();
     initExplainers();
     initChoicePanels();
