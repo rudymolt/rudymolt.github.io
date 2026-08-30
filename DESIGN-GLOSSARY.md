@@ -64,7 +64,12 @@ index mode, but uses the same palette and type.
 An ordered complementary navigation path. Desktop keeps it unboxed and sticky
 beside the reading field; tablet places it inline; mobile presents the current
 step and a 44px disclosure for the same ordered list. Previous/next links
-remain visible even while the mobile path is closed.
+remain visible even while the mobile path is closed. Route rows keep one shared
+44px target and divider rhythm; article-local list margins never alter the rail.
+The disclosure exists only at the mobile breakpoint and is absent from layout
+and the accessibility tree at tablet and desktop widths. When enhanced, it
+closes on Escape and returns focus to its control. Without JavaScript, the
+disclosure stays hidden and the complete ordered path remains visible.
 
 **Kitchen sink:** `ui-kitchen-sink.html#guide-rail`.
 
@@ -172,7 +177,9 @@ one large plate followed by two compact split plates.
 ### Editorial footer
 
 The closing statement, identity metadata, and restrained external links. It
-continues the page rhythm rather than becoming a separate marketing footer.
+continues the page rhythm rather than becoming a separate marketing footer. In
+a published document, its rule and content use the exact reading-field measure:
+tagline left and identity right on desktop/tablet, stacked on mobile.
 
 **Kitchen sink:** `ui-kitchen-sink.html#editorial-footer`.
 
@@ -201,6 +208,8 @@ transitions are disabled.
   radius documented in the kitchen sink.
 - Body copy should remain comfortably readable; compact sizes are reserved for
   labels and metadata.
+- Native controls on soot or oxblood explicitly use parchment foreground text;
+  browsers' default control colours never define a published-document state.
 - Mobile tap targets should reach 44px where the whole row/card is not already
   the target.
 - Wording shared between responsive designs must be checked in both Paper

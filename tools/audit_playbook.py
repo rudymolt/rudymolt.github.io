@@ -261,6 +261,51 @@ def source_contract_audit(paths: list[str]) -> list[str]:
     return failures
 
 
+def design_artifact_contract_audit() -> list[str]:
+    """Keep the living design sources aligned with shipped UI invariants."""
+    failures: list[str] = []
+    sources = {
+        "glossary": (ROOT / "DESIGN-GLOSSARY.md").read_text(encoding="utf-8"),
+        "kitchen sink": (ROOT / "ui-kitchen-sink.html").read_text(encoding="utf-8"),
+        "design-language guide": (ROOT / "frontend-design-language-guide.html").read_text(encoding="utf-8"),
+    }
+    contracts = {
+        "glossary": {
+            "guide-row isolation": r"article-local list margins never alter the rail",
+            "mobile-only disclosure": r"absent from layout\s+and the accessibility tree at tablet and desktop widths",
+            "Escape and focus return": r"closes on Escape and returns focus to its control",
+            "no-JavaScript fallback": r"Without JavaScript,[\s\S]*?complete ordered path remains visible",
+            "reading-field footer": r"rule and content use the exact reading-field measure",
+            "dark-control foreground": r"controls on soot or oxblood explicitly use parchment foreground text",
+        },
+        "kitchen sink": {
+            "44px guide rows": r"\.sample-guide li a\{[^}]*min-height:44px",
+            "isolated guide margins": r"\.sample-guide li\{[^}]*margin:0",
+            "default-visible guide path": r"\.sample-guide ol\{display:grid",
+            "default-hidden disclosure": r"\.sample-guide-toggle\{display:none",
+            "enhanced mobile-only toggle": r"@media\(max-width:640px\)[\s\S]*?\.sample-guide\[data-enhanced\] \.sample-guide-toggle\{display:inline-flex",
+            "enhanced-only collapse": r"\.sample-guide\[data-enhanced\] ol\{display:none",
+            "article-aligned footer": r"class=\"sample-doc-footer\" id=\"editorial-footer\"",
+            "stacked mobile footer": r"@media\(max-width:640px\)[\s\S]*?\.sample-doc-footer\{flex-direction:column",
+            "dark-control foreground": r"\.sample-control select\{[^}]*background:var\(--soot\)[^}]*color:var\(--parchment\)",
+            "Escape and focus return": r"event\.key === 'Escape'[\s\S]*?sampleGuideToggle\.focus\(\)",
+        },
+        "design-language guide": {
+            "shared-row containment": r"Shared guide rows own their margins and 44px-plus-divider rhythm",
+            "desktop disclosure absence": r"absent from layout and the accessibility tree at tablet and desktop widths",
+            "Escape and focus return": r"closes on Escape, and returns focus to its control",
+            "no-JavaScript fallback": r"Without JavaScript,[\s\S]*?complete ordered path remains visible",
+            "explicit control foreground": r"Native form controls inherit the explicit parchment foreground",
+            "post-remediation promotion": r"After any production-polish remediation,[\s\S]*?before feature doc-close",
+        },
+    }
+    for source_name, source_contracts in contracts.items():
+        for contract_name, pattern in source_contracts.items():
+            if not re.search(pattern, sources[source_name], re.DOTALL):
+                failures.append(f"{source_name}: {contract_name} design contract is missing")
+    return failures
+
+
 def main() -> int:
     baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
     pages = baseline["pages"]
@@ -268,6 +313,7 @@ def main() -> int:
     for relative in sorted(pages):
         failures.extend(audit_page(relative, pages[relative]))
     failures.extend(source_contract_audit(sorted(pages)))
+    failures.extend(design_artifact_contract_audit())
     if failures:
         print("\nFAIL")
         print("\n".join(failures))

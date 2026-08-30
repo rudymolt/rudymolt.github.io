@@ -68,7 +68,8 @@
       <li><strong>Desktop:</strong> 1440px reference artboard; wide editorial grids and side-by-side project compositions.</li>
       <li><strong>Tablet:</strong> preserve readable title and metadata columns; collapse before horizontal overflow appears.</li>
       <li><strong>Mobile:</strong> 390px reference artboard; vertical index rows, compact header, and reordered featured work.</li>
-      <li><strong>Published document:</strong> an 1180–1200px shell has a 220–240px guide rail and a 65–72ch reading field. Tablet makes the rail inline; mobile uses 20px side padding and a 44px guide disclosure.</li>
+      <li><strong>Published document:</strong> an 1180–1200px shell has a 220–240px guide rail and a 65–72ch reading field. Tablet makes the rail inline; mobile uses 20px side padding and a 44px guide disclosure. The editorial footer's rule and content align to that same reading field rather than the viewport.</li>
+      <li>Shared guide rows own their margins and 44px-plus-divider rhythm; broad article-list selectors must not change navigation geometry.</li>
       <li>The body must never overflow horizontally at 320px or wider.</li>
       <li>The Ideas index shows numeric labels only: <code>01</code>–<code>04</code>.</li>
       <li>Text shared by desktop and mobile must be compared in both Paper artboards before implementation.</li>
@@ -80,7 +81,8 @@
       <li>Hover may colour a title ember or scale an image by about 1%; it must not reflow content.</li>
       <li>Keyboard focus uses the documented ember outline and remains visible against soot and oxblood.</li>
       <li>Reduced-motion preference disables smooth scrolling and transitions.</li>
-      <li>Mobile guide disclosure reports <code>aria-expanded</code>, closes on Escape, and returns focus to its control. Previous/next never collapse with it.</li>
+      <li>Mobile guide disclosure reports <code>aria-expanded</code>, closes on Escape, and returns focus to its control. It is absent from layout and the accessibility tree at tablet and desktop widths; previous/next never collapse with it. Without JavaScript, the disclosure stays hidden and the complete ordered path remains visible.</li>
+      <li>Native form controls inherit the explicit parchment foreground of their soot or oxblood surface in default, selected, success, and recovery states.</li>
       <li>Static documents do not invent loading or empty states. Existing interactive learning tools retain their documented success, error, and recovery states.</li>
     </ul>
 
@@ -91,6 +93,7 @@
       <li>Update this guide if the change introduces a new surface or interaction rule.</li>
       <li>Update the Paper artboards and obtain approval for structural or non-trivial visual changes.</li>
       <li>Implement the production page, run the CI gates, and verify GitHub Pages after deployment.</li>
+      <li>After any production-polish remediation, promote the corrected visual or interaction invariant back into all affected design artefacts before feature doc-close.</li>
     </ol>
   </main>
 </body>
