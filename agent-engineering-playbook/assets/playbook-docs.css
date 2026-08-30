@@ -1072,6 +1072,9 @@ body.playbook-doc {
   top: 8px;
   left: 8px;
   transform: translateY(-160%);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: 10px 14px;
   background: var(--ink);
   color: var(--bg);
@@ -1090,7 +1093,7 @@ body.playbook-doc a:visited { color: #b9a98a; }
   letter-spacing: .05em;
   text-transform: uppercase;
 }
-.masthead-portal { flex: 0 0 auto; color: var(--ink); font: 12px var(--font-serif); text-decoration: none; }
+.masthead-portal { display: inline-flex; flex: 0 0 auto; align-items: center; min-height: 44px; color: var(--ink); font: 12px var(--font-serif); text-decoration: none; }
 .masthead-portal:visited { color: var(--ink); }
 .site-nav .brand { color: var(--ink); font-family: var(--font-serif); font-size: 11px; }
 .site-nav .links a { color: var(--ink-mute); }
@@ -1115,7 +1118,7 @@ body.playbook-doc a:visited { color: #b9a98a; }
 .timeline-step a { min-height: 44px; padding: 7px 0; color: var(--ink-mute); font-size: 11px; }
 .timeline-step.is-active a, .timeline-step a[aria-current='page'] { color: var(--human); }
 .guide-sequence { gap: 10px; margin-top: 22px; border-top-color: var(--rule); }
-.guide-sequence a { color: var(--ink); font-size: 11px; }
+.guide-sequence a { display: flex; align-items: center; min-width: 0; min-height: 44px; padding: 6px 0; color: var(--ink); font-size: 11px; }
 .guide-sequence span { color: var(--agent); font-size: 9px; }
 
 .doc-head { margin-bottom: 34px; padding-bottom: 22px; }
@@ -1141,6 +1144,7 @@ h1 { font-size: clamp(34px, 4.5vw, 52px); }
 .skill { white-space: normal; }
 pre { width: 100%; max-width: 100%; min-width: 0; }
 pre code { overflow-wrap: normal; }
+.mobile-diagram { display: none; }
 .tier-select { width: 100%; max-width: 320px; min-width: 0; }
 .guide-toggle { border: 1px solid var(--agent); border-radius: 0; background: transparent; color: var(--human); min-height: 44px; padding: 8px 10px; }
 .guide-current { display: none; color: var(--human); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
@@ -1167,6 +1171,32 @@ pre code { overflow-wrap: normal; }
   .start-path { grid-template-columns: 32px minmax(0, 1fr) 20px; }.start-note { margin-left: 32px; }
   .route-builder { grid-template-columns: minmax(0, 1fr); }
   .diagram-wrap, pre { margin-right: -20px; margin-left: -20px; border-right: 0; border-left: 0; }
+
+  svg.responsibility-diagram,
+  svg.loop-diagram,
+  svg.ship-diagram { display: none; }
+  .mobile-diagram { display: grid; gap: 10px; margin: 16px 0 28px; }
+  .mobile-responsibility { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mobile-process-loop { counter-reset: mobile-loop; }
+  .mobile-loop-stage,
+  .mobile-ship-lane { border: 1px solid var(--rule); padding: 16px; }
+  .mobile-loop-stage { position: relative; }
+  .mobile-loop-stage::before { content: counter(mobile-loop, decimal-leading-zero); counter-increment: mobile-loop; display: block; margin-bottom: 6px; color: var(--human); font-size: 11px; letter-spacing: .12em; }
+  .mobile-loop-stage:nth-child(5),
+  .mobile-loop-stage:nth-child(7) { background: var(--agent-tint); }
+  .mobile-loop-stage:nth-child(9) { background: var(--burgundy); }
+  .mobile-loop-stage strong,
+  .mobile-ship-lane strong { display: block; color: var(--agent); font: 600 11px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+  .mobile-loop-stage b { display: block; margin-top: 4px; font: 600 18px/1.2 var(--font-serif); }
+  .mobile-loop-stage span { display: block; margin-top: 4px; color: var(--ink-soft); font-size: 13px; }
+  .mobile-loop-arrow,
+  .mobile-handoff-boundary { color: var(--human); font: 600 18px/1 var(--font-serif); text-align: center; }
+  .mobile-loop-return { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px; margin: 0; padding: 12px 16px; border: 1px dashed var(--rule); color: var(--ink-soft); font-size: 13px; }
+  .mobile-loop-return::before { content: '↺'; color: var(--human); font: 20px/1 var(--font-serif); }
+  .mobile-ship-lane.human { background: var(--burgundy); }
+  .mobile-ship-lane ol { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .mobile-ship-lane li { padding: 10px 12px; border: 1px solid var(--rule-soft); background: var(--panel); font-size: 13px; }
+  .mobile-ship-lane li span { display: inline-block; min-width: 2.5em; color: var(--ink-mute); font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

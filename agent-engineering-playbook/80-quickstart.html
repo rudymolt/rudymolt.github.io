@@ -170,7 +170,7 @@
 
     <h3>07 · Building it — write the test first</h3>
     <p>Piece 1, the failing test first:</p>
-    <pre><code>def test_history_is_chronological_oldest_first(self):
+    <pre tabindex="0" aria-label="Example chronological history test"><code>def test_history_is_chronological_oldest_first(self):
     rows = self.t.history("Aisha", "100m")
     self.assertEqual([r.meet_date for r in rows],
                      sorted(r.meet_date for r in rows))</code></pre>

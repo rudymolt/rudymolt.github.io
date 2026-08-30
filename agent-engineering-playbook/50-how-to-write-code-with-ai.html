@@ -598,7 +598,7 @@
     </div>
 
     <!-- Role split diagram -->
-    <svg viewBox="0 0 880 280" class="diagram" role="img" aria-label="Human owns intent and approval; agent owns execution and verification. Intent flows from human to agent; a pull request flows from agent back to human for review.">
+    <svg viewBox="0 0 880 280" class="diagram responsibility-diagram" role="img" aria-label="Human owns intent and approval; agent owns execution and verification. Intent flows from human to agent; a pull request flows from agent back to human for review.">
       <defs>
         <marker id="arrow-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0c45c"/>
@@ -668,12 +668,13 @@
         </ul>
       </div>
     </div>
+    <div class="mobile-diagram mobile-responsibility" role="img" aria-label="Human owns intent and approval; agent owns execution and verification. Intent flows from human to agent; a pull request flows from agent back to human for review."></div>
 
     <p>Good prompts from you are usually small and concrete:</p>
-<pre><code>I want to start building Mission Control for the Qatar team
+<pre tabindex="0" aria-label="Example alignment request"><code>I want to start building Mission Control for the Qatar team
 at the 22nd Asian U20 Athletics Championships.</code></pre>
-<pre><code>Build slice 3.</code></pre>
-<pre><code>I found a bug: an athlete cannot be changed to staff.
+<pre tabindex="0" aria-label="Example build request"><code>Build slice 3.</code></pre>
+<pre tabindex="0" aria-label="Example bug report"><code>I found a bug: an athlete cannot be changed to staff.
 This should be possible.</code></pre>
 
     <p>
@@ -730,7 +731,7 @@ This should be possible.</code></pre>
 
     <!-- Loop diagram -->
     <div class="stage-strip">
-    <svg viewBox="0 0 940 320" class="diagram" role="img" aria-label="A five-stage development loop. Align, Slice, Build, Review and correct, Ship. After Ship a curved arrow returns to Align for the next feature.">
+    <svg viewBox="0 0 940 320" class="diagram loop-diagram" role="img" aria-label="A five-stage development loop. Align, Slice, Build, Review and correct, Ship. After Ship a curved arrow returns to Align for the next feature.">
       <defs>
         <marker id="arrow-loop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
@@ -802,6 +803,18 @@ This should be possible.</code></pre>
       <text x="470" y="40" text-anchor="middle" class="label-sm muted">THE LOOP · ONE SLICE AT A TIME</text>
       <line x1="120" y1="60" x2="820" y2="60" class="stroke-rule"/>
     </svg>
+    <figure class="mobile-diagram mobile-process-loop" aria-label="A five-stage development loop. Align, Slice, Build, Review and correct, Ship. After Ship a curved arrow returns to Align for the next feature.">
+      <div class="mobile-loop-stage"><b>Align</b><span>grill the plan</span></div>
+      <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
+      <div class="mobile-loop-stage"><b>Slice</b><span>break it up</span></div>
+      <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
+      <div class="mobile-loop-stage"><b>Build</b><span>one slice</span></div>
+      <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
+      <div class="mobile-loop-stage"><b>Review</b><span>&amp; correct</span></div>
+      <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
+      <div class="mobile-loop-stage"><b>Ship</b><span>exact PR</span></div>
+      <p class="mobile-loop-return">next feature → Align</p>
+    </figure>
     </div>
 
     <!-- Stage detail blocks -->
@@ -811,7 +824,7 @@ This should be possible.</code></pre>
         <h3>Use this when the feature is still fuzzy</h3>
       </div>
       <p>Say:</p>
-<pre><code>I want to build [feature].</code></pre>
+<pre tabindex="0" aria-label="Align stage example prompt"><code>I want to build [feature].</code></pre>
       <p>
         The agent should grill the plan, settle terms, and write the decisions
         into planning docs, <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button>, and <button class="term" type="button" data-def="adr">ADRs</button> where needed.
@@ -833,7 +846,7 @@ This should be possible.</code></pre>
         <h3>Once the feature is understood, break it into small slices</h3>
       </div>
       <p>Say:</p>
-<pre><code>Break this into slices.</code></pre>
+<pre tabindex="0" aria-label="Slice stage example prompt"><code>Break this into slices.</code></pre>
       <p>
         Each <button class="term" type="button" data-def="slice">slice</button> should produce something testable. Avoid giant
         all-or-nothing builds.
@@ -846,7 +859,7 @@ This should be possible.</code></pre>
         <h3>Ask for one slice at a time</h3>
       </div>
       <p>Say:</p>
-<pre><code>Build slice 1.</code></pre>
+<pre tabindex="0" aria-label="Build stage example prompt"><code>Build slice 1.</code></pre>
       <p>
         The agent should implement, test, and show what changed. If the app
         has a UI, the agent should use the browser to check the actual
@@ -877,10 +890,10 @@ This should be possible.</code></pre>
         <h3>Use plain language for feedback</h3>
       </div>
       <p>Say:</p>
-<pre><code>This label is wrong.</code></pre>
-<pre><code>This screen should be desktop-only.</code></pre>
-<pre><code>This breaks on my phone.</code></pre>
-<pre><code>This workflow is missing a way to restore removed people.</code></pre>
+<pre tabindex="0" aria-label="Review feedback example: label"><code>This label is wrong.</code></pre>
+<pre tabindex="0" aria-label="Review feedback example: desktop-only"><code>This screen should be desktop-only.</code></pre>
+<pre tabindex="0" aria-label="Review feedback example: mobile"><code>This breaks on my phone.</code></pre>
+<pre tabindex="0" aria-label="Review feedback example: workflow"><code>This workflow is missing a way to restore removed people.</code></pre>
       <p>
         The agent should convert that feedback into code, tests, and
         documentation updates. For UI work, its <button class="term" type="button" data-def="designreview">design review</button> must report
@@ -895,7 +908,7 @@ This should be possible.</code></pre>
         <h3>When the feature is complete</h3>
       </div>
       <p>Say:</p>
-<pre><code>Ship the feature.</code></pre>
+<pre tabindex="0" aria-label="Ship stage example prompt"><code>Ship the feature.</code></pre>
       <p>The agent should now follow the ship sequence — see §03 below.</p>
     </div>
   </section>
@@ -920,7 +933,7 @@ This should be possible.</code></pre>
     </div>
 
     <!-- Swimlane diagram -->
-    <svg viewBox="0 0 940 540" class="diagram" role="img" aria-label="The default manual-merge route. The agent confirms the branch, runs checks, uses a fresh verifier, updates documents, commits, pushes, and hands back the exact pull request. The human reviews and merges it. Control returns to the agent, which confirms the merge, verifies state, checks post-merge steps, and recommends what comes next.">
+    <svg viewBox="0 0 940 540" class="diagram ship-diagram" role="img" aria-label="The default manual-merge route. The agent confirms the branch, runs checks, uses a fresh verifier, updates documents, commits, pushes, and hands back the exact pull request. The human reviews and merges it. Control returns to the agent, which confirms the merge, verifies state, checks post-merge steps, and recommends what comes next.">
       <defs>
         <marker id="arrow-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
@@ -1066,6 +1079,28 @@ This should be possible.</code></pre>
       <text x="470" y="485" class="label-body ink-soft">Then back to §02 Align for the next feature.</text>
       </g>
     </svg>
+    <figure class="mobile-diagram mobile-ship-handoff" aria-label="The default manual-merge route. The agent confirms the branch, runs checks, uses a fresh verifier, updates documents, commits, pushes, and hands back the exact pull request. The human reviews and merges it. Control returns to the agent, which confirms the merge, verifies state, checks post-merge steps, and recommends what comes next.">
+      <div class="mobile-ship-lane">
+        <strong>Agent · pre-PR</strong>
+        <ol>
+          <li><span>01</span>On a branch?</li><li><span>02</span>Recover if not</li><li><span>03</span>Tests &amp; build</li><li><span>04</span>Fresh verify</li><li><span>05</span>Update docs</li><li><span>06</span>Commit</li><li><span>07</span>Push branch</li><li><span>08</span>Exact PR handback</li>
+        </ol>
+      </div>
+      <div class="mobile-handoff-boundary" aria-hidden="true">PR link ↓</div>
+      <div class="mobile-ship-lane human">
+        <strong>Human · GitHub</strong>
+        <ol>
+          <li><span>01</span>Open the PR</li><li><span>02</span>Read summary</li><li><span>03</span>Skim files</li><li><span>04</span>Check CI</li><li><span>05</span>Mark ready</li><li><span>06</span>Merge the PR</li>
+        </ol>
+      </div>
+      <div class="mobile-handoff-boundary" aria-hidden="true">"merged" ↓</div>
+      <div class="mobile-ship-lane">
+        <strong>Agent · post-merge</strong>
+        <ol>
+          <li><span>01</span>Confirm merge</li><li><span>02</span>Verify state</li><li><span>03</span>Post-merge?</li><li><span>04</span>Next action</li><li><span>05</span>latest pulled · fresh branch started</li>
+        </ol>
+      </div>
+    </figure>
 
     <h3>What the agent does on <code>Ship the feature.</code></h3>
     <ol>
@@ -1102,7 +1137,7 @@ This should be possible.</code></pre>
       <li>Merge the PR.</li>
       <li>Tell the agent:</li>
     </ol>
-<pre><code>I reviewed and merged the PR. Can you check?</code></pre>
+<pre tabindex="0" aria-label="Post-merge example prompt"><code>I reviewed and merged the PR. Can you check?</code></pre>
     <p>
       This manual step matters because the human remains accountable for
       what enters <code>main</code>. The agent can prepare the PR, but it

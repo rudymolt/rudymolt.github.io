@@ -19,6 +19,7 @@ HEX_LITERAL = re.compile(r"(?<![0-9a-zA-Z_-])#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})(
 CSS_RADIUS = re.compile(r"border-radius\s*:\s*([^;}{]+)", re.IGNORECASE)
 WHITE_SURFACE = re.compile(r":\s*(?:white|#fff(?:fff)?|rgba?\(\s*255\s*,\s*255\s*,\s*255(?:\s*,[^)]*)?\))\s*(?:;|})", re.IGNORECASE)
 LEGACY_BLUE = re.compile(r"rgba?\(\s*30\s*,\s*78\s*,\s*140(?:\s*,[^)]*)?\)", re.IGNORECASE)
+VOID_ELEMENTS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
 
 class Page(HTMLParser):
@@ -32,6 +33,7 @@ class Page(HTMLParser):
         self.data_attrs: list[tuple[str, str, str]] = []
         self.ids: set[str] = set()
         self.tags: list[tuple[str, dict[str, str]]] = []
+        self.open_elements: list[tuple[str, bool]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key: value or "" for key, value in attrs}
@@ -40,8 +42,11 @@ class Page(HTMLParser):
             self.ids.add(values["id"])
         if tag == "main":
             self.main_depth += 1
-        if self.main_depth and tag in {"nav", "aside", "style", "script"}:
+        starts_exclusion = self.main_depth and (tag in {"nav", "aside", "style", "script"} or "mobile-diagram" in values.get("class", "").split())
+        if starts_exclusion:
             self.excluded_depth += 1
+        if tag not in VOID_ELEMENTS:
+            self.open_elements.append((tag, bool(starts_exclusion)))
         if self.main_depth and not self.excluded_depth:
             if re.fullmatch(r"h[1-6]", tag):
                 self.headings.append(tag)
@@ -50,8 +55,12 @@ class Page(HTMLParser):
             self.data_attrs.extend((tag, key, value) for key, value in values.items() if key.startswith("data-"))
 
     def handle_endtag(self, tag: str) -> None:
-        if self.main_depth and tag in {"nav", "aside", "style", "script"}:
-            self.excluded_depth -= 1
+        for index in range(len(self.open_elements) - 1, -1, -1):
+            if self.open_elements[index][0] == tag:
+                _, started_exclusion = self.open_elements.pop(index)
+                if started_exclusion:
+                    self.excluded_depth -= 1
+                break
         if tag == "main":
             self.main_depth -= 1
 
@@ -94,8 +103,10 @@ def audit_page(relative: str, expected: dict[str, int | str]) -> list[str]:
     except Exception as error:  # pragma: no cover - parser provides the diagnostic
         return [f"{relative}: HTML parser failure: {error}"]
 
-    failures: list[str] = []
     article = normalize_article(parser, relative)
+    failures: list[str] = []
+    if relative == "agent-engineering-playbook/50-how-to-write-code-with-ai.html" and "Use this when the feature is still fuzzy" not in article:
+        failures.append(f"{relative}: canonical digest no longer covers prose after the mobile loop")
     observed = {
         "text_chars": len(article),
         "headings": len(parser.headings),
@@ -141,6 +152,11 @@ def audit_page(relative: str, expected: dict[str, int | str]) -> list[str]:
         if not any(tag == "a" and attrs.get("aria-current") == "page" for tag, attrs in parser.tags):
             failures.append(f"{relative}: missing current guide state")
     for tag, attrs in parser.tags:
+        if tag == "pre":
+            if attrs.get("tabindex") != "0":
+                failures.append(f"{relative}: code region is not keyboard reachable")
+            if not attrs.get("aria-label", "").strip():
+                failures.append(f"{relative}: code region lacks an accessible label")
         if tag == "rect" and "rx" in attrs:
             try:
                 if float(attrs["rx"]) > 4:
@@ -188,6 +204,39 @@ def source_contract_audit(paths: list[str]) -> list[str]:
         failures.append("shared CSS: masthead navigation remains pseudo-content")
     if ".masthead-portal" not in css or ".guide-current" not in css:
         failures.append("shared CSS: masthead portal or current guide label is not styled")
+    target_contracts = {
+        "skip link": r"\.skip-link\s*\{[^}]*min-height\s*:\s*44px",
+        "masthead portal": r"\.masthead-portal\s*\{[^}]*min-height\s*:\s*44px",
+        "guide sequence": r"\.guide-sequence a\s*\{[^}]*min-height\s*:\s*44px",
+    }
+    for name, pattern in target_contracts.items():
+        if not re.search(pattern, css, re.DOTALL):
+            failures.append(f"shared CSS: {name} lacks the 44px target contract")
+    drive = (ROOT / "agent-engineering-playbook/50-how-to-write-code-with-ai.html").read_text(encoding="utf-8")
+    mobile_hooks = {
+        "responsibility SVG hook": 'class="diagram responsibility-diagram"',
+        "loop SVG hook": 'class="diagram loop-diagram"',
+        "ship SVG hook": 'class="diagram ship-diagram"',
+        "existing responsibility structure": 'class="role-split" aria-hidden="true"',
+        "mobile responsibility label": 'class="mobile-diagram mobile-responsibility" role="img" aria-label="Human owns intent and approval; agent owns execution and verification. Intent flows from human to agent; a pull request flows from agent back to human for review."',
+        "mobile loop structure": 'class="mobile-diagram mobile-process-loop"',
+        "mobile loop return": 'class="mobile-loop-return">next feature → Align</p>',
+        "mobile ship structure": 'class="mobile-diagram mobile-ship-handoff"',
+        "pre-PR lane": 'Agent · pre-PR',
+        "GitHub lane": 'Human · GitHub',
+        "post-merge lane": 'Agent · post-merge',
+    }
+    for name, hook in mobile_hooks.items():
+        if hook not in drive:
+            failures.append(f"Drive: missing {name}")
+    hidden_svg_pattern = re.compile(
+        r"@media\s*\(\s*max-width\s*:\s*640px\s*\)\s*\{.*?"
+        r"svg\.responsibility-diagram\s*,\s*svg\.loop-diagram\s*,\s*svg\.ship-diagram\s*"
+        r"\{\s*display\s*:\s*none",
+        re.DOTALL,
+    )
+    if not hidden_svg_pattern.search(css):
+        failures.append("shared CSS: Drive mobile SVG replacement contract is missing")
     if not re.search(r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)", css_without_comments):
         failures.append("shared CSS: reduced-motion media contract is missing")
     if not re.search(r"scroll-behavior\s*:\s*auto", css_without_comments) or not re.search(r"transition\s*:\s*none\s*!important", css_without_comments):
