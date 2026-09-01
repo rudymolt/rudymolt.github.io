@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0605">
+  <title>WikiSkill — plain-English explainer mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme:dark;
+      --soot:#0a0605;
+      --oxblood:#240100;
+      --burgundy:#4a0708;
+      --parchment:#f4e7c2;
+      --muted:#b9a98a;
+      --gold:#d5a527;
+      --ember:#f0c45c;
+      --line:rgba(213,165,39,.28);
+      --pad:clamp(20px,4vw,56px);
+      --display:"Oxanium",system-ui,sans-serif;
+      --mono:"IBM Plex Mono",ui-monospace,monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--soot)}
+    body{min-width:320px;margin:0;overflow-x:hidden;background:var(--soot);color:var(--parchment);font:17px/1.6 var(--mono);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--ember)}
+    h1,h2,h3{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.035em}
+    p{margin:0}
+    :focus-visible{outline:2px solid var(--ember);outline-offset:4px}
+    .shell{width:min(100%,1440px);margin:0 auto;border-right:1px solid var(--line);border-left:1px solid var(--line)}
+    .site-header{display:flex;min-height:96px;align-items:center;justify-content:space-between;padding:16px var(--pad);border-bottom:1px solid var(--line)}
+    .brand{display:flex;min-height:44px;align-items:center;gap:14px}
+    .brand img{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;object-fit:cover}
+    .brand strong,.brand span{display:block}
+    .brand strong{font-size:13px}
+    .brand .brand-tagline{color:var(--muted);font-size:11px}
+    .header-links{display:flex;gap:30px;color:var(--muted);font-size:12px;text-transform:uppercase}
+    .header-links a{display:flex;min-height:44px;align-items:center;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+    .header-links a:last-child{color:var(--ember)}
+    .header-links a:visited,.source-note a:visited{color:var(--gold)}
+    .hero{display:grid;min-height:620px;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:8vw;align-items:end;padding:120px var(--pad) 76px;border-bottom:1px solid var(--line)}
+    .eyebrow{margin-bottom:18px;color:var(--gold);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+    .hero h1{max-width:900px;font-size:clamp(52px,7vw,108px);line-height:.94}
+    .hero h1 em{display:block;color:var(--gold);font-style:normal}
+    .hero-note{max-width:410px;padding-left:20px;border-left:2px solid var(--gold);color:var(--muted);font-size:17px;line-height:1.65}
+    .summary{padding:96px var(--pad);border-bottom:1px solid var(--line);background:var(--oxblood)}
+    .section-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,360px);gap:48px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line)}
+    .section-heading h2{font-size:clamp(32px,3.2vw,48px);line-height:1.08}
+    .section-heading>p{color:var(--muted);font-size:12px;text-align:right;text-transform:uppercase}
+    .summary-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px;border-top:1px solid var(--line)}
+    .summary-item{min-height:200px;padding:28px 30px 28px 0;border-bottom:1px solid var(--line)}
+    .summary-item+.summary-item{padding-left:30px;border-left:1px solid var(--line)}
+    .summary-item b{display:block;margin-bottom:28px;color:var(--gold);font-size:11px;letter-spacing:.14em}
+    .summary-item p{font-size:16px;line-height:1.65}
+    .section{padding:110px var(--pad);border-bottom:1px solid var(--line)}
+    .section.oxblood{background:var(--oxblood)}
+    .prose-grid{display:grid;grid-template-columns:minmax(220px,.42fr) minmax(0,1fr);gap:9vw;margin-top:48px}
+    .section-index{color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+    .prose{max-width:770px}
+    .prose p{margin-bottom:24px;color:var(--muted);font-size:17px;line-height:1.7}
+    .prose strong{color:var(--parchment)}
+    .figure{margin-top:64px;padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .figure-title{display:flex;justify-content:space-between;gap:24px;margin-bottom:24px;color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .figure-title span:last-child{color:var(--muted);letter-spacing:0;text-transform:none}
+    svg{display:block;width:100%;height:auto;overflow:visible}
+    .diagram-mobile{display:none}
+    .layer-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:32px;border-top:1px solid var(--line)}
+    .layer-copy{padding:26px 28px 8px 0}
+    .layer-copy+.layer-copy{padding-left:28px;border-left:1px solid var(--line)}
+    .layer-copy h3{margin-bottom:12px;color:var(--parchment);font-size:22px}
+    .layer-copy p{color:var(--muted);font-size:16px}
+    .results{margin-top:48px;border-top:1px solid var(--line)}
+    .result{display:grid;grid-template-columns:minmax(170px,.35fr) minmax(0,1fr) minmax(180px,.35fr);gap:36px;align-items:center;min-height:170px;border-bottom:1px solid var(--line)}
+    .result-number{color:var(--gold);font:700 clamp(42px,5vw,72px)/1 var(--display);letter-spacing:-.05em}
+    .result h3{margin-bottom:8px;font-size:23px}
+    .result p,.result-context{color:var(--muted);font-size:16px}
+    .result-context{text-align:right;text-transform:uppercase}
+    .caveat{display:grid;grid-template-columns:1fr 1fr;margin-top:48px;border:1px solid var(--line)}
+    .caveat article{min-height:260px;padding:36px}
+    .caveat article+article{border-left:1px solid var(--line);background:var(--oxblood)}
+    .caveat h3{margin-bottom:18px;font-size:28px}
+    .caveat .positive h3{color:var(--gold)}
+    .caveat .negative h3{color:var(--ember)}
+    .caveat p{color:var(--muted);font-size:16px}
+    .limits{margin:48px 0 0;padding:0;border-top:1px solid var(--line);list-style:none}
+    .limits li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:22px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .limits b{color:var(--gold);font-size:11px;letter-spacing:.14em}
+    .limits span{max-width:760px;color:var(--muted);font-size:16px}
+    .source-note{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:44px}
+    .source-note p{color:var(--muted);font-size:16px}
+    .source-note a{display:inline-flex;min-height:44px;align-items:center;margin-top:20px;color:var(--ember);font-size:12px;text-decoration:underline;text-underline-offset:3px;text-transform:uppercase}
+    .review{padding:64px var(--pad);border-bottom:1px solid var(--line);background:var(--burgundy)}
+    .review h2{font-size:30px}
+    .review>p{max-width:700px;margin:12px 0 28px;color:var(--muted)}
+    .review-options{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:22px}
+    .review label{display:flex;min-height:44px;align-items:center;gap:10px;cursor:pointer}
+    .review input{accent-color:var(--gold)}
+    .review button{min-height:44px;padding:0 22px;border:1px solid var(--gold);background:transparent;color:var(--parchment);font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+    .review button:hover{background:var(--gold);color:var(--soot)}
+    .site-footer{display:flex;min-height:190px;align-items:flex-end;justify-content:space-between;gap:40px;padding:64px var(--pad);background:var(--soot)}
+    .site-footer h2{max-width:620px;font-size:clamp(32px,4vw,54px);line-height:1.05}
+    .site-footer p{color:var(--gold);font-size:11px;text-align:right;text-transform:uppercase}
+    @media(max-width:900px){
+      .hero{min-height:560px;grid-template-columns:1fr;gap:54px;align-items:start;padding-top:96px}
+      .summary-list{grid-template-columns:1fr}
+      .summary-item{min-height:0;padding:26px 0}
+      .summary-item+.summary-item{padding-left:0;border-left:0}
+      .prose-grid{grid-template-columns:1fr;gap:24px}
+      .layer-row{grid-template-columns:1fr}
+      .layer-copy{padding:24px 0}
+      .layer-copy+.layer-copy{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+      .result{grid-template-columns:150px minmax(0,1fr)}
+      .result-context{grid-column:2;text-align:left}
+      .section-heading{grid-template-columns:1fr}
+      .section-heading>p{text-align:left}
+    }
+    @media(max-width:560px){
+      body{font-size:16px}
+      .site-header{min-height:80px}
+      .brand .brand-tagline,.header-links a:first-child{display:none}
+      .header-links{gap:18px}
+      .hero{min-height:520px;padding-top:72px;padding-bottom:54px}
+      .hero h1{font-size:48px}
+      .hero-note{font-size:16px}
+      .summary,.section{padding-top:72px;padding-bottom:72px}
+      .section-heading h2{font-size:34px}
+      .figure{margin-top:40px;padding-top:22px}
+      .figure-title{display:block}
+      .figure-title span{display:block;margin-top:6px}
+      .result{grid-template-columns:1fr;gap:10px;padding:28px 0}
+      .result-context{grid-column:auto;text-align:left}
+      .caveat{grid-template-columns:1fr}
+      .caveat article{min-height:0;padding:28px 24px}
+      .caveat article+article{border-top:1px solid var(--line);border-left:0}
+      .limits li{grid-template-columns:1fr;gap:8px}
+      .source-note{grid-template-columns:1fr;gap:24px}
+      .site-footer{display:block}
+      .site-footer p{margin-top:42px;text-align:left}
+      .diagram-desktop{display:none}
+      .diagram-mobile{display:block}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="../../index.html" aria-label="Back to Rudy Molt Ideas">
+        <img src="https://rudymolt.github.io/assets/rudy-avatar.jpg" alt="" width="38" height="38">
+        <span><strong>RUDY MOLT</strong><span class="brand-tagline">Software and ideas for surfing the singularity.</span></span>
+      </a>
+      <nav class="header-links" aria-label="Explainer links">
+        <a href="#source">Source notes</a>
+        <a href="https://arxiv.org/html/2608.27454">Read paper ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Plain-English explainer / Google Research</p>
+          <h1 id="page-title">Don’t just remember what worked. <em>Remember what you learned.</em></h1>
+        </div>
+        <p class="hero-note">WikiSkill gives an AI agent a lab notebook for experience and a tested operating manual for action.</p>
+      </section>
+
+      <section class="summary" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">00 / In 30 seconds</p><h2 id="summary-title">The paper’s idea, without the equations.</h2></div>
+          <p>Raw runs become durable lessons.<br>Durable lessons improve skills.</p>
+        </div>
+        <div class="summary-list">
+          <article class="summary-item"><b>01 / KEEP THE EVIDENCE</b><p>Save what the agent actually did, including successes, failures, tool calls and final answers.</p></article>
+          <article class="summary-item"><b>02 / DISTIL THE LESSONS</b><p>Turn repeated patterns into a wiki that remembers good tactics and rejected ideas across iterations.</p></article>
+          <article class="summary-item"><b>03 / TEST THE MANUAL</b><p>Use that wiki to update concise skills. Keep a change only when it improves validation performance.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="problem-title">
+        <div class="section-heading"><div><p class="eyebrow">01 / The missing memory</p><h2 id="problem-title">Experience is useful only if the next attempt can build on it.</h2></div><p>The problem WikiSkill is trying to solve</p></div>
+        <div class="prose-grid">
+          <p class="section-index">Scattered history →<br>compounding knowledge</p>
+          <div class="prose">
+            <p>Agents can already practise tasks, inspect their mistakes and rewrite their own skills. But the lessons behind those edits are often scattered across old traces and proposal histories.</p>
+            <p><strong>WikiSkill inserts a durable knowledge layer between experience and instructions.</strong> That layer keeps the reasoning behind successful and failed edits, so future skill changes do not have to rediscover the same lessons.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section oxblood" aria-labelledby="layers-title">
+        <div class="section-heading"><div><p class="eyebrow">02 / Three layers</p><h2 id="layers-title">Footage, casebook, operating manual.</h2></div><p>Figure redrawn from the paper’s architecture</p></div>
+        <figure class="figure" aria-labelledby="layers-caption">
+          <figcaption class="figure-title" id="layers-caption"><strong>What kind of memory belongs where?</strong><span>Evidence stays detailed. Instructions stay concise.</span></figcaption>
+          <svg class="diagram-desktop" viewBox="0 0 1120 300" role="img" aria-labelledby="layers-svg-title layers-svg-desc">
+            <title id="layers-svg-title">WikiSkill’s three knowledge layers</title>
+            <desc id="layers-svg-desc">Raw execution traces flow into a persistent wiki. The wiki informs reusable skills.</desc>
+            <defs><marker id="gold-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#d5a527"/></marker></defs>
+            <g id="raw-layer"><title>Raw Layer</title><rect x="20" y="48" width="300" height="190" fill="#0a0605" stroke="#d5a527" stroke-opacity=".6"/><text x="48" y="94" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2">RAW LAYER</text><text x="48" y="140" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="28" font-weight="700">What happened?</text><text x="48" y="180" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="14">Immutable execution traces</text></g>
+            <g id="wiki-layer"><title>Wiki Layer</title><rect x="410" y="20" width="300" height="246" fill="#4a0708" stroke="#f0c45c" stroke-width="2"/><text x="438" y="70" fill="#f0c45c" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2">WIKI LAYER</text><text x="438" y="116" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="28" font-weight="700">What did we learn?</text><text x="438" y="158" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="14">Patterns · history · impact</text><text x="438" y="198" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="13">Persists when edits fail</text></g>
+            <g id="skills-layer"><title>Skills Layer</title><rect x="800" y="48" width="300" height="190" fill="#0a0605" stroke="#d5a527" stroke-opacity=".6"/><text x="828" y="94" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2">SKILLS LAYER</text><text x="828" y="140" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="28" font-weight="700">What should we do?</text><text x="828" y="180" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="14">Tested procedural guidance</text></g>
+            <path id="raw-to-wiki" d="M320 143 H398" stroke="#d5a527" stroke-width="2" marker-end="url(#gold-arrow)"><title>Raw traces are distilled into wiki patterns</title></path>
+            <path id="wiki-to-skills" d="M710 143 H788" stroke="#d5a527" stroke-width="2" marker-end="url(#gold-arrow)"><title>Wiki patterns inform skill changes</title></path>
+          </svg>
+          <svg class="diagram-mobile" viewBox="0 0 360 700" role="img" aria-labelledby="layers-mobile-title layers-mobile-desc">
+            <title id="layers-mobile-title">WikiSkill’s three knowledge layers, stacked for mobile</title>
+            <desc id="layers-mobile-desc">Raw execution traces flow down into a persistent wiki. The wiki then informs reusable skills.</desc>
+            <defs><marker id="gold-arrow-mobile" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#d5a527"/></marker></defs>
+            <g id="raw-layer-mobile"><title>Raw Layer</title><rect x="24" y="20" width="312" height="170" fill="#0a0605" stroke="#d5a527" stroke-opacity=".6"/><text x="48" y="62" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">RAW LAYER</text><text x="48" y="105" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="26" font-weight="700">What happened?</text><text x="48" y="145" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="13">Immutable execution traces</text></g>
+            <path d="M180 190 V236" stroke="#d5a527" stroke-width="2" marker-end="url(#gold-arrow-mobile)"/>
+            <g id="wiki-layer-mobile"><title>Wiki Layer</title><rect x="24" y="248" width="312" height="194" fill="#4a0708" stroke="#f0c45c" stroke-width="2"/><text x="48" y="292" fill="#f0c45c" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">WIKI LAYER</text><text x="48" y="335" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="26" font-weight="700">What did we learn?</text><text x="48" y="375" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="13">Patterns · history · impact</text><text x="48" y="408" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="12">Persists when edits fail</text></g>
+            <path d="M180 442 V488" stroke="#d5a527" stroke-width="2" marker-end="url(#gold-arrow-mobile)"/>
+            <g id="skills-layer-mobile"><title>Skills Layer</title><rect x="24" y="500" width="312" height="170" fill="#0a0605" stroke="#d5a527" stroke-opacity=".6"/><text x="48" y="542" fill="#d5a527" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">SKILLS LAYER</text><text x="48" y="585" fill="#f4e7c2" font-family="Oxanium, sans-serif" font-size="26" font-weight="700">What should we do?</text><text x="48" y="625" fill="#b9a98a" font-family="IBM Plex Mono, monospace" font-size="13">Tested procedural guidance</text></g>
+          </svg>
+        </figure>
+        <div class="layer-row">
+          <article class="layer-copy"><h3>Raw</h3><p>The full record: reasoning, actions, tool results and answers. It is kept unchanged.</p></article>
+          <article class="layer-copy"><h3>Wiki</h3><p>A growing casebook of patterns, failed ideas, accepted changes and why they mattered.</p></article>
+          <article class="layer-copy"><h3>Skills</h3><p>The short operating manual the task-running agent can actually use.</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="loop-title">
+        <div class="section-heading"><div><p class="eyebrow">03 / How it learns</p><h2 id="loop-title">Try. Distil. Propose. Test. Remember.</h2></div><p>The skill may roll back.<br>The wiki never does.</p></div>
+        <figure class="figure" aria-labelledby="loop-caption">
+          <figcaption class="figure-title" id="loop-caption"><strong>One evolution cycle</strong><span>The task-running agent sees skills, not the wiki.</span></figcaption>
+          <svg class="diagram-desktop" viewBox="0 0 1120 330" role="img" aria-labelledby="loop-svg-title loop-svg-desc">
+            <title id="loop-svg-title">The WikiSkill evolution loop</title>
+            <desc id="loop-svg-desc">An inference agent runs tasks. A maintainer distils the traces into the wiki. A proposer suggests one skill change. A validation gate keeps or rejects it while preserving the wiki.</desc>
+            <defs><marker id="ember-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f0c45c"/></marker></defs>
+            <g id="run-step"><title>Inference Agent runs tasks</title><circle cx="130" cy="125" r="86" fill="#240100" stroke="#d5a527"/><text x="130" y="116" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">01 / RUN</text><text x="130" y="147" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Inference Agent</text></g>
+            <g id="distil-step"><title>Wiki Maintainer distils patterns</title><circle cx="420" cy="125" r="86" fill="#240100" stroke="#d5a527"/><text x="420" y="116" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">02 / DISTIL</text><text x="420" y="147" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Wiki Maintainer</text></g>
+            <g id="propose-step"><title>Skill Proposer suggests one atomic edit</title><circle cx="710" cy="125" r="86" fill="#240100" stroke="#d5a527"/><text x="710" y="116" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">03 / PROPOSE</text><text x="710" y="147" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Skill Proposer</text></g>
+            <g id="gate-step"><title>Validation gate accepts or rejects the edit</title><circle cx="1000" cy="125" r="86" fill="#4a0708" stroke="#f0c45c" stroke-width="2"/><text x="1000" y="116" fill="#f0c45c" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">04 / TEST</text><text x="1000" y="147" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Keep or rollback</text></g>
+            <path d="M216 125 H322" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow)"/><path d="M506 125 H612" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow)"/><path d="M796 125 H902" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow)"/>
+            <path id="persistent-wiki-rail" d="M420 235 V278 H1000 V223" fill="none" stroke="#d5a527" stroke-width="2" stroke-dasharray="6 7"><title>The persistent wiki survives every gate outcome</title></path>
+            <text x="710" y="310" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14">WIKI PERSISTS: accepted changes, rejected ideas, recurring patterns</text>
+          </svg>
+          <svg class="diagram-mobile" viewBox="0 0 360 940" role="img" aria-labelledby="loop-mobile-title loop-mobile-desc">
+            <title id="loop-mobile-title">The WikiSkill evolution loop, stacked for mobile</title>
+            <desc id="loop-mobile-desc">The Inference Agent runs tasks, the Wiki Maintainer distils traces, the Skill Proposer suggests one edit, and the validation gate keeps or rejects it. The wiki persists.</desc>
+            <defs><marker id="ember-arrow-mobile" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#f0c45c"/></marker></defs>
+            <g id="run-step-mobile"><title>Inference Agent runs tasks</title><circle cx="180" cy="112" r="88" fill="#240100" stroke="#d5a527"/><text x="180" y="103" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">01 / RUN</text><text x="180" y="136" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Inference Agent</text></g>
+            <path d="M180 200 V250" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow-mobile)"/>
+            <g id="distil-step-mobile"><title>Wiki Maintainer distils patterns</title><circle cx="180" cy="350" r="88" fill="#240100" stroke="#d5a527"/><text x="180" y="341" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">02 / DISTIL</text><text x="180" y="374" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Wiki Maintainer</text></g>
+            <path d="M180 438 V488" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow-mobile)"/>
+            <g id="propose-step-mobile"><title>Skill Proposer suggests one atomic edit</title><circle cx="180" cy="588" r="88" fill="#240100" stroke="#d5a527"/><text x="180" y="579" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">03 / PROPOSE</text><text x="180" y="612" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Skill Proposer</text></g>
+            <path d="M180 676 V726" stroke="#f0c45c" stroke-width="2" marker-end="url(#ember-arrow-mobile)"/>
+            <g id="gate-step-mobile"><title>Validation gate accepts or rejects the edit</title><circle cx="180" cy="826" r="88" fill="#4a0708" stroke="#f0c45c" stroke-width="2"/><text x="180" y="817" fill="#f0c45c" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">04 / TEST</text><text x="180" y="850" fill="#f4e7c2" text-anchor="middle" font-family="Oxanium, sans-serif" font-size="22" font-weight="700">Keep or rollback</text></g>
+            <path id="persistent-wiki-rail-mobile" d="M70 350 H26 V896 H180" fill="none" stroke="#d5a527" stroke-width="2" stroke-dasharray="6 7"><title>The persistent wiki survives every gate outcome</title></path>
+            <text x="180" y="928" fill="#d5a527" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12">WIKI PERSISTS THROUGH EVERY TEST</text>
+          </svg>
+        </figure>
+      </section>
+
+      <section class="section oxblood" aria-labelledby="results-title">
+        <div class="section-heading"><div><p class="eyebrow">04 / What improved</p><h2 id="results-title">The gains were broad, but they were benchmark gains.</h2></div><p>Five models · five task types<br>Three full evolution runs</p></div>
+        <div class="results">
+          <article class="result"><p class="result-number">+23.9</p><div><h3>percentage points</h3><p>Average gain for Qwen-3.6-27B using WikiSkill rather than no skill.</p></div><p class="result-context">39.4 → 63.3<br>five-benchmark average</p></article>
+          <article class="result"><p class="result-number">47.4</p><div><h3>Smaller model, better result</h3><p>Qwen-3.5-9B with WikiSkill beat Qwen-3.6-27B without skills.</p></div><p class="result-context">47.4 vs 39.4<br>five-benchmark average</p></article>
+          <article class="result"><p class="result-number">+15.0</p><div><h3>Persistent knowledge mattered</h3><p>Giving the Skill Proposer wiki access raised the four-benchmark ablation average from 48.7 to 63.7.</p></div><p class="result-context">Gemini-3.5-Flash<br>ablation study</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="transfer-title">
+        <div class="section-heading"><div><p class="eyebrow">05 / Transfer caveat</p><h2 id="transfer-title">A good procedure can travel. A workaround can backfire.</h2></div><p>Skill discovery and skill execution are different abilities</p></div>
+        <div class="caveat">
+          <article class="positive"><h3>Promising</h3><p>A spreadsheet skill evolved by Qwen-3.6-27B lifted Qwen-3.5-9B from 24.3 to 50.5, beating the 33.6 score produced by its own evolved skill.</p></article>
+          <article class="negative"><h3>Not automatic</h3><p>A lower-level Qwen-3.5-4B spreadsheet workaround cut Gemini-3.5-Flash from 50.5 to 18.1. Transfer depends on what the skill encodes and what the receiving model can follow.</p></article>
+        </div>
+      </section>
+
+      <section class="section oxblood" aria-labelledby="limits-title">
+        <div class="section-heading"><div><p class="eyebrow">06 / What remains open</p><h2 id="limits-title">This is evidence for better skill evolution, not proof of autonomous self-improvement.</h2></div><p>What the experiment did not test</p></div>
+        <ul class="limits">
+          <li><b>01</b><span><strong>Retrieval at scale.</strong> Active skills were inserted directly into the prompt, so finding and triggering the right skill was not tested.</span></li>
+          <li><b>02</b><span><strong>Neutral stepping stones.</strong> Strict gating rejected any edit that did not immediately improve validation performance.</span></li>
+          <li><b>03</b><span><strong>Forgetting.</strong> The wiki keeps growing and has no automated pruning mechanism.</span></li>
+          <li><b>04</b><span><strong>Very long work.</strong> The study did not cover tasks lasting hundreds of actions or multiple hours.</span></li>
+          <li><b>05</b><span><strong>Production reliability.</strong> These are controlled benchmark results from an arXiv v1 preprint, not a deployment study.</span></li>
+        </ul>
+      </section>
+
+      <section class="section" id="source" aria-labelledby="source-title">
+        <div class="section-heading"><div><p class="eyebrow">07 / Source notes</p><h2 id="source-title">Read the research, then keep the claim attached to the evidence.</h2></div><p>arXiv:2608.27454v1<br>27 August 2026</p></div>
+        <div class="source-note">
+          <div><p><strong>Paper:</strong> “WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution” by Liyan Tang, Cyrus Rashtchian, Chun-Sung Ferng, Andrew Tomkins, Da-Cheng Juan and Tu Vu.</p><a href="https://arxiv.org/html/2608.27454">Open the full paper ↗</a></div>
+          <p><strong>Interpretation note:</strong> Score changes are described as percentage-point differences. Findings are scoped to the models, benchmarks and experimental conditions the authors evaluated. The diagrams above are simplified redraws, not reproductions of the paper’s figures.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="review" aria-labelledby="review-title" data-lavish-question="wikiskill-mockup">
+      <h2 id="review-title">Review this mockup</h2>
+      <p>Annotate any text or diagram directly, or queue one overall verdict below. Nothing is published from this screen.</p>
+      <form onsubmit="event.preventDefault();const choice=new FormData(event.currentTarget).get('verdict');if(!choice)return;const prompt=choice==='approve'?'Approve the WikiSkill explainer mockup and continue to the feature specification.':choice==='visual'?'Revise the WikiSkill explainer mockup based on my visual annotations.':'Revise the WikiSkill explainer mockup based on my content annotations.';if(window.lavish){window.lavish.queuePrompt(prompt,{tag:'choice',text:'Mockup verdict: '+choice,element:event.currentTarget,data:{question:'wikiskill-mockup',answer:choice},queueKey:'wikiskill-mockup'});}else{alert('Open this page through Lavish to send feedback to the agent.');}">
+        <div class="review-options">
+          <label><input type="radio" name="verdict" value="approve"> Approve mockup</label>
+          <label><input type="radio" name="verdict" value="visual"> Revise visual treatment</label>
+          <label><input type="radio" name="verdict" value="content"> Revise content or emphasis</label>
+        </div>
+        <button type="submit">Queue verdict</button>
+      </form>
+    </aside>
+
+    <footer class="site-footer"><h2>Build → explain → learn → reflect.</h2><p>Rudy Molt Ideas<br>WikiSkill explainer mockup</p></footer>
+  </div>
+</body>
+</html>
