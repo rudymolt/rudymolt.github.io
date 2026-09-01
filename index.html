@@ -104,6 +104,9 @@
     .idea-meta { color:var(--muted); letter-spacing:0; white-space:pre-line }
     .idea-arrow { color:var(--ember); font-size:22px; text-align:right }
     .idea-row:hover .idea-title,.idea-row:focus-visible .idea-title { color:var(--ember) }
+    .idea-row--wikiskill .idea-title-group { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; padding-right:40px }
+    .idea-row--wikiskill .idea-title { padding-right:0 }
+    .artwork-placeholder { display:inline-flex; min-height:44px; align-items:center; padding:8px 10px; border:1px dashed rgba(213,165,39,.65); color:var(--gold); font-size:10px; letter-spacing:.12em; line-height:16px; text-transform:uppercase; white-space:nowrap }
 
     .software { padding-top:112px; padding-bottom:144px; background:var(--oxblood) }
     .software-grid { display:grid; gap:24px; padding-top:32px }
@@ -200,7 +203,7 @@
       .featured-actions span:last-child { font-size:0 }
       .featured-actions span:last-child::after { content:"↗"; font:22px/28px var(--display) }
 
-      .ideas-section { height:886px; padding-top:56px; padding-bottom:48px }
+      .ideas-section { height:auto; min-height:886px; padding-top:56px; padding-bottom:48px }
       .ideas-section .section-head { height:83px; align-items:flex-end }
       .idea-row { position:relative; display:flex; height:179px; min-height:0; flex-direction:column; align-items:stretch; gap:12px; padding:24px 0 }
       .idea-row:last-child { height:162px; padding-bottom:8px; border-bottom:0 }
@@ -209,6 +212,8 @@
       .idea-meta { padding-right:24px; font-size:10px; line-height:16px; white-space:normal }
       .idea-arrow { position:absolute; top:22px; right:0; font-size:0; line-height:24px }
       .idea-arrow::after { content:"↗"; font:20px/24px var(--display) }
+      .idea-row--wikiskill .idea-title-group { display:flex; gap:10px; padding-right:24px }
+      .idea-row--wikiskill { height:auto; min-height:234px; padding-bottom:24px }
 
       .software { display:flex; height:903px; flex-direction:column; gap:28px; padding-top:56px; padding-bottom:56px }
       .software .section-head { display:block; height:86px; min-height:86px; padding-bottom:0; border-bottom:0 }
@@ -296,13 +301,14 @@ for surfing the singularity.</p>
     <section class="section ideas-section" id="ideas" aria-labelledby="ideas-title">
       <div class="section-head">
         <div><p class="eyebrow">03 / Ideas index</p><h2 class="section-title" id="ideas-title">Published paths...</h2></div>
-        <p class="section-aside">04 entries / Explore ↓</p>
+        <p class="section-aside">05 entries / Explore ↓</p>
       </div>
       <div class="ideas-list">
         <a class="idea-row" href="exo-3-book-skill-visualisation/exo-playbook-overview-combined.html"><span class="idea-index">01</span><h3 class="idea-title">ExO 3.0 Book &amp;<br>Skill Visualisation</h3><span class="idea-meta">EXO 3.0 / SKILLS<br>LEARNING MAPS</span><span class="idea-arrow" aria-hidden="true">→</span></a>
         <a class="idea-row" href="okf-ai-engineering/index.html"><span class="idea-index">02</span><h3 class="idea-title">Open Knowledge Format<br>for AI Engineering</h3><span class="idea-meta">OKF / AI ENGINEERING<br>KNOWLEDGE AS CODE</span><span class="idea-arrow" aria-hidden="true">→</span></a>
         <a class="idea-row" href="solve-everything-summary/index.html"><span class="idea-index">03</span><h3 class="idea-title">Solve Everything:<br>A Plain-English Summary</h3><span class="idea-meta">AI / ABUNDANCE<br>DIAGRAM-LED SUMMARY</span><span class="idea-arrow" aria-hidden="true">→</span></a>
         <a class="idea-row" href="fundamentals-of-building-with-ai/index.html"><span class="idea-index">04</span><h3 class="idea-title">The Fundamentals<br>of Building with AI</h3><span class="idea-meta">MINDSETS / MODELS<br>AGENT SETUP</span><span class="idea-arrow" aria-hidden="true">→</span></a>
+        <a class="idea-row idea-row--wikiskill" href="wikiskill/index.html"><span class="idea-index">05</span><div class="idea-title-group"><h3 class="idea-title">WikiSkill:<br>Remember What You Learned</h3><span class="artwork-placeholder" role="img" aria-label="Artwork pending for WikiSkill; reserved for future GrokBot art">Artwork pending</span></div><span class="idea-meta">AGENT MEMORY / SKILLS<br>PLAIN-ENGLISH EXPLAINER</span><span class="idea-arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
