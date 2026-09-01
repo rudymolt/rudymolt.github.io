@@ -13,7 +13,7 @@ Whoever opens or closes a feature folder updates this file in the same change:
 
 ## Active features
 
-- wikiskill-explainer · sliced · 1 AFK slice open · opened 2026-09-01
+- wikiskill-explainer · ready-to-ship · 0 slices open · opened 2026-09-01
 
 ## Pending Plan routes
 

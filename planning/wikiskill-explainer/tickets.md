@@ -2,8 +2,8 @@
 
 ## Slice 01 — Publish the explainer and homepage entry
 
-Type: AFK  
-Depends on: nothing  
+Type: AFK
+Depends on: nothing
 Status: approved
 
 ### Demoable outcome
@@ -17,6 +17,7 @@ A visitor can open the WikiSkill plain-English explainer from row 05 of the home
 - Correct production-relative links and metadata.
 - Add the fifth homepage Ideas Index row and update the entry count.
 - Add an accessible, responsive `Artwork pending` placeholder to the new row.
+- Extend the existing Index row design contract from `01`–`04` to `01`–`05`.
 
 ### Verification target
 

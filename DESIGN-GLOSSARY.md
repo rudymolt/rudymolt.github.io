@@ -152,7 +152,7 @@ above a thin gold divider.
 ### Index row
 
 A full-width editorial link containing a numeric index, title, metadata, and
-arrow. The left index is the number only: `01`, `02`, `03`, or `04`.
+arrow. The left index is the number only: `01`, `02`, `03`, `04`, or `05`.
 
 On mobile it becomes a vertical composition, with the arrow pinned to the top
 right and the metadata beneath the title.

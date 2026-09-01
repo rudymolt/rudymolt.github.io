@@ -61,6 +61,7 @@ As the site owner, I can replace the placeholder without restructuring the homep
 - One self-contained production page at `wikiskill/index.html`.
 - One additive Ideas Index row and count update in `index.html`.
 - One CSS-only artwork placeholder contained within the new row.
+- Surgical updates to `DESIGN-GLOSSARY.md` and `frontend-design-language-guide.html` so the existing Index row contract permits numeric labels `01`–`05`.
 
 ## Testing decisions
 
