@@ -39,6 +39,7 @@
       <li><strong>Metadata supports scanning.</strong> Small mono labels identify category and status but never compete with the title.</li>
       <li><strong>Warm, engineered, specific.</strong> Parchment, oxblood, gold, Oxanium, and IBM Plex Mono replace generic SaaS styling.</li>
       <li><strong>Responsive recomposition, not shrinkage.</strong> Mobile changes order and structure while preserving the same content and hierarchy.</li>
+      <li><strong>Published documents keep the path visible.</strong> Use a guide rail beside sustained reading, an inline guide at tablet width, and a current-step disclosure on mobile.</li>
     </ol>
 
     <h2>Surface decision rules</h2>
@@ -52,6 +53,11 @@
           <tr><td>Explain a section</td><td>Numbered section heading plus concise aside</td><td>Centred marketing headline</td></tr>
           <tr><td>Add another destination</td><td>Extend the relevant ordered list</td><td>Create a new visual pattern without updating the three design artefacts</td></tr>
           <tr><td>Show history or long detail</td><td>Dedicated published page</td><td>Drawer, modal, or inline accordion on the portal</td></tr>
+          <tr><td>Navigate a published path</td><td>Guide rail with visible previous/next</td><td>Card sidebar or hidden mobile navigation</td></tr>
+          <tr><td>Show a decision, caution, or handoff</td><td>Labelled bounded emphasis</td><td>Colour-only semantic tint or pill</td></tr>
+          <tr><td>Explain ownership</td><td>Responsibility exchange with HUMAN and AGENT labels</td><td>Unlabelled two-column comparison</td></tr>
+          <tr><td>Show a process or ship flow</td><td>Numbered loop or labelled handoff lanes</td><td>Scaled-down unreadable SVG</td></tr>
+          <tr><td>Contain a wide table, code block, or diagram</td><td>Labelled local overflow region</td><td>Body-level horizontal scrolling</td></tr>
           <tr><td>Confirm destructive action</td><td>Not applicable: the public portal has no destructive controls</td><td>Invent confirmation UI</td></tr>
         </tbody>
       </table>
@@ -62,6 +68,8 @@
       <li><strong>Desktop:</strong> 1440px reference artboard; wide editorial grids and side-by-side project compositions.</li>
       <li><strong>Tablet:</strong> preserve readable title and metadata columns; collapse before horizontal overflow appears.</li>
       <li><strong>Mobile:</strong> 390px reference artboard; vertical index rows, compact header, and reordered featured work.</li>
+      <li><strong>Published document:</strong> an 1180–1200px shell has a 220–240px guide rail and a 65–72ch reading field. Tablet makes the rail inline; mobile uses 20px side padding and a 44px guide disclosure. The editorial footer's rule and content align to that same reading field rather than the viewport.</li>
+      <li>Shared guide rows own their margins and 44px-plus-divider rhythm; broad article-list selectors must not change navigation geometry.</li>
       <li>The body must never overflow horizontally at 320px or wider.</li>
       <li>The Ideas index shows numeric labels only: <code>01</code>–<code>04</code>.</li>
       <li>Text shared by desktop and mobile must be compared in both Paper artboards before implementation.</li>
@@ -73,7 +81,9 @@
       <li>Hover may colour a title ember or scale an image by about 1%; it must not reflow content.</li>
       <li>Keyboard focus uses the documented ember outline and remains visible against soot and oxblood.</li>
       <li>Reduced-motion preference disables smooth scrolling and transitions.</li>
-      <li>There are no loading, disabled, selected, modal, or URL-driven drawer states in the current static portal.</li>
+      <li>Mobile guide disclosure reports <code>aria-expanded</code>, closes on Escape, and returns focus to its control. It is absent from layout and the accessibility tree at tablet and desktop widths; previous/next never collapse with it. Without JavaScript, the disclosure stays hidden and the complete ordered path remains visible.</li>
+      <li>Native form controls inherit the explicit parchment foreground of their soot or oxblood surface in default, selected, success, and recovery states.</li>
+      <li>Static documents do not invent loading or empty states. Existing interactive learning tools retain their documented success, error, and recovery states.</li>
     </ul>
 
     <h2>Change protocol</h2>
@@ -83,6 +93,7 @@
       <li>Update this guide if the change introduces a new surface or interaction rule.</li>
       <li>Update the Paper artboards and obtain approval for structural or non-trivial visual changes.</li>
       <li>Implement the production page, run the CI gates, and verify GitHub Pages after deployment.</li>
+      <li>After any production-polish remediation, promote the corrected visual or interaction invariant back into all affected design artefacts before feature doc-close.</li>
     </ol>
   </main>
 </body>

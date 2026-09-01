@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vertical Slice Checker · AI Engineering Playbook V0.4</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260828-v04">
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
   <a class="brand" href="../index.html">AI Engineering Playbook</a>
   <div class="links">
@@ -22,7 +23,7 @@
   </div>
 </nav>
 
-<main class="page">
+<main class="page" id="main-content" tabindex="-1">
   <div class="guide-layout">
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
@@ -85,21 +86,21 @@
     </p>
     <svg viewBox="0 0 880 330" class="diagram" role="img" aria-label="Two layer-cake diagrams. Left, the horizontal cut: only the UI layer is built across the full width; logic, data and tests are empty, captioned 'all five booking screens built, none of them save anything'. Right, the vertical cut: a narrow column is built through all four layers, captioned 'user can book one slot and see it confirmed — screen, logic, database and a test, all working'.">
       <!-- Left: horizontal (wrong) -->
-      <text x="210" y="34" text-anchor="middle" class="label-sm" fill="#8a4b16">HORIZONTAL · THE WRONG CUT</text>
+      <text x="210" y="34" text-anchor="middle" class="label-sm" fill="#f0c45c">HORIZONTAL · THE WRONG CUT</text>
       <g>
-        <rect x="60" y="50" width="300" height="44" rx="4" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+        <rect x="60" y="50" width="300" height="44" rx="4" fill="#4a0708" stroke="#f0c45c" stroke-width="1.5"/>
         <text x="76" y="77" class="label-md ink">UI</text>
-        <text x="344" y="77" text-anchor="end" class="label-body" fill="#8a4b16">built everywhere</text>
+        <text x="344" y="77" text-anchor="end" class="label-body" fill="#f0c45c">built everywhere</text>
 
-        <rect x="60" y="98" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <rect x="60" y="98" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527" stroke-dasharray="4 4"/>
         <text x="76" y="125" class="label-md muted">Logic</text>
         <text x="344" y="125" text-anchor="end" class="label-body muted">nothing yet</text>
 
-        <rect x="60" y="146" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <rect x="60" y="146" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527" stroke-dasharray="4 4"/>
         <text x="76" y="173" class="label-md muted">Data</text>
         <text x="344" y="173" text-anchor="end" class="label-body muted">nothing yet</text>
 
-        <rect x="60" y="194" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3" stroke-dasharray="4 4"/>
+        <rect x="60" y="194" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527" stroke-dasharray="4 4"/>
         <text x="76" y="221" class="label-md muted">Tests</text>
         <text x="344" y="221" text-anchor="end" class="label-body muted">nothing yet</text>
       </g>
@@ -107,20 +108,20 @@
       <text x="210" y="292" text-anchor="middle" class="label-body ink-soft">none of them save anything."</text>
 
       <!-- Right: vertical (right) -->
-      <text x="670" y="34" text-anchor="middle" class="label-sm" fill="#2a6e4f">VERTICAL · THE RIGHT CUT</text>
+      <text x="670" y="34" text-anchor="middle" class="label-sm" fill="#d5a527">VERTICAL · THE RIGHT CUT</text>
       <g>
-        <rect x="520" y="50" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
-        <rect x="520" y="98" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
-        <rect x="520" y="146" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
-        <rect x="520" y="194" width="300" height="44" rx="4" fill="#ffffff" stroke="#e2dfd3"/>
+        <rect x="520" y="50" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527"/>
+        <rect x="520" y="98" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527"/>
+        <rect x="520" y="146" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527"/>
+        <rect x="520" y="194" width="300" height="44" rx="4" fill="#0a0605" stroke="#d5a527"/>
         <text x="536" y="77" class="label-md muted">UI</text>
         <text x="536" y="125" class="label-md muted">Logic</text>
         <text x="536" y="173" class="label-md muted">Data</text>
         <text x="536" y="221" class="label-md muted">Tests</text>
 
         <!-- The slice through all layers -->
-        <rect x="612" y="46" width="64" height="196" rx="6" fill="#e3efe7" stroke="#2a6e4f" stroke-width="2"/>
-        <text x="644" y="150" text-anchor="middle" class="label-sm" fill="#2a6e4f" transform="rotate(-90 644 150)">ONE SLICE</text>
+        <rect x="612" y="46" width="64" height="196" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="2"/>
+        <text x="644" y="150" text-anchor="middle" class="label-sm" fill="#d5a527" transform="rotate(-90 644 150)">ONE SLICE</text>
 
         <text x="804" y="125" text-anchor="end" class="label-body muted">rest of the cake,</text>
         <text x="804" y="145" text-anchor="end" class="label-body muted">one slice at a</text>
@@ -213,6 +214,7 @@
     </div>
   </div>
 </main>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
 <script src="../assets/playbook-glossary.js?v=20260828-v04"></script>
 <script src="../assets/playbook-docs.js?v=20260828-v04"></script>

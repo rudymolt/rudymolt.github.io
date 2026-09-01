@@ -1,6 +1,6 @@
 # archive/ status
 
-archived_features: 0
+archived_features: 1
 
 > **This is a definitive empty state, not an error.** Created at bootstrap. If this file says 0 and there are no dated folders alongside it, nothing has shipped yet — the empty folder is the answer, not a problem.
 
@@ -12,4 +12,4 @@ Stage 10 (ship) moves `planning/{slug}/` here as `{YYYY-MM-DD}-{slug}/` → incr
 
 ## Archived features
 
-*(none — add one line per shipped feature: `- {YYYY-MM-DD}-{slug}`)*
+- 2026-08-30-portal-design-unification

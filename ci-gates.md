@@ -12,7 +12,7 @@
 | Local routes and assets | Resolve every relative `href` and `src` from each changed page; missing files block merge. |
 | Diff hygiene | `git diff --check` must pass. |
 | Responsive UI | For UI changes, verify 390px, 768px, and 1440px widths; require no body overflow and no browser console errors. |
-| Design conformance | Compare UI changes with Paper and the three project design artefacts; wording shared across desktop/mobile must be checked in both. |
+| Design conformance | Compare UI changes with Paper and the three project design artefacts; wording shared across desktop/mobile must be checked in both. Production-polish remediation must promote its surviving visual and interaction invariants back into every affected artefact before doc-close; the repository audit enforces the published-document parity contracts. |
 | Dependency advisories | Not applicable while the site has no package manager or runtime dependencies. Re-enable if a manifest or lockfile is introduced. |
 | Secrets | Run a diff-level secret scan before push; never commit `.env`, session data, credentials, or tokens. |
 | Acceptance criteria | Record the requested outcome and verification evidence in the PR body. |

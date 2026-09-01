@@ -1,0 +1,38 @@
+Production polish final verifier — deterministic evidence
+Candidate: c289088672c98fee30e6a370f1e166afa4a67cab
+Base: origin/main at 33181f730564d8d23f6e7334f8593c86a1be32e3
+Exact range: 33181f730564d8d23f6e7334f8593c86a1be32e3..c289088672c98fee30e6a370f1e166afa4a67cab
+HEAD during verification: c289088672c98fee30e6a370f1e166afa4a67cab
+Merge base with origin/main: 33181f730564d8d23f6e7334f8593c86a1be32e3
+
+Commits in range, oldest first:
+fd797cf1d634289634ad352a9cbfa73be44ed82f fix: polish published document controls
+dc29bee022397d392cc6932c25aebc0602a4173a test: record desktop guide disclosure finding
+c289088672c98fee30e6a370f1e166afa4a67cab fix: scope guide disclosure to mobile
+
+PASS git diff --check origin/main c289088672c98fee30e6a370f1e166afa4a67cab
+PASS python3 tools/audit_playbook.py
+  12/12 active pages parsed.
+  12/12 canonical content digests matched planning/portal-design-unification/canonical-content-baseline.json.
+  Local resources and routes resolved.
+PASS node --check agent-engineering-playbook/assets/playbook-docs.js
+PASS python3 -m json.tool planning/portal-design-unification/canonical-content-baseline.json
+PASS independent HTMLParser pass over all 12 active pages
+PASS node --check planning/portal-design-unification/verification/polish-pass-final/remediation-browser-harness.mjs
+PASS node --check planning/portal-design-unification/verification/polish-pass-final/broad-browser-harness.mjs
+
+Browser runs:
+PASS remediation-browser-harness.mjs
+  Chrome/152.0.7977.64
+  36 responsive page/width checks
+  15 screenshots
+  0 runtime failures
+PASS broad-browser-harness.mjs
+  Chrome/152.0.7977.64
+  21 representative screenshots
+  0 harness errors
+  Chrome, server, and disposable profile cleaned up
+
+Authority audit before report write:
+Only planning/portal-design-unification/verification/polish-pass-final/ was untracked.
+No product, source, test, spec, state, commit, branch, remote, PR, deployment, or external state was changed by this verifier.

@@ -1,0 +1,3262 @@
+{
+  "metadata": {
+    "candidate": "fd797cf1d634289634ad352a9cbfa73be44ed82f",
+    "startedAt": "2026-08-30T17:57:17.624Z",
+    "widths": [
+      390,
+      768,
+      1440
+    ],
+    "browser": "Chrome/152.0.7977.64",
+    "finishedAt": "2026-08-30T17:57:34.912Z"
+  },
+  "responsive": [
+    {
+      "path": "/agent-engineering-playbook/index.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Portal",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Drive agent →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "start-path",
+          "text": "Start the guided path →",
+          "width": 335,
+          "height": 66,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/00-foundations.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Frontend track",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Theory →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Run the full test suite",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Just look at the change and save",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Write a regression test first",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a security review",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/01-align.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Process map",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Breakdown →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a mockup of the main screen",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Challenge whether it's worth building at all",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Grill the technical plan against the docs",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Start building and see how it goes",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Align",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Frontend track →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build the database tables for bookings",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build all five booking screens",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "User can book one slot and see it confirmed",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Rewrite the whole booking system",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/index.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Drive agent",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Align →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 01 · Align",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 11 · Debug",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 10 · Ship",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 12 · Retro",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/20-frontend-track.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Breakdown",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Foundations →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent designs one on the spot and keeps going",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent stops, asks you, and updates the three files first",
+          "width": 297,
+          "height": 102.78,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent quietly reuses the nearest existing part",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent ships it and adds a note to document it later",
+          "width": 297,
+          "height": 77.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Theory",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Lite mode →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Deleted forever",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Moved to archive/",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Kept and updated forever",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Promoted to an ADR",
+          "width": 297,
+          "height": 51.59,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Process map →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Foundations",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Docs lifecycle →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/70-lite-mode.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Docs lifecycle",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Quickstart →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/80-quickstart.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.3,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Lite mode",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Portal →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/glossary.html",
+      "width": 390,
+      "documentWidth": 375,
+      "bodyWidth": 375,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Hub →",
+          "width": 162.5,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/index.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Portal",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Drive agent →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "start-path",
+          "text": "Start the guided path →",
+          "width": 691.56,
+          "height": 66,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/00-foundations.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Frontend track",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Theory →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Run the full test suite",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Just look at the change and save",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Write a regression test first",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a security review",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/01-align.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Process map",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Breakdown →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a mockup of the main screen",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Challenge whether it's worth building at all",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Grill the technical plan against the docs",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Start building and see how it goes",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Align",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Frontend track →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build the database tables for bookings",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build all five booking screens",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "User can book one slot and see it confirmed",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Rewrite the whole booking system",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/index.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Drive agent",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Align →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 01 · Align",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 11 · Debug",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 10 · Ship",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 12 · Retro",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/20-frontend-track.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Breakdown",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Foundations →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent designs one on the spot and keeps going",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent stops, asks you, and updates the three files first",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent quietly reuses the nearest existing part",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent ships it and adds a note to document it later",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Theory",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Lite mode →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Deleted forever",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Moved to archive/",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Kept and updated forever",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Promoted to an ADR",
+          "width": 653.56,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Process map →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Foundations",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Docs lifecycle →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/70-lite-mode.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Docs lifecycle",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Quickstart →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/80-quickstart.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 72,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Lite mode",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Portal →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/glossary.html",
+      "width": 768,
+      "documentWidth": 753,
+      "bodyWidth": 753,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Hub →",
+          "width": 340.78,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/index.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Portal",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Drive agent →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "start-path",
+          "text": "Start the guided path →",
+          "width": 693.59,
+          "height": 66,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/00-foundations.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Frontend track",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Theory →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Run the full test suite",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Just look at the change and save",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Write a regression test first",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a security review",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/01-align.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Process map",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Breakdown →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Ask for a mockup of the main screen",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Challenge whether it's worth building at all",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Grill the technical plan against the docs",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Start building and see how it goes",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Align",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Frontend track →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build the database tables for bookings",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Build all five booking screens",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "User can book one slot and see it confirmed",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Rewrite the whole booking system",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/10-process/index.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Drive agent",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Align →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 01 · Align",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 11 · Debug",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 10 · Ship",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Stage 12 · Retro",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/20-frontend-track.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Breakdown",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Foundations →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent designs one on the spot and keeps going",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent stops, asks you, and updates the three files first",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent quietly reuses the nearest existing part",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "The agent ships it and adds a note to document it later",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Theory",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Lite mode →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Deleted forever",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Moved to archive/",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Kept and updated forever",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        },
+        {
+          "selector": "BUTTON",
+          "text": "Promoted to an ADR",
+          "width": 693.59,
+          "height": 53.19,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Process map →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Foundations",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Docs lifecycle →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/70-lite-mode.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Docs lifecycle",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Quickstart →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/80-quickstart.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "guide-toggle",
+          "text": "Guide +",
+          "width": 69.06,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Lite mode",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Portal →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    },
+    {
+      "path": "/agent-engineering-playbook/glossary.html",
+      "width": 1440,
+      "documentWidth": 1425,
+      "bodyWidth": 1425,
+      "horizontalOverflow": false,
+      "targets": [
+        {
+          "selector": "skip-link",
+          "text": "Skip to main content",
+          "width": 184.02,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "masthead-portal",
+          "text": "← Rudy Molt portal",
+          "width": 137.66,
+          "height": 44,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Previous Hub",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        },
+        {
+          "selector": "A",
+          "text": "Next Hub →",
+          "width": 211,
+          "height": 45.98,
+          "pass": true
+        }
+      ],
+      "targetFloorPass": true,
+      "oneH1": true
+    }
+  ],
+  "quiz": [
+    {
+      "width": 390,
+      "before": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "after": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(213, 165, 39)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgb(213, 165, 39)",
+          "contrast": 8.88,
+          "height": 51.59,
+          "chosen": true,
+          "correct": true
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 51.59,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "interaction": {
+        "feedback": "✓ Right. A crash is a bug report, so it routes to Debug: reproduce the crash first, find the cause, fix it, and add a regression test so it cannot quietly return.",
+        "hidden": false,
+        "focused": true,
+        "role": "status"
+      },
+      "beforeShot": {
+        "file": "screenshots/process-390-quiz-before.png",
+        "x": 2,
+        "y": 8307.265625,
+        "width": 386,
+        "height": 455.53125
+      },
+      "afterShot": {
+        "file": "screenshots/process-390-quiz-after.png",
+        "x": 2,
+        "y": 8594.828125,
+        "width": 371,
+        "height": 658.6875
+      },
+      "pass": true
+    },
+    {
+      "width": 768,
+      "before": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "after": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(213, 165, 39)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgb(213, 165, 39)",
+          "contrast": 8.88,
+          "height": 53.19,
+          "chosen": true,
+          "correct": true
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "interaction": {
+        "feedback": "✓ Right. A crash is a bug report, so it routes to Debug: reproduce the crash first, find the cause, fix it, and add a regression test so it cannot quietly return.",
+        "hidden": false,
+        "focused": true,
+        "role": "status"
+      },
+      "beforeShot": {
+        "file": "screenshots/process-768-quiz-before.png",
+        "x": 12.71875,
+        "y": 5974.921875,
+        "width": 742.5625,
+        "height": 434.71875
+      },
+      "afterShot": {
+        "file": "screenshots/process-768-quiz-after.png",
+        "x": 12.71875,
+        "y": 6091.1875,
+        "width": 727.5625,
+        "height": 540.28125
+      },
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "before": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "after": [
+        {
+          "text": "Stage 01 · Align",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 11 · Debug",
+          "color": "rgb(213, 165, 39)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgb(213, 165, 39)",
+          "contrast": 8.88,
+          "height": 53.19,
+          "chosen": true,
+          "correct": true
+        },
+        {
+          "text": "Stage 10 · Ship",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        },
+        {
+          "text": "Stage 12 · Retro",
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(10, 6, 5)",
+          "border": "rgba(213, 165, 39, 0.28)",
+          "contrast": 16.38,
+          "height": 53.19,
+          "chosen": false,
+          "correct": false
+        }
+      ],
+      "interaction": {
+        "feedback": "✓ Right. A crash is a bug report, so it routes to Debug: reproduce the crash first, find the cause, fix it, and add a regression test so it cannot quietly return.",
+        "hidden": false,
+        "focused": true,
+        "role": "status"
+      },
+      "beforeShot": {
+        "file": "screenshots/process-1440-quiz-before.png",
+        "x": 454,
+        "y": 5582.96875,
+        "width": 770.390625,
+        "height": 434.71875
+      },
+      "afterShot": {
+        "file": "screenshots/process-1440-quiz-after.png",
+        "x": 446.5,
+        "y": 5582.96875,
+        "width": 770.390625,
+        "height": 540.28125
+      },
+      "pass": true
+    }
+  ],
+  "guide": [
+    {
+      "width": 390,
+      "rows": [
+        {
+          "text": "Previous Drive agent",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Previous",
+            "top": 168,
+            "bottom": 182.39,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 184.39,
+          "whiteSpace": "normal"
+        },
+        {
+          "text": "Next Align →",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Next",
+            "top": 168,
+            "bottom": 182.39,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 184.39,
+          "whiteSpace": "normal"
+        }
+      ],
+      "pass": true,
+      "disclosure": {
+        "applicable": true,
+        "initial": {
+          "expanded": "false",
+          "height": 44,
+          "display": "none"
+        },
+        "opened": {
+          "expanded": "true",
+          "display": "grid"
+        },
+        "closed": {
+          "expanded": "false",
+          "display": "none",
+          "focusReturned": true
+        },
+        "pass": true
+      },
+      "shot": {
+        "file": "screenshots/process-390-guide.png",
+        "x": 12,
+        "y": 79,
+        "width": 351,
+        "height": 153.984375
+      }
+    },
+    {
+      "width": 768,
+      "rows": [
+        {
+          "text": "Previous Drive agent",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Previous",
+            "top": 395.89,
+            "bottom": 410.28,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 412.28,
+          "whiteSpace": "normal"
+        },
+        {
+          "text": "Next Align →",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Next",
+            "top": 395.89,
+            "bottom": 410.28,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 412.28,
+          "whiteSpace": "normal"
+        }
+      ],
+      "pass": false,
+      "disclosure": {
+        "applicable": false,
+        "initial": {
+          "buttonDisplay": "block",
+          "expanded": "false",
+          "stepsDisplay": "grid",
+          "stepsHeight": 136
+        },
+        "after": {
+          "buttonDisplay": "block",
+          "expanded": "true",
+          "stepsDisplay": "grid",
+          "stepsHeight": 136
+        },
+        "pass": false
+      },
+      "shot": {
+        "file": "screenshots/process-768-guide.png",
+        "x": 22.71875,
+        "y": 126.890625,
+        "width": 707.5625,
+        "height": 333.984375
+      }
+    },
+    {
+      "width": 1440,
+      "rows": [
+        {
+          "text": "Previous Drive agent",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Previous",
+            "top": 779,
+            "bottom": 793.39,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 795.39,
+          "whiteSpace": "normal"
+        },
+        {
+          "text": "Next Align →",
+          "display": "grid",
+          "gap": "2px",
+          "height": 45.98,
+          "label": {
+            "text": "Next",
+            "top": 834.98,
+            "bottom": 849.38,
+            "fontSize": "9px",
+            "color": "rgb(213, 165, 39)"
+          },
+          "destinationTop": 851.38,
+          "whiteSpace": "normal"
+        }
+      ],
+      "pass": false,
+      "disclosure": {
+        "applicable": false,
+        "initial": {
+          "buttonDisplay": "inline-block",
+          "expanded": "false",
+          "stepsDisplay": "grid",
+          "stepsHeight": 495
+        },
+        "after": {
+          "buttonDisplay": "inline-block",
+          "expanded": "true",
+          "stepsDisplay": "grid",
+          "stepsHeight": 495
+        },
+        "pass": false
+      },
+      "shot": {
+        "file": "screenshots/process-1440-guide.png",
+        "x": 160.5,
+        "y": 101,
+        "width": 248,
+        "height": 781.96875
+      }
+    }
+  ],
+  "hub": [
+    {
+      "width": 390,
+      "normal": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(244, 231, 194)",
+          "outlineOffset": "0px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-390-start-normal.png",
+          "x": 8,
+          "y": 1476.390625,
+          "width": 359,
+          "height": 90
+        }
+      },
+      "visited": null,
+      "hover": null,
+      "focus": null,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "normal": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(244, 231, 194)",
+          "outlineOffset": "0px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-768-start-normal.png",
+          "x": 18.71875,
+          "y": 1234.21875,
+          "width": 715.5625,
+          "height": 90
+        }
+      },
+      "visited": null,
+      "hover": null,
+      "focus": null,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "normal": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(244, 231, 194)",
+          "outlineOffset": "0px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-1440-start-normal.png",
+          "x": 452.5,
+          "y": 881.1875,
+          "width": 717.59375,
+          "height": 90
+        }
+      },
+      "visited": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(244, 231, 194)",
+          "outlineOffset": "0px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-1440-start-visited.png",
+          "x": 452.5,
+          "y": 881.1875,
+          "width": 717.59375,
+          "height": 90
+        }
+      },
+      "hover": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(36, 1, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "none",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(244, 231, 194)",
+          "outlineOffset": "0px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-1440-start-hover.png",
+          "x": 460,
+          "y": 881.1875,
+          "width": 717.59375,
+          "height": 90
+        }
+      },
+      "focus": {
+        "computed": {
+          "color": "rgb(244, 231, 194)",
+          "background": "rgb(36, 1, 0)",
+          "borderTop": "rgba(213, 165, 39, 0.58)",
+          "borderBottom": "rgba(213, 165, 39, 0.58)",
+          "outlineStyle": "solid",
+          "outlineWidth": "2px",
+          "outlineColor": "rgb(240, 196, 92)",
+          "outlineOffset": "4px",
+          "height": 66,
+          "url": "http://127.0.0.1:34529/agent-engineering-playbook/index.html"
+        },
+        "shot": {
+          "file": "screenshots/hub-1440-start-focus.png",
+          "x": 460,
+          "y": 881.1875,
+          "width": 717.59375,
+          "height": 90
+        }
+      },
+      "pass": true
+    }
+  ],
+  "runtime": [
+    {
+      "path": "agent-engineering-playbook/index.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [
+        {
+          "url": "http://127.0.0.1:34529/favicon.ico",
+          "status": 404,
+          "type": "Other"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/00-foundations.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/01-align.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/20-frontend-track.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/70-lite-mode.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/80-quickstart.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/glossary.html",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html#state-probes",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/index.html#state-probes",
+      "width": 390,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/index.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/00-foundations.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/01-align.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/20-frontend-track.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/70-lite-mode.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/80-quickstart.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/glossary.html",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html#state-probes",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/index.html#state-probes",
+      "width": 768,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/index.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/00-foundations.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/01-align.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/04-breakdown.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/20-frontend-track.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/30-document-lifecycle.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/50-how-to-write-code-with-ai.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/60-the-theory-behind-the-playbook.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/70-lite-mode.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/80-quickstart.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/glossary.html",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/10-process/index.html#state-probes",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    },
+    {
+      "path": "agent-engineering-playbook/index.html#state-probes",
+      "width": 1440,
+      "console": [],
+      "exceptions": [],
+      "network": [],
+      "http": [],
+      "ignored": [],
+      "pass": true
+    }
+  ],
+  "cleanup": {
+    "chromeStopped": true,
+    "serverStopped": true,
+    "profileRemoved": true
+  },
+  "verdict": "FAIL"
+}

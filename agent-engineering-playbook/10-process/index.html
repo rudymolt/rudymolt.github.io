@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Process Map · AI Engineering Playbook V0.4</title>
-<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260828-v04">
+<link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
   <a class="brand" href="../index.html">AI Engineering Playbook</a>
   <div class="links">
@@ -22,7 +23,7 @@
   </div>
 </nav>
 
-<main class="page">
+<main class="page" id="main-content" tabindex="-1">
   <div class="guide-layout">
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
@@ -76,108 +77,108 @@
     <svg viewBox="0 0 940 350" class="diagram" role="img" aria-label="The process drawn as a loop. The main path runs Align (agree the plan), Context (write terms down), PRD (one-page spec), Slice (cut it up), Build (one slice at a time), Review (check the code), QA (try it for real), Ship (go live). After Ship, Retro captures lessons, and a dashed arrow returns from Ship to Align for the next feature. Three side doors join the loop at any time: Triage when you ask what's next, Architecture when the code feels messy, Debug when something broke.">
       <defs>
         <marker id="arrow-map" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
         </marker>
       </defs>
 
       <!-- Return arrow (drawn first, behind nodes) -->
       <path d="M 871 68 C 871 18, 66 18, 66 66"
-            stroke="#4a4a44" stroke-width="1.5" fill="none"
+            stroke="#b9a98a" stroke-width="1.5" fill="none"
             stroke-dasharray="5 4" marker-end="url(#arrow-map)"/>
       <text x="470" y="22" text-anchor="middle" class="label-mono muted">← next feature</text>
 
       <!-- Main path nodes -->
       <!-- Align -->
       <g>
-        <rect x="20" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
-        <text x="66" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">01</text>
+        <rect x="20" y="68" width="92" height="56" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
+        <text x="66" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">01</text>
         <text x="66" y="110" text-anchor="middle" class="label-md ink">Align</text>
         <text x="66" y="146" text-anchor="middle" class="label-body ink-soft">agree</text>
         <text x="66" y="162" text-anchor="middle" class="label-body ink-soft">the plan</text>
       </g>
       <!-- Context -->
       <g>
-        <rect x="135" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
-        <text x="181" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">02</text>
+        <rect x="135" y="68" width="92" height="56" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
+        <text x="181" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">02</text>
         <text x="181" y="110" text-anchor="middle" class="label-md ink">Context</text>
         <text x="181" y="146" text-anchor="middle" class="label-body ink-soft">write terms</text>
         <text x="181" y="162" text-anchor="middle" class="label-body ink-soft">down</text>
       </g>
       <!-- PRD -->
       <g>
-        <rect x="250" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
-        <text x="296" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">03</text>
+        <rect x="250" y="68" width="92" height="56" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
+        <text x="296" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">03</text>
         <text x="296" y="110" text-anchor="middle" class="label-md ink">PRD</text>
         <text x="296" y="146" text-anchor="middle" class="label-body ink-soft">one-page</text>
         <text x="296" y="162" text-anchor="middle" class="label-body ink-soft">spec</text>
       </g>
       <!-- Slice -->
       <g>
-        <rect x="365" y="68" width="92" height="56" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
-        <text x="411" y="90" text-anchor="middle" class="label-sm" fill="#1e4e8c">04</text>
+        <rect x="365" y="68" width="92" height="56" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
+        <text x="411" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">04</text>
         <text x="411" y="110" text-anchor="middle" class="label-md ink">Slice</text>
         <text x="411" y="146" text-anchor="middle" class="label-body ink-soft">cut it up</text>
       </g>
       <!-- Build -->
       <g>
-        <rect x="480" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
-        <text x="526" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">07</text>
+        <rect x="480" y="68" width="92" height="56" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
+        <text x="526" y="90" text-anchor="middle" class="label-sm" fill="#d5a527">07</text>
         <text x="526" y="110" text-anchor="middle" class="label-md ink">Build</text>
         <text x="526" y="146" text-anchor="middle" class="label-body ink-soft">one slice</text>
         <text x="526" y="162" text-anchor="middle" class="label-body ink-soft">at a time</text>
       </g>
       <!-- Review -->
       <g>
-        <rect x="595" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
-        <text x="641" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">08</text>
+        <rect x="595" y="68" width="92" height="56" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
+        <text x="641" y="90" text-anchor="middle" class="label-sm" fill="#d5a527">08</text>
         <text x="641" y="110" text-anchor="middle" class="label-md ink">Review</text>
         <text x="641" y="146" text-anchor="middle" class="label-body ink-soft">check</text>
         <text x="641" y="162" text-anchor="middle" class="label-body ink-soft">the code</text>
       </g>
       <!-- QA -->
       <g>
-        <rect x="710" y="68" width="92" height="56" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
-        <text x="756" y="90" text-anchor="middle" class="label-sm" fill="#2a6e4f">09</text>
+        <rect x="710" y="68" width="92" height="56" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
+        <text x="756" y="90" text-anchor="middle" class="label-sm" fill="#d5a527">09</text>
         <text x="756" y="110" text-anchor="middle" class="label-md ink">QA</text>
         <text x="756" y="146" text-anchor="middle" class="label-body ink-soft">try it</text>
         <text x="756" y="162" text-anchor="middle" class="label-body ink-soft">for real</text>
       </g>
       <!-- Ship -->
       <g>
-        <rect x="825" y="68" width="92" height="56" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
-        <text x="871" y="90" text-anchor="middle" class="label-sm" fill="#8a4b16">10</text>
+        <rect x="825" y="68" width="92" height="56" rx="4" fill="#4a0708" stroke="#f0c45c" stroke-width="1.5"/>
+        <text x="871" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">10</text>
         <text x="871" y="110" text-anchor="middle" class="label-md ink">Ship</text>
         <text x="871" y="146" text-anchor="middle" class="label-body ink-soft">go live</text>
       </g>
 
       <!-- Arrows along the main path -->
-      <line x1="112" y1="96" x2="135" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="227" y1="96" x2="250" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="342" y1="96" x2="365" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="457" y1="96" x2="480" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="572" y1="96" x2="595" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="687" y1="96" x2="710" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
-      <line x1="802" y1="96" x2="825" y2="96" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="112" y1="96" x2="135" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="227" y1="96" x2="250" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="342" y1="96" x2="365" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="457" y1="96" x2="480" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="572" y1="96" x2="595" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="687" y1="96" x2="710" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="802" y1="96" x2="825" y2="96" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
 
       <!-- Retro -->
       <g>
-        <rect x="825" y="206" width="92" height="56" rx="8" fill="#fbfaf6" stroke="#8a4b16" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <text x="871" y="228" text-anchor="middle" class="label-sm" fill="#8a4b16">12</text>
+        <rect x="825" y="206" width="92" height="56" rx="4" fill="#0a0605" stroke="#f0c45c" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="871" y="228" text-anchor="middle" class="label-sm" fill="#f0c45c">12</text>
         <text x="871" y="248" text-anchor="middle" class="label-md ink">Retro</text>
         <text x="871" y="284" text-anchor="middle" class="label-body ink-soft">lessons learned</text>
       </g>
-      <line x1="871" y1="170" x2="871" y2="206" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-map)"/>
+      <line x1="871" y1="170" x2="871" y2="206" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-map)"/>
 
       <!-- Side doors -->
       <g>
-        <rect x="20" y="206" width="720" height="110" rx="8" fill="#ffffff" stroke="#e2dfd3"/>
+        <rect x="20" y="206" width="720" height="110" rx="4" fill="#0a0605" stroke="#d5a527"/>
         <text x="40" y="234" class="label-sm muted">SIDE DOORS · JUMP IN FROM HERE ANY TIME</text>
         <text x="40" y="266" class="label-md ink">05 Triage</text>
-        <text x="40" y="288" class="label-mono" fill="#1e4e8c">"What should I work on?"</text>
+        <text x="40" y="288" class="label-mono" fill="#f0c45c">"What should I work on?"</text>
         <text x="290" y="266" class="label-md ink">06 Architecture</text>
-        <text x="290" y="288" class="label-mono" fill="#1e4e8c">"The code feels messy."</text>
+        <text x="290" y="288" class="label-mono" fill="#f0c45c">"The code feels messy."</text>
         <text x="540" y="266" class="label-md ink">11 Debug</text>
-        <text x="540" y="288" class="label-mono" fill="#1e4e8c">"Something broke."</text>
+        <text x="540" y="288" class="label-mono" fill="#f0c45c">"Something broke."</text>
       </g>
     </svg>
   </section>
@@ -275,6 +276,7 @@
     </div>
   </div>
 </main>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
 <script src="../assets/playbook-glossary.js?v=20260828-v04"></script>
 <script src="../assets/playbook-docs.js?v=20260828-v04"></script>

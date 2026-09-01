@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Document Lifecycle · AI Engineering Playbook V0.4</title>
-<link rel="stylesheet" href="assets/playbook-docs.css?v=20260828-v04">
+<link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
   <a class="brand" href="index.html">AI Engineering Playbook</a>
   <div class="links">
@@ -22,7 +23,7 @@
   </div>
 </nav>
 
-<main class="page">
+<main class="page" id="main-content" tabindex="-1">
   <div class="guide-layout">
     <aside class="guide-timeline" aria-label="Guide path">
       <p class="guide-title">Guide path</p>
@@ -80,45 +81,45 @@
     <svg viewBox="0 0 900 330" class="diagram" role="img" aria-label="The journey of one document. The feature starts; plan-notes.md is used daily during the build. At ship, doc-close asks 'what now?' and the document splits three ways: a decision that is hard to undo is promoted to an ADR and kept; words everyone now uses are promoted to CONTEXT.md and kept; the rest moves to the archive folder — out of the agent's sight, but not deleted.">
       <defs>
         <marker id="arrow-doc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a44"/>
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
         </marker>
       </defs>
 
       <!-- Start marker -->
       <text x="40" y="40" class="label-sm muted">FEATURE STARTS</text>
-      <line x1="60" y1="50" x2="60" y2="90" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
+      <line x1="60" y1="50" x2="60" y2="90" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
 
       <!-- plan-notes.md -->
-      <rect x="20" y="96" width="200" height="60" rx="8" fill="#ffffff" stroke="#1e4e8c" stroke-width="1.5"/>
-      <text x="120" y="122" text-anchor="middle" class="label-mono" fill="#1e4e8c">plan-notes.md</text>
+      <rect x="20" y="96" width="200" height="60" rx="4" fill="#0a0605" stroke="#f0c45c" stroke-width="1.5"/>
+      <text x="120" y="122" text-anchor="middle" class="label-mono" fill="#f0c45c">plan-notes.md</text>
       <text x="120" y="142" text-anchor="middle" class="label-body ink-soft">used daily during the build</text>
 
       <!-- arrow to doc-close -->
-      <line x1="220" y1="126" x2="370" y2="126" stroke="#4a4a44" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
+      <line x1="220" y1="126" x2="370" y2="126" stroke="#b9a98a" stroke-width="1.5" marker-end="url(#arrow-doc)"/>
       <text x="295" y="114" text-anchor="middle" class="label-sm muted">FEATURE SHIPS</text>
 
       <!-- doc-close decision -->
-      <rect x="374" y="96" width="150" height="60" rx="8" fill="#f6ece0" stroke="#8a4b16" stroke-width="1.5"/>
+      <rect x="374" y="96" width="150" height="60" rx="4" fill="#4a0708" stroke="#f0c45c" stroke-width="1.5"/>
       <text x="449" y="122" text-anchor="middle" class="label-md ink">doc-close</text>
       <text x="449" y="142" text-anchor="middle" class="label-body ink-soft">what now?</text>
 
       <!-- three branches -->
-      <path d="M 524 110 C 580 90, 600 60, 640 56" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
-      <path d="M 524 126 C 580 126, 600 156, 640 156" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
-      <path d="M 524 142 C 580 162, 600 246, 640 252" stroke="#4a4a44" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+      <path d="M 524 110 C 580 90, 600 60, 640 56" stroke="#b9a98a" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+      <path d="M 524 126 C 580 126, 600 156, 640 156" stroke="#b9a98a" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
+      <path d="M 524 142 C 580 162, 600 246, 640 252" stroke="#b9a98a" stroke-width="1.5" fill="none" marker-end="url(#arrow-doc)"/>
 
       <!-- ADR -->
-      <rect x="644" y="28" width="236" height="58" rx="8" fill="#e6edf6" stroke="#1e4e8c" stroke-width="1.5"/>
+      <rect x="644" y="28" width="236" height="58" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
       <text x="660" y="52" class="label-md ink">→ ADR <tspan class="label-body ink-soft">(keep)</tspan></text>
       <text x="660" y="72" class="label-body ink-soft">a decision that is hard to undo</text>
 
       <!-- CONTEXT.md -->
-      <rect x="644" y="128" width="236" height="58" rx="8" fill="#e3efe7" stroke="#2a6e4f" stroke-width="1.5"/>
+      <rect x="644" y="128" width="236" height="58" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
       <text x="660" y="152" class="label-md ink">→ CONTEXT.md <tspan class="label-body ink-soft">(keep)</tspan></text>
       <text x="660" y="172" class="label-body ink-soft">words everyone now uses</text>
 
       <!-- archive -->
-      <rect x="644" y="224" width="236" height="58" rx="8" fill="#fbfaf6" stroke="#7a786f" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <rect x="644" y="224" width="236" height="58" rx="4" fill="#0a0605" stroke="#b9a98a" stroke-width="1.5" stroke-dasharray="4 3"/>
       <text x="660" y="248" class="label-md ink">→ archive/</text>
       <text x="660" y="268" class="label-body ink-soft">the rest — out of the agent's</text>
       <text x="660" y="284" class="label-body ink-soft">sight, but not deleted</text>
@@ -195,6 +196,7 @@
     </div>
   </div>
 </main>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
 <script src="assets/playbook-glossary.js?v=20260828-v04"></script>
 <script src="assets/playbook-docs.js?v=20260828-v04"></script>

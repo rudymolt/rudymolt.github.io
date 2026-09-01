@@ -14,6 +14,10 @@ Operations Team markdown artifacts are included as background for the workflow e
 
 The AI Engineering Playbook publication includes the interactive HTML guide pages and shared static assets from the playbook repo. Backups, scripts, references, and markdown source files are kept out of the published site.
 
+## Releases
+
+- [Portal-wide published-document design migration](docs/releases/2026-08-30-portal-design-unification.md) — shipped 2026-08-30.
+
 ## Publish With GitHub Pages
 
 For a user site, create a GitHub repository named `rudymolt.github.io`, then push this project to the `main` branch.
