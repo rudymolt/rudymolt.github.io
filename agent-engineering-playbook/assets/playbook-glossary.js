@@ -180,11 +180,21 @@ window.PLAYBOOK_GLOSSARY = {
   },
   pr: {
     title: "Pull request (PR)",
-    def: "A proposal to add changes to the main code. A person has to review and accept it before it lands."
+    def: "A proposal to add changes to the main code. Review and required checks precede merge; delivery normally hands the exact PR to the human. Optional fresh-agent merge requires separate authority."
+  },
+  spec: {
+    title: "Specification (spec)",
+    def: "The stage 03 agreement on a feature: intended behaviour, constraints, non-goals and acceptance criteria. /to-spec records it before /to-tickets turns it into slices.",
+    group: "playbook"
+  },
+  lifecycletier: {
+    title: "Document lifecycle tier",
+    def: "Three lifetimes: ephemeral planning is archived at ship, permanent decisions survive as ADRs, and living docs evolve with the code. This is distinct from whether a file may be edited by hand.",
+    group: "playbook"
   },
   prd: {
-    title: "PRD",
-    def: "Product Requirements Document - a one-page description of what a feature should do, written before building starts."
+    title: "Specification (legacy PRD term)",
+    def: "The current stage 03 output is a spec: a short description of agreed behaviour, constraints, non-goals and acceptance criteria before building."
   },
   productcall: {
     title: "Product call",
@@ -200,7 +210,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   redgreen: {
     title: "Red / green",
-    def: "A failing test is red; once code makes it pass it turns green. Test-first work goes red, then green, then tidy-up."
+    def: "A failing test is red; the minimum implementation makes it green. Test one behaviour at the agreed public interface. Structural refactoring belongs in the review stage."
   },
   refactor: {
     title: "Refactor",
@@ -224,7 +234,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   slashcommand: {
     title: "Slash command / skill",
-    def: "A pre-written instruction pack installed into the agent. You never type these - your plain sentences trigger them. The names (like /autoplan) are shown so you can recognise what the agent is doing."
+    def: "A reusable instruction pack installed into the agent. Plain-language requests can route to skills; optional workflows such as /wayfinder ask the human to invoke the named skill."
   },
   slice: {
     title: "Slice (vertical slice)",
@@ -348,8 +358,8 @@ window.PLAYBOOK_GLOSSARY = {
     group: "playbook"
   },
   upgradeproject: {
-    title: "/upgrade-project",
-    def: "A skill that brings a project set up under an older playbook version up to date: it reads the project's recorded version, walks the changelog, and applies changes carefully - copying new files, patching boilerplate with diffs shown, and only proposing changes to content you wrote.",
+    title: "/ai-playbook-upgrade-project",
+    def: "The playbook skill for upgrading an existing project: inspect its recorded version and managed files, show the proposed changes, preserve project-owned content, and apply the approved plan.",
     group: "playbook"
   },
   firstrule: {
@@ -369,7 +379,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   litemode: {
     title: "Lite mode",
-    def: "The playbook subset for small projects: align, test-first, review, ship, with the first rule intact and almost no files. It drops the machinery that manages scale (PRDs, trackers, state files) and names a tripwire for the moment a project has grown enough to graduate to the full loop.",
+    def: "The playbook subset for small projects: align, test-first, review, ship, with the first rule intact and almost no files. It drops the machinery that manages scale (specifications, trackers, state files) and names a tripwire for the moment a project has grown enough to graduate to the full loop.",
     group: "playbook"
   },
   quickstart: {
@@ -379,24 +389,24 @@ window.PLAYBOOK_GLOSSARY = {
   },
   securityfloor: {
     title: "The security floor",
-    def: "A small set of non-negotiable minimums: secrets never go into tracked files, a committed secret is rotated rather than just deleted, dependencies are deliberate with lockfiles committed, input is validated at every boundary the project owns, and irreversible operations get a rehearsed rollback before they ship.",
+    def: "A small set of non-negotiable minimums: secrets never go into tracked files, an exposed secret is a human-handled incident: report its location without deleting or replacing it yourself, dependencies are deliberate with lockfiles committed, input is validated at every boundary the project owns, and irreversible operations get a rehearsed rollback before they ship.",
     group: "playbook"
   },
 
-  /* ---- V0.3 additions ---- */
+  /* ---- Verification and delivery ---- */
   determinismgradient: {
     title: "Determinism gradient",
-    def: "A rule can be enforced anywhere on a scale: from a gentle written reminder the agent might forget, up to a hard automatic check that runs every single time without fail. ('Determinism' just names that reliable, happens-every-time end of the scale.) V0.3 moves each safety-critical rule as far towards the automatic end as is cheap and practical, so it is enforced by machine rather than left to memory.",
+    def: "The scale from written prompts through preconditions, evidence and handoffs to tool-enforced gates. Each rule should state how it is actually enforced; a process instruction alone is not an unbypassable boundary.",
     group: "playbook"
   },
   gate: {
     title: "Gate",
-    def: "An automatic check the work has to pass before it can move on - for example, a scan that blocks a change if it contains a password. A gate enforces a rule by machine, instead of relying on someone remembering it.",
+    def: "A required check or decision before work proceeds. Some gates are enforced by scripts or the host; others require a recorded human decision or process evidence.",
     group: "playbook"
   },
   independentverifier: {
     title: "Independent verifier",
-    def: "The check that signs off the agent's work, done with fresh eyes so it cannot simply trust the work it just did. In practice it is one of two things: the same tool (Claude or Codex) started again in a brand-new session with no memory of writing the code, or a different model entirely - for example, if Codex wrote the code, Claude checks it. Either way it must show real evidence (what it ran and the result), not just say 'looks fine', and for anything beyond a trivial change it cannot be skipped.",
+    def: "A different agent in a fresh context without the builder transcript, executing relevant checks and showing evidence. Required at cross-module changes and above, and per slice for opt-in multi-slice builds. Security and irreversible-data checks cannot be self-certified. Fixes require fresh verification.",
     group: "playbook"
   },
   earnedautonomy: {
@@ -406,7 +416,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   budgetceiling: {
     title: "Budget ceiling",
-    def: "A concrete limit a project sets on a single unattended run (a run you leave the agent to do on its own) - how much it may spend, how long it may run, and how many times it may retry. When a ceiling is reached the agent stops and reports back instead of pressing on.",
+    def: "A selected hard time, cost, iteration or dispatch limit that stops the run. Actual quotas and failure/no-progress guards also bind. Ordinary estimates and time checkpoints report progress rather than demand extensions; protected delivery requires approved ceilings.",
     group: "playbook"
   },
   fieldreport: {

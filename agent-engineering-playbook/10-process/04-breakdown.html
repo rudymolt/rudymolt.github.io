@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vertical Slice Checker · AI Engineering Playbook V0.4</title>
+<title>Vertical Slice Checker · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -161,6 +161,7 @@
 
   <section class="interactive-panel" data-checklist>
     <h2>Does This Slice Pass?</h2>
+    <p><code>/to-tickets</code> turns an approved spec into ordered slices with explicit blockers. A wide mechanical refactor may use the documented expand–contract exception: introduce the new interface, migrate callers, then remove the old one.</p>
     <div class="checklist">
       <label><input type="checkbox"> <span>It has one
         <button class="term" type="button" data-def="demoable">demoable</button>
@@ -173,12 +174,13 @@
         <button class="term" type="button" data-def="test">tests</button>.
         <span class="why">A thin wedge of the whole cake — not one layer of it.</span></span></label>
       <label><input type="checkbox"> <span>It is independently grabbable.
-        <span class="why">Someone else (or a second agent) could pick this up without waiting on other unfinished work.</span></span></label>
+        <span class="why">Someone else (or a second agent) can pick this up once its declared blockers are complete.</span></span></label>
       <label><input type="checkbox"> <span>It is tagged
         <button class="term" type="button" data-def="afkhitl">AFK or HITL</button>.
         <span class="why">Marked either "agent can finish alone" or "will need to stop and ask me something".</span></span></label>
       <label><input type="checkbox"> <span>It has a dependency line: depends on nothing, or depends on #NNN.
         <span class="why">#NNN is just a ticket number in the <button class="term" type="button" data-def="issuetracker">issue tracker</button> — "depends on #12" means ticket 12 must land first.</span></span></label>
+      <label><input type="checkbox"> <span>It names a verification target: the public behaviour or interface the checker will exercise and the expected evidence.</span></label>
       <label><input type="checkbox"> <span>It is small enough to finish in one focused session.
         <span class="why">If the to-do list keeps growing while you build, the slice was too big.</span></span></label>
     </div>
@@ -216,7 +218,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="../assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="../assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="../assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="../assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To Write Code With AI · AI Engineering Playbook V0.4</title>
+<title>How To Write Code With AI · AI Engineering Playbook V0.5</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -14,7 +14,7 @@
   a Markdown document.
 
   Status: Source of truth
-  Last verified: 2026-08-28 (playbook V0.4.0)
+  Last verified: 2026-09-27 (playbook V0.5.0)
   Audience: Human project owner
 
   Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
@@ -531,7 +531,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.4 · §50</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.5 · §50</div>
     <h1>How To Write Code With AI</h1>
     <p class="lede">
       A field guide to driving an AI coding agent through the playbook
@@ -541,7 +541,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-08-28 · playbook V0.4.0</span>
+      <span><strong>Last verified</strong> · 2026-09-27 · playbook V0.5.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML (canonical)</span>
     </div>
@@ -695,7 +695,7 @@ This should be possible.</code></pre>
 
     <div class="callout">
       <strong>The agent now finds its own way through the process.</strong>
-      As of V0.2 the agent reads a one-page map of the playbook before it
+      The agent reads a one-page map of the playbook before it
       starts, each step tells it where to go next, and the project keeps a
       pre-computed running status the agent reads in one glance. None of this
       changes your side of the contract — you still type the same plain-English
@@ -710,9 +710,11 @@ This should be possible.</code></pre>
   <section id="loop">
     <h2><span class="num">02</span>The development loop</h2>
     <p class="section-lede">
-      Five stages, run in order. Loop back to <em>Align</em> for the next
-      feature. Keep the trips around the loop short — one slice at a time, with
-      the agent pausing for your go-ahead after each slice.
+      Five everyday steps, run in order. Loop back to <em>Align</em> for the next
+      feature. Build one slice at a time. With the default <code>build one</code>,
+      the agent pauses after that slice. Opt into <code>build all</code> or
+      <code>build to &lt;slice&gt;</code> to continue through AFK slices, with
+      independent review after each slice and a human checkpoint at the selected endpoint.
     </p>
 
     <div class="callout">
@@ -746,7 +748,7 @@ This should be possible.</code></pre>
       <!-- 1. Align -->
       <g transform="translate(40,100)">
         <circle cx="60" cy="60" r="54" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
-        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STAGE 01</text>
+        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STEP 01</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Align</text>
         <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">grill the plan</text>
       </g>
@@ -754,7 +756,7 @@ This should be possible.</code></pre>
       <!-- 2. Slice -->
       <g transform="translate(220,100)">
         <circle cx="60" cy="60" r="54" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
-        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STAGE 02</text>
+        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STEP 02</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Slice</text>
         <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">break it up</text>
       </g>
@@ -762,7 +764,7 @@ This should be possible.</code></pre>
       <!-- 3. Build -->
       <g transform="translate(400,100)">
         <circle cx="60" cy="60" r="54" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
-        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#d5a527">STAGE 03</text>
+        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#d5a527">STEP 03</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Build</text>
         <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">one slice</text>
       </g>
@@ -770,7 +772,7 @@ This should be possible.</code></pre>
       <!-- 4. Review -->
       <g transform="translate(580,100)">
         <circle cx="60" cy="60" r="54" fill="#0a0605" stroke="#d5a527" stroke-width="1.5"/>
-        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#d5a527">STAGE 04</text>
+        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#d5a527">STEP 04</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Review</text>
         <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">&amp; correct</text>
       </g>
@@ -778,7 +780,7 @@ This should be possible.</code></pre>
       <!-- 5. Ship -->
       <g transform="translate(760,100)">
         <circle cx="60" cy="60" r="54" fill="#4a0708" stroke="#f0c45c" stroke-width="1.5"/>
-        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STAGE 05</text>
+        <text x="60" y="50" text-anchor="middle" class="label-sm" fill="#f0c45c">STEP 05</text>
         <text x="60" y="72" text-anchor="middle" class="label-lg ink">Ship</text>
         <text x="60" y="92" text-anchor="middle" class="label-body ink-soft">exact PR</text>
       </g>
@@ -836,11 +838,10 @@ This should be possible.</code></pre>
       <div class="callout">
         <strong>Mockup before code, for anything with a screen.</strong> Once
         the grilling settles the vocabulary, the agent should turn the agreed
-        terms into an HTML <button class="term" type="button" data-def="mockup">mockup</button> — in the project's own visual language — and
+        terms into an ASCII sketch for your approval, then an HTML <button class="term" type="button" data-def="mockup">mockup</button> — in the project's own visual language — and
         show it to you <em>before</em> any implementation planning. You react to
         a real screen instead of a description, which heads off layout churn
-        later. Alignment isn't done until the mockup is accepted or you've
-        explicitly deferred it.
+        later. Approve the ASCII sketch first; interactive or non-trivial UI also requires an approved HTML mockup before implementation planning.
       </div>
     </div>
 
@@ -878,13 +879,7 @@ This should be possible.</code></pre>
         on the main line (<code>main</code>).
       </div>
       <div class="callout">
-        <strong>One slice, then a pause.</strong> When a slice is built and
-        verified, the agent makes one <button class="term" type="button" data-def="atomiccommit">atomic commit</button> for it and then
-        <em>stops</em> — it will not roll straight into the next slice on its own.
-        It reports what changed, which checks passed, and the commit, then asks
-        whether to continue, pause, or change direction. Each slice boundary is
-        a decision point that belongs to you. Reply <code>Build the next slice.</code>
-        when you're happy to proceed.
+        <strong>Choose the endpoint.</strong> <code>build one</code> is the default. Choose <code>build all</code> or <code>build to &lt;slice&gt;</code> to opt into a sequence of AFK slices, with independent review after each slice and a cross-slice review at the final checkpoint. Necessary reversible fixes re-enter fresh verification. HITL work, ambiguity, Stop, three identical failures or no progress, selected hard limits and actual quotas still pause the run.
       </div>
     </div>
 
@@ -920,16 +915,26 @@ This should be possible.</code></pre>
   <!-- ====================================================== -->
   <!-- 3. SHIP & GITHUB HANDOFF                               -->
   <!-- ====================================================== -->
+  <section id="cloud-delivery">
+    <h2>Using Conductor and cloud delivery</h2>
+    <p>The playbook is a process kit, not a particular coding app. Codex and Claude Code are example harnesses; other hosts can use the process when they provide the needed tools, permissions and skill-loading support. Stage 00 checks those capabilities. Model choices at Plan, Build and Verify are verified before work is routed.</p>
+    <p>The author's workflow uses Conductor to manage local workspaces and Conductor Cloud for unattended work. When Conductor is detected or requested, bootstrap uses its bundled setup skill to propose setup and Run commands, copied files, ports, concurrency, validation and activation. Review that plan before applying it.</p>
+    <p>A local chat does not automatically become a cloud run. Set up the cloud workspace, credentials and required tools, then use an explicit handoff with the approved feature, branch, revision, tracker, dependencies and evidence. The receiving agent rechecks current state; a handoff is not a substitute for verification.</p>
+    <p>Full project bootstrap installs the delivery runtime and <code>/ai-playbook-deliver</code>. Installation alone does not authorise unattended work: capability checks and mission approval still come first. For a complete feature without routine intervention, approve a delivery mission's scope, limits, stopping conditions and decisions first. <code>/ai-playbook-deliver</code> carries AFK work through Build → fresh Verify → real-use QA → exact PR handback. Fixes return to the builder and are verified again. Missing authority, HITL decisions or stopping conditions bring it back to you. Normal delivery does not include merge, deployment or release.</p>
+    <p>Conductor is optional. Follow the same stage contracts in another supported harness, using verified manual routes where an accelerator is unavailable. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/10-process/delivery-mission.md">delivery mission reference</a> defines the precise boundaries.</p>
+  </section>
+
   <section id="ship">
     <h2><span class="num">03</span>The ship &amp; GitHub handoff</h2>
+    <p>After merge and production verification, doc-close, current-release pointers and the same-session feature retro share one fresh closeout branch and one PR. Pending closeouts stay visible until those obligations are complete.</p>
     <p class="section-lede">
-      The normal V0.4 ship route produces an exact pull request and hands it
+      The normal V0.5 ship route produces an exact pull request and hands it
       back to the human. The diagram below shows that default route. A project
       may separately enable a narrow fresh-agent merge route, explained below.
     </p>
 
     <div class="callout">
-      <strong>What V0.4 adds.</strong> After you approve the exact scope, limits,
+      <strong>An approved delivery mission.</strong> After you approve the exact scope, limits,
       and stopping conditions, <code>/ai-playbook-deliver</code> can carry the
       work through Build → fresh Verify → QA → exact PR handback. The verifier
       starts in a clean context and has to rerun the checks and show its
@@ -1344,9 +1349,9 @@ This should be possible.</code></pre>
 
     <ol class="rule-list">
       <li>Keep decisions small and explicit.</li>
-      <li>Insist on an HTML <button class="term" type="button" data-def="mockup">mockup</button> before building any UI that matters.</li>
+      <li>Approve an ASCII sketch, then an HTML <button class="term" type="button" data-def="mockup">mockup</button> before building any UI that matters.</li>
       <li>Start non-trivial work on a feature branch, not on <code>main</code>.</li>
-      <li>Review each slice as it lands — the agent now pauses and commits after every verified slice, so use that gap.</li>
+      <li>Choose the build endpoint explicitly; build all still preserves per-slice independent review and human-owned decisions.</li>
       <li>Prefer one completed slice over several half-finished branches.</li>
       <li>Treat tests and the desktop/tablet/mobile browser check as part of the work, not an optional extra.</li>
       <li>Do not skip the GitHub review and merge step.</li>
@@ -1355,26 +1360,16 @@ This should be possible.</code></pre>
     </ol>
 
     <div class="callout">
-      <strong>New in V0.3 — two habits when you leave the agent running.</strong>
-      Before an unattended run, agree its
-      <button class="term" type="button" data-def="budgetceiling">limits</button>
-      — how much it may spend, how long it may take, how many times it may retry —
-      and expect it to stop and check in rather than push past them. And when it
-      says a change is done, expect the
-      <button class="term" type="button" data-def="independentverifier">independent
-      check</button> to <em>show you the evidence</em> — what it ran and the result
-      — not just tell you it looks fine. When you ship something milestone-worthy,
-      you can also ask it to cut a proper release with
-      <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>.
+      <strong>Know which limits stop the run.</strong> Ordinary estimates and time checkpoints report progress. Explicit hard limits, actual quotas and failure/no-progress guards stop work. Protected delivery requires approved ceilings. Expect review evidence showing what ran and what passed; a milestone may also use <code>/ship-release</code> after release authority is granted.
     </div>
   </section>
 
   <footer class="doc-foot">
     <div>
-      AI Engineering Playbook V0.4 · §50 · How To Write Code With AI
+      AI Engineering Playbook V0.5 · §50 · How To Write Code With AI
     </div>
     <div>
-      Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0
+      Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0
     </div>
   </footer>
 
@@ -1389,7 +1384,7 @@ This should be possible.</code></pre>
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

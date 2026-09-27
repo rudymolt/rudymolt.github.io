@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Process Map · AI Engineering Playbook V0.4</title>
+<title>Process Map · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -66,7 +66,7 @@
   <div class="term-hint" role="note">
     <strong>Tip.</strong> Words with a dotted underline — like
     <button class="term" type="button" data-def="slice">slice</button> or
-    <button class="term" type="button" data-def="prd">PRD</button> —
+    <button class="term" type="button" data-def="spec">Spec</button> —
     are short bits of engineering jargon. Click or tap any of them for a
     one-sentence, plain-English explanation. Press <kbd>Esc</kbd> or click
     outside to close it.
@@ -74,7 +74,7 @@
 
   <section id="map">
     <h2>The Map</h2>
-    <svg viewBox="0 0 940 350" class="diagram" role="img" aria-label="The process drawn as a loop. The main path runs Align (agree the plan), Context (write terms down), PRD (one-page spec), Slice (cut it up), Build (one slice at a time), Review (check the code), QA (try it for real), Ship (go live). After Ship, Retro captures lessons, and a dashed arrow returns from Ship to Align for the next feature. Three side doors join the loop at any time: Triage when you ask what's next, Architecture when the code feels messy, Debug when something broke.">
+    <svg viewBox="0 0 940 350" class="diagram" role="img" aria-label="The process drawn as a loop. The main path runs Align (agree the plan), Context (write terms down), Spec (one-page spec), Slice (cut it up), Build (one slice at a time), Review (check the code), QA (try it for real), Ship (go live). After Ship, Retro captures lessons, and a dashed arrow returns from Ship to Align for the next feature. Three side doors join the loop at any time: Triage when you ask what's next, Architecture when the code feels messy, Debug when something broke.">
       <defs>
         <marker id="arrow-map" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#b9a98a"/>
@@ -104,11 +104,11 @@
         <text x="181" y="146" text-anchor="middle" class="label-body ink-soft">write terms</text>
         <text x="181" y="162" text-anchor="middle" class="label-body ink-soft">down</text>
       </g>
-      <!-- PRD -->
+      <!-- Spec -->
       <g>
         <rect x="250" y="68" width="92" height="56" rx="4" fill="#240100" stroke="#f0c45c" stroke-width="1.5"/>
         <text x="296" y="90" text-anchor="middle" class="label-sm" fill="#f0c45c">03</text>
-        <text x="296" y="110" text-anchor="middle" class="label-md ink">PRD</text>
+        <text x="296" y="110" text-anchor="middle" class="label-md ink">Spec</text>
         <text x="296" y="146" text-anchor="middle" class="label-body ink-soft">one-page</text>
         <text x="296" y="162" text-anchor="middle" class="label-body ink-soft">spec</text>
       </g>
@@ -213,8 +213,7 @@
     </p>
 
     <div class="callout">
-      <strong>What V0.4 changes.</strong> The stage map is still the same. V0.4
-      adds an optional delivery mission around stages 07–10: a human approves
+      <strong>The V0.5 workflow.</strong> Capability checks and model routing establish which tools and workers can run. Reviews produce evidence; post-merge closeout stays tracked. An optional delivery mission runs around stages 07–10: a human approves
       the exact scope and limits, the builder works inside that envelope, a
       fresh checker independently verifies the result, and the normal route
       stops at an exact pull request. K4.1 fresh-agent merge is a separate,
@@ -223,15 +222,15 @@
 
     <h3 class="phase-label">Phase 1 · Agree <span class="phase-span">(stages 00–03)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>00 · Prereqs</h3><p>Every session starts by checking skills, how the <button class="term" type="button" data-def="repo">repo</button> (the project's folder of files) is set up, and the safety basics — including whether the project is on the current playbook version (offering <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button> if not) and, for projects with a screen, whether the <button class="term" type="button" data-def="designartefacts">three design artefacts</button> exist.</p><span class="example"><strong>Booking form:</strong> the agent checks its skills, the project files, and the design artefacts before touching anything.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>00 · Prereqs</h3><p>Normal sessions use bounded warm checks; bootstrap, upgrades and host changes use cold capability checks. Verified manual routes count when optional skills are missing. The agent checks how the <button class="term" type="button" data-def="repo">repo</button> (the project's folder of files) is set up, and the safety basics — including whether the project is on the current playbook version (offering <button class="term" type="button" data-def="upgradeproject"><code>/ai-playbook-upgrade-project</code></button> if not) and, for projects with a screen, whether the <button class="term" type="button" data-def="designartefacts">three design artefacts</button> exist.</p><span class="example"><strong>Booking form:</strong> the agent checks its skills, the project files, and the design artefacts before touching anything.</span></article>
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>01 · Align</h3><p>Settle the plan before code. <a href="01-align.html">Open the alignment explainer.</a></p><span class="example"><strong>Booking form:</strong> you and the agent agree what "book a session" actually means.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>02 · Context and ADRs</h3><p>Promote settled vocabulary and durable decisions into <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> and <button class="term" type="button" data-def="adr">ADRs</button>.</p><span class="example"><strong>Booking form:</strong> the words <em>slot</em> and <em>booking window</em> get written into CONTEXT.md.</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>03 · PRD</h3><p>Turn alignment into a short <button class="term" type="button" data-def="prd">PRD</button>.</p><span class="example"><strong>Booking form:</strong> one page — who can book, when, and what they see afterwards.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>03 · Spec</h3><p>Use <code>/to-spec</code> to turn alignment into a short <button class="term" type="button" data-def="spec">Spec</button>.</p><span class="example"><strong>Booking form:</strong> one page — who can book, when, and what they see afterwards.</span></article>
     </div>
 
     <h3 class="phase-label">Phase 2 · Cut up <span class="phase-span">(stages 04–06)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>04 · Breakdown</h3><p>Convert the PRD into <button class="term" type="button" data-def="slice">vertical slices</button>. <a href="04-breakdown.html">Open the slice checker.</a></p><span class="example"><strong>Booking form:</strong> three slices — see free slots, book a slot, get a confirmation email.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>04 · Breakdown</h3><p>Use <code>/to-tickets</code> to convert the spec into <button class="term" type="button" data-def="slice">vertical slices</button>. <a href="04-breakdown.html">Open the slice checker.</a></p><span class="example"><strong>Booking form:</strong> three slices — see free slots, book a slot, get a confirmation email.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>05 · Triage</h3><p>Keep the <button class="term" type="button" data-def="issuetracker">issue tracker</button> honest and decide what is worth doing.</p><span class="example"><strong>Booking form:</strong> decide whether "cancel a booking" is next, or can wait.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>06 · Architecture</h3><p>Review <button class="term" type="button" data-def="module">module</button> depth, data flow, and <button class="term" type="button" data-def="seam">seams</button> every few slices.</p><span class="example"><strong>Booking form:</strong> check bookings still live in one table before adding reminders.</span></article>
     </div>
@@ -239,8 +238,8 @@
     <h3 class="phase-label">Phase 3 · Build &amp; check <span class="phase-span">(stages 07–09)</span></h3>
     <div class="learning-grid">
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>07 · Implementation</h3><p>Build one slice at a time with <button class="term" type="button" data-def="tdd">TDD</button>, inside the approved scope and limits.</p><span class="example"><strong>Booking form:</strong> build "user can book a slot" — test first, then the code.</span></article>
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Use a fresh, independent checker that reruns the relevant evidence; add <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review when the risk calls for it.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use a real browser and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Scale review to risk; cross-module changes and opt-in multi-slice builds require fresh independent checks with executed evidence; add <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review when the risk calls for it.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use report-only browser QA for UI changes; send fixes to a builder, verify the changed result afresh, and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
     </div>
 
     <h3 class="phase-label">Phase 4 · Ship &amp; learn <span class="phase-span">(stages 10–12)</span></h3>
@@ -278,7 +277,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="../assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="../assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="../assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="../assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

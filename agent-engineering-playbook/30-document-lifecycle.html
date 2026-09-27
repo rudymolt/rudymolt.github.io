@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Document Lifecycle · AI Engineering Playbook V0.4</title>
+<title>Document Lifecycle · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -130,8 +130,8 @@
     <h2>Classify A Document</h2>
     <p>
       The playbook sorts every document into a
-      <button class="term" type="button" data-def="editabilitytier">tier</button>
-      — a label saying how long it should live and who may edit it. Choose a
+      <button class="term" type="button" data-def="lifecycletier">tier</button>
+      — a label saying how long it should live. Choose a
       document type to see its tier and fate.
     </p>
     <select class="tier-select" data-tier-select="#tier-output">
@@ -139,13 +139,13 @@
       <option value="planning">Planning notes or prompt scratchpad (the to-do list and thinking-out-loud notes from the build)</option>
       <option value="adr">Hard-to-reverse decision (e.g. which payment provider to use)</option>
       <option value="living">CONTEXT.md, AGENTS.md, the three design artefacts (the project's own dictionary and visual language)</option>
-      <option value="generated">Generated output (files a tool builds automatically from other files — never edited by hand)</option>
     </select>
     <p id="tier-output" class="choice-output">Choose a document type.</p>
   </section>
 
   <section class="interactive-panel" data-checklist>
     <h2>Doc-Close Checklist</h2>
+    <p>Production verification, doc-close, current-release pointers and a same-session feature retro share one fresh closeout branch and one PR. Keep <code>pending_closeouts</code> visible until production verification, doc-close and retro are complete. Generated-file editability is a separate concern: regenerate outputs from their source rather than editing them by hand.</p>
     <div class="checklist">
       <label><input type="checkbox"> <span>Run <code>git status --short</code> before doc-close starts.
         <span class="why">A quick command that lists unsaved changes — so the tidy-up starts from a known state, with no surprise files.</span></span></label>
@@ -161,9 +161,11 @@
       <label><input type="checkbox"> <span>Ask whether anything deserves promotion to the
         <button class="term" type="button" data-def="playbook">playbook</button>.</span></label>
       <label><input type="checkbox"> <span>Move finished planning docs to <code>archive/</code>.</span></label>
+      <label><input type="checkbox"> <span>Check release metadata and current-release pointers; update both <code>planning/STATUS.md</code> and <code>archive/STATUS.md</code>, write state changes, and recompute the status block.</span></label>
       <label><input type="checkbox"> <span>Commit the doc-close intentionally.
         <span class="why">The tidy-up is saved as its own deliberate <button class="term" type="button" data-def="commit">commit</button>, not mixed in with other changes.</span></span></label>
     </div>
+    <p>Finish with <code>git status --short</code> and account for every remaining change.</p>
     <div class="checklist-status" data-checklist-output></div>
   </section>
 
@@ -198,7 +200,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

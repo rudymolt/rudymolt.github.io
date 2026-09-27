@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quickstart · AI Engineering Playbook V0.4</title>
+<title>Quickstart · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -108,10 +108,8 @@
 
     <h3>00 · Prereqs — every session, first</h3>
     <p>
-      The agent checks that its tools are installed, the project files are present, the
-      playbook version is current, the "no on-screen interface" setting is recorded (so the
-      visual checks are skipped), and the existing tests all pass. Result: <em>pass</em>, in about
-      thirty seconds. The stage's <em>Next</em> note then sends a feature request on to the
+      The agent runs bounded warm prerequisite checks; bootstrap, upgrades or host changes take the cold capability path. It checks project state, verified tool or manual routes, the "no on-screen interface" setting is recorded (so the
+      visual checks are skipped), and the existing tests all pass. Result: <em>pass</em> with the relevant evidence. The stage's <em>Next</em> note then sends a feature request on to the
       agree-the-plan stage.
     </p>
 
@@ -175,7 +173,7 @@
     self.assertEqual([r.meet_date for r in rows],
                      sorted(r.meet_date for r in rows))</code></pre>
     <p>
-      Then the smallest amount of code that makes the test pass, then a tidy-up; the saved
+      Then the smallest amount of code that makes the test pass at the agreed public seam; the saved
       change is labelled following the project's usual naming pattern. The progress-tracking
       file now shows two open pieces of work, the architecture-review counter goes up by one,
       and the at-a-glance status summary is refreshed.
@@ -183,7 +181,7 @@
 
     <h3>08 · Review — catch what the tests don't</h3>
     <p>
-      One read-through before the change is proposed for merging into the main project: does it
+      Check the change and execute the relevant verification before proposing a merge. Structural refactoring happens here, under passing tests. Ask: does it
       match the requirements document, does it stick to the agreed words ("history view", not
       "progression log"), and is the claim that same-date results keep their order actually
       guaranteed? Python's sorting does keep that order, and that fact is written into the change's
@@ -203,7 +201,7 @@
       After piece 3 is done, the feature is released and the document tidy-up happens
       <strong>now, when the whole feature ships — not after each piece</strong>: a release note is
       written, the planning folder is moved into <code>archive/</code>, both
-      <code>STATUS.md</code> files are brought up to date, and the progress-tracking file is stamped as done.
+      <code>STATUS.md</code> files are brought up to date, current-release pointers and release metadata are checked, and the progress-tracking status is recomputed. Production verification, doc-close and a same-session feature retro remain in pending closeouts until complete; their follow-up changes share one fresh closeout branch and one PR.
     </p>
 
     <h3>11 · Fixing bugs — didn't happen this time</h3>
@@ -231,7 +229,7 @@
       not in the paperwork.</li>
       <li><strong>The agent never chose the route itself.</strong> The stage
       <button class="term" type="button" data-def="statusblock">status block</button>
-      and the signposts at the end of each stage did — that's the V0.2 design making the path easy to follow.</li>
+      and the signposts at the end of each stage did — that's the V0.5 design making the path easy to follow.</li>
       <li><strong>Three stages did nothing this time</strong> (architecture, bug-fixing, and
       in-browser testing) and that's correct: they're checks that <em>can</em> happen when needed,
       not rituals that must run every time.</li>
@@ -249,8 +247,8 @@
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.4 · §80 · Quickstart</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0</div>
+    <div>AI Engineering Playbook V0.5 · §80 · Quickstart</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
@@ -258,7 +256,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

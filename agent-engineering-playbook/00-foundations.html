@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foundations · AI Engineering Playbook V0.4</title>
+<title>Foundations · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -164,7 +164,7 @@
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Typo or comment edit" data-choice-body="Eyeball the change and save. Do not turn tiny edits into ceremony.">Typo</button>
       <button type="button" data-choice data-choice-title="Single-file local refactor" data-choice-body="Run typechecking plus the relevant unit tests. The public behaviour should not change — a refactor that changes behaviour is a bug.">Local refactor</button>
-      <button type="button" data-choice data-choice-title="New behaviour in one module" data-choice-body="Use TDD: red, green, refactor. Test through the public interface, not the internal wiring.">New behaviour</button>
+      <button type="button" data-choice data-choice-title="New behaviour in one module" data-choice-body="Use TDD: red, then green at the agreed public interface. Structural refactoring happens in review.">New behaviour</button>
       <button type="button" data-choice data-choice-title="New behaviour across modules" data-choice-body="Use TDD, integration tests, and a browser QA run when the workflow has a UI.">Cross-module</button>
       <button type="button" data-choice data-choice-title="Auth, payments, user data, public endpoints, or deploy" data-choice-body="Run the full ladder plus security review, monitored rollout, and rollback or backup thinking.">High risk</button>
     </div>
@@ -210,7 +210,7 @@
   <section id="agent-surface">
     <h2>Designing for the Agent-Facing Surface</h2>
     <p>
-      New in V0.2. The frontend track is about the surface your <em>users</em>
+      The frontend track is about the surface your <em>users</em>
       see; this principle is about the surface that <em>other software, including
       AI agents,</em> uses. It applies whenever your product offers a way to be
       operated by software rather than by a person clicking around — a
@@ -254,7 +254,7 @@
   <section id="security-floor">
     <h2>The Security Floor</h2>
     <p>
-      New in V0.2. The
+      The
       <button class="term" type="button" data-def="securityfloor">security floor</button>
       is a small set of safety basics that must always be in place — the lowest
       acceptable bar, not a full security programme. They matter because a
@@ -270,9 +270,7 @@
       live in environment variables or untracked files covered by
       <code>.gitignore</code>. An agent that needs a secret stops and asks — it
       never writes one into code, config, tests, or chat output "temporarily".</li>
-      <li><strong>A committed secret is rotated, not deleted.</strong> Removing the line does
-      not remove it from history. Treat it as an incident: rotate first, then
-      clean history if hosting requires it.</li>
+      <li><strong>An exposed secret is a human-handled incident.</strong> Report the location without echoing the secret. Do not delete, replace or rotate it yourself; the human owns incident handling. Removing a line alone does not remove it from history.</li>
       <li><strong>Dependencies are deliberate.</strong> Lockfiles are committed; every new
       dependency is named and justified in the PR. Prefer the standard library
       for trivial needs.</li>
@@ -290,49 +288,16 @@
 
   <section id="budget-and-gates">
     <h2>Limits and gates</h2>
-    <p>
-      New in V0.3. Two of the principles above — check in proportion to risk, and
-      keep the safety basics in place — get firmer teeth so they hold even when the
-      agent is left running with little supervision.
-    </p>
-    <p>
-      <strong>Budget ceilings.</strong> Before any unattended run — one you leave
-      the agent to finish on its own — a project sets concrete limits: how much a
-      single run may
-      <button class="term" type="button" data-def="budgetceiling">spend, how long
-      it may take, and how many times it may retry</button>. These are written down
-      once, so the agent reads them every session. When a limit is reached, the
-      agent pauses and reports back instead of pressing on — a runaway job stops
-      itself rather than quietly burning time or money.
-    </p>
-    <p>
-      <strong>Rules as gates, where that is cheap.</strong> A rule can be enforced
-      anywhere from a written reminder up to a hard, automatic
-      <button class="term" type="button" data-def="gate">gate</button> that blocks
-      the work until it passes. V0.3 moves the safety-critical rules — the secret
-      scan, "never approve your own work", checking a change against what it was
-      meant to do — as far towards automatic gates as is cheap and repeatable
-      across projects, so
-      they are enforced by machine rather than by memory. The principle is
-      deliberate: classify every rule by how firmly it should be held, and
-      mechanise the ones that survive across projects.
-    </p>
-    <p>
-      Both of these feed the wider V0.3 direction — a genuinely
-      <button class="term" type="button" data-def="independentverifier">independent
-      checker</button> that must show evidence, and
-      <button class="term" type="button" data-def="earnedautonomy">autonomy the
-      agent earns</button> from real-project
-      <button class="term" type="button" data-def="fieldreport">field reports</button>.
-      The reasoning behind all of it is in
-      <a href="60-the-theory-behind-the-playbook.html#v03-adds">§60 · What V0.3 adds</a>.
-    </p>
+    <p>Ordinary issue builds use estimates and time checkpoints to report progress. Productive, reversible work within the agreed scope can continue through returned fixes and fresh verification without another extension prompt.</p>
+    <p>Explicitly selected hard time, cost, iteration or dispatch limits and actual provider quotas still stop the run. So do a human Stop, three identical failures or three iterations without progress. Failure history carries across handoffs. Protected autonomous delivery and live qualification require approved ceilings before starting.</p>
+    <p>A <button class="term" type="button" data-def="gate">gate</button> is a required check or decision. Some gates are enforced by scripts or the host; others are process preconditions. The playbook records the distinction instead of claiming that all written rules are mechanically enforced.</p>
+    <p>At cross-module changes and above, a different agent in a fresh context must execute the relevant checks and provide evidence. Opt-in multi-slice builds also keep per-slice independent review. Accepted fixes return to a builder, then fresh verification.</p>
   </section>
 
   <section id="v04-delivery">
-    <h2>Delivery authority in V0.4</h2>
+    <h2>Delivery authority in V0.5</h2>
     <p>
-      V0.4 adds a bounded delivery mission without changing who owns product
+      V0.5 provides a bounded delivery mission without changing who owns product
       judgement. Before the mission starts, the human approves the exact scope,
       limits, stopping conditions, and decisions that must come back to them.
       The builder stays inside that envelope, then a fresh verifier independently
@@ -349,7 +314,7 @@
       The practical handoff is shown in
       <a href="50-how-to-write-code-with-ai.html#ship">§50 · The ship and GitHub handoff</a>,
       and the reasoning is in
-      <a href="60-the-theory-behind-the-playbook.html#v04-adds">§60 · What V0.4 adds</a>.
+      <a href="60-the-theory-behind-the-playbook.html#v04-adds">§60 · V0.5 delivery and portability</a>.
     </p>
   </section>
     </div>
@@ -357,7 +322,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

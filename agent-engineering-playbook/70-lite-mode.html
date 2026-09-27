@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lite Mode · AI Engineering Playbook V0.4</title>
+<title>Lite Mode · AI Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
@@ -119,12 +119,12 @@
       <li><strong>The quick agreement — five questions</strong>, asked and answered in the chat before any code:
       what is the goal in one sentence? what are the two or three things it absolutely
       must (or must not) do? what are we deliberately leaving out? what words does this
-      subject area use (and do any of them clash)? how will we know it works?</li>
+      subject area use (and do any of them clash)? how will we know it works, through which agreed public interface or test seam?</li>
       <li><strong>Write the test first for anything that isn't trivial.</strong> This is
-      <button class="term" type="button" data-def="tdd">TDD</button>: write a check that fails, make it pass, then tidy up. The
+      <button class="term" type="button" data-def="tdd">TDD</button>: write a failing check at the agreed public seam, then the minimum code to make it pass. Structural refactoring belongs in review. The
       <a href="00-foundations.html#verification">verification ladder</a> still matches the amount of checking to the amount of risk.</li>
       <li><strong>Review before you combine the new work into the main project.</strong> One read-through: is it correct, is it safe wherever
-      information comes in or goes out, and "would a stranger understand this?"</li>
+      information comes in or goes out, and "would a stranger understand this?" Do structural refactoring here, protected by the passing tests.</li>
       <li><strong>Foundations still apply.</strong> Make small, precise changes; keep information
       flowing in one clear direction; never let the agent make up rules about the subject — lite mode drops the extra stages, not these.</li>
     </ul>
@@ -152,8 +152,8 @@
     <p>Five steps, per piece of work.</p>
     <ol>
       <li><strong>Agree the plan.</strong> The five questions answered — no code before this.</li>
-      <li><strong>Test first.</strong> Write a failing check → write the code → make it pass → tidy up, for each small piece of work.</li>
-      <li><strong>Review.</strong> One honest read-through before you combine it into the main project.</li>
+      <li><strong>Test first.</strong> At the agreed public seam, write one failing check → write the minimum code → make it pass, for each behaviour.</li>
+      <li><strong>Review.</strong> Check the result and evidence, and do structural refactoring under passing tests before combining it into the main project.</li>
       <li><strong>Release.</strong> Combine it in, label or note the version, tell whoever needs to know.</li>
       <li><strong>Ask.</strong> "Did I learn something the playbook should know?"</li>
     </ol>
@@ -190,8 +190,8 @@
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.4 · §70 · Lite Mode</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0</div>
+    <div>AI Engineering Playbook V0.5 · §70 · Lite Mode</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
@@ -199,7 +199,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>
