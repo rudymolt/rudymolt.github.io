@@ -3,7 +3,7 @@
 Shipped: 2026-08-30<br>
 Production commit: `0db3b62a15417e4ba22dde00ad8cb65f53a53f1f`
 
-The twelve AI Engineering Playbook pages now use the Ideas Portal's approved published-document system across desktop, tablet, and mobile. The release preserves canonical editorial copy and interactions while adding the shared dark editorial shell, responsive guide path, accessible navigation, archetype-specific presentation, consistent sidebar rhythm, and article-aligned footer.
+The twelve Agentic Engineering Playbook pages now use the Ideas Portal's approved published-document system across desktop, tablet, and mobile. The release preserves canonical editorial copy and interactions while adding the shared dark editorial shell, responsive guide path, accessible navigation, archetype-specific presentation, consistent sidebar rhythm, and article-aligned footer.
 
 ## Delivery record
 

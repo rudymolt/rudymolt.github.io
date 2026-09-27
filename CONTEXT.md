@@ -50,7 +50,7 @@ index.
 
 ### Published playbook
 
-**Definition.** The human-facing AI Engineering Playbook V0.5 pages under
+**Definition.** The human-facing Agentic Engineering Playbook V0.5 pages under
 `agent-engineering-playbook/`.
 
 **Related.** Operational playbook, published path.

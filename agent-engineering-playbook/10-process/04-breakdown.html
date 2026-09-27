@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vertical Slice Checker · AI Engineering Playbook V0.5</title>
+<title>Vertical Slice Checker · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="../index.html">AI Engineering Playbook</a>
+  <a class="brand" href="../index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="../50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="../60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,14 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §10.04</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §10.04</div>
     <h1>Vertical Slice Checker</h1>
-    <p class="lede">
-      A good slice creates one demoable outcome and cuts through every relevant
-      layer. It is small enough to build, check it works,
-      <button class="term" type="button" data-def="commit">commit</button> (save it as a checkpoint),
-      and review before the agent moves on.
-    </p>
+    <p class="lede">A <button class="term" type="button" data-def="slice">vertical slice</button> delivers one testable outcome across the parts of the application it needs. Keep it small enough to implement, verify, commit and review as a unit.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
     </div>
@@ -72,18 +67,8 @@
   </div>
 
   <section id="layer-cake">
-    <h2>The Layer Cake</h2>
-    <p>
-      Think of the app as a cake with four layers:
-      <button class="term" type="button" data-def="ui">UI</button>,
-      <button class="term" type="button" data-def="backend">logic</button>,
-      <button class="term" type="button" data-def="database">data</button>, and
-      <button class="term" type="button" data-def="test">tests</button>.
-      A <button class="term" type="button" data-def="horizontalslice">horizontal cut</button>
-      builds one whole layer and nothing works. A
-      <button class="term" type="button" data-def="slice">vertical slice</button>
-      is a thin wedge through all of them — small, but it actually works.
-    </p>
+    <h2>Build across the layers</h2>
+    <p>A feature may need changes to the <button class="term" type="button" data-def="ui">UI</button>, logic, data and tests. Building each layer separately delays the point when the feature works. A vertical slice connects the necessary layers for one usable outcome.</p>
     <svg viewBox="0 0 880 330" class="diagram" role="img" aria-label="Two layer-cake diagrams. Left, the horizontal cut: only the UI layer is built across the full width; logic, data and tests are empty, captioned 'all five booking screens built, none of them save anything'. Right, the vertical cut: a narrow column is built through all four layers, captioned 'user can book one slot and see it confirmed — screen, logic, database and a test, all working'.">
       <!-- Left: horizontal (wrong) -->
       <text x="210" y="34" text-anchor="middle" class="label-sm" fill="#f0c45c">HORIZONTAL · THE WRONG CUT</text>
@@ -133,7 +118,7 @@
   </section>
 
   <section id="booking-slices">
-    <h2>One Feature, Cut Into Three Slices</h2>
+    <h2>One feature, three slices</h2>
     <p>
       The booking form from the <a href="01-align.html">alignment page</a>,
       after breakdown. Each slice is a thin wedge through every layer, and each
@@ -188,7 +173,7 @@
   </section>
 
   <section class="interactive-panel" data-choice-panel>
-    <h2>Common Wrong Cuts</h2>
+    <h2>Common slicing mistakes</h2>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Database-only slice" data-choice-body="Horizontal — database tables for bookings, with nothing visible to anyone. Recut it so those tables arrive together with one thing a person can actually do: user can book a slot.">Build the database</button>
       <button type="button" data-choice data-choice-title="All screens first" data-choice-body="Horizontal — five booking screens that don't save anything. Pick one workflow (book a slot) and make it work end-to-end instead.">Build all screens</button>
@@ -216,9 +201,9 @@
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="../assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="../assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="../assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="../assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

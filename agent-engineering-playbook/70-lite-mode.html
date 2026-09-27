@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lite Mode · AI Engineering Playbook V0.5</title>
+<title>Lite Mode · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,17 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §70</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §70</div>
     <h1>Lite Mode</h1>
-    <p class="lede">
-      The full thirteen-stage process is worth its set-up effort on substantial
-      projects. A small tool, a quick script, or an experiment shouldn't have to
-      pay that price — but it shouldn't throw away good habits either.
-      <button class="term" type="button" data-def="litemode">Lite mode</button>
-      is a stripped-back version that keeps the parts that prevent wasted work,
-      drops the extra steps that only matter at scale, and names the exact moment
-      to switch back to the full process.
-    </p>
+    <p class="lede">Lite mode keeps the core habits of the playbook with less setup for small, short-lived projects. Agree on the goal, test the behaviour, review the result and release it. Use the criteria below to decide whether lite mode fits and when to move to the full workflow.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
       <span><strong>In one breath</strong> · Agree the plan → write tests first → review → release, with the first rule intact and almost no files.</span>
@@ -94,8 +86,8 @@
     <ul>
       <li><strong>One person.</strong> Nobody else working on it, and nobody else planned.</li>
       <li><strong>Short-lived.</strong> Expected to last under about two weeks, or under about three features of work.</li>
-      <li><strong>No real interface to look at.</strong> A command-line tool, a script, or a quick experiment — not on-screen pages people click through.</li>
-      <li><strong>Nothing you can't undo.</strong> No real customer data, payments, log-ins, or changes to how data is stored that would be hard to reverse.</li>
+      <li><strong>No graphical user interface.</strong> A command-line tool, a script, or a quick experiment — not on-screen pages people click through.</li>
+      <li><strong>No irreversible or sensitive operations.</strong> No real customer data, payments, log-ins, or changes to how data is stored that would be hard to reverse.</li>
     </ul>
     <div class="callout">
       <strong>If in doubt, it doesn't apply.</strong> The cost of running the
@@ -106,7 +98,7 @@
   </section>
 
   <section id="survives">
-    <h2>What survives — non-negotiable even here</h2>
+    <h2>What lite mode keeps</h2>
     <p>
       Lite mode drops <em>extra steps</em>, never <em>principles</em>. These hold
       at any size.
@@ -142,8 +134,7 @@
       pick-the-next-task step, the regular architecture check, the in-browser testing (there's no
       interface to test), the document tidy-up at the end, and the formal look-back review. The answers
       from the quick agreement live in the chat and in the short notes saved alongside each saved change.</li>
-      <li><strong>Schedules and progress tracking.</strong> Nothing is tracked, so nothing can fall behind —
-      which is exactly why the switch-back warning below exists.</li>
+      <li><strong>Schedules and progress tracking.</strong> Lite mode omits formal cadence tracking. Check the graduation criteria at each release so the process can grow with the project.</li>
     </ul>
   </section>
 
@@ -160,16 +151,16 @@
   </section>
 
   <section id="graduate">
-    <h2>Graduating — the warning sign to switch back</h2>
+    <h2>When to move to the full workflow</h2>
     <p>
       Check this every time you release. Move up to the full playbook the first time
       <em>any</em> of these happens:
     </p>
     <ul>
       <li>A second person joins, or will within a fortnight.</li>
-      <li>The project passes about three released features, or about two weeks of life.</li>
+      <li>The project reaches about three released features or two weeks of development.</li>
       <li>The same kind of bug appears twice.</li>
-      <li>A real interface appears — pages people click through, not just printed output.</li>
+      <li>A graphical user interface is added — pages people click through, not just printed output.</li>
       <li>You catch yourself wanting a progress tracker, a planning document, or "notes for next session".</li>
       <li>Something you can't easily undo comes into play: real customers' data, log-ins, payments, or changes to how data is stored.</li>
     </ul>
@@ -190,16 +181,16 @@
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.5 · §70 · Lite Mode</div>
+    <div>Agentic Engineering Playbook V0.5 · §70 · Lite Mode</div>
     <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

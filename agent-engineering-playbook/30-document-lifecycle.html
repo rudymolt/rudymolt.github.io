@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Document Lifecycle · AI Engineering Playbook V0.5</title>
+<title>Document Lifecycle · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,13 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §30</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §30</div>
     <h1>Document Lifecycle</h1>
-    <p class="lede">
-      Build-time documents are useful during the build and dangerous
-      afterwards. <button class="term" type="button" data-def="docclose">Doc-close</button>
-      decides what gets archived, promoted, or kept living.
-    </p>
+    <p class="lede">Planning documents capture what you intend to build. Once a feature ships, they can become outdated. Doc-close preserves lasting decisions, updates living documentation and archives the completed plans.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
     </div>
@@ -72,12 +68,7 @@
 
   <section id="journey">
     <h2>The Journey Of One Document</h2>
-    <p>
-      Take <code>plan-notes.md</code> — the to-do list and thinking-out-loud
-      notes from the booking-form build. It is used every day during the build.
-      When the feature ships (is finished and released to users), doc-close
-      asks: what now?
-    </p>
+    <p>Consider <code>plan-notes.md</code>, the working notes for the booking-form feature. During development, it records tasks, questions and decisions. At release, doc-close separates information worth keeping from notes that have served their purpose.</p>
     <svg viewBox="0 0 900 330" class="diagram" role="img" aria-label="The journey of one document. The feature starts; plan-notes.md is used daily during the build. At ship, doc-close asks 'what now?' and the document splits three ways: a decision that is hard to undo is promoted to an ADR and kept; words everyone now uses are promoted to CONTEXT.md and kept; the rest moves to the archive folder — out of the agent's sight, but not deleted.">
       <defs>
         <marker id="arrow-doc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -132,7 +123,7 @@
       The playbook sorts every document into a
       <button class="term" type="button" data-def="lifecycletier">tier</button>
       — a label saying how long it should live. Choose a
-      document type to see its tier and fate.
+      document type to see its lifecycle and destination.
     </p>
     <select class="tier-select" data-tier-select="#tier-output">
       <option value="">Choose a document type</option>
@@ -171,13 +162,7 @@
 
   <section>
     <h2>Why Archive Instead Of Delete?</h2>
-    <p>
-      Archiving gives the same outcome as deletion for the agent, because
-      agents are instructed not to read <code>archive/</code>. But humans keep
-      the old build notes — useful when someone needs to dig into how an old
-      <button class="term" type="button" data-def="bug">bug</button> was
-      introduced, months after everyone has forgotten the details.
-    </p>
+    <p>Archiving preserves the development history for people investigating a past decision or bug. Agents must not read <code>archive/</code>; if an investigation needs an archived file, the human supplies the relevant content. This prevents old plans from being mistaken for current instructions.</p>
   </section>
 
   <section class="interactive-panel quiz" data-quiz>
@@ -198,9 +183,9 @@
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

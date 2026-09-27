@@ -11,17 +11,17 @@ window.PLAYBOOK_GLOSSARY = {
   /* ---- Bedrock: never-written-code-before basics ---- */
   code: {
     title: "Code",
-    def: "Instructions written by people (or agents) that tell a computer exactly what to do. An app is made of thousands of lines of it.",
+    def: "Instructions written in a programming language that tell a computer what to do.",
     group: "bedrock"
   },
   database: {
     title: "Database",
-    def: "Where an app stores its information permanently - like a collection of spreadsheets that the code can read and write.",
+    def: "An organised store of information that an application can read and update.",
     group: "bedrock"
   },
   server: {
     title: "Server",
-    def: "A computer running somewhere else that answers requests from the app - when you book something online, a server records it.",
+    def: "A computer or program that responds to requests, such as saving an online booking.",
     group: "bedrock"
   },
   ui: {
@@ -41,7 +41,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   production: {
     title: "Production",
-    def: "The live version of the app that real users are using right now - as opposed to a private copy used for building and testing.",
+    def: "The live environment where people use the released application.",
     group: "bedrock"
   },
   bug: {
@@ -111,7 +111,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   demoable: {
     title: "Demoable",
-    def: "Something you could show working to another person - click the button, see the result - rather than progress you have to take on faith."
+    def: "A working outcome that can be demonstrated and checked against the agreed requirements."
   },
   designreview: {
     title: "Design review",
@@ -206,7 +206,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   push: {
     title: "Push",
-    def: "Uploading your local commits to GitHub so the rest of the world, and the PR, can see them."
+    def: "Sending local commits to a remote repository, such as GitHub, so they are available for collaboration and review."
   },
   redgreen: {
     title: "Red / green",
@@ -222,7 +222,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   repo: {
     title: "Repo",
-    def: "Short for repository - the folder where the project's code and its full history live."
+    def: "Short for repository: a project's files and their version history."
   },
   retro: {
     title: "Retro",
@@ -334,7 +334,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   playbook: {
     title: "The playbook",
-    def: "This collection of guides - the process the agent follows on every project.",
+    def: "A practical guide and toolkit for building software with AI coding agents, including instructions, templates, skills and verification scripts.",
     group: "playbook"
   },
   playbookstate: {
@@ -369,7 +369,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   agentdigest: {
     title: "AGENT-DIGEST.md",
-    def: "A short, one-page map of the whole playbook the agent reads first - the stage list, routing rules, and conventions - so it can start acting without wading through thousands of lines of prose. The long guides become reference it opens only when the digest points to them.",
+    def: "The entry point for agents: a concise stage map, routing rules and project conventions, with links to the full instructions when needed.",
     group: "playbook"
   },
   statusblock: {
@@ -426,7 +426,7 @@ window.PLAYBOOK_GLOSSARY = {
   },
   shiprelease: {
     title: "/ship-release",
-    def: "A skill that cuts a proper release of a project on GitHub the correct way - version tag, release notes, and the release entry itself - and then verifies each step actually happened.",
+    def: "A skill for publishing a GitHub release, including its version tag and release notes, and verifying that publication succeeded.",
     group: "playbook"
   }
 };

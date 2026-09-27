@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foundations · AI Engineering Playbook V0.5</title>
+<title>Foundations · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,7 +49,7 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §00</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §00</div>
     <h1>Foundations</h1>
     <p class="lede">
       The principles every stage assumes: ask before acting, use the project's
@@ -85,14 +85,7 @@
 
   <section id="contract">
     <h2>The Collaboration Contract</h2>
-    <p>
-      The agent should read context, ask before inventing rules about your
-      world, push back constructively, and avoid work you did not ask for.
-      You own intent and approval; the agent owns execution and verification.
-      You saw this contract in action across the whole of
-      <a href="50-how-to-write-code-with-ai.html">Drive the agent</a> — this
-      page states it as a principle.
-    </p>
+    <p>The agent reads the project context, identifies missing information and challenges assumptions when needed. You define the goal and approve consequential decisions. The agent implements and verifies the agreed work. See <a href="50-how-to-write-code-with-ai.html">Drive the agent</a> for practical examples.</p>
   </section>
 
   <section id="architecture" class="interactive-panel" data-choice-panel>
@@ -113,11 +106,7 @@
 
   <section id="verification">
     <h2>The Verification Ladder</h2>
-    <p>
-      The <button class="term" type="button" data-def="ladder">verification
-      ladder</button> is one rule: match the checking effort to what a mistake
-      would cost. Tiny edits stay fast; risky changes earn every check.
-    </p>
+    <p>Match verification to the consequences of a mistake. A typo needs a focused check; changes to behaviour, security or data need stronger evidence.</p>
     <svg viewBox="0 0 900 400" class="diagram" role="img" aria-label="The verification ladder drawn as five rungs, risk increasing upwards. Rung 1, a typo: just look at it and save. Rung 2, tidy-up of one file: typecheck plus existing tests. Rung 3, new behaviour: write the test first, TDD. Rung 4, a change crossing modules: tests plus a browser check. Rung 5, auth, payments and deploys: everything below plus security review and a watched rollout. Caption: match the checking effort to what a mistake would cost.">
       <defs>
         <marker id="arrow-risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -160,7 +149,7 @@
 
   <section id="verification-panel" class="interactive-panel" data-choice-panel>
     <h2>Find Your Rung</h2>
-    <p>Pick the change type to see the minimum verification owed.</p>
+    <p>Pick the change type to see the minimum verification required.</p>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Typo or comment edit" data-choice-body="Eyeball the change and save. Do not turn tiny edits into ceremony.">Typo</button>
       <button type="button" data-choice data-choice-title="Single-file local refactor" data-choice-body="Run typechecking plus the relevant unit tests. The public behaviour should not change — a refactor that changes behaviour is a bug.">Local refactor</button>
@@ -209,29 +198,15 @@
 
   <section id="agent-surface">
     <h2>Designing for the Agent-Facing Surface</h2>
-    <p>
-      The frontend track is about the surface your <em>users</em>
-      see; this principle is about the surface that <em>other software, including
-      AI agents,</em> uses. It applies whenever your product offers a way to be
-      operated by software rather than by a person clicking around — a
-      command-line tool, an API (a doorway other programs use to talk to it), or
-      any interface an AI agent will call. That is increasingly the norm, not a
-      special case.
-    </p>
-    <p>
-      <strong>The principle:</strong> design for the agent's limits the way the
-      frontend track designs for people's. An AI agent can only take in so much
-      at once, and every back-and-forth step costs it time, so an interface that
-      makes it wade through walls of text, take extra steps, or guess what to do
-      next is a fault — even if a person would cope with it fine.
-    </p>
+    <p>Products often expose interfaces that other software and AI agents use: command-line tools, APIs and callable tools. Design these interfaces so the agent can understand the current state, take the right action and interpret the result.</p>
+    <p>Agents have limited context and incur a cost for each tool call. Keep results concise and structured, make errors explicit, and provide the information needed for the next decision.</p>
     <p>The checklist — applied when the interface is designed (stage 06) and when it is reviewed (stage 08):</p>
     <ol>
       <li><strong>Keep output compact</strong> — tidy, structured results with no decorative padding the agent has to read past.</li>
       <li><strong>Show the essentials by default</strong> — the three or four pieces of information the agent actually needs, with a clear way to ask for the rest.</li>
       <li><strong>Trim long content</strong> — shorten very long results, say how much was left out, and offer a way to fetch the remainder.</li>
-      <li><strong>Do the sums up front</strong> — include totals, counts, and an overall "did it pass?" so the agent never has to ask a second time to learn "how many" or "did it work".</li>
-      <li><strong>Always say when there is nothing</strong> — print "0 results" rather than staying silent, because silence looks exactly like a breakdown.</li>
+      <li><strong>Include summaries</strong> — include totals, counts, and an overall "did it pass?" so the agent never has to ask a second time to learn "how many" or "did it work".</li>
+      <li><strong>Report empty results explicitly</strong> — print "0 results" rather than staying silent, so an empty result is distinguishable from a failed request.</li>
       <li><strong>Make errors clear and safe to repeat</strong> — report failures in a fixed, readable form, make running the same step twice harmless, and never stop to ask a question mid-task.</li>
       <li><strong>Lead with the current state</strong> — show the relevant situation as soon as a session starts, instead of making the agent go hunting for it.</li>
       <li><strong>Content first</strong> — running the tool with no instructions should show what is going on right now, not a wall of help text.</li>
@@ -253,18 +228,7 @@
 
   <section id="security-floor">
     <h2>The Security Floor</h2>
-    <p>
-      The
-      <button class="term" type="button" data-def="securityfloor">security floor</button>
-      is a small set of safety basics that must always be in place — the lowest
-      acceptable bar, not a full security programme. They matter because a
-      missing one rarely looks like a problem at the time: the app keeps
-      working and nothing flags an error, right up until a leaked password or
-      an accidental mass-deletion causes real, sudden damage. So the agent
-      checks the floor cheaply at the start of every session, and again each
-      time it proposes a batch of changes for review (a
-      <button class="term" type="button" data-def="pr">pull request</button>).
-    </p>
+    <p>The <button class="term" type="button" data-def="securityfloor">security floor</button> defines the minimum protections every project needs. The agent checks these at session start and before proposing a <button class="term" type="button" data-def="pr">pull request</button>. Projects with sensitive data or higher risks need additional safeguards.</p>
     <ul>
       <li><strong>Secrets never enter tracked files.</strong> Credentials, tokens, and keys
       live in environment variables or untracked files covered by
@@ -279,7 +243,7 @@
       not where they break.</li>
       <li><strong>Least privilege by default.</strong> Tokens and keys get the narrowest
       scope that works, with an expiry where the platform supports one.</li>
-      <li><strong>Irreversible operations get a rehearsed reverse.</strong> Migrations, bulk
+      <li><strong>Rehearse recovery before irreversible operations.</strong> Migrations, bulk
       edits, and deletions are preceded by a timestamped backup, and their
       rollback has actually been run against a copy before the forward change
       ships.</li>
@@ -296,20 +260,8 @@
 
   <section id="v04-delivery">
     <h2>Delivery authority in V0.5</h2>
-    <p>
-      V0.5 provides a bounded delivery mission without changing who owns product
-      judgement. Before the mission starts, the human approves the exact scope,
-      limits, stopping conditions, and decisions that must come back to them.
-      The builder stays inside that envelope, then a fresh verifier independently
-      rereads and rechecks the exact result.
-    </p>
-    <p>
-      The ordinary route stops at an exact pull request. A project may separately
-      enable K4.1 so a fresh agent can merge the already verified head, but that
-      authority is narrow and off by default. It does not include deployment,
-      release publication, bypassing repository protections, or the stronger
-      non-bypass assurance lane that remains deferred.
-    </p>
+    <p>A delivery mission lets an agent complete approved work within agreed limits. Before it starts, you approve the scope, stopping conditions and decisions that require your input. A separate verifier then checks the resulting changes and provides evidence.</p>
+    <p>Normal delivery ends with a pull request tied to the verified commit. A project can separately enable K4.1, which allows a fresh agent to merge that commit. This option is off by default and does not authorise deployment, release publication or bypassing repository protections. Its assurances depend on the documented process; it does not make bypass impossible.</p>
     <p>
       The practical handoff is shown in
       <a href="50-how-to-write-code-with-ai.html#ship">§50 · The ship and GitHub handoff</a>,
@@ -320,9 +272,9 @@
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

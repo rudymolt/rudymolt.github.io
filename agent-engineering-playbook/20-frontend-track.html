@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Frontend Track · AI Engineering Playbook V0.5</title>
+<title>The Frontend Track · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,15 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §20</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §20</div>
     <h1>The Frontend Track</h1>
-    <p class="lede">
-      The extra discipline for anything with a screen. The biggest source of
-      wasted, repeated rework in AI-assisted UI (user-interface) work is not
-      bad code — it is the human and the agent using the same word for
-      different things, or the same on-screen building block for different
-      jobs. Three files prevent that.
-    </p>
+    <p class="lede">The frontend track helps you and your agent build a consistent user interface. It records the names, appearance and behaviour of UI elements in three shared design artefacts, so each feature builds on decisions already made.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
       <span><strong>Edition</strong> · public V0.5</span>
@@ -75,11 +69,7 @@
 
   <section id="artefacts">
     <h2>The Three Design Artefacts</h2>
-    <p>
-      Three files are the single agreed authority for what the screen is
-      allowed to look like and how it is allowed to behave. Each answers a
-      different question about the same screen.
-    </p>
+    <p>These three artefacts define the project's UI vocabulary, component styles and interaction patterns. Each answers a different design question.</p>
 
     <svg viewBox="0 0 940 240" class="diagram" role="img" aria-label="Three boxes in a row. First: the design glossary, labelled words, answering what does this term mean. Second: the kitchen sink, labelled looks, answering what does it look like. Third: the design-language guide, labelled behaviour, answering which kind of panel fits this job. An arrow runs left to right, and a caption beneath reads: screen code may only use the words, styles, and panels these three approve.">
       <defs>
@@ -151,11 +141,7 @@
   <section id="bootstrap">
     <h2>Project Setup: The Setup Question</h2>
     <p>Start from a pinned public release and invoke <code>/ai-playbook-bootstrap-project</code>. It inspects the project, presents a read-only plan and dry-run, then applies only the approved UI, CI and host choices while preserving project-owned content.</p>
-    <p>
-      Any project with a screen must answer this question right
-      at the start. The agent may not quietly skip the three files, and may not
-      quietly force the playbook's default choices on you — it has to ask:
-    </p>
+    <p>During setup, choose whether to use the playbook's design templates, bring your own, or combine the two. The agent records your choice before applying it:</p>
     <div class="dialogue">
       <div class="line agent"><span class="who">Agent</span>This project has a screen. How do you want to set up the three frontend design files (glossary, kitchen sink, design-language guide)?<br><br>
         1 · <strong>Use the playbook defaults</strong> — I copy all three starter templates, then run the design interview to adapt them to your brand.<br>
@@ -165,43 +151,18 @@
       <div class="line you"><span class="who">You</span>Use the defaults — but our brand colour is teal, not gold.</div>
       <div class="line agent"><span class="who">Agent</span>I'll include those choices in the dry-run. After you approve it, I'll apply the templates and record the design interview answers in the artefacts.</div>
     </div>
-    <p>
-      Whatever you answer, the session must end with all three files present in
-      the project — or a clearly recorded decision to skip. The
-      starter kitchen sink is a full, working set of real screen parts (tables,
-      slide-in panels, pop-ups, and the dense layout of a working app) rather
-      than a thin sample, so "use the defaults" gives you a realistic set of
-      words and parts to start from.
-    </p>
+    <p>Setup must leave all three design artefacts in place, unless the project has no UI and records that exception. The starter kitchen sink includes tables, drawers, overlays and application layouts to give new projects a useful starting point.</p>
   </section>
 
   <section id="interview">
     <h2>The Design Interview</h2>
-    <p>
-      If no design system (an agreed set of styles and rules for the look)
-      exists yet, the agent runs a
-      <button class="term" type="button" data-def="designinterview">design interview</button>
-      at the start — eleven questions covering colours, typefaces, spacing,
-      how rounded the corners are, the default boxes things sit in, how things
-      respond when you hover or click, the accessibility basics, and three questions about behaviour: whether screens lean towards
-      dense rows or roomier cards, which panel handles add / edit / confirm /
-      history, and which screen sizes the app is built for.
-    </p>
-    <p>
-      The rule that makes the interview matter: <strong>every answer must land
-      in one of the three files</strong> — a glossary entry, a section or style
-      value in the kitchen sink, or a decision rule in the guide. No answer is
-      allowed to live only in the chat history.
-    </p>
+    <p>If the project has no design system, the agent runs a <button class="term" type="button" data-def="designinterview">design interview</button>. Its eleven questions cover colour, typography, spacing, components, interaction and accessibility, including which screen sizes to support and when to use rows, cards, drawers or modals.</p>
+    <p>Record every answer in the appropriate design artefact: a glossary entry, a component or style in the kitchen sink, or an interaction rule in the design-language guide. Future sessions need to find these decisions in project files.</p>
   </section>
 
   <section class="interactive-panel" data-choice-panel>
-    <h2>Pick The Job, Get The Surface</h2>
-    <p>
-      A small version of the design-language guide's decision table. Pick what
-      the booking-form feature needs to do; the answer shows which kind of
-      panel the guide would approve, and why.
-    </p>
+    <h2>Choose the right UI surface</h2>
+    <p>Choose what the booking form needs to do. The examples show which UI surface fits each task and why.</p>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Add or edit a record"
         data-choice-body="<strong>Use a drawer.</strong> A panel that slides in from the side, keeping the list visible behind it.<br><strong>Booking form:</strong> editing a booking opens a drawer — you can still see the day's other bookings while you type.<br><em>Why not a new page? Because losing sight of the list forces you to remember what you were looking at.</em>">Add / edit a booking</button>
@@ -216,7 +177,7 @@
   </section>
 
   <section id="stages">
-    <h2>How The Track Plugs Into The Process Map</h2>
+    <h2>How the frontend track fits the workflow</h2>
     <p>The vocabulary source may be <code>DESIGN-GLOSSARY.md</code> or a split <code>design-glossary/</code>. Read the generated index first, then only the entries needed.</p>
     <p>
       The frontend track is not a separate process — it adds one screen-related
@@ -258,20 +219,7 @@
 
   <section id="upgrades">
     <h2>Keeping Older Projects Current</h2>
-    <p>
-      Every project records the playbook version it was
-      set up with in
-      <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button>.
-      At the start of a session, if the project is behind the playbook's
-      newest version, the agent mentions it and offers
-      <button class="term" type="button" data-def="upgradeproject"><code>/ai-playbook-upgrade-project</code></button>,
-      which works through the list of changes and applies them carefully — new
-      files are copied, standard supplied files are updated with the exact
-      changes shown to you, and anything you wrote yourself is only ever
-      <em>suggested</em> for change, never overwritten. It won't force an
-      upgrade in the middle of a feature; it just makes sure improvements like
-      this track actually reach projects that started earlier.
-    </p>
+    <p>The project records its playbook version in <button class="term" type="button" data-def="playbookstate"><code>.playbook-state.yml</code></button>. When an upgrade is available, the agent offers <button class="term" type="button" data-def="upgradeproject"><code>/ai-playbook-upgrade-project</code></button>. It shows proposed changes to managed files and preserves project-owned content for review. You decide when to upgrade.</p>
   </section>
 
   <section class="interactive-panel quiz" data-quiz>
@@ -291,15 +239,15 @@
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.5 · §20 · The Frontend Track</div>
+    <div>Agentic Engineering Playbook V0.5 · §20 · The Frontend Track</div>
     <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>
