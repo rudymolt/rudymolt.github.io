@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Engineering Playbook V0.4 · Interactive Guide Hub</title>
+<title>AI Engineering Playbook V0.5 · Interactive Guide Hub</title>
 <meta property="og:image" content="https://rudymolt.github.io/assets/playbook.png">
 <meta name="twitter:image" content="https://rudymolt.github.io/assets/playbook.png">
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
@@ -51,7 +51,7 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.4</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.5</div>
     <h1>Interactive Guide Hub</h1>
     <p class="lede">
       You describe what you want in normal sentences. The agent writes the
@@ -60,7 +60,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
-      <span><strong>Last updated</strong> · 2026-08-28 · playbook V0.4.0</span>
+      <span><strong>Last updated</strong> · 2026-09-27 · playbook V0.5.0</span>
       <span><strong>Format</strong> · Static interactive HTML</span>
     </div>
   </header>
@@ -88,92 +88,21 @@
   </section>
 
   <section class="whats-new" aria-labelledby="whats-new-title">
-    <h2 id="whats-new-title">What's New</h2>
-    <div class="version-entry">
-      <span class="version-label">V0.4</span>
-      <p>V0.4 turns the established workflow into a complete, installable
-      edition with a safer delivery path. After a human approves the scope and
-      limits, <code>/ai-playbook-deliver</code> can carry a feature through a
-      bounded build, a genuinely fresh independent check, real-use QA, and an
-      exact pull-request handoff. The normal boundary remains the PR: the agent
-      does not merge by default.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.4 · optional fresh-agent merge</span>
-      <p>A project may separately authorise K4.1, where a new agent session
-      rereads and rechecks the exact proposed change before merging it. This is
-      deliberately narrow: it is off by default, does not deploy or publish a
-      release, and does not claim the stronger non-bypass guarantees that are
-      still deferred. V0.3 remains intact as the rollback edition.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.3 · 2026-07-03</span>
-      <p>The big shift in V0.3: instead of <em>reminding</em> the agent to be
-      safe, the important rules are <em>built in</em> so they can't be skipped.
-      Three ideas do the work — safety rules become automatic
-      <button class="term" type="button" data-def="gate">checks the work has to pass</button>
-      rather than written notes; every piece of work is signed off by a separate
-      <button class="term" type="button" data-def="independentverifier">independent checker</button>
-      that must show its evidence; and the agent only earns
-      <button class="term" type="button" data-def="earnedautonomy">more freedom to run unsupervised</button>
-      once real projects prove it behaves. See
-      <a href="60-the-theory-behind-the-playbook.html#v03-adds">§60 · What V0.3 adds</a>.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.3 · also new</span>
-      <p>No new stages were added — the thirteen-stage loop is unchanged — but
-      four points in it gained a required step: every project now sets
-      <button class="term" type="button" data-def="budgetceiling">spending and time limits</button>
-      before any unattended run; review must be a genuine independent check that
-      shows evidence; shipping a milestone now offers to cut a proper release with
-      the new <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>
-      skill; and every retro logs a
-      <button class="term" type="button" data-def="fieldreport">field report</button>
-      when something noteworthy happened.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.2.9 · 2026-06-13</span>
-      <p>The guides now cover the whole of V0.2. The foundations gain
-      <a href="00-foundations.html#agent-surface">designing for the agent-facing surface</a>
-      and <a href="00-foundations.html#security-floor">the security floor</a>, and two
-      new guides join the set: <a href="70-lite-mode.html">lite mode</a> — the cut-down
-      loop for small projects — and a <a href="80-quickstart.html">quickstart</a> that
-      takes one feature through all thirteen stages.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.2 · 2026-06-12</span>
-      <p>The playbook now treats the agent's limited attention as something to design
-      around from the start. The agent reads a one-page map before it begins, each stage
-      tells it where to go next, and the project keeps a ready-made running
-      status — quietly making each session faster without changing how you guide
-      it. See <a href="60-the-theory-behind-the-playbook.html#agent-surface">§60 · Designing for the agent</a>.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.1.10 · 2026-06-09</span>
-      <p>The starter <button class="term" type="button" data-def="kitchensink">kitchen sink</button>
-      grew from a thin component sampler into a full operational UI baseline —
-      tables, drawers, overlays, and dense app-shell components — so new
-      projects start with a realistic visual vocabulary.</p>
-    </div>
-    <div class="version-entry">
-      <span class="version-label">V0.1.9 · 2026-06-09</span>
-      <p>UI projects now run on <button class="term" type="button" data-def="designartefacts">three design artefacts</button>
-      instead of two — a <button class="term" type="button" data-def="designlanguageguide">design-language guide</button>
-      joins the glossary and kitchen sink — with a mandatory setup question so
-      no project starts UI work without a design contract. Projects also
-      record their playbook version, and
-      <button class="term" type="button" data-def="upgradeproject"><code>/upgrade-project</code></button>
-      brings older projects up to date safely.
-      <a href="20-frontend-track.html">Read the new frontend track guide →</a></p>
-    </div>
+    <h2 id="whats-new-title">The V0.5 public playbook</h2>
+    <div class="version-entry"><span class="version-label">One edition · thirteen stages</span>
+      <p>A practical kit of Markdown instructions, templates, skills and verification scripts. Agree what to build, split it into testable slices, build, independently check the result when the risk requires it, and ship with evidence.</p></div>
+    <div class="version-entry"><span class="version-label">Skills you can adapt</span>
+      <p>Suggested skills draw on Matt Pocock, Garry Tan's gstack, Lauren Tan's pstack and playbook-local workflows. Install the external collections separately; bootstrap installs the included adaptations. You can substitute your own skills while preserving the stage's inputs, evidence and approval gates. <a href="60-the-theory-behind-the-playbook.html#toolkits">See which skills fit where →</a></p></div>
+    <div class="version-entry"><span class="version-label">Your harness · local or cloud</span>
+      <p>The process is portable across coding-agent harnesses such as Codex and Claude Code, subject to verified tools and permissions. The author's workflow uses Conductor locally and in the cloud. An approved autonomous delivery mission can build an entire feature through fresh verification and QA to an exact PR; merge authority is separate. <a href="50-how-to-write-code-with-ai.html#cloud-delivery">See the delivery route →</a></p></div>
   </section>
 
   <section>
     <h2>What The AI Engineering Playbook Is</h2>
     <p>
       The AI Engineering Playbook is a way of working in which a person stays in
-      charge while an AI coding agent does the building. It is not a piece of
-      software or a replacement for engineering judgement. It is a way to run a
+      charge while an AI coding agent does the building. Its instructions, templates,
+      skills and scripts give both sides a shared process. They structure a
       coding session so the agent works inside a clear process: understand the
       task, agree the plan, break the work into small
       <button class="term" type="button" data-def="slice">slices</button> that
@@ -181,11 +110,10 @@
       result, test it, and ship only when the evidence is good enough.
     </p>
     <p>
-      V0.4 keeps V0.3's enforceable safety floor and adds a deterministic
-      delivery route around it: the approved scope and limits are recorded, the
-      builder stays inside them, a fresh checker shows its evidence, and the
-      default handoff is an exact pull request. More authority remains explicit,
-      optional, and earned rather than assumed.
+      V0.5 records the approved scope, checks host capabilities, separates building
+      from fresh verification, and makes the delivery endpoint explicit. This is
+      a process supported by tools and evidence, not a claim that a prompt makes
+      every rule impossible to bypass.
     </p>
     <div class="learning-grid">
       <article class="learning-card">
@@ -217,8 +145,9 @@
   </section>
 
   <section>
-    <h2>How To Use It With Claude Or Codex</h2>
+    <h2>How To Start With Your Coding Agent</h2>
     <ol>
+      <li>Get the <a href="https://github.com/rudymolt/agentic-engineering-playbook/tree/v0.5.0">public v0.5.0 release</a> and keep that checkout pinned to its tag. Point your agent at <code>v0.5/AGENT-DIGEST.md</code>, then run <code>/ai-playbook-bootstrap-project</code> for your project. Review its dry-run and UI, CI and host choices before it applies anything. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/README.md">setup guide</a> has the exact steps.</li>
       <li>
         Read <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
         first. It follows one feature from first sentence to shipped code, and
@@ -239,7 +168,7 @@
         shown off on its own, rather than a sweeping rewrite.
       </li>
       <li>
-        While the agent is building, keep it focused on one slice, ask it to
+        While the agent is building, choose <code>build one</code>, <code>build all</code>, or <code>build to &lt;slice&gt;</code>; ask it to
         spell out any risky assumptions, and insist on tests or browser checks
         that fit the risk of the change.
       </li>
@@ -253,10 +182,10 @@
   </section>
 
   <section>
-    <h2>What Was Published Here</h2>
+    <h2>What Is Published Here</h2>
     <p>
-      This V0.4 publication turns the playbook into linked, static HTML pages
-      for people using coding agents. It includes this hub, the foundations guide,
+      These human-facing V0.5 guides explain the playbook through linked, static HTML pages
+      for people using coding agents. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/AGENT-DIGEST.md">public agent digest</a> and stage Markdown are the operating source of truth. It includes this hub, the foundations guide,
       the 13-stage process map, focused alignment and breakdown explainers, the
       frontend-track guide, the
       document lifecycle guide, the practical agent-driving guide, the theory
@@ -276,7 +205,10 @@
       <a href="https://www.skills.sh/mattpocock/skills">skills.sh</a>, and
       <a href="https://www.ycombinator.com/people/garry-tan">Garry Tan</a>'s
       <a href="https://gstack.lol/">GStack</a> project and
-      <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>.
+      <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>,
+      <a href="https://github.com/poteto">Lauren Tan (@poteto)</a>'s
+      <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a>, and
+      <a href="https://github.com/Intelligent-Internet/zenith">Intelligent Internet's Zenith</a> as inspiration for independent verification, stopping discipline and evidence. Zenith is prior art, not a dependency. Adapted skills retain their upstream notices.
     </p>
     <p>
       The pages here do not replace those projects. They organise selected ideas
@@ -361,7 +293,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Theory Behind The Playbook · AI Engineering Playbook V0.4</title>
+<title>The Theory Behind The Playbook · AI Engineering Playbook V0.5</title>
 <!--
   ==========================================================================
   MAINTAINER NOTE
@@ -17,7 +17,7 @@
   want the long-form version.
 
   Status: Source of truth
-  Last verified: 2026-08-28 (playbook V0.4.0)
+  Last verified: 2026-09-27 (playbook V0.5.0)
   Audience: Human project owner (no engineering background assumed)
   ==========================================================================
 -->
@@ -395,7 +395,7 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.4 · §60</div>
+    <div class="eyebrow">AI Engineering Playbook · V0.5 · §60</div>
     <h1>The Theory Behind The Playbook</h1>
     <p class="lede">
       Why the process is shaped the way it is. The companion guide, §50,
@@ -406,7 +406,7 @@
     </p>
     <div class="meta">
       <span><strong>Status</strong> · Source of truth</span>
-      <span><strong>Last verified</strong> · 2026-08-28 · playbook V0.4.0</span>
+      <span><strong>Last verified</strong> · 2026-09-27 · playbook V0.5.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
     </div>
@@ -438,11 +438,11 @@
       <a href="#align">Align<span>Which grill to run</span></a>
       <a href="#language">Shared language<span>CONTEXT.md and ADRs</span></a>
       <a href="#slices">Slicing<span>Vertical, not horizontal</span></a>
-      <a href="#tdd">TDD<span>Red, green, refactor</span></a>
+      <a href="#tdd">TDD<span>Test first, then review</span></a>
       <a href="#architecture">Architecture<span>Deep modules and source of truth</span></a>
       <a href="#verify">Verification<span>Risk-scaled checking</span></a>
       <a href="#agent-surface">Designing for the agent<span>The surface agents read</span></a>
-      <a href="#v04-adds">V0.4 delivery<span>Bounded execution and fresh merge</span></a>
+      <a href="#v04-adds">V0.5 delivery<span>Bounded execution and fresh merge</span></a>
       <a href="#evidence">Evidence<span>Where the ideas come from</span></a>
     </div>
   </nav>
@@ -508,7 +508,7 @@
 
         <rect x="540" y="196" width="340" height="56" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.2"/>
         <text x="558" y="220" class="label-md ink">Build test-first, debug with method</text>
-        <text x="558" y="240" class="label-mono" fill="#d5a527">/tdd · /diagnose</text>
+        <text x="558" y="240" class="label-mono" fill="#d5a527">/tdd · /diagnosing-bugs</text>
 
         <rect x="540" y="268" width="340" height="56" rx="4" fill="#0a0605" stroke="#d5a527" stroke-width="1.2"/>
         <text x="558" y="292" class="label-md ink">Tune the structure regularly</text>
@@ -584,7 +584,7 @@
         open question has either an answer or an explicit "out of scope".
       </li>
       <li>
-        <div class="head"><span class="skill">/grill-me</span> <span class="role">for non-code work</span></div>
+        <div class="head"><span class="skill">/grilling</span> <span class="role">for non-code work</span></div>
         The same discipline for a decision or a strategy doc — anything where
         there's no codebase to challenge the plan against.
       </li>
@@ -705,8 +705,8 @@
     <div class="explainer-output" data-explainer-output="slices" aria-live="polite"></div>
 
     <p>
-      Once the plan is settled, <span class="skill">/to-prd</span> writes a short
-      spec and <span class="skill">/to-issues</span> breaks it into these slices,
+      Once the plan is settled, <span class="skill">/to-spec</span> writes a short
+      spec and <span class="skill">/to-tickets</span> breaks it into these slices,
       in the order they depend on each other. Each slice is tagged
       <button class="term" type="button" data-def="afkhitl">AFK or HITL</button> — whether the agent can finish it
       alone or needs you in the loop.
@@ -714,8 +714,7 @@
     <div class="callout human-note">
       <strong>Why you should care.</strong> Vertical slices mean you get
       something real to look at early and often, and the agent
-      <a href="50-how-to-write-code-with-ai.html" style="color:inherit">pauses
-      after each one</a> for your go-ahead. If priorities change, you've
+      <a href="50-how-to-write-code-with-ai.html" style="color:inherit">checks each one</a> before continuing. Build one is the default; build all or build to a named slice is an explicit choice. If priorities change, you've
       committed almost nothing — the opposite of discovering at the end that the
       whole thing was built around a wrong guess.
     </div>
@@ -737,11 +736,11 @@
       code should do <em>before</em> writing the code itself.
     </p>
 
-    <p>The rhythm is three short steps, repeated one tiny piece at a time:</p>
+    <p>Agree the public interface to test, then repeat this rhythm one behaviour at a time:</p>
     <ul>
       <li><strong class="lead-in"><button class="term" type="button" data-def="redgreen">Red</button>.</strong> Write a test for the next bit of behaviour. It fails — there's no code yet.</li>
       <li><strong class="lead-in">Green.</strong> Write just enough code to make that test pass. Nothing more.</li>
-      <li><strong class="lead-in"><button class="term" type="button" data-def="refactor">Refactor</button>.</strong> Tidy the code up while the test keeps passing.</li>
+      <li><strong class="lead-in">Review.</strong> Structural refactoring belongs in the review stage, protected by the passing tests.</li>
     </ul>
 
     <p>
@@ -923,39 +922,13 @@ Transport page
     </div>
     <div class="explainer-output" data-explainer-output="verify" aria-live="polite"></div>
 
-    <p>The skills that do the checking:</p>
+    <p>Stages 08 and 09 own the checking procedure. Installed upstream reviewers run only after their exact source passes the report-only compatibility check; otherwise use the documented adapter or manual route.</p>
     <ul class="skill-list">
-      <li>
-        <div class="head"><span class="skill">/qa</span> <span class="role">the QA lead</span></div>
-        Opens a real browser and uses the app like a person would, catching
-        things the automated tests miss — then writes a
-        <button class="term" type="button" data-def="regression">regression test</button> so that
-        particular bug can never quietly come back.
-      </li>
-      <li>
-        <div class="head"><span class="skill">/review</span> <span class="role">the staff engineer</span></div>
-        A careful read for bugs that pass the automated checks but would blow up
-        in real production use.
-      </li>
-      <li>
-        <div class="head"><span class="skill">/cso</span> <span class="role">the security officer</span></div>
-        A security review. The rule is absolute: run it on anything touching
-        login, payments, personal data, or any part of the app the outside world
-        can reach — no exceptions.
-      </li>
-      <li>
-        <div class="head"><span class="skill">/design-review · /devex-review</span> <span class="role">the specialists</span></div>
-        For the screens your users see, and for the tools other software (or
-        other programmers) plug into — the connection points one program offers
-        another, and text-only tools run by typing commands — respectively.
-      </li>
-      <li>
-        <div class="head"><span class="skill">/diagnose</span> <span class="role">the methodical debugger</span></div>
-        When something breaks: reproduce it first, write three-to-five ranked
-        guesses <em>before</em> poking at anything, change one thing at a time,
-        and fix it with a regression test. Its iron law is "no fixes without
-        investigation" — no guessing-and-hoping.
-      </li>
+      <li><div class="head"><span class="skill">Report-only QA</span> <span class="role">the QA lead</span></div>Use a real browser and capture evidence of the affected user journeys. Send accepted fixes to a separate builder task, then fresh Verify. A checker that changes the code cannot certify its own edits.</li>
+      <li><div class="head"><span class="skill">Stage-owned review</span> <span class="role">the staff engineer</span></div>Check the spec, standards and failure cases with executed evidence scaled to risk. A compatible upstream reviewer may assist; review authority remains with the stage.</li>
+      <li><div class="head"><span class="skill">Security review</span> <span class="role">the security lens</span></div>Changes to authentication, payments, personal data or exposed boundaries require appropriate security verification. Use the compatible reviewer or documented fallback; security and irreversible-data checks cannot be self-certified.</li>
+      <li><div class="head"><span class="skill">/ai-playbook-design-review</span> <span class="role">the design lens</span></div>Check screens against the approved design artefacts and responsive smoke floor. Add a compatible developer-experience review for CLIs, APIs and other agent-facing surfaces.</li>
+      <li><div class="head"><span class="skill">/diagnosing-bugs · /investigate</span> <span class="role">the debugger</span></div>Reproduce, isolate and identify the cause before fixing it. Use meaningful regression evidence and redact diagnostic output. The iron law is no fixes without diagnosis.</li>
     </ul>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
@@ -1029,7 +1002,7 @@ Transport page
       An agent takes in everything through a narrow window, and it pays — in
       time, and in how much it can hold in mind at once — for every extra word
       it has to wade through and every extra back-and-forth it has to make just
-      to learn what to do next. So V0.2 added one rule to the foundations:
+      to learn what to do next. The foundations therefore say:
       <strong class="lead-in">treat the agent's attention as a first-class
       design constraint</strong>, the way the frontend track treats your visual
       vocabulary. If a tool, a file, or a document forces the agent to read a
@@ -1050,9 +1023,7 @@ Transport page
     </div>
 
     <p>
-      The playbook now holds itself to that same standard — which is most of
-      what changed between V0.1 and V0.2, under the hood, without altering the
-      thirteen stages themselves:
+      The playbook holds itself to that same standard throughout its thirteen stages:
     </p>
 
     <ul>
@@ -1088,171 +1059,48 @@ Transport page
   <!-- ====================================================== -->
   <!-- ====================================================== -->
   <section id="v03-adds">
-    <h2><span class="num">10</span>What V0.3 adds</h2>
-    <p class="section-lede">
-      V0.1 set up the loop; V0.2 made the agent read its own instructions more
-      efficiently. V0.3 changes something deeper: it stops relying on the agent to
-      <em>remember</em> the safety rules and starts <em>building them into the
-      process</em>. The thirteen stages are unchanged — this is about how firmly
-      the rules are held.
-    </p>
-
-    <p>Three ideas carry the whole version:</p>
+    <h2><span class="num">10</span>Verification and limits</h2>
+    <p class="section-lede">Match verification to risk and distinguish a written rule from a tool-enforced boundary. Evidence explains what was checked, on which revision, and what happened.</p>
     <ul>
-      <li><strong class="lead-in">Rules become barriers, not reminders.</strong>
-      A rule can be enforced anywhere on a scale — from a line of text asking
-      politely, up to an automatic
-      <button class="term" type="button" data-def="gate">gate</button> that simply
-      won't let the work through. V0.3 pushes the safety-critical rules
-      (like "no passwords in the code") as far up that scale as is cheap and
-      practical, so they are checked by machine instead of by memory. This scale is
-      the <button class="term" type="button" data-def="determinismgradient">determinism
-      gradient</button>.</li>
-      <li><strong class="lead-in">An independent checker that shows its work.</strong>
-      For anything beyond a trivial change, the work is signed off by an
-      <button class="term" type="button" data-def="independentverifier">independent
-      verifier</button>. That is not a new piece of software — it is either the
-      <em>same</em> tool (Claude or Codex) started again in a brand-new session
-      with no memory of having written the code, or a <em>different</em> model
-      altogether: if Codex wrote it, Claude checks it, and vice versa. The point is
-      that the checker cannot simply trust the work it just did. Either way it has
-      to produce real evidence (what it ran, the result, pass or fail) — "looks
-      fine" is not evidence — and the check can't be folded back into the agent
-      that did the building.</li>
-      <li><strong class="lead-in">Freedom that is earned.</strong> Longer,
-      less-supervised runs are not switched on by default. The agent unlocks that
-      <button class="term" type="button" data-def="earnedautonomy">earned
-      autonomy</button> only once real projects have produced proof it behaves —
-      captured in short
-      <button class="term" type="button" data-def="fieldreport">field reports</button>.</li>
+      <li><strong class="lead-in">Checks scaled to risk.</strong> A typo needs a focused check. New behaviour needs meaningful tests. Cross-module changes require a different agent in a fresh context, without the implementer's transcript, executing checks and returning evidence. Security and irreversible-data checks cannot be self-certified.</li>
+      <li><strong class="lead-in">Fix, then verify again.</strong> Review and QA are evidence-producing stages. Findings go back to a builder; a fresh verifier checks the changed result. An auto-fixing reviewer cannot certify its own edits.</li>
+      <li><strong class="lead-in">Progress checkpoints versus hard limits.</strong> Ordinary estimates guide reporting; they do not force an extension prompt while productive in-scope work continues. Human-selected hard limits, actual quotas, Stop and the three-failure/no-progress guards remain binding. Protected delivery requires approved ceilings.</li>
+      <li><strong class="lead-in">Honest enforcement claims.</strong> The determinism gradient separates prompts, preconditions, evidence, handoffs and actual gates. Autonomy depends on proven capabilities and explicit authority; the playbook does not make every rule impossible to bypass.</li>
     </ul>
-
-    <div class="callout">
-      <strong>Four new steps, no new stages.</strong> The loop still has the same
-      thirteen stages in the same order. What V0.3 adds are required steps
-      <em>inside</em> four of them: at setup, every project fixes its
-      <button class="term" type="button" data-def="budgetceiling">budget
-      ceilings</button> (how much a run may spend, how long it may take, how many
-      times it may retry) and the agent pauses and reports rather than pressing
-      past them; at <strong>review</strong>, the independent check with evidence
-      becomes mandatory; at <strong>ship</strong>, a milestone offers to cut a
-      proper release with the
-      <button class="term" type="button" data-def="shiprelease"><code>/ship-release</code></button>
-      skill; and at <strong>retro</strong>, the team records a field report
-      whenever the checker caught a real bug, a ceiling correctly stopped a run,
-      or a similar proof event happened.
-    </div>
-
-    <div class="callout human-note">
-      <strong>What this means for you:</strong> you still drive it the same way
-      from §50. These changes mostly make the agent safer to leave running — the
-      checks it can't skip, the limits it must respect, and the evidence it has to
-      show before it earns a longer leash.
-    </div>
-
-    <p class="go-deeper">
-      <span class="gd-label">Go deeper</span>
-      <a href="00-foundations.html#budget-and-gates">foundations: limits and gates</a> ·
-      <a href="50-how-to-write-code-with-ai.html">§50 · how to drive it</a>
-    </p>
+    <p class="go-deeper"><span class="gd-label">Go deeper</span><a href="00-foundations.html#budget-and-gates">Foundations: limits and gates</a></p>
   </section>
 
   <!-- ====================================================== -->
-  <!-- 11. WHAT V0.4 ADDS                                     -->
+  <!-- 11. WHAT V0.5 ADDS                                     -->
   <!-- ====================================================== -->
   <section id="v04-adds">
-    <h2><span class="num">11</span>What V0.4 adds</h2>
-    <p class="section-lede">
-      V0.4 keeps the same thirteen stages and V0.3 safety floor, then makes the
-      route from an approved plan to a pull request more explicit and
-      reproducible. It is a complete edition, not a mixture of old and new
-      files; V0.3 remains available as the rollback edition.
-    </p>
-
-    <p>Four ideas define the version:</p>
+    <h2><span class="num">11</span>V0.5 delivery and portability</h2>
+    <p class="section-lede">One public edition provides the thirteen-stage process plus optional routes for longer, unattended work. Your agent's tools, permissions and host capabilities determine which routes are available.</p>
     <ul>
-      <li><strong class="lead-in">Approve the envelope before the run.</strong>
-      The human settles the feature, scope, limits, stopping conditions, and
-      judgement calls before an agent-owned delivery mission begins.</li>
-      <li><strong class="lead-in">Build and check are genuinely separate.</strong>
-      The builder works inside that envelope; a fresh verifier starts without
-      the builder's conversation, rereads the exact change, reruns the required
-      checks, and supplies evidence.</li>
-      <li><strong class="lead-in">The normal boundary is the pull request.</strong>
-      <code>/ai-playbook-deliver</code> ends with an exact PR handback. It does
-      not silently acquire merge, deploy, or release authority.</li>
-      <li><strong class="lead-in">More authority is narrow and explicit.</strong>
-      K4.1 may be enabled by a project so a fresh agent can merge the exact
-      verified head. It remains off by default and is not the stronger
-      non-bypass assurance lane, which is still deferred.</li>
+      <li><strong class="lead-in">Portable process.</strong> Codex and Claude Code are example harnesses. Conductor is the author's workspace host for local and cloud work. Bootstrap checks capabilities, offers a dry-run and preserves project-owned content; it does not assume every host supports every skill or worker route.</li>
+      <li><strong class="lead-in">Ordinary builds.</strong> Choose build one, build all, or build to a named slice. Back-to-back execution is opt-in and covers AFK slices only. HITL decisions, ambiguity, hard limits and stopping guards still bring control back to the human.</li>
+      <li><strong class="lead-in">Delivery missions.</strong> Approve the scope, limits, decisions and stopping conditions first. <code>/ai-playbook-deliver</code> then runs Build → fresh Verify → QA → exact PR handback, including necessary reversible fixes and renewed verification.</li>
+      <li><strong class="lead-in">Separate merge authority.</strong> Normal delivery ends at the PR. A separately admitted K4.1 fresh-agent session may merge the exact verified head. This optional route is off by default and grants neither deployment nor release authority. It is process-attested, not a non-bypass guarantee.</li>
+      <li><strong class="lead-in">Finish the lifecycle.</strong> Production verification, doc-close, current-release pointers and a same-session feature retro stay visible in pending closeouts. The documentation and retro changes share one fresh closeout branch and one PR.</li>
     </ul>
-
-    <div class="callout">
-      <strong>Deterministic lifecycle, too.</strong> V0.4 also owns how the
-      edition is installed, upgraded, migrated from V0.3, checked for drift,
-      and removed. Project-owned content is preserved, managed files are bound
-      to a manifest, and ambiguous collisions stop for human review.
-    </div>
-
-    <div class="callout human-note">
-      <strong>What this means for you:</strong> you still describe features in
-      ordinary language and own the product decisions. The difference is that
-      an approved feature can now travel through a bounded, evidence-bearing
-      delivery route without weakening the independent checks.
-    </div>
-
-    <p class="go-deeper">
-      <span class="gd-label">Go deeper</span>
-      <a href="50-how-to-write-code-with-ai.html#ship">§50 · ship and GitHub handoff</a> ·
-      <a href="10-process/index.html#stages">§10 · the stage map</a>
-    </p>
+    <p class="go-deeper"><span class="gd-label">Go deeper</span><a href="50-how-to-write-code-with-ai.html#cloud-delivery">Using Conductor and cloud delivery</a> · <a href="10-process/index.html#stages">Stage map</a></p>
   </section>
 
   <!-- ====================================================== -->
   <!-- 12. TWO TOOLKITS                                       -->
   <!-- ====================================================== -->
   <section id="toolkits">
-    <h2><span class="num">12</span>Two toolkits, working together</h2>
-    <p class="section-lede">
-      The skills the agent uses come from two open-source collections. You never
-      have to choose between them — the playbook calls the right one at the right
-      moment — but it helps to know why there are two.
-    </p>
-
+    <h2><span class="num">12</span>Skills that work together</h2>
+    <p class="section-lede">A skill is a reusable instruction pack for a particular job. The playbook suggests skills at each stage and adds adapters where their normal behaviour needs to fit the process.</p>
     <div class="split">
-      <div class="card matt">
-        <h3>Matt Pocock's skills</h3>
-        <p class="name">The fundamentals</p>
-        <ul>
-          <li>Small, sharp, single-purpose tools.</li>
-          <li>Cover <em>how to build correctly</em>: grilling, slicing, test-first, deep modules, disciplined debugging.</li>
-          <li>You keep control of the process.</li>
-        </ul>
-      </div>
-      <div class="card gstack">
-        <h3>gstack (Garry Tan)</h3>
-        <p class="name">The virtual team</p>
-        <ul>
-          <li>Each skill plays a role: founder, designer, QA lead, security officer, release engineer.</li>
-          <li>Cover the <em>whole loop</em> around the build: post-code review, security, deploy, retro.</li>
-          <li>Runs as one work cycle: Think → Plan → Build → Review → Test → Ship → Reflect.</li>
-        </ul>
-      </div>
+      <div class="card matt"><h3>Matt Pocock's skills</h3><p class="name">Understand and build</p><p>Grilling, specifications, vertical slicing, TDD, deep-module design and disciplined debugging. Examples include <code>/grill-with-docs</code>, <code>/to-spec</code>, <code>/to-tickets</code> and <code>/tdd</code>.</p></div>
+      <div class="card gstack"><h3>Garry Tan's gstack</h3><p class="name">Product and delivery lenses</p><p>Office hours, CEO and engineering plan reviews, browser checks, security, shipping and retros. Stage-owned compatibility checks decide whether an installed upstream skill can run directly or needs an adapter/manual route.</p></div>
+      <div class="card"><h3>Lauren Tan's pstack</h3><p class="name">Investigate and prove</p><p>Included adaptations of <code>how</code>, <code>why</code>, <code>blast-radius</code> and verification-harness creation and maintenance help agents understand existing code and prove the result. Upstream notices remain with the adaptations.</p></div>
+      <div class="card"><h3>Playbook-local workflows</h3><p class="name">Connect the stages</p><p>Bootstrap, upgrades, model routing, delivery and <code>/whats-next</code> keep work moving. An optional track integrates Matt Pocock's separately installed Wayfinder. When a destination is clear but the route is foggy, the agent can offer <code>/wayfinder</code>; the human invokes it to explore and track that route before a normal feature is ready.</p></div>
     </div>
-
-    <p>
-      They're complementary, not rivals. Matt's tools are the
-      <strong class="lead-in">build</strong>; gstack is the
-      <strong class="lead-in">loop around the build</strong>, filling in the
-      parts Matt deliberately leaves out. This playbook is the stitching that
-      decides which to reach for at each stage.
-    </p>
-    <p class="go-deeper">
-      <span class="gd-label">Go deeper</span>
-      <span>GSTACK-AUGMENTATIONS.md</span> ·
-      <a href="https://github.com/mattpocock/skills">github.com/mattpocock/skills</a> ·
-      <a href="https://github.com/garrytan/gstack">github.com/garrytan/gstack</a>
-    </p>
+    <p>Install Matt's collection and gstack separately if you want those accelerators. Bootstrap installs the included pstack adaptations and playbook-local skills into the project. A missing external collection does not automatically block work: verified manual capability routes can satisfy the stage.</p>
+    <p>These are suggested skills, not a closed list. Add or substitute your own when they provide the required inputs, outputs, evidence and approval gates. At Plan, Build and Verify boundaries, model routing offers only verified choices and explains whether work stays in the current tab or moves to a worker or Conductor tab.</p>
+    <p class="go-deeper"><span class="gd-label">Go deeper</span><a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/skills/README.md">Local skill contracts</a> · <a href="https://github.com/mattpocock/skills">Matt's skills</a> · <a href="https://github.com/garrytan/gstack">gstack</a> · <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a></p>
   </section>
 
   <!-- ====================================================== -->
@@ -1297,6 +1145,9 @@ Transport page
         </p>
       </article>
 
+      <article class="evidence-card"><span class="label">Source</span><h3>Lauren Tan's pstack</h3><p>Investigation and verification skills adapted with their notices preserved.</p><p class="source-link"><a href="https://github.com/poteto">Lauren Tan (@poteto)</a> · <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a></p></article>
+      <article class="evidence-card"><span class="label">Inspiration</span><h3>Intelligent Internet's Zenith</h3><p>Prior art for autonomous loops, independent verification, stopping discipline and evidence. It is inspiration, not a runtime dependency.</p><p class="source-link"><a href="https://github.com/Intelligent-Internet/zenith">Zenith</a></p></article>
+
       <article class="evidence-card">
         <span class="label">Documentation shape</span>
         <h3>Diataxis separation</h3>
@@ -1327,13 +1178,13 @@ Transport page
       <li><strong class="lead-in">The full loop.</strong> <a href="10-process/index.html">§10 · The 13-stage process map</a>, with one file per stage.</li>
       <li><strong class="lead-in">UI work.</strong> <a href="20-frontend-track.html">§20 · The frontend track</a> — the extra discipline for anything with a screen: three design artefacts (glossary, kitchen sink, design-language guide) that own the UI's words, looks, and behaviour.</li>
       <li><strong class="lead-in">Document hygiene.</strong> <a href="30-document-lifecycle.html">§30 · Document lifecycle</a>.</li>
-      <li><strong class="lead-in">The two toolkits in detail.</strong> The process file and its gstack companion remain source references in the playbook repository.</li>
+      <li><strong class="lead-in">The operating source.</strong> Read the <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/AGENT-DIGEST.md">public V0.5 digest</a> and the stage Markdown it points to.</li>
     </ul>
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.4 · §60 · The Theory Behind The Playbook</div>
-    <div>Maintainer: Rudy Molt · Last verified 2026-08-28 · playbook V0.4.0</div>
+    <div>AI Engineering Playbook V0.5 · §60 · The Theory Behind The Playbook</div>
+    <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
@@ -1430,7 +1281,7 @@ Transport page
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260828-v04"></script>
-<script src="assets/playbook-docs.js?v=20260828-v04"></script>
+<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
+<script src="assets/playbook-docs.js?v=20260927-v05"></script>
 </body>
 </html>
