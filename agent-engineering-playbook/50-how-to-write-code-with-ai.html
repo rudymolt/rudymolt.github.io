@@ -551,6 +551,8 @@
     <div class="toc-grid">
       <a href="#roles">Who owns what<span>The human/agent contract</span></a>
       <a href="#loop">Development loop<span>Align, slice, build, review, ship</span></a>
+      <a href="#cloud-delivery">Local and cloud builds<span>Build one, build all, deliver to PR</span></a>
+      <a href="#verification-harness">Verification harness<span>A repeatable way to check your app</span></a>
       <a href="#ship">GitHub handoff<span>What crosses the human boundary</span></a>
       <a href="#smoke-floor">UI smoke floor<span>Minimum responsive checks</span></a>
       <a href="#phrases">Phrase tool<span>Copy the right prompt</span></a>
@@ -822,7 +824,7 @@ It should become available again.</code></pre>
     <div class="stage-block">
       <div class="stage-head">
         <span class="badge">03 · BUILD</span>
-        <h3>Ask for one slice at a time</h3>
+        <h3>Choose how much to build</h3>
       </div>
       <p>Say:</p>
 <pre tabindex="0" aria-label="Build stage example prompt"><code>Build slice 1.</code></pre>
@@ -872,12 +874,30 @@ It should become available again.</code></pre>
   <!-- 3. SHIP & GITHUB HANDOFF                               -->
   <!-- ====================================================== -->
   <section id="cloud-delivery">
-    <h2>Using Conductor and cloud delivery</h2>
-    <p>The playbook works alongside your coding-agent environment. Codex and Claude Code are example harnesses; other hosts can use the process when they provide the needed tools, permissions and skill-loading support. Stage 00 checks those capabilities. Model choices at Plan, Build and Verify are verified before work is routed.</p>
-    <p>The author's workflow uses Conductor to manage local workspaces and Conductor Cloud for unattended work. When Conductor is detected or requested, bootstrap uses its bundled setup skill to propose setup and Run commands, copied files, ports, concurrency, validation and activation. Review that plan before applying it.</p>
-    <p>To continue work in the cloud, prepare the workspace, credentials and required tools, then hand over the approved feature, branch, revision, task tracker and verification evidence. The receiving agent checks the current project state before resuming work.</p>
-    <p>Full project bootstrap installs the delivery runtime and <code>/ai-playbook-deliver</code>. Installation alone does not authorise unattended work: capability checks and mission approval still come first. For a complete feature without routine intervention, approve a delivery mission's scope, limits, stopping conditions and decisions first. <code>/ai-playbook-deliver</code> carries AFK work through Build → fresh Verify → real-use QA → exact PR handback. Fixes return to the builder and are verified again. Missing authority, HITL decisions or stopping conditions bring it back to you. Normal delivery does not include merge, deployment or release.</p>
-    <p>Conductor is optional. Follow the same stage contracts in another supported harness, using verified manual routes where an accelerator is unavailable. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/10-process/delivery-mission.md">delivery mission reference</a> defines the precise boundaries.</p>
+    <h2>Build with you, or continue in the cloud</h2>
+    <p>Once you have agreed the specification and broken a feature into slices, choose how far the agent should work before reporting back:</p>
+    <ul>
+      <li><strong><code>build one</code></strong> — implement and verify the next slice, then report back. This is the default.</li>
+      <li><strong><code>build all</code></strong> — work through the current feature's remaining slices approved for unattended execution, with independent review and QA between slices and a final review across the work.</li>
+      <li><strong><code>build to &lt;slice&gt;</code></strong> — follow the same process up to and including a named slice, then report back.</li>
+      <li><strong>Deliver to PR</strong> — use the separately approved <code>/ai-playbook-deliver</code> workflow to carry eligible work through implementation, fresh independent verification and real-use QA to a pull request for review.</li>
+    </ul>
+    <p>The build choices work locally or in a prepared cloud workspace. <code>build all</code> selects how much of one feature to build; it does not move the session to the cloud or authorise merging. Slices marked <strong>AFK</strong> can run unattended; those marked <strong>HITL</strong> need human input.</p>
+    <h3>Using Conductor Cloud</h3>
+    <p>The author uses Conductor for local work and Conductor Cloud for unattended runs. During setup, the playbook proposes the project's setup and Run commands, copied files and resource handling for approval. A cloud handoff carries the approved feature, branch, revision, task tracker and evidence; the receiving agent checks these against the current workspace before continuing.</p>
+    <p>Full bootstrap installs the delivery runtime and skill. Before an autonomous delivery mission starts, you approve its scope, execution limits and stopping conditions, and the agent checks the workspace's tools and permissions. An entire feature can reach a pull request without routine prompts when every slice is eligible. The agent repairs eligible findings and sends the result through fresh verification; it pauses for decisions requiring your judgement, ambiguity, repeated failure or lack of progress, a stop request, or a selected limit or quota.</p>
+    <p>Ordinary delivery ends at the pull request. Merge requires separate authority; deployment and release are separate steps. Conductor is optional: other coding-agent environments, such as Codex or Claude Code, can follow the process when their tools and permissions support it.</p>
+    <p><a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/10-process/07-implementation-tdd.md">Build choices and stopping rules</a> · <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/10-process/delivery-mission.md">Delivery mission requirements</a></p>
+  </section>
+
+  <section id="verification-harness">
+    <h2>A repeatable way to check your application</h2>
+    <p>A <strong>project verification harness</strong> gives an agent tested instructions and commands for running your application and checking its real behaviour. The playbook includes skills adapted from <a href="https://github.com/poteto">Lauren Tan (@poteto)</a>'s <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a> to create and maintain one for a selected application.</p>
+    <p>The harness covers five steps: <strong>launch</strong> the app, <strong>check readiness</strong>, <strong>exercise a feature</strong>, <strong>save evidence</strong>, and <strong>clean up</strong> resources created by the run. A feature map records what is covered, the expected results, known gaps and the last verified revision.</p>
+    <p><strong>Full bootstrap installs the skills, not a ready-made harness.</strong> Creation is optional. Use <code>/ai-playbook-verification-harness</code> to inspect the app and propose a scoped setup for approval. It reuses existing project commands and creates a project-owned <code>verify-&lt;app&gt;</code> skill. The harness remains a draft until it has run successfully against the app and a fresh verifier has confirmed the evidence.</p>
+    <p>Once adopted, <code>/ai-playbook-maintain-verification-harness</code> checks whether its instructions and feature map still match the application. Approved corrections must be verified again. The harness helps local and cloud agents repeat checks reliably, but it is not required for every project or cloud run.</p>
+    <p>A coding-agent <em>harness</em>, such as Codex or Claude Code, is the environment the agent works in. This <em>verification harness</em> is the project-specific toolkit it uses to check your app.</p>
+    <p><a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/skills/ai-playbook-verification-harness/SKILL.md">Harness creation requirements</a> · <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/skills/ai-playbook-maintain-verification-harness/SKILL.md">Harness maintenance</a></p>
   </section>
 
   <section id="ship">
