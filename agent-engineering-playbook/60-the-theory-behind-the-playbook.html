@@ -3,24 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Theory Behind The Playbook · AI Engineering Playbook V0.5</title>
-<!--
-  ==========================================================================
-  MAINTAINER NOTE
-  Companion to §50 "How To Write Code With AI". Where §50 tells the human
-  project owner WHAT to type, this guide (§60) explains WHY the process is
-  shaped the way it is — the concepts and the rationale behind the key
-  skills, in plain English.
-
-  This is a conceptual primer, not a reference manual. Each section ends
-  with "Go deeper" links into the fuller process files for readers who
-  want the long-form version.
-
-  Status: Source of truth
-  Last verified: 2026-09-27 (playbook V0.5.0)
-  Audience: Human project owner (no engineering background assumed)
-  ==========================================================================
--->
+<title>The Theory Behind The Playbook · Agentic Engineering Playbook V0.5</title>
+<!-- Human-facing guide to the public V0.5 playbook. Keep process claims aligned with the stage Markdown and AGENT-DIGEST.md. -->
 <style>
   :root {
     --bg:           #0a0605;
@@ -355,7 +339,7 @@
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html" aria-current="page">Theory</a>
@@ -395,17 +379,11 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.5 · §60</div>
+    <div class="eyebrow">Agentic Engineering Playbook · V0.5 · §60</div>
     <h1>The Theory Behind The Playbook</h1>
-    <p class="lede">
-      Why the process is shaped the way it is. The companion guide, §50,
-      tells you <em>what to type</em>; this one explains <em>why each stage
-      exists</em> and the thinking behind the skills the agent reaches for —
-      grilling, slicing, test-first building, architecture tune-ups, and the
-      rest — in plain English, no engineering background assumed.
-    </p>
+    <p class="lede">This guide explains why the playbook asks you to agree on the goal, use shared terminology, build in small pieces and verify the result. For the practical steps, start with <a href="50-how-to-write-code-with-ai.html">How to Write Code with AI</a>.</p>
     <div class="meta">
-      <span><strong>Status</strong> · Source of truth</span>
+      <span><strong>Status</strong> · Explanatory guide</span>
       <span><strong>Last verified</strong> · 2026-09-27 · playbook V0.5.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
       <span><strong>Format</strong> · Interactive HTML · conceptual primer</span>
@@ -460,12 +438,7 @@
   <!-- ====================================================== -->
   <section id="why">
     <h2><span class="num">01</span>Why have a process at all?</h2>
-    <p class="section-lede">
-      An AI agent can write code astonishingly fast. The bottleneck was never
-      typing speed — it's making sure the fast output is the <em>right</em>
-      output. Almost every rule in this playbook exists to prevent one of four
-      predictable things that go wrong when you build software with an AI.
-    </p>
+    <p class="section-lede">Writing code is only part of the work. The result must solve the intended problem, work in practice and remain understandable. The playbook addresses four recurring problems.</p>
 
     <div class="diagram-wrap">
     <svg viewBox="0 0 900 360" class="diagram" role="img" aria-label="Four common failure modes and the practice that prevents each: building the wrong thing is prevented by grilling the plan first; using different words for the same thing is prevented by a shared glossary; code that does not work is prevented by test-first building and disciplined debugging; a tangled codebase is prevented by regular architecture tune-ups.">
@@ -535,13 +508,7 @@
     </div>
     <div class="explainer-output" data-explainer-output="why" aria-live="polite"></div>
 
-    <p>
-      These aren't independent. Skip the grilling and you build the wrong thing
-      <em>well</em>. Skip the shared glossary and the grilling itself gets muddier.
-      Let the structure rot and the test-first building slows to a crawl. The
-      stages are ordered so that each one protects the next — which is the whole
-      reason to follow them in order rather than cherry-pick.
-    </p>
+    <p>These problems reinforce each other. Unclear goals lead to misplaced effort; inconsistent terms obscure requirements; tangled code makes changes harder to test. Follow the stage routing so each task starts with the context and checks it needs.</p>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
       <a href="00-foundations.html">interactive foundations</a> ·
@@ -554,12 +521,7 @@
   <!-- ====================================================== -->
   <section id="align">
     <h2><span class="num">02</span>Align before you code</h2>
-    <p class="section-lede">
-      "No-one knows exactly what they want" is the oldest truth in software.
-      The cheapest moment to fix a misunderstanding is <em>before</em> any code
-      exists. So the process front-loads a conversation whose only job is to make
-      the fuzzy parts of a request explicit.
-    </p>
+    <p class="section-lede">A feature request often leaves important questions unanswered. Alignment makes the goal, constraints and acceptance criteria explicit before implementation begins.</p>
 
     <p>The agent has a few different grilling tools, each asking a different kind of question:</p>
 
@@ -590,12 +552,7 @@
       </li>
     </ul>
 
-    <div class="callout human-note">
-      <strong>Why "one question at a time, with a recommendation"?</strong>
-      It lets you move fast by simply approving the suggested answer when it's
-      right — while guaranteeing that nothing important is ever silently assumed.
-      You stay in control without having to write a specification.
-    </div>
+    <div class="callout human-note"><strong>One decision at a time.</strong> The agent presents a question and a recommendation with its reasons. You can accept it, change it or ask for more evidence. The agent records the agreed answer.</div>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
       <a href="10-process/01-align.html">interactive alignment guide</a>
@@ -607,10 +564,7 @@
   <!-- ====================================================== -->
   <section id="language">
     <h2><span class="num">03</span>A shared language</h2>
-    <p class="section-lede">
-      The single cheapest piece of leverage in the whole process: agree on what
-      to call things, write it down, and then use those exact words everywhere.
-    </p>
+    <p class="section-lede">Agree on names for the project's main concepts, record their meanings and use them consistently in code, tests and documentation.</p>
 
     <div class="concept">
       <p class="what">Concept</p>
@@ -711,13 +665,7 @@
       <button class="term" type="button" data-def="afkhitl">AFK or HITL</button> — whether the agent can finish it
       alone or needs you in the loop.
     </p>
-    <div class="callout human-note">
-      <strong>Why you should care.</strong> Vertical slices mean you get
-      something real to look at early and often, and the agent
-      <a href="50-how-to-write-code-with-ai.html" style="color:inherit">checks each one</a> before continuing. Build one is the default; build all or build to a named slice is an explicit choice. If priorities change, you've
-      committed almost nothing — the opposite of discovering at the end that the
-      whole thing was built around a wrong guess.
-    </div>
+    <div class="callout human-note"><strong>Review working results as you go.</strong> Each slice delivers a testable outcome and is checked before work continues. <code>build one</code> is the default; choose <code>build all</code> or <code>build to &lt;slice&gt;</code> explicitly. Small slices make it easier to change direction without discarding a large unfinished feature.</div>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
       <a href="10-process/04-breakdown.html">interactive slice checker</a> ·
@@ -730,11 +678,7 @@
   <!-- ====================================================== -->
   <section id="tdd">
     <h2><span class="num">05</span>Build it test-first</h2>
-    <p class="section-lede">
-      The agent builds each slice using <button class="term" type="button" data-def="tdd">test-driven development</button>,
-      which feels backwards at first: you write a small check describing what the
-      code should do <em>before</em> writing the code itself.
-    </p>
+    <p class="section-lede">For non-trivial changes, the agent uses <button class="term" type="button" data-def="tdd">test-driven development</button>: write a failing test for the agreed behaviour, then the minimum implementation that makes it pass.</p>
 
     <p>Agree the public interface to test, then repeat this rhythm one behaviour at a time:</p>
     <ul>
@@ -743,25 +687,15 @@
       <li><strong class="lead-in">Review.</strong> Structural refactoring belongs in the review stage, protected by the passing tests.</li>
     </ul>
 
-    <p>
-      Why bother with the odd order? Because if you write the code first and the
-      tests afterwards, you tend to test <em>what you happened to build</em>,
-      not what you actually wanted. Writing the test first pins down the intended
-      behaviour while it's still clear in everyone's head.
-    </p>
+    <p>Writing the test first checks the agreed behaviour before implementation choices shape the test.</p>
 
-    <p>The <span class="skill">/tdd</span> skill also enforces a few quiet rules that pay off later:</p>
+    <p>The <span class="skill">/tdd</span> skill keeps tests focused:</p>
     <ul>
       <li>Tests check behaviour through the "front door" (the <button class="term" type="button" data-def="publicinterface">public interface</button>), not the internal wiring — so they keep working even when the insides are rewritten.</li>
-      <li>No sneaking in features nobody asked for.</li>
+      <li>Implement only the agreed behaviour.</li>
       <li>The names in the tests use the <code>CONTEXT.md</code> vocabulary, so the shared language reaches all the way down.</li>
     </ul>
-    <div class="callout">
-      <strong>The horizontal anti-pattern, again.</strong> Writing every test up
-      front and then all the code is the same mistake as horizontal layers from
-      §04 — it tests imagined behaviour. The skill refuses it. One test, one
-      piece of code, repeat.
-    </div>
+    <div class="callout"><strong>One behaviour at a time.</strong> Write a failing test, implement the behaviour it describes and check the result before moving on. This keeps each change small and gives you feedback throughout implementation.</div>
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
       <span>10-process/07-implementation-tdd.md</span>
@@ -773,12 +707,7 @@
   <!-- ====================================================== -->
   <section id="architecture">
     <h2><span class="num">06</span>Keep the structure healthy</h2>
-    <p class="section-lede">
-      Code that is never tidied rots into a tangle where every change is risky —
-      a <button class="term" type="button" data-def="ballofmud">ball of mud</button>. Because agents produce code so fast, the
-      rot is faster too. So structural upkeep is a scheduled stage, not an
-      afterthought.
-    </p>
+    <p class="section-lede">As a codebase grows, duplicated rules and tangled dependencies make changes harder to understand and test. Regular architecture reviews identify these problems and propose focused improvements.</p>
 
     <div class="diagram-wrap">
     <svg viewBox="0 0 900 280" class="diagram" role="img" aria-label="A deep module has a small, simple way to use it on top and a lot of capability hidden inside, like a car pedal. A shallow module exposes all of its internals, forcing you to understand everything to use anything.">
@@ -813,7 +742,7 @@
     <p>A handful of structural ideas compound over the life of a project:</p>
     <ul>
       <li><strong class="lead-in">Deep over shallow modules.</strong> A <button class="term" type="button" data-def="module">module</button> with a small, simple way to use it — hiding the complexity inside — is easier for both you and the agent to use without breaking.</li>
-      <li><strong class="lead-in">One <button class="term" type="button" data-def="sourceoftruth">source of truth</button>.</strong> Each piece of data lives in exactly one canonical place; everything else reads or derives from it. This kills "these two screens disagree" bugs.</li>
+      <li><strong class="lead-in">One <button class="term" type="button" data-def="sourceoftruth">source of truth</button>.</strong> Each piece of data lives in exactly one canonical place; everything else reads or derives from it. This reduces the risk of screens showing inconsistent data.</li>
       <li><strong class="lead-in"><button class="term" type="button" data-def="adapter">Adapters</button> at the edges.</strong> Screens and outside connections just translate to and from that canonical form. The real rules stay in one place, easy to find and change.</li>
     </ul>
 
@@ -1042,12 +971,7 @@ Transport page
       rather than re-deriving it from two files every time.</li>
     </ul>
 
-    <div class="callout human-note">
-      <strong>What this means for you: nothing changes.</strong> You still type
-      the same plain-English requests from §50. These are improvements to how the
-      agent reads its <em>own</em> instructions — quietly making each session
-      faster and cheaper, and less likely to lose the thread.
-    </div>
+    <div class="callout human-note"><strong>Keep the conversation focused on the task.</strong> You can use plain-language requests while the agent uses the digest, stage instructions and saved status to maintain continuity.</div>
 
     <p class="go-deeper">
       <span class="gd-label">Go deeper</span>
@@ -1183,14 +1107,14 @@ Transport page
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.5 · §60 · The Theory Behind The Playbook</div>
+    <div>Agentic Engineering Playbook V0.5 · §60 · The Theory Behind The Playbook</div>
     <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
 <script type="application/json" id="playbook-explainers">
 {
@@ -1281,7 +1205,7 @@ Transport page
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

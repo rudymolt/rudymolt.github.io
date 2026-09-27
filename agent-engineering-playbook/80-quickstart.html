@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quickstart · AI Engineering Playbook V0.5</title>
+<title>Quickstart · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,13 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §80</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §80</div>
     <h1>Quickstart</h1>
-    <p class="lede">
-      One feature taken through all thirteen stages, so you can see what each stage
-      actually produces before you try it on something real. Every item of work
-      shown here is genuine and small.
-    </p>
+    <p class="lede">Follow one small feature through the thirteen-stage workflow. The example shows what each stage produces, which checks apply and how decisions carry through to the finished work.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
       <span><strong>In one breath</strong> · MeetTrack takes one feature from a vague request to a released, reviewed-afterwards version.</span>
@@ -107,11 +103,7 @@
     <h2>The thirteen stages</h2>
 
     <h3>00 · Prereqs — every session, first</h3>
-    <p>
-      The agent runs bounded warm prerequisite checks; bootstrap, upgrades or host changes take the cold capability path. It checks project state, verified tool or manual routes, the "no on-screen interface" setting is recorded (so the
-      visual checks are skipped), and the existing tests all pass. Result: <em>pass</em> with the relevant evidence. The stage's <em>Next</em> note then sends a feature request on to the
-      agree-the-plan stage.
-    </p>
+    <p>The agent starts with the normal session checks: project state, available tools or manual routes, recorded UI settings and relevant test results. Bootstrap, upgrades and host changes require a fuller capability check. With prerequisites satisfied, the feature request moves to alignment.</p>
 
     <h3>01 · Agree the plan — question hard before any code</h3>
     <p>
@@ -134,7 +126,7 @@
       in memory still covers the one constraint that matters.
     </p>
 
-    <h3>03 · Requirements doc — write down what was agreed</h3>
+    <h3>03 · Specification — record the agreement</h3>
     <p>
       A short requirements document (about 25 lines) captures what's needed: a
       <code>history(athlete, event)</code> request returns the results in date order,
@@ -172,12 +164,7 @@
     rows = self.t.history("Aisha", "100m")
     self.assertEqual([r.meet_date for r in rows],
                      sorted(r.meet_date for r in rows))</code></pre>
-    <p>
-      Then the smallest amount of code that makes the test pass at the agreed public seam; the saved
-      change is labelled following the project's usual naming pattern. The progress-tracking
-      file now shows two open pieces of work, the architecture-review counter goes up by one,
-      and the at-a-glance status summary is refreshed.
-    </p>
+    <p>The agent writes the minimum implementation needed to pass the test at the agreed public interface, then commits the change. It updates the remaining work, increments the architecture-review counter and refreshes the status summary.</p>
 
     <h3>08 · Review — catch what the tests don't</h3>
     <p>
@@ -189,12 +176,7 @@
     </p>
 
     <h3>09 · Quality check</h3>
-    <p>
-      With the "no on-screen interface" setting on and nothing relying on outside services, the
-      verification ladder is happy for the passing automated tests to vouch for this piece — the
-      stage is genuinely considered, not quietly skipped. The whole <em>feature</em> is released
-      once all three pieces are done.
-    </p>
+    <p>This feature has no graphical UI or external service dependencies, so the verification plan uses automated tests. Browser QA is recorded as not applicable. The feature is ready for release once all three slices and their required checks are complete.</p>
 
     <h3>10 · Release — and tidy up the documents</h3>
     <p>
@@ -227,7 +209,7 @@
       <li><strong>The documents are small.</strong> A 25-line requirements doc, a three-row
       table of work, a six-line look-back review. The discipline is in the order you do things,
       not in the paperwork.</li>
-      <li><strong>The agent never chose the route itself.</strong> The stage
+      <li><strong>The agent follows explicit routing instructions.</strong> The stage
       <button class="term" type="button" data-def="statusblock">status block</button>
       and the signposts at the end of each stage did — that's the V0.5 design making the path easy to follow.</li>
       <li><strong>Three stages did nothing this time</strong> (architecture, bug-fixing, and
@@ -247,16 +229,16 @@
   </section>
 
   <footer class="doc-foot">
-    <div>AI Engineering Playbook V0.5 · §80 · Quickstart</div>
+    <div>Agentic Engineering Playbook V0.5 · §80 · Quickstart</div>
     <div>Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0</div>
   </footer>
 
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

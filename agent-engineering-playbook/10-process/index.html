@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Process Map · AI Engineering Playbook V0.5</title>
+<title>Process Map · Agentic Engineering Playbook V0.5</title>
 <link rel="stylesheet" href="../assets/playbook-docs.css?v=20260830-polish4">
 </head>
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="../index.html">AI Engineering Playbook</a>
+  <a class="brand" href="../index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="../50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="../60-the-theory-behind-the-playbook.html">Theory</a>
@@ -49,14 +49,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · §10</div>
+    <div class="eyebrow">Agentic Engineering Playbook · §10</div>
     <h1>The 13-Stage Process Map</h1>
-    <p class="lede">
-      The loop you watched in <a href="../50-how-to-write-code-with-ai.html">Drive
-      the agent</a>, drawn as a map. The playbook runs per-feature, not
-      per-sprint: agree the plan, cut it up, build and check one slice at a
-      time, ship, and learn.
-    </p>
+    <p class="lede">Use this map to find the right workflow for a task. The playbook follows each feature from agreement and planning through implementation, verification and release. Debugging, triage and architecture reviews run when needed.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
       <span><strong>Format</strong> · Interactive route map</span>
@@ -205,12 +200,7 @@
 
   <section id="stages">
     <h2>The 13 Stages, In 4 Phases</h2>
-    <p>
-      Five stages are <span class="card-tag everyday">the everyday five</span> —
-      the ones you will actually drive. The rest are tagged
-      <span class="card-tag reference">agent mostly handles this</span>.
-      Every stage shows what it looks like on the booking-form feature.
-    </p>
+    <p>You will usually take an active role in five stages: alignment, breakdown, implementation, review and shipping. The agent handles more of the remaining stages. Each example below follows the same booking-form feature.</p>
 
     <div class="callout">
       <strong>The V0.5 workflow.</strong> Capability checks and model routing establish which tools and workers can run. Reviews produce evidence; post-merge closeout stays tracked. An optional delivery mission runs around stages 07–10: a human approves
@@ -225,13 +215,13 @@
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>00 · Prereqs</h3><p>Normal sessions use bounded warm checks; bootstrap, upgrades and host changes use cold capability checks. Verified manual routes count when optional skills are missing. The agent checks how the <button class="term" type="button" data-def="repo">repo</button> (the project's folder of files) is set up, and the safety basics — including whether the project is on the current playbook version (offering <button class="term" type="button" data-def="upgradeproject"><code>/ai-playbook-upgrade-project</code></button> if not) and, for projects with a screen, whether the <button class="term" type="button" data-def="designartefacts">three design artefacts</button> exist.</p><span class="example"><strong>Booking form:</strong> the agent checks its skills, the project files, and the design artefacts before touching anything.</span></article>
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>01 · Align</h3><p>Settle the plan before code. <a href="01-align.html">Open the alignment explainer.</a></p><span class="example"><strong>Booking form:</strong> you and the agent agree what "book a session" actually means.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>02 · Context and ADRs</h3><p>Promote settled vocabulary and durable decisions into <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button> and <button class="term" type="button" data-def="adr">ADRs</button>.</p><span class="example"><strong>Booking form:</strong> the words <em>slot</em> and <em>booking window</em> get written into CONTEXT.md.</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>03 · Spec</h3><p>Use <code>/to-spec</code> to turn alignment into a short <button class="term" type="button" data-def="spec">Spec</button>.</p><span class="example"><strong>Booking form:</strong> one page — who can book, when, and what they see afterwards.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>03 · Spec</h3><p>Use <code>/to-spec</code> to turn the agreed requirements into a short <button class="term" type="button" data-def="spec">Spec</button>.</p><span class="example"><strong>Booking form:</strong> one page — who can book, when, and what they see afterwards.</span></article>
     </div>
 
-    <h3 class="phase-label">Phase 2 · Cut up <span class="phase-span">(stages 04–06)</span></h3>
+    <h3 class="phase-label">Phase 2 · Break down <span class="phase-span">(stages 04–06)</span></h3>
     <div class="learning-grid">
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>04 · Breakdown</h3><p>Use <code>/to-tickets</code> to convert the spec into <button class="term" type="button" data-def="slice">vertical slices</button>. <a href="04-breakdown.html">Open the slice checker.</a></p><span class="example"><strong>Booking form:</strong> three slices — see free slots, book a slot, get a confirmation email.</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>05 · Triage</h3><p>Keep the <button class="term" type="button" data-def="issuetracker">issue tracker</button> honest and decide what is worth doing.</p><span class="example"><strong>Booking form:</strong> decide whether "cancel a booking" is next, or can wait.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>05 · Triage</h3><p>Keep the <button class="term" type="button" data-def="issuetracker">issue tracker</button> current, remove duplicates and prioritise the next task.</p><span class="example"><strong>Booking form:</strong> decide whether "cancel a booking" is next, or can wait.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>06 · Architecture</h3><p>Review <button class="term" type="button" data-def="module">module</button> depth, data flow, and <button class="term" type="button" data-def="seam">seams</button> every few slices.</p><span class="example"><strong>Booking form:</strong> check bookings still live in one table before adding reminders.</span></article>
     </div>
 
@@ -245,7 +235,7 @@
     <h3 class="phase-label">Phase 4 · Ship &amp; learn <span class="phase-span">(stages 10–12)</span></h3>
     <div class="learning-grid">
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Close the docs and hand back the exact PR. Merge is human-owned unless the project has separately enabled K4.1; <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button> remain explicit later steps.</p><span class="example"><strong>Booking form:</strong> PR opened and checked, docs tidied, then the approved merge and release path runs.</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>11 · Debug</h3><p>Diagnose before fixing. No guessing-and-hoping.</p><span class="example"><strong>Booking form:</strong> two people booked the same slot — reproduce it before fixing it.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>11 · Debug</h3><p>Reproduce the problem and identify its cause before changing the code.</p><span class="example"><strong>Booking form:</strong> two people booked the same slot — reproduce it before fixing it.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>12 · Retro</h3><p>Capture lessons in a <button class="term" type="button" data-def="retro">retro</button> and promote reusable patterns.</p><span class="example"><strong>Booking form:</strong> what made the build slow? Write it down for next time.</span></article>
     </div>
 
@@ -275,9 +265,9 @@
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="../assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="../assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="../assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="../assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

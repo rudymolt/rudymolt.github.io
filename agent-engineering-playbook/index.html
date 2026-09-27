@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Engineering Playbook V0.5 · Interactive Guide Hub</title>
+<title>Agentic Engineering Playbook V0.5 · Interactive Guide Hub</title>
 <meta property="og:image" content="https://rudymolt.github.io/assets/playbook.png">
 <meta name="twitter:image" content="https://rudymolt.github.io/assets/playbook.png">
 <link rel="stylesheet" href="assets/playbook-docs.css?v=20260830-polish4">
@@ -11,7 +11,7 @@
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html" aria-current="page">AI Engineering Playbook</a>
+  <a class="brand" href="index.html" aria-current="page">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -51,13 +51,9 @@
     </aside>
     <div class="guide-content">
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.5</div>
-    <h1>Interactive Guide Hub</h1>
-    <p class="lede">
-      You describe what you want in normal sentences. The agent writes the
-      code. These guides teach you what to say, when to pause it, and how to
-      check its work.
-    </p>
+    <div class="eyebrow">Practical guides · V0.5</div>
+    <h1>Agentic Engineering Playbook</h1>
+    <p class="lede">Turn an idea into a clear specification, build it in manageable pieces, and verify the result. These guides show you how to use the playbook at each step.</p>
     <div class="meta">
       <span><strong>Status</strong> · Human guide index</span>
       <span><strong>Last updated</strong> · 2026-09-27 · playbook V0.5.0</span>
@@ -67,91 +63,68 @@
 
   <section class="primer" aria-labelledby="primer-title">
     <h2 id="primer-title">Never written code? Two minutes of background</h2>
-    <p>Eight words the guides lean on. Everything else is explained as you meet it.</p>
+    <p>Eight useful terms to start with. The guides explain other terms as they appear.</p>
     <dl class="primer-grid">
-      <div><dt>Code</dt> — <dd>instructions that tell a computer exactly what to do. An app is thousands of lines of it.</dd></div>
-      <div><dt>Repo</dt> — <dd>the folder where a project's code and its full history live.</dd></div>
-      <div><dt>Database</dt> — <dd>where an app stores its information permanently, like spreadsheets the code can read and write.</dd></div>
-      <div><dt>Server</dt> — <dd>a computer running somewhere else that answers requests — book online, and a server records it.</dd></div>
+      <div><dt>Code</dt> — <dd>instructions that tell a computer what to do.</dd></div>
+      <div><dt>Repo</dt> — <dd>short for repository: a project's files and their version history.</dd></div>
+      <div><dt>Database</dt> — <dd>an organised store of information that an app can read and update.</dd></div>
+      <div><dt>Server</dt> — <dd>a computer or program that responds to requests, such as saving an online booking.</dd></div>
       <div><dt>UI</dt> — <dd>the part of the app you can see and touch: screens, buttons, forms.</dd></div>
-      <div><dt>Test</dt> — <dd>a small piece of code that automatically checks a bit of the app behaves as it should.</dd></div>
+      <div><dt>Test</dt> — <dd>code that checks whether a particular behaviour works as expected.</dd></div>
       <div><dt>Deploy</dt> — <dd>putting a new version of the app live so real people can use it.</dd></div>
-      <div><dt>Production</dt> — <dd>the live version real users are using right now, as opposed to a private working copy.</dd></div>
+      <div><dt>Production</dt> — <dd>the live environment where people use the released app.</dd></div>
     </dl>
   </section>
 
   <section>
     <p>
       <a class="start-path" href="50-how-to-write-code-with-ai.html">Start the guided path →</a><br>
-      <span class="start-note">It begins with the story of one feature, from first sentence to shipped code.</span>
+      <span class="start-note">Follow a feature from the initial request through planning, review and release.</span>
     </p>
   </section>
 
   <section class="whats-new" aria-labelledby="whats-new-title">
     <h2 id="whats-new-title">The V0.5 public playbook</h2>
     <div class="version-entry"><span class="version-label">One edition · thirteen stages</span>
-      <p>A practical kit of Markdown instructions, templates, skills and verification scripts. Agree what to build, split it into testable slices, build, independently check the result when the risk requires it, and ship with evidence.</p></div>
+      <p>The thirteen-stage workflow covers planning, implementation, review, QA, release and learning. Each request goes to the relevant stage, with checks scaled to the risk of the change.</p></div>
     <div class="version-entry"><span class="version-label">Skills you can adapt</span>
-      <p>Suggested skills draw on Matt Pocock, Garry Tan's gstack, Lauren Tan's pstack and playbook-local workflows. Install the external collections separately; bootstrap installs the included adaptations. You can substitute your own skills while preserving the stage's inputs, evidence and approval gates. <a href="60-the-theory-behind-the-playbook.html#toolkits">See which skills fit where →</a></p></div>
+      <p>The suggested skills draw on Matt Pocock's collection, Garry Tan's gstack, Lauren Tan's pstack and workflows maintained in this playbook. Install the external collections separately; bootstrap installs the included adaptations. You can add your own skills if they meet the stage's requirements. <a href="60-the-theory-behind-the-playbook.html#toolkits">Explore the skills and their sources →</a></p></div>
     <div class="version-entry"><span class="version-label">Your harness · local or cloud</span>
-      <p>The process is portable across coding-agent harnesses such as Codex and Claude Code, subject to verified tools and permissions. The author's workflow uses Conductor locally and in the cloud. An approved autonomous delivery mission can build an entire feature through fresh verification and QA to an exact PR; merge authority is separate. <a href="50-how-to-write-code-with-ai.html#cloud-delivery">See the delivery route →</a></p></div>
+      <p>Use the playbook with coding-agent environments such as Codex or Claude Code. Setup checks which tools and permissions are available. The author uses Conductor for local and cloud work; with an approved delivery mission, an eligible feature can proceed through implementation, independent verification and QA to a pull request. <a href="50-how-to-write-code-with-ai.html#cloud-delivery">Learn how cloud delivery works →</a></p></div>
   </section>
 
   <section>
-    <h2>What The AI Engineering Playbook Is</h2>
-    <p>
-      The AI Engineering Playbook is a way of working in which a person stays in
-      charge while an AI coding agent does the building. Its instructions, templates,
-      skills and scripts give both sides a shared process. They structure a
-      coding session so the agent works inside a clear process: understand the
-      task, agree the plan, break the work into small
-      <button class="term" type="button" data-def="slice">slices</button> that
-      can each be shown working on their own, build one slice at a time, review the
-      result, test it, and ship only when the evidence is good enough.
-    </p>
-    <p>
-      V0.5 records the approved scope, checks host capabilities, separates building
-      from fresh verification, and makes the delivery endpoint explicit. This is
-      a process supported by tools and evidence, not a claim that a prompt makes
-      every rule impossible to bypass.
-    </p>
+    <h2>What is the playbook?</h2>
+    <p>The Playbook is a practical guide and toolkit for building software with AI coding agents. It combines Markdown instructions, reusable project templates, agent skills and verification scripts that you apply to your own project. Your agent uses them to clarify the goal, plan small <button class="term" type="button" data-def="slice">slices</button>, build and test each one, review the result, and prepare it for release.</p>
+    <p>You bring the goals, acceptance criteria and judgement. The playbook gives your agent a repeatable workflow and records enough context for work to continue across sessions. Larger changes receive independent verification from a fresh agent context.</p>
     <div class="learning-grid">
       <article class="learning-card">
         <h3>How to brief the agent</h3>
-        <span>Know what background, limits, signs of success, and proof to give the agent before it changes any code.</span>
+        <span>Give the agent the context, constraints and acceptance criteria it needs before implementation.</span>
       </article>
       <article class="learning-card">
-        <h3>Process route map</h3>
-        <span>Decide whether the next move is agreeing the plan, splitting the work up, building, reviewing, quality-checking, fixing a fault, shipping, or learning from how it went.</span>
+        <h3>Find the right next step</h3>
+        <span>Use the stage map to route a feature, bug, review or release through the appropriate workflow.</span>
       </article>
       <article class="learning-card">
-        <h3>Verification discipline</h3>
-        <span>Match the amount of checking to the risk, so small changes stay fast and important ones get tests, a check in the browser, a review, and a careful release.</span>
+        <h3>Check the result</h3>
+        <span>Match verification to risk, from a focused check for a typo to tests, browser QA and independent review for larger changes.</span>
       </article>
     </div>
   </section>
 
   <section>
-    <h2>Why It Exists</h2>
-    <p>
-      Claude, Codex, and similar coding agents can move very quickly, but speed
-      creates a new problem: a vague request can lead to sprawling changes, a
-      flimsy underlying design, no tests, and a result no one else can pick up
-      later. The playbook exists to keep the person in charge of what to build
-      and which trade-offs to make, while the agent handles the focused work of
-      building it. It gives both sides a shared rhythm for writing code without
-      turning every session into guesswork.
-    </p>
+    <h2>Why use it?</h2>
+    <p>A coding agent can produce a lot of code before anyone notices a misunderstanding. The playbook addresses three recurring problems: building the wrong thing, losing context between sessions, and accepting work without evidence. It helps you agree on success before implementation and check the result before release.</p>
   </section>
 
   <section>
-    <h2>How To Start With Your Coding Agent</h2>
+    <h2>How to get started</h2>
     <ol>
       <li>Get the <a href="https://github.com/rudymolt/agentic-engineering-playbook/tree/v0.5.0">public v0.5.0 release</a> and keep that checkout pinned to its tag. Point your agent at <code>v0.5/AGENT-DIGEST.md</code>, then run <code>/ai-playbook-bootstrap-project</code> for your project. Review its dry-run and UI, CI and host choices before it applies anything. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/README.md">setup guide</a> has the exact steps.</li>
       <li>
         Read <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
-        first. It follows one feature from first sentence to shipped code, and
-        teaches the vocabulary every other page uses.
+        for practical examples. It explains what to ask, which decisions need your input, and what evidence to expect.
       </li>
       <li>
         Use the <a href="10-process/index.html">process map</a> when you are
@@ -182,43 +155,24 @@
   </section>
 
   <section>
-    <h2>What Is Published Here</h2>
-    <p>
-      These human-facing V0.5 guides explain the playbook through linked, static HTML pages
-      for people using coding agents. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/AGENT-DIGEST.md">public agent digest</a> and stage Markdown are the operating source of truth. It includes this hub, the foundations guide,
-      the 13-stage process map, focused alignment and breakdown explainers, the
-      frontend-track guide, the
-      document lifecycle guide, the practical agent-driving guide, the theory
-      page that explains the reasoning behind the process, and a browsable
-      glossary of every term the guides use.
-    </p>
+    <h2>About these guides</h2>
+    <p>These guides explain the public V0.5 playbook for people using coding agents. Start with the practical guide, use the process map to find a stage, and consult the theory and reference pages for more detail. Agents should start with the <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/AGENT-DIGEST.md">agent digest</a> and follow its links to the authoritative Markdown instructions.</p>
   </section>
 
   <section>
     <h2>Acknowledgements</h2>
-    <p>
-      This playbook builds on ideas and practices shared openly by others working
-      on coding agents. In particular, it acknowledges
-      <a href="https://www.mattpocock.com/">Matt Pocock</a>'s work on practical
-      coding-agent skills, including
-      <a href="https://github.com/mattpocock/skills">mattpocock/skills</a> and
-      <a href="https://www.skills.sh/mattpocock/skills">skills.sh</a>, and
-      <a href="https://www.ycombinator.com/people/garry-tan">Garry Tan</a>'s
-      <a href="https://gstack.lol/">GStack</a> project and
-      <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>,
-      <a href="https://github.com/poteto">Lauren Tan (@poteto)</a>'s
-      <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a>, and
-      <a href="https://github.com/Intelligent-Internet/zenith">Intelligent Internet's Zenith</a> as inspiration for independent verification, stopping discipline and evidence. Zenith is prior art, not a dependency. Adapted skills retain their upstream notices.
-    </p>
-    <p>
-      The pages here do not replace those projects. They organise selected ideas
-      into a human-facing workflow for deciding what to ask an agent to do, when
-      to pause for judgement, and how to verify the result.
-    </p>
+    <p>The playbook brings together ideas and tools shared openly by these projects:</p>
+    <ul>
+      <li><strong><a href="https://github.com/mattpocock/skills">Matt Pocock's skills</a></strong> provide focused workflows for planning, specifications, testing and code design.</li>
+      <li><strong><a href="https://github.com/garrytan/gstack">Garry Tan's gstack</a></strong> contributes product, design, review, QA and delivery workflows.</li>
+      <li><strong><a href="https://github.com/poteto">Lauren Tan (@poteto)</a>'s <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a></strong> provides investigation and verification skills adapted in the playbook.</li>
+      <li><strong><a href="https://github.com/Intelligent-Internet/zenith">Intelligent Internet's Zenith</a></strong> informed the approach to autonomous loops, independent verification and stopping conditions. It is inspiration rather than a dependency.</li>
+    </ul>
+    <p>Adapted skills retain their upstream notices. The <a href="60-the-theory-behind-the-playbook.html#toolkits">skills guide</a> explains how these sources fit into the workflow.</p>
   </section>
 
   <section class="doc-toc" aria-labelledby="start-title">
-    <h2 id="start-title">Choose What You Need</h2>
+    <h2 id="start-title">Choose a guide</h2>
     <div class="hub-grid">
       <a href="50-how-to-write-code-with-ai.html">
         <span class="card-tag start">Start here</span>
@@ -233,7 +187,7 @@
       <a href="70-lite-mode.html">
         <span class="card-tag everyday">Everyday use</span>
         <strong>Keep it light</strong>
-        <span>The cut-down loop for a script or experiment — discipline without the paperwork.</span>
+        <span>A smaller workflow for scripts and experiments that meet the lite-mode criteria.</span>
       </a>
       <a href="10-process/index.html">
         <span class="card-tag everyday">Everyday use</span>
@@ -247,13 +201,13 @@
       </a>
       <a href="10-process/04-breakdown.html">
         <span class="card-tag everyday">Everyday use</span>
-        <strong>Cut up a feature</strong>
+        <strong>Break down a feature</strong>
         <span>Cut a feature into pieces small enough to check one at a time.</span>
       </a>
       <a href="20-frontend-track.html">
         <span class="card-tag everyday">Everyday use</span>
-        <strong>Keep the UI honest</strong>
-        <span>The three design artefacts that stop you and the agent meaning different things by "pill".</span>
+        <strong>Keep the UI consistent</strong>
+        <span>Use a shared vocabulary, component library and interaction guide to keep UI decisions consistent.</span>
       </a>
       <a href="00-foundations.html">
         <span class="card-tag reference">Reference</span>
@@ -263,7 +217,7 @@
       <a href="60-the-theory-behind-the-playbook.html">
         <span class="card-tag reference">Reference</span>
         <strong>Understand the theory</strong>
-        <span>Why the process agrees the plan first, works in small slices, writes tests before code, quality-checks the result, and looks back at how it went.</span>
+        <span>The reasoning behind alignment, small slices, test-first development and independent verification.</span>
       </a>
       <a href="30-document-lifecycle.html">
         <span class="card-tag reference">Reference</span>
@@ -278,22 +232,12 @@
     </div>
   </section>
 
-  <section>
-    <h2>Why These Pages Exist</h2>
-    <p>
-      This hub keeps the different kinds of page separate. The "drive the agent"
-      page (§50) is a step-by-step how-to. The theory page (§60) explains the
-      reasoning. The process and foundation pages are there to look things up.
-      The small interactive pages are learning aids for the ideas that are easier
-      to grasp by clicking, filtering, and trying examples.
-    </p>
-  </section>
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

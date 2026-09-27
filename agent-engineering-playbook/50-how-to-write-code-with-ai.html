@@ -3,23 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How To Write Code With AI · AI Engineering Playbook V0.5</title>
-<!--
-  ==========================================================================
-  MAINTAINER NOTE
-  This document is the canonical, interactive replacement for the previous
-  50-how-to-write-code-with-ai.md. The HTML format is the source of truth.
-  All future edits — new phrases, new stages, role changes, ship-process
-  changes — should be made directly to this file. Do not regenerate it as
-  a Markdown document.
-
-  Status: Source of truth
-  Last verified: 2026-09-27 (playbook V0.5.0)
-  Audience: Human project owner
-
-  Backup of the previous version: 50-how-to-write-code-with-ai.v0.1.5-backup.html
-  ==========================================================================
--->
+<title>How To Write Code With AI · Agentic Engineering Playbook V0.5</title>
+<!-- Human-facing guide to the public V0.5 playbook. Keep process claims aligned with the stage Markdown and AGENT-DIGEST.md. -->
 <style>
   :root {
     --bg:           #0a0605;
@@ -491,7 +476,7 @@
 <body class="playbook-doc">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav class="site-nav" aria-label="Playbook guides">
-  <a class="brand" href="index.html">AI Engineering Playbook</a>
+  <a class="brand" href="index.html">Agentic Engineering Playbook</a>
   <div class="links">
     <a href="50-how-to-write-code-with-ai.html" aria-current="page">How to drive the agent</a>
     <a href="60-the-theory-behind-the-playbook.html">Theory</a>
@@ -531,19 +516,14 @@
     <div class="guide-content">
 
   <header class="doc-head">
-    <div class="eyebrow">AI Engineering Playbook · V0.5 · §50</div>
+    <div class="eyebrow">Agentic Engineering Playbook · V0.5 · §50</div>
     <h1>How To Write Code With AI</h1>
-    <p class="lede">
-      A field guide to driving an AI coding agent through the playbook
-      without reading every process file yourself. The short version:
-      <strong>you own intent and approval; the agent owns execution,
-      verification, and keeping the project documents current.</strong>
-    </p>
+    <p class="lede">A practical guide to working with an AI coding agent, from the first request to a verified change. You set the goals, define success and make consequential decisions. The agent plans, builds, checks and records the work.</p>
     <div class="meta">
-      <span><strong>Status</strong> · Source of truth</span>
+      <span><strong>Status</strong> · Practical guide</span>
       <span><strong>Last verified</strong> · 2026-09-27 · playbook V0.5.0</span>
       <span><strong>Audience</strong> · Human project owner</span>
-      <span><strong>Format</strong> · Interactive HTML (canonical)</span>
+      <span><strong>Format</strong> · Interactive HTML guide</span>
     </div>
   </header>
 
@@ -583,10 +563,7 @@
   <!-- ====================================================== -->
   <section id="roles">
     <h2><span class="num">01</span>Who owns what</h2>
-    <p class="section-lede">
-      The contract between you and the agent is the single most important
-      thing to internalise. Everything downstream depends on it.
-    </p>
+    <p class="section-lede">Agree who makes decisions and what evidence the agent must provide before work begins.</p>
 
     <div class="term-hint" role="note">
       <strong>Tip.</strong> Words with a dotted underline — like
@@ -675,11 +652,10 @@
     <div class="mobile-diagram mobile-responsibility" role="img" aria-label="Human owns intent and approval; agent owns execution and verification. Intent flows from human to agent; a pull request flows from agent back to human for review."></div>
 
     <p>Good prompts from you are usually small and concrete:</p>
-<pre tabindex="0" aria-label="Example alignment request"><code>I want to start building Mission Control for the Qatar team
-at the 22nd Asian U20 Athletics Championships.</code></pre>
+<pre tabindex="0" aria-label="Example alignment request"><code>I want customers to book an appointment online.</code></pre>
 <pre tabindex="0" aria-label="Example build request"><code>Build slice 3.</code></pre>
-<pre tabindex="0" aria-label="Example bug report"><code>I found a bug: an athlete cannot be changed to staff.
-This should be possible.</code></pre>
+<pre tabindex="0" aria-label="Example bug report"><code>I found a bug: cancelling an appointment leaves the time slot unavailable.
+It should become available again.</code></pre>
 
     <p>
       You do not need to specify the implementation. The agent should read
@@ -687,21 +663,9 @@ This should be possible.</code></pre>
       propose a path when product choices are unclear.
     </p>
 
-    <div class="callout">
-      <strong>The non-negotiable.</strong> The agent should never silently
-      <button class="term" type="button" data-def="merge">merge</button> its own work into <button class="term" type="button" data-def="main"><code>main</code></button>. The PR exists so a human
-      remains accountable for what enters the <button class="term" type="button" data-def="trunk">trunk</button>.
-    </div>
+    <div class="callout"><strong>Merge requires separate authority.</strong> Normal delivery hands the pull request to you for review and merge. An admitted K4.1 route uses a fresh agent session to verify and merge the exact commit; the builder does not merge its own work.</div>
 
-    <div class="callout">
-      <strong>The agent now finds its own way through the process.</strong>
-      The agent reads a one-page map of the playbook before it
-      starts, each step tells it where to go next, and the project keeps a
-      pre-computed running status the agent reads in one glance. None of this
-      changes your side of the contract — you still type the same plain-English
-      requests below. It simply makes each session quicker and less likely to
-      lose the thread. The reasoning is in <a href="60-the-theory-behind-the-playbook.html#agent-surface">§60 · Designing for the agent</a>.
-    </div>
+    <div class="callout"><strong>The agent follows the stage map.</strong> It reads the digest and the project's saved status, then follows the relevant stage instructions. You can describe the task in plain language; project files keep decisions and progress available between sessions. <a href="60-the-theory-behind-the-playbook.html#agent-surface">Read about the agent-facing design.</a></div>
   </section>
 
   <!-- ====================================================== -->
@@ -831,10 +795,7 @@ This should be possible.</code></pre>
       </div>
       <p>Say:</p>
 <pre tabindex="0" aria-label="Align stage example prompt"><code>I want to build [feature].</code></pre>
-      <p>
-        The agent should grill the plan, settle terms, and write the decisions
-        into planning docs, <button class="term" type="button" data-def="contextmd"><code>CONTEXT.md</code></button>, and <button class="term" type="button" data-def="adr">ADRs</button> where needed.
-      </p>
+      <p>The agent asks about the goal, constraints and acceptance criteria, checks the existing project, and records agreed terminology and decisions in the appropriate project files.</p>
       <div class="callout">
         <strong>Mockup before code, for anything with a screen.</strong> Once
         the grilling settles the vocabulary, the agent should turn the agreed
@@ -893,12 +854,7 @@ This should be possible.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: desktop-only"><code>This screen should be desktop-only.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: mobile"><code>This breaks on my phone.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: workflow"><code>This workflow is missing a way to restore removed people.</code></pre>
-      <p>
-        The agent should convert that feedback into code, tests, and
-        documentation updates. For UI work, its <button class="term" type="button" data-def="designreview">design review</button> must report
-        how the screen behaves at desktop, tablet, and mobile widths, so a
-        phone-sized regression is caught here rather than after ship.
-      </p>
+      <p>The agent turns agreed feedback into fixes, tests and documentation updates, then verifies the changed result afresh. For UI work, the evidence must cover desktop, tablet and mobile layouts.</p>
     </div>
 
     <div class="stage-block">
@@ -917,9 +873,9 @@ This should be possible.</code></pre>
   <!-- ====================================================== -->
   <section id="cloud-delivery">
     <h2>Using Conductor and cloud delivery</h2>
-    <p>The playbook is a process kit, not a particular coding app. Codex and Claude Code are example harnesses; other hosts can use the process when they provide the needed tools, permissions and skill-loading support. Stage 00 checks those capabilities. Model choices at Plan, Build and Verify are verified before work is routed.</p>
+    <p>The playbook works alongside your coding-agent environment. Codex and Claude Code are example harnesses; other hosts can use the process when they provide the needed tools, permissions and skill-loading support. Stage 00 checks those capabilities. Model choices at Plan, Build and Verify are verified before work is routed.</p>
     <p>The author's workflow uses Conductor to manage local workspaces and Conductor Cloud for unattended work. When Conductor is detected or requested, bootstrap uses its bundled setup skill to propose setup and Run commands, copied files, ports, concurrency, validation and activation. Review that plan before applying it.</p>
-    <p>A local chat does not automatically become a cloud run. Set up the cloud workspace, credentials and required tools, then use an explicit handoff with the approved feature, branch, revision, tracker, dependencies and evidence. The receiving agent rechecks current state; a handoff is not a substitute for verification.</p>
+    <p>To continue work in the cloud, prepare the workspace, credentials and required tools, then hand over the approved feature, branch, revision, task tracker and verification evidence. The receiving agent checks the current project state before resuming work.</p>
     <p>Full project bootstrap installs the delivery runtime and <code>/ai-playbook-deliver</code>. Installation alone does not authorise unattended work: capability checks and mission approval still come first. For a complete feature without routine intervention, approve a delivery mission's scope, limits, stopping conditions and decisions first. <code>/ai-playbook-deliver</code> carries AFK work through Build → fresh Verify → real-use QA → exact PR handback. Fixes return to the builder and are verified again. Missing authority, HITL decisions or stopping conditions bring it back to you. Normal delivery does not include merge, deployment or release.</p>
     <p>Conductor is optional. Follow the same stage contracts in another supported harness, using verified manual routes where an accelerator is unavailable. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/10-process/delivery-mission.md">delivery mission reference</a> defines the precise boundaries.</p>
   </section>
@@ -1172,18 +1128,8 @@ This should be possible.</code></pre>
       <li>Check whether any post-merge step is needed.</li>
       <li>Recommend the next useful action.</li>
     </ol>
-    <p>
-      If the project has somewhere to publish the app for real users, this is where
-      releasing it live (<button class="term" type="button" data-def="canary">canary</button> and
-      <button class="term" type="button" data-def="benchmark">benchmark</button> work) happens. If there's nowhere to publish it yet, the
-      next step is usually choosing the next feature or running a <button class="term" type="button" data-def="retro">retro</button> (a short look back at how the work went).
-    </p>
-    <p>
-      Before starting the next feature, the agent should switch back to the
-      main line of work (<code>main</code>), pull down the just-merged version from GitHub
-      so its copy is up to date, and start a fresh feature branch (a private
-      workspace) from there.
-    </p>
+    <p>If the project deploys to production, complete the approved deployment and production checks. Then finish doc-close and the feature <button class="term" type="button" data-def="retro">retrospective</button> before starting unrelated work. Record which steps do not apply.</p>
+    <p>Before starting the next feature, update the local <code>main</code> branch from GitHub and create a fresh feature branch from it.</p>
   </section>
 
   <!-- ====================================================== -->
@@ -1366,7 +1312,7 @@ This should be possible.</code></pre>
 
   <footer class="doc-foot">
     <div>
-      AI Engineering Playbook V0.5 · §50 · How To Write Code With AI
+      Agentic Engineering Playbook V0.5 · §50 · How To Write Code With AI
     </div>
     <div>
       Maintainer: Rudy Molt · Last verified 2026-09-27 · playbook V0.5.0
@@ -1376,7 +1322,7 @@ This should be possible.</code></pre>
     </div>
   </div>
 </main>
-<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · AI Engineering Playbook</small></div></footer>
+<footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
 <!-- Single shared popover element, positioned by JS next to whichever term was clicked -->
 <div class="term-popover" id="term-popover" role="dialog" aria-modal="false" aria-labelledby="pop-title" aria-live="polite">
@@ -1384,7 +1330,7 @@ This should be possible.</code></pre>
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260927-v05"></script>
-<script src="assets/playbook-docs.js?v=20260927-v05"></script>
+<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>
