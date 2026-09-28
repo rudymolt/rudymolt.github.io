@@ -198,7 +198,7 @@
 
   <section id="agent-surface">
     <h2>Designing for the Agent-Facing Surface</h2>
-    <p>Products often expose interfaces that other software and AI agents use: command-line tools, APIs and callable tools. Design these interfaces so the agent can understand the current state, take the right action and interpret the result.</p>
+    <p>Products often expose interfaces that other software and AI agents use: command-line tools, <button class="term" type="button" data-def="api">APIs</button> and callable tools. Design these interfaces so the agent can understand the current state, take the right action and interpret the result.</p>
     <p>Agents have limited context and incur a cost for each tool call. Keep results concise and structured, make errors explicit, and provide the information needed for the next decision.</p>
     <p>The checklist — applied when the interface is designed (stage 06) and when it is reviewed (stage 08):</p>
     <ol>
@@ -236,10 +236,10 @@
       never writes one into code, config, tests, or chat output "temporarily".</li>
       <li><strong>An exposed secret is a human-handled incident.</strong> Report the location without echoing the secret. Do not delete, replace or rotate it yourself; the human owns incident handling. Removing a line alone does not remove it from history.</li>
       <li><strong>Dependencies are deliberate.</strong> Lockfiles are committed; every new
-      dependency is named and justified in the PR. Prefer the standard library
+      dependency is named and justified in the <button class="term" type="button" data-def="pr">PR</button>. Prefer the standard library
       for trivial needs.</li>
       <li><strong>Validate at every boundary the project owns.</strong> User input, file
-      contents, API responses, environment values — validated where they enter,
+      contents, <button class="term" type="button" data-def="api">API</button> responses, environment values — validated where they enter,
       not where they break.</li>
       <li><strong>Least privilege by default.</strong> Tokens and keys get the narrowest
       scope that works, with an expiry where the platform supports one.</li>
@@ -261,7 +261,7 @@
   <section id="v04-delivery">
     <h2>Delivery authority in V0.5</h2>
     <p>A delivery mission lets an agent complete approved work within agreed limits. Before it starts, you approve the scope, stopping conditions and decisions that require your input. A separate verifier then checks the resulting changes and provides evidence.</p>
-    <p>Normal delivery ends with a pull request tied to the verified commit. A project can separately enable K4.1, which allows a fresh agent to merge that commit. This option is off by default and does not authorise deployment, release publication or bypassing repository protections. Its assurances depend on the documented process; it does not make bypass impossible.</p>
+    <p>Normal delivery ends with a pull request tied to the verified commit. A project can separately enable <button class="term" type="button" data-def="k41">K4.1</button>, which allows a fresh agent to merge that commit. This option is off by default and does not authorise deployment, release publication or bypassing repository protections. Its assurances depend on the documented process; it does not make bypass impossible.</p>
     <p>
       The practical handoff is shown in
       <a href="50-how-to-write-code-with-ai.html#ship">§50 · The ship and GitHub handoff</a>,
@@ -274,7 +274,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-glossary.js?v=20260928-jargon"></script>
 <script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

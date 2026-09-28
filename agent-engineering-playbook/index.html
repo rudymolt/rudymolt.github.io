@@ -69,7 +69,7 @@
       <div><dt>Repo</dt> — <dd>short for repository: a project's files and their version history.</dd></div>
       <div><dt>Database</dt> — <dd>an organised store of information that an app can read and update.</dd></div>
       <div><dt>Server</dt> — <dd>a computer or program that responds to requests, such as saving an online booking.</dd></div>
-      <div><dt>UI</dt> — <dd>the part of the app you can see and touch: screens, buttons, forms.</dd></div>
+      <div><dt><button class="term" type="button" data-def="ui">UI</button></dt> — <dd>the part of the app you can see and touch: screens, buttons, forms.</dd></div>
       <div><dt>Test</dt> — <dd>code that checks whether a particular behaviour works as expected.</dd></div>
       <div><dt>Deploy</dt> — <dd>putting a new version of the app live so real people can use it.</dd></div>
       <div><dt>Production</dt> — <dd>the live environment where people use the released app.</dd></div>
@@ -85,12 +85,13 @@
 
   <section class="whats-new" aria-labelledby="whats-new-title">
     <h2 id="whats-new-title">The V0.5 public playbook</h2>
+    <p>New to a term? Select a dotted-underlined word for its definition. You can click, tap, or focus it with Tab and press Enter; press Escape to close.</p>
     <div class="version-entry"><span class="version-label">One edition · thirteen stages</span>
-      <p>The thirteen-stage workflow covers planning, implementation, review, QA, release and learning. Each request goes to the relevant stage, with checks scaled to the risk of the change.</p></div>
+      <p>The thirteen-stage workflow covers planning, implementation, review, <button class="term" type="button" data-def="qa">QA</button>, release and learning. Each request goes to the relevant stage, with checks scaled to the risk of the change.</p></div>
     <div class="version-entry"><span class="version-label">Skills you can adapt</span>
       <p>The suggested skills draw on Matt Pocock's collection, Garry Tan's gstack, Lauren Tan's pstack and workflows maintained in this playbook. Install the external collections separately; bootstrap installs the included adaptations. You can add your own skills if they meet the stage's requirements. <a href="60-the-theory-behind-the-playbook.html#toolkits">Explore the skills and their sources →</a></p></div>
     <div class="version-entry"><span class="version-label">Build locally or in the cloud</span>
-      <p>Choose <code>build one</code>, <code>build all</code> or <code>build to &lt;slice&gt;</code> after planning a feature. An approved delivery mission can take an eligible feature through implementation, independent checks and QA to a pull request without routine prompts. The author uses Conductor locally and in the cloud; other supported coding-agent environments can follow the same process. <a href="50-how-to-write-code-with-ai.html#cloud-delivery">Compare the build choices →</a></p></div>
+      <p>Choose <code>build one</code>, <code>build all</code> or <code>build to &lt;slice&gt;</code> after planning a feature. An approved delivery mission can take an eligible feature through implementation, independent checks and <button class="term" type="button" data-def="qa">QA</button> to a pull request without routine prompts. The author uses Conductor locally and in the cloud; other supported coding-agent environments can follow the same process. <a href="50-how-to-write-code-with-ai.html#cloud-delivery">Compare the build choices →</a></p></div>
     <div class="version-entry"><span class="version-label">A verification toolkit for your app</span>
       <p>The included pstack-derived skills can create a project-specific verification harness: a repeatable way to launch the app, exercise its features, save evidence and clean up. Full bootstrap installs these skills; creating and adopting a harness is a separate, optional step. <a href="50-how-to-write-code-with-ai.html#verification-harness">See how the harness works →</a></p></div>
   </section>
@@ -110,7 +111,7 @@
       </article>
       <article class="learning-card">
         <h3>Check the result</h3>
-        <span>Match verification to risk, from a focused check for a typo to tests, browser QA and independent review for larger changes.</span>
+        <span>Match verification to risk, from a focused check for a typo to tests, browser <button class="term" type="button" data-def="qa">QA</button> and independent review for larger changes.</span>
       </article>
     </div>
   </section>
@@ -123,7 +124,7 @@
   <section>
     <h2>How to get started</h2>
     <ol>
-      <li>Get the <a href="https://github.com/rudymolt/agentic-engineering-playbook/tree/v0.5.0">public v0.5.0 release</a> and keep that checkout pinned to its tag. Point your agent at <code>v0.5/AGENT-DIGEST.md</code>, then run <code>/ai-playbook-bootstrap-project</code> for your project. Review its dry-run and UI, CI and host choices before it applies anything. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/README.md">setup guide</a> has the exact steps.</li>
+      <li>Get the <a href="https://github.com/rudymolt/agentic-engineering-playbook/tree/v0.5.0">public v0.5.0 release</a> and keep that checkout pinned to its tag. Point your agent at <code>v0.5/AGENT-DIGEST.md</code>, then run <code>/ai-playbook-bootstrap-project</code> for your project. Review its dry-run and <button class="term" type="button" data-def="ui">UI</button>, <button class="term" type="button" data-def="ci">CI</button> and host choices before it applies anything. The <a href="https://github.com/rudymolt/agentic-engineering-playbook/blob/v0.5.0/v0.5/README.md">setup guide</a> has the exact steps.</li>
       <li>
         Read <a href="50-how-to-write-code-with-ai.html">How to drive the agent</a>
         for practical examples. It explains what to ask, which decisions need your input, and what evidence to expect.
@@ -166,7 +167,7 @@
     <p>The playbook brings together ideas and tools shared openly by these projects:</p>
     <ul>
       <li><strong><a href="https://github.com/mattpocock/skills">Matt Pocock's skills</a></strong> provide focused workflows for planning, specifications, testing and code design.</li>
-      <li><strong><a href="https://github.com/garrytan/gstack">Garry Tan's gstack</a></strong> contributes product, design, review, QA and delivery workflows.</li>
+      <li><strong><a href="https://github.com/garrytan/gstack">Garry Tan's gstack</a></strong> contributes product, design, review, <button class="term" type="button" data-def="qa">QA</button> and delivery workflows.</li>
       <li><strong><a href="https://github.com/poteto">Lauren Tan (@poteto)</a>'s <a href="https://github.com/cursor/plugins/tree/main/pstack">pstack</a></strong> provides investigation and verification skills adapted in the playbook.</li>
       <li><strong><a href="https://github.com/Intelligent-Internet/zenith">Intelligent Internet's Zenith</a></strong> informed the approach to autonomous loops, independent verification and stopping conditions. It is inspiration rather than a dependency.</li>
     </ul>
@@ -239,7 +240,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-glossary.js?v=20260928-jargon"></script>
 <script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

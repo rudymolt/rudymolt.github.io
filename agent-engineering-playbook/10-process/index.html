@@ -206,7 +206,7 @@
       <strong>The V0.5 workflow.</strong> Capability checks and model routing establish which tools and workers can run. Reviews produce evidence; post-merge closeout stays tracked. An optional delivery mission runs around stages 07–10: a human approves
       the exact scope and limits, the builder works inside that envelope, a
       fresh checker independently verifies the result, and the normal route
-      stops at an exact pull request. K4.1 fresh-agent merge is a separate,
+      stops at an exact pull request. <button class="term" type="button" data-def="k41">K4.1</button> fresh-agent merge is a separate,
       off-by-default project choice; it does not include deploy or release.
     </div>
 
@@ -229,12 +229,12 @@
     <div class="learning-grid">
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>07 · Implementation</h3><p>Build one slice at a time with <button class="term" type="button" data-def="tdd">TDD</button>, inside the approved scope and limits.</p><span class="example"><strong>Booking form:</strong> build "user can book a slot" — test first, then the code.</span></article>
       <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>08 · Review</h3><p>Scale review to risk; cross-module changes and opt-in multi-slice builds require fresh independent checks with executed evidence; add <button class="term" type="button" data-def="staffreview">staff-engineer</button>, design, <button class="term" type="button" data-def="devex">devex</button>, or security review when the risk calls for it.</p><span class="example"><strong>Booking form:</strong> is the double-booking check actually watertight?</span></article>
-      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use report-only browser QA for UI changes; send fixes to a builder, verify the changed result afresh, and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
+      <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>09 · QA</h3><p>Use report-only browser <button class="term" type="button" data-def="qa">QA</button> for <button class="term" type="button" data-def="ui">UI</button> changes; send fixes to a builder, verify the changed result afresh, and add <button class="term" type="button" data-def="regression">regression tests</button> for found bugs.</p><span class="example"><strong>Booking form:</strong> open the real page, book a real slot, try to break it.</span></article>
     </div>
 
     <h3 class="phase-label">Phase 4 · Ship &amp; learn <span class="phase-span">(stages 10–12)</span></h3>
     <div class="learning-grid">
-      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Close the docs and hand back the exact PR. Merge is human-owned unless the project has separately enabled K4.1; <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button> remain explicit later steps.</p><span class="example"><strong>Booking form:</strong> PR opened and checked, docs tidied, then the approved merge and release path runs.</span></article>
+      <article class="learning-card"><span class="card-tag everyday">Everyday five</span><h3>10 · Ship</h3><p>Close the docs and hand back the exact <button class="term" type="button" data-def="pr">PR</button>. Merge is human-owned unless the project has separately enabled <button class="term" type="button" data-def="k41">K4.1</button>; <button class="term" type="button" data-def="deploy">deploy</button>, <button class="term" type="button" data-def="canary">canary</button>, and <button class="term" type="button" data-def="benchmark">benchmark</button> remain explicit later steps.</p><span class="example"><strong>Booking form:</strong> <button class="term" type="button" data-def="pr">PR</button> opened and checked, docs tidied, then the approved merge and release path runs.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>11 · Debug</h3><p>Reproduce the problem and identify its cause before changing the code.</p><span class="example"><strong>Booking form:</strong> two people booked the same slot — reproduce it before fixing it.</span></article>
       <article class="learning-card"><span class="card-tag reference">Agent mostly handles this</span><h3>12 · Retro</h3><p>Capture lessons in a <button class="term" type="button" data-def="retro">retro</button> and promote reusable patterns.</p><span class="example"><strong>Booking form:</strong> what made the build slow? Write it down for next time.</span></article>
     </div>
@@ -242,7 +242,7 @@
     <p>
       Building something with a screen? The
       <a href="../20-frontend-track.html">frontend track</a> runs alongside
-      this map and adds one UI check to each stage — powered by the
+      this map and adds one <button class="term" type="button" data-def="ui">UI</button> check to each stage — powered by the
       <button class="term" type="button" data-def="designartefacts">three design artefacts</button>.
     </p>
   </section>
@@ -267,7 +267,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="../assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="../assets/playbook-glossary.js?v=20260928-jargon"></script>
 <script src="../assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

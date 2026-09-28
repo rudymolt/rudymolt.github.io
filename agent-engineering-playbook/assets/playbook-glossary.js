@@ -25,7 +25,7 @@ window.PLAYBOOK_GLOSSARY = {
     group: "bedrock"
   },
   ui: {
-    title: "UI / frontend",
+    title: "User interface (UI) / frontend",
     def: "The part of the app you can see and touch: screens, buttons, and forms.",
     group: "bedrock"
   },
@@ -61,17 +61,42 @@ window.PLAYBOOK_GLOSSARY = {
   },
 
   /* ---- Everyday engineering terms ---- */
+  afk: {
+    title: "Away from keyboard (AFK)",
+    def: "Work approved for the agent to carry out without routine human input. It still pauses for decisions requiring your judgement, blockers or stopping limits."
+  },
+  hitl: {
+    title: "Human in the loop (HITL)",
+    def: "Work that needs a person to make a decision or provide input before the agent can continue."
+  },
+  qa: {
+    title: "Quality assurance (QA)",
+    def: "Checking that the result meets its requirements, including exercising the running application and checking real user journeys."
+  },
+  api: {
+    title: "Application programming interface (API)",
+    def: "A defined way for one program to request data or actions from another program."
+  },
+  cli: {
+    title: "Command-line interface (CLI)",
+    def: "A way to use a program by typing commands in a terminal."
+  },
+  k41: {
+    title: "K4.1: optional fresh-agent merge",
+    def: "The playbook's name for a separately approved route in which a fresh agent verifies and merges the exact commit. Ordinary delivery stops at a pull request; this route does not authorise deployment or release.",
+    group: "playbook"
+  },
   adapter: {
     title: "Adapter",
     def: "A thin layer at the edge of the system whose only job is to translate between the outside world and the canonical internal form."
   },
   adr: {
-    title: "ADR",
+    title: "Architecture Decision Record (ADR)",
     def: "Architecture Decision Record - a one-page note explaining why a hard-to-reverse choice was made, so future-you does not have to guess."
   },
   afkhitl: {
     title: "AFK / HITL",
-    def: "AFK = away from keyboard: the agent can finish this alone. HITL = human in the loop: it needs a person's input partway through."
+    def: "AFK means away from keyboard: work approved to run without routine human input. HITL means human in the loop: work that needs a person's input or decision. Unattended work still pauses at its stopping conditions."
   },
   atomiccommit: {
     title: "Atomic commit",
@@ -102,7 +127,7 @@ window.PLAYBOOK_GLOSSARY = {
     def: "Watching new code closely in production right after release, ready to pull it back at the first sign of trouble."
   },
   ci: {
-    title: "CI",
+    title: "Continuous integration (CI)",
     def: "Continuous Integration - automated checks that run every time you push, to catch problems before a human looks."
   },
   commit: {

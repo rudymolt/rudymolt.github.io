@@ -51,7 +51,7 @@
   <header class="doc-head">
     <div class="eyebrow">Agentic Engineering Playbook · §20</div>
     <h1>The Frontend Track</h1>
-    <p class="lede">The frontend track helps you and your agent build a consistent user interface. It records the names, appearance and behaviour of UI elements in three shared design artefacts, so each feature builds on decisions already made.</p>
+    <p class="lede">The frontend track helps you and your agent build a consistent user interface. It records the names, appearance and behaviour of <button class="term" type="button" data-def="ui">UI</button> elements in three shared design artefacts, so each feature builds on decisions already made.</p>
     <div class="meta">
       <span><strong>Publication</strong> · Interactive HTML guide</span>
       <span><strong>Edition</strong> · public V0.5</span>
@@ -69,7 +69,7 @@
 
   <section id="artefacts">
     <h2>The Three Design Artefacts</h2>
-    <p>These three artefacts define the project's UI vocabulary, component styles and interaction patterns. Each answers a different design question.</p>
+    <p>These three artefacts define the project's <button class="term" type="button" data-def="ui">UI</button> vocabulary, component styles and interaction patterns. Each answers a different design question.</p>
 
     <svg viewBox="0 0 940 240" class="diagram" role="img" aria-label="Three boxes in a row. First: the design glossary, labelled words, answering what does this term mean. Second: the kitchen sink, labelled looks, answering what does it look like. Third: the design-language guide, labelled behaviour, answering which kind of panel fits this job. An arrow runs left to right, and a caption beneath reads: screen code may only use the words, styles, and panels these three approve.">
       <defs>
@@ -140,7 +140,7 @@
 
   <section id="bootstrap">
     <h2>Project Setup: The Setup Question</h2>
-    <p>Start from a pinned public release and invoke <code>/ai-playbook-bootstrap-project</code>. It inspects the project, presents a read-only plan and dry-run, then applies only the approved UI, CI and host choices while preserving project-owned content.</p>
+    <p>Start from a pinned public release and invoke <code>/ai-playbook-bootstrap-project</code>. It inspects the project, presents a read-only plan and dry-run, then applies only the approved <button class="term" type="button" data-def="ui">UI</button>, <button class="term" type="button" data-def="ci">CI</button> and host choices while preserving project-owned content.</p>
     <p>During setup, choose whether to use the playbook's design templates, bring your own, or combine the two. The agent records your choice before applying it:</p>
     <div class="dialogue">
       <div class="line agent"><span class="who">Agent</span>This project has a screen. How do you want to set up the three frontend design files (glossary, kitchen sink, design-language guide)?<br><br>
@@ -151,7 +151,7 @@
       <div class="line you"><span class="who">You</span>Use the defaults — but our brand colour is teal, not gold.</div>
       <div class="line agent"><span class="who">Agent</span>I'll include those choices in the dry-run. After you approve it, I'll apply the templates and record the design interview answers in the artefacts.</div>
     </div>
-    <p>Setup must leave all three design artefacts in place, unless the project has no UI and records that exception. The starter kitchen sink includes tables, drawers, overlays and application layouts to give new projects a useful starting point.</p>
+    <p>Setup must leave all three design artefacts in place, unless the project has no <button class="term" type="button" data-def="ui">UI</button> and records that exception. The starter kitchen sink includes tables, drawers, overlays and application layouts to give new projects a useful starting point.</p>
   </section>
 
   <section id="interview">
@@ -162,7 +162,7 @@
 
   <section class="interactive-panel" data-choice-panel>
     <h2>Choose the right UI surface</h2>
-    <p>Choose what the booking form needs to do. The examples show which UI surface fits each task and why.</p>
+    <p>Choose what the booking form needs to do. The examples show which <button class="term" type="button" data-def="ui">UI</button> surface fits each task and why.</p>
     <div class="choice-grid">
       <button type="button" data-choice data-choice-title="Add or edit a record"
         data-choice-body="<strong>Use a drawer.</strong> A panel that slides in from the side, keeping the list visible behind it.<br><strong>Booking form:</strong> editing a booking opens a drawer — you can still see the day's other bookings while you type.<br><em>Why not a new page? Because losing sight of the list forces you to remember what you were looking at.</em>">Add / edit a booking</button>
@@ -185,21 +185,21 @@
     </p>
     <ul>
       <li><strong class="lead-in">Prerequisites (00).</strong> Check the three files exist. Missing, with no recorded decision to skip? Stop and run the setup question.</li>
-      <li><strong class="lead-in">Align (01).</strong> After pressure-testing a feature that affects the screen, show an ASCII sketch and get approval. For interactive or non-trivial UI, then make and approve a clickable
+      <li><strong class="lead-in">Align (01).</strong> After pressure-testing a feature that affects the screen, show an ASCII sketch and get approval. For interactive or non-trivial <button class="term" type="button" data-def="ui">UI</button>, then make and approve a clickable
       <button class="term" type="button" data-def="mockup">mockup</button> (a preview of the screen) using the project's visual language — choosing panels by the guide's rules.</li>
       <li><strong class="lead-in">Context (02).</strong> New style values go into the kitchen sink, new terms into the glossary, new ways of behaving into the guide.</li>
       <li><strong class="lead-in">Breakdown (04).</strong> Each small piece of screen work (a
       <button class="term" type="button" data-def="slice">slice</button>) names the glossary terms it uses in its pass/fail conditions.</li>
       <li><strong class="lead-in">Architecture (06).</strong> Check for drift: any style in the code that isn't in the kitchen sink is a shortcut to be tidied up later; any pop-up doing a slide-in panel's job breaks the guide.</li>
       <li><strong class="lead-in">Implementation (07).</strong> Code uses only glossary terms, only kitchen-sink styles, only approved panels.</li>
-      <li><strong class="lead-in">Review (08) &amp; QA (09).</strong> Every change that touches the screen passes the
+      <li><strong class="lead-in">Review (08) &amp; <button class="term" type="button" data-def="qa">QA</button> (09).</strong> Every change that touches the screen passes the
       <button class="term" type="button" data-def="smokefloor">smoke floor</button> below.</li>
     </ul>
   </section>
 
   <section class="interactive-panel" data-checklist>
     <h2>The UI Smoke Floor</h2>
-    <p><code>/ai-playbook-design-review</code> and report-only browser QA produce evidence. Accepted findings go to a separate builder task, then fresh Verify; auto-fixing QA cannot certify its own changes. Direct upstream reviewers first need an exact-source, report-only compatibility check.</p>
+    <p><code>/ai-playbook-design-review</code> and report-only browser <button class="term" type="button" data-def="qa">QA</button> produce evidence. Accepted findings go to a separate builder task, then fresh Verify; auto-fixing <button class="term" type="button" data-def="qa">QA</button> cannot certify its own changes. Direct upstream reviewers first need an exact-source, report-only compatibility check.</p>
     <p>Every piece of screen work must pass this floor before it ships.</p>
     <div class="checklist">
       <label><input type="checkbox"> <span>Check the affected screens at desktop, tablet, and mobile-phone sizes.
@@ -247,7 +247,7 @@
 </main>
 <footer class="doc-footer"><div class="doc-footer-content"><span class="doc-footer-tagline">Build → explain → learn → reflect.</span><small>Rudy Molt · Agentic Engineering Playbook</small></div></footer>
 
-<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-glossary.js?v=20260928-jargon"></script>
 <script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>

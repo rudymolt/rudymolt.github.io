@@ -541,7 +541,7 @@
       <a href="https://gstack.lol/">GStack</a> project and
       <a href="https://github.com/garrytan/gstack">garrytan/gstack</a>. This
       guide adapts those ideas into a human-led, agent-assisted playbook built
-      around explicit alignment, shared language, TDD, review, QA, shipping,
+      around explicit alignment, shared language, <button class="term" type="button" data-def="tdd">TDD</button>, review, <button class="term" type="button" data-def="qa">QA</button>, shipping,
       and learning loops.
     </p>
   </aside>
@@ -631,7 +631,7 @@
         <ul>
           <li>Describe what to build, in plain language.</li>
           <li>Answer <button class="term" type="button" data-def="productcall">product</button> questions when the agent asks.</li>
-          <li>Review and normally <button class="term" type="button" data-def="merge">merge</button> the <button class="term" type="button" data-def="pr">PR</button>; decide whether the project may use K4.1.</li>
+          <li>Review and normally <button class="term" type="button" data-def="merge">merge</button> the <button class="term" type="button" data-def="pr">PR</button>; decide whether the project may use <button class="term" type="button" data-def="k41">K4.1</button>.</li>
           <li>Tell the agent when to ship and what to do next.</li>
         </ul>
       </div>
@@ -647,7 +647,7 @@
           <li>Read the project's ground rules and the words your project uses.</li>
           <li>Clarify before coding when the request is <button class="term" type="button" data-def="nontrivial">non-trivial</button>.</li>
           <li><button class="term" type="button" data-def="branch">Branch</button>, build <button class="term" type="button" data-def="slice">vertical slices</button>, test as you go.</li>
-          <li>Run fresh independent verification before the exact PR handback.</li>
+          <li>Run fresh independent verification before the exact <button class="term" type="button" data-def="pr">PR</button> handback.</li>
         </ul>
       </div>
     </div>
@@ -665,7 +665,7 @@ It should become available again.</code></pre>
       propose a path when product choices are unclear.
     </p>
 
-    <div class="callout"><strong>Merge requires separate authority.</strong> Normal delivery hands the pull request to you for review and merge. An admitted K4.1 route uses a fresh agent session to verify and merge the exact commit; the builder does not merge its own work.</div>
+    <div class="callout"><strong>Merge requires separate authority.</strong> Normal delivery hands the pull request to you for review and merge. An admitted <button class="term" type="button" data-def="k41">K4.1</button> route uses a fresh agent session to verify and merge the exact commit; the builder does not merge its own work.</div>
 
     <div class="callout"><strong>The agent follows the stage map.</strong> It reads the digest and the project's saved status, then follows the relevant stage instructions. You can describe the task in plain language; project files keep decisions and progress available between sessions. <a href="60-the-theory-behind-the-playbook.html#agent-surface">Read about the agent-facing design.</a></div>
   </section>
@@ -679,7 +679,7 @@ It should become available again.</code></pre>
       Five everyday steps, run in order. Loop back to <em>Align</em> for the next
       feature. Build one slice at a time. With the default <code>build one</code>,
       the agent pauses after that slice. Opt into <code>build all</code> or
-      <code>build to &lt;slice&gt;</code> to continue through AFK slices, with
+      <code>build to &lt;slice&gt;</code> to continue through <button class="term" type="button" data-def="afk">AFK</button> slices, with
       independent review after each slice and a human checkpoint at the selected endpoint.
     </p>
 
@@ -784,7 +784,7 @@ It should become available again.</code></pre>
       <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
       <div class="mobile-loop-stage"><b>Review</b><span>&amp; correct</span></div>
       <div class="mobile-loop-arrow" aria-hidden="true">↓</div>
-      <div class="mobile-loop-stage"><b>Ship</b><span>exact PR</span></div>
+      <div class="mobile-loop-stage"><b>Ship</b><span>exact <button class="term" type="button" data-def="pr">PR</button></span></div>
       <p class="mobile-loop-return">next feature → Align</p>
     </figure>
     </div>
@@ -804,7 +804,7 @@ It should become available again.</code></pre>
         terms into an ASCII sketch for your approval, then an HTML <button class="term" type="button" data-def="mockup">mockup</button> — in the project's own visual language — and
         show it to you <em>before</em> any implementation planning. You react to
         a real screen instead of a description, which heads off layout churn
-        later. Approve the ASCII sketch first; interactive or non-trivial UI also requires an approved HTML mockup before implementation planning.
+        later. Approve the ASCII sketch first; interactive or non-trivial <button class="term" type="button" data-def="ui">UI</button> also requires an approved HTML mockup before implementation planning.
       </div>
     </div>
 
@@ -830,7 +830,7 @@ It should become available again.</code></pre>
 <pre tabindex="0" aria-label="Build stage example prompt"><code>Build slice 1.</code></pre>
       <p>
         The agent should implement, test, and show what changed. If the app
-        has a UI, the agent should use the browser to check the actual
+        has a <button class="term" type="button" data-def="ui">UI</button>, the agent should use the browser to check the actual
         screen at desktop, tablet, and mobile widths — not just rely on code
         inspection. See §04 for the full <button class="term" type="button" data-def="smokefloor">smoke floor</button> it owes you.
       </p>
@@ -842,7 +842,7 @@ It should become available again.</code></pre>
         on the main line (<code>main</code>).
       </div>
       <div class="callout">
-        <strong>Choose the endpoint.</strong> <code>build one</code> is the default. Choose <code>build all</code> or <code>build to &lt;slice&gt;</code> to opt into a sequence of AFK slices, with independent review after each slice and a cross-slice review at the final checkpoint. Necessary reversible fixes re-enter fresh verification. HITL work, ambiguity, Stop, three identical failures or no progress, selected hard limits and actual quotas still pause the run.
+        <strong>Choose the endpoint.</strong> <code>build one</code> is the default. Choose <code>build all</code> or <code>build to &lt;slice&gt;</code> to opt into a sequence of <button class="term" type="button" data-def="afk">AFK</button> slices, with independent review after each slice and a cross-slice review at the final checkpoint. Necessary reversible fixes re-enter fresh verification. <button class="term" type="button" data-def="hitl">HITL</button> work, ambiguity, Stop, three identical failures or no progress, selected hard limits and actual quotas still pause the run.
       </div>
     </div>
 
@@ -856,7 +856,7 @@ It should become available again.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: desktop-only"><code>This screen should be desktop-only.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: mobile"><code>This breaks on my phone.</code></pre>
 <pre tabindex="0" aria-label="Review feedback example: workflow"><code>This workflow is missing a way to restore removed people.</code></pre>
-      <p>The agent turns agreed feedback into fixes, tests and documentation updates, then verifies the changed result afresh. For UI work, the evidence must cover desktop, tablet and mobile layouts.</p>
+      <p>The agent turns agreed feedback into fixes, tests and documentation updates, then verifies the changed result afresh. For <button class="term" type="button" data-def="ui">UI</button> work, the evidence must cover desktop, tablet and mobile layouts.</p>
     </div>
 
     <div class="stage-block">
@@ -878,11 +878,11 @@ It should become available again.</code></pre>
     <p>Once you have agreed the specification and broken a feature into slices, choose how far the agent should work before reporting back:</p>
     <ul>
       <li><strong><code>build one</code></strong> — implement and verify the next slice, then report back. This is the default.</li>
-      <li><strong><code>build all</code></strong> — work through the current feature's remaining slices approved for unattended execution, with independent review and QA between slices and a final review across the work.</li>
+      <li><strong><code>build all</code></strong> — work through the current feature's remaining slices approved for unattended execution, with independent review and <button class="term" type="button" data-def="qa">QA</button> between slices and a final review across the work.</li>
       <li><strong><code>build to &lt;slice&gt;</code></strong> — follow the same process up to and including a named slice, then report back.</li>
-      <li><strong>Deliver to PR</strong> — use the separately approved <code>/ai-playbook-deliver</code> workflow to carry eligible work through implementation, fresh independent verification and real-use QA to a pull request for review.</li>
+      <li><strong>Deliver to <button class="term" type="button" data-def="pr">PR</button></strong> — use the separately approved <code>/ai-playbook-deliver</code> workflow to carry eligible work through implementation, fresh independent verification and real-use <button class="term" type="button" data-def="qa">QA</button> to a pull request for review.</li>
     </ul>
-    <p>The build choices work locally or in a prepared cloud workspace. <code>build all</code> selects how much of one feature to build; it does not move the session to the cloud or authorise merging. Slices marked <strong>AFK</strong> can run unattended; those marked <strong>HITL</strong> need human input.</p>
+    <p>The build choices work locally or in a prepared cloud workspace. <code>build all</code> selects how much of one feature to build; it does not move the session to the cloud or authorise merging. Slices marked <strong><button class="term" type="button" data-def="afk">AFK</button></strong> can run unattended; those marked <strong><button class="term" type="button" data-def="hitl">HITL</button></strong> need human input.</p>
     <h3>Using Conductor Cloud</h3>
     <p>The author uses Conductor for local work and Conductor Cloud for unattended runs. During setup, the playbook proposes the project's setup and Run commands, copied files and resource handling for approval. A cloud handoff carries the approved feature, branch, revision, task tracker and evidence; the receiving agent checks these against the current workspace before continuing.</p>
     <p>Full bootstrap installs the delivery runtime and skill. Before an autonomous delivery mission starts, you approve its scope, execution limits and stopping conditions, and the agent checks the workspace's tools and permissions. An entire feature can reach a pull request without routine prompts when every slice is eligible. The agent repairs eligible findings and sends the result through fresh verification; it pauses for decisions requiring your judgement, ambiguity, repeated failure or lack of progress, a stop request, or a selected limit or quota.</p>
@@ -902,7 +902,7 @@ It should become available again.</code></pre>
 
   <section id="ship">
     <h2><span class="num">03</span>The ship &amp; GitHub handoff</h2>
-    <p>After merge and production verification, doc-close, current-release pointers and the same-session feature retro share one fresh closeout branch and one PR. Pending closeouts stay visible until those obligations are complete.</p>
+    <p>After merge and production verification, doc-close, current-release pointers and the same-session feature retro share one fresh closeout branch and one <button class="term" type="button" data-def="pr">PR</button>. Pending closeouts stay visible until those obligations are complete.</p>
     <p class="section-lede">
       The normal V0.5 ship route produces an exact pull request and hands it
       back to the human. The diagram below shows that default route. A project
@@ -912,7 +912,7 @@ It should become available again.</code></pre>
     <div class="callout">
       <strong>An approved delivery mission.</strong> After you approve the exact scope, limits,
       and stopping conditions, <code>/ai-playbook-deliver</code> can carry the
-      work through Build → fresh Verify → QA → exact PR handback. The verifier
+      work through Build → fresh Verify → <button class="term" type="button" data-def="qa">QA</button> → exact <button class="term" type="button" data-def="pr">PR</button> handback. The verifier
       starts in a clean context and has to rerun the checks and show its
       evidence; it cannot simply trust the builder's account.
     </div>
@@ -1068,14 +1068,14 @@ It should become available again.</code></pre>
       <div class="mobile-ship-lane">
         <strong>Agent · pre-PR</strong>
         <ol>
-          <li><span>01</span>On a branch?</li><li><span>02</span>Recover if not</li><li><span>03</span>Tests &amp; build</li><li><span>04</span>Fresh verify</li><li><span>05</span>Update docs</li><li><span>06</span>Commit</li><li><span>07</span>Push branch</li><li><span>08</span>Exact PR handback</li>
+          <li><span>01</span>On a branch?</li><li><span>02</span>Recover if not</li><li><span>03</span>Tests &amp; build</li><li><span>04</span>Fresh verify</li><li><span>05</span>Update docs</li><li><span>06</span>Commit</li><li><span>07</span>Push branch</li><li><span>08</span>Exact <button class="term" type="button" data-def="pr">PR</button> handback</li>
         </ol>
       </div>
-      <div class="mobile-handoff-boundary" aria-hidden="true">PR link ↓</div>
+      <div class="mobile-handoff-boundary" aria-hidden="true"><button class="term" type="button" data-def="pr">PR</button> link ↓</div>
       <div class="mobile-ship-lane human">
         <strong>Human · GitHub</strong>
         <ol>
-          <li><span>01</span>Open the PR</li><li><span>02</span>Read summary</li><li><span>03</span>Skim files</li><li><span>04</span>Check CI</li><li><span>05</span>Mark ready</li><li><span>06</span>Merge the PR</li>
+          <li><span>01</span>Open the <button class="term" type="button" data-def="pr">PR</button></li><li><span>02</span>Read summary</li><li><span>03</span>Skim files</li><li><span>04</span>Check <button class="term" type="button" data-def="ci">CI</button></li><li><span>05</span>Mark ready</li><li><span>06</span>Merge the <button class="term" type="button" data-def="pr">PR</button></li>
         </ol>
       </div>
       <div class="mobile-handoff-boundary" aria-hidden="true">"merged" ↓</div>
@@ -1094,7 +1094,7 @@ It should become available again.</code></pre>
       <li>Run tests, <button class="term" type="button" data-def="typecheck">typecheck</button>, <button class="term" type="button" data-def="build">build</button>, and any relevant <button class="term" type="button" data-def="browsercheck">browser checks</button>.</li>
       <li>Start a fresh independent verifier, which reads the exact change, reruns the required checks, and reports the evidence.</li>
       <li>Review the <button class="term" type="button" data-def="diff">diff</button> and close every concrete finding before handoff.</li>
-      <li><button class="term" type="button" data-def="docclose">Close the docs</button>: write the release note, promote any lasting decisions and vocabulary into the durable docs (ADRs, <code>CONTEXT.md</code>, the <button class="term" type="button" data-def="designartefacts">design artefacts</button>), and move the finished planning folder into <code>archive/</code>. This cleanup is committed on purpose, not left as a loose end.</li>
+      <li><button class="term" type="button" data-def="docclose">Close the docs</button>: write the release note, promote any lasting decisions and vocabulary into the durable docs (<button class="term" type="button" data-def="adr">ADRs</button>, <code>CONTEXT.md</code>, the <button class="term" type="button" data-def="designartefacts">design artefacts</button>), and move the finished planning folder into <code>archive/</code>. This cleanup is committed on purpose, not left as a loose end.</li>
       <li><button class="term" type="button" data-def="commit">Commit</button> the work.</li>
       <li><button class="term" type="button" data-def="push">Push</button> the branch.</li>
       <li>Open or update the exact <button class="term" type="button" data-def="pr">pull request</button> and hand back its identity and tested head.</li>
@@ -1112,20 +1112,20 @@ It should become available again.</code></pre>
     </div>
 
     <h3>The default GitHub step</h3>
-    <p>Unless the project has explicitly enabled K4.1, go to GitHub and do this manually:</p>
+    <p>Unless the project has explicitly enabled <button class="term" type="button" data-def="k41">K4.1</button>, go to GitHub and do this manually:</p>
     <ol>
-      <li>Open the PR link the agent gives you.</li>
-      <li>Read the PR summary.</li>
+      <li>Open the <button class="term" type="button" data-def="pr">PR</button> link the agent gives you.</li>
+      <li>Read the <button class="term" type="button" data-def="pr">PR</button> summary.</li>
       <li>Skim the changed files.</li>
       <li>Check that <button class="term" type="button" data-def="test">tests</button> passed, if <button class="term" type="button" data-def="ci">CI</button> exists.</li>
-      <li>If it looks right, mark the PR ready if it is still draft.</li>
-      <li>Merge the PR.</li>
+      <li>If it looks right, mark the <button class="term" type="button" data-def="pr">PR</button> ready if it is still draft.</li>
+      <li>Merge the <button class="term" type="button" data-def="pr">PR</button>.</li>
       <li>Tell the agent:</li>
     </ol>
 <pre tabindex="0" aria-label="Post-merge example prompt"><code>I reviewed and merged the PR. Can you check?</code></pre>
     <p>
       This manual step matters because the human remains accountable for
-      what enters <code>main</code>. The agent can prepare the PR, but it
+      what enters <code>main</code>. The agent can prepare the <button class="term" type="button" data-def="pr">PR</button>, but it
       should not be treated as the final approver.
     </p>
 
@@ -1133,7 +1133,7 @@ It should become available again.</code></pre>
     <p>
       A project can separately authorise a fresh agent to make the merge
       decision. That agent starts without the builder's conversation, rereads
-      the exact PR, reruns the required verification, checks that the tested
+      the exact <button class="term" type="button" data-def="pr">PR</button>, reruns the required verification, checks that the tested
       head is still current and clean, and only then merges. This option is off
       by default. It does not grant permission to deploy, publish a release, or
       bypass repository protections, and the human remains responsible for the
@@ -1141,9 +1141,9 @@ It should become available again.</code></pre>
     </p>
 
     <h3>After merge</h3>
-    <p>After you tell the agent the PR was merged, it should:</p>
+    <p>After you tell the agent the <button class="term" type="button" data-def="pr">PR</button> was merged, it should:</p>
     <ol>
-      <li>Confirm the PR is merged.</li>
+      <li>Confirm the <button class="term" type="button" data-def="pr">PR</button> is merged.</li>
       <li>Fetch or otherwise verify the merged state.</li>
       <li>Check whether any post-merge step is needed.</li>
       <li>Recommend the next useful action.</li>
@@ -1175,7 +1175,7 @@ It should become available again.</code></pre>
 
     <div class="callout">
       <strong>How to invoke it.</strong> You rarely need to. The agent owes you
-      this floor automatically on UI work. If you want to be explicit, say
+      this floor automatically on <button class="term" type="button" data-def="ui">UI</button> work. If you want to be explicit, say
       <code>Run the responsive smoke check.</code> or just
       <code>Check this on mobile too.</code>
     </div>
@@ -1239,7 +1239,7 @@ It should become available again.</code></pre>
       <div class="phrase-card align" data-stage="align">
         <span class="tag">Align</span>
         <div class="phrase">Before we code, make a mockup.</div>
-        <div class="when">When the UI or workflow is still hard to picture.</div>
+        <div class="when">When the <button class="term" type="button" data-def="ui">UI</button> or workflow is still hard to picture.</div>
         <div class="actions"><button class="copy-button" type="button" data-copy-phrase="Before we code, make a mockup.">Copy</button></div>
       </div>
 
@@ -1288,14 +1288,14 @@ It should become available again.</code></pre>
       <div class="phrase-card ship" data-stage="ship">
         <span class="tag">Ship</span>
         <div class="phrase">Ship the feature.</div>
-        <div class="when">All slices complete and you want the exact PR handoff. Triggers the full ship sequence.</div>
+        <div class="when">All slices complete and you want the exact <button class="term" type="button" data-def="pr">PR</button> handoff. Triggers the full ship sequence.</div>
         <div class="actions"><button class="copy-button" type="button" data-copy-phrase="Ship the feature.">Copy</button></div>
       </div>
 
       <div class="phrase-card ship" data-stage="ship">
         <span class="tag">Ship</span>
-        <div class="phrase">I reviewed and merged the PR. Can you check?</div>
-        <div class="when">Hand control back after the default manual merge. K4.1 records this transition itself.</div>
+        <div class="phrase">I reviewed and merged the <button class="term" type="button" data-def="pr">PR</button>. Can you check?</div>
+        <div class="when">Hand control back after the default manual merge. <button class="term" type="button" data-def="k41">K4.1</button> records this transition itself.</div>
         <div class="actions"><button class="copy-button" type="button" data-copy-phrase="I reviewed and merged the PR. Can you check?">Copy</button></div>
       </div>
 
@@ -1315,7 +1315,7 @@ It should become available again.</code></pre>
 
     <ol class="rule-list">
       <li>Keep decisions small and explicit.</li>
-      <li>Approve an ASCII sketch, then an HTML <button class="term" type="button" data-def="mockup">mockup</button> before building any UI that matters.</li>
+      <li>Approve an ASCII sketch, then an HTML <button class="term" type="button" data-def="mockup">mockup</button> before building any <button class="term" type="button" data-def="ui">UI</button> that matters.</li>
       <li>Start non-trivial work on a feature branch, not on <code>main</code>.</li>
       <li>Choose the build endpoint explicitly; build all still preserves per-slice independent review and human-owned decisions.</li>
       <li>Prefer one completed slice over several half-finished branches.</li>
@@ -1350,7 +1350,7 @@ It should become available again.</code></pre>
   <div class="pop-title" id="pop-title"></div>
   <p class="pop-def" id="pop-def"></p>
 </div>
-<script src="assets/playbook-glossary.js?v=20260927-editorial"></script>
+<script src="assets/playbook-glossary.js?v=20260928-jargon"></script>
 <script src="assets/playbook-docs.js?v=20260927-editorial"></script>
 </body>
 </html>
